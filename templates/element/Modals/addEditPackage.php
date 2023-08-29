@@ -58,26 +58,33 @@
 							</div>
 						</div>
 
-						<div class="col-md-6 col-6  form-group has-feedback">
+						<!-- <div class=" col-6 col-sm-6 col-md-6 side_div2">
+                <span class="icn">
+                    <a href data-toggle="modal" data-target="#docs_mdl" data-dismiss="modal" class="btn btn-info">
+                        <span class="fa fa-search"></span> <span class="hideMob"><?= __('document') ?></span>
+                    </a>
+                </span>
+            </div> -->
+					 <div class="col-md-6 col-6  form-group has-feedback">
 							<label  set-required ><?= __('document') ?></label>
 							<div class="div">
-								<?= $this->Form->control('package_price', [
+						 <!-- <a href data-toggle="modal" data-target="#docs_mdl" data-dismiss="modal" class="btn btn-info"> -->
+								<?= $this->Form->control('document', [
 									'type' => 'text',
 									'label' => false,
 									'class' => 'form-control has-feedback-left',
-									'ng-model' => 'rec.package.package_price',
-									'only-numbers'=>'',
-                                    'config' => "{group:'.',decimal:'.', decimalSize: 0,indentation:''}"
+									'ng-model' => 'rec.package.document',									
 								]) ?>
 								<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
 							</div>
-						</div>
+						</div> 
 			
 						<div class="col-md-6 col-6  form-group has-feedback">
 							<label><?= __('package_cpi') ?></label>
 							<div class="div">
-								<?= $this->Form->text('package_cpi', [
+								<?= $this->Form->control('package_cpi', [
 									'type' => 'text',
+									'label' => false,
 									'class' => 'form-control has-feedback-left',
 									'ng-model' => 'rec.package.package_cpi'
 								]) ?>
@@ -99,3 +106,4 @@
 		</div>
 	</div>
 </div>
+
