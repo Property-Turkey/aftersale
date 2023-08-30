@@ -108,7 +108,6 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 											<div class="div">
 												<?php
 												$isChecked = false;
-
 												if (isset($jsonData[$rate]) && $jsonData[$rate] == '1') {
 													$isChecked = true;
 												}

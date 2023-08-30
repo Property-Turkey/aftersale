@@ -96,14 +96,17 @@ class InspectsController extends AppController
 
         if ($this->request->is(['patch', 'put'])) {
             unset($dt['user']);
+            $dt['inspect_rate'] = json_encode($dt['inspect_rate']); // selected items
             $rec = $this->Inspects->get($dt['id']);
+            $rec = $this->Inspects->patchEntity($rec, $dt);
         }
-        //dd($dt);
-        //add new record
+             //dd($dt);
+             //add new record
         if ($this->request->is(['post'])) {
             $dt['id'] = null;
             $dt['user_id'] = $this->authUser['id'];
             $dt['inspect_rate'] = json_encode($dt['inspect_rate']); // selected items
+            //dd($dt['inspect_rate']);
 
             $rec = $this->Inspects->newEntity($dt);
         }

@@ -36,7 +36,7 @@ class ServicesController extends AppController
                 $conditions['Services.stat_created < '] = $_to;
             }
             if ($_k !== false) {
-                $_method == 'like' ?  $conditions[$_col . ' LIKE '] = '%' . $_k . '%' : $conditions['Services.' . $_col] = $_k;
+                $_method == 'like' ?  $conditions['Services.' . $_col . ' LIKE '] = '%' . $_k . '%' : $conditions['Services.' . $_col] = $_k;
             }
             $data = [];
             $_id = $this->request->getQuery('id');
@@ -50,9 +50,7 @@ class ServicesController extends AppController
                         'Tenant' => ['fields' => ['user_fullname']],
                         'Owner' => ['fields' => ['user_fullname']],
                         'Packages' => ['fields' => ['package_name']],
-                        'Properties',
-
-
+                        'Properties' => ['fields' => ['Properties.property_ref']],
                     ]
                 ])->toArray();
 
@@ -67,23 +65,19 @@ class ServicesController extends AppController
             // LIST
             if (!empty($_list)) {
 
-                // $aaa = $this->getTableLocator()->get('Properties')->find('all');
-                // dd($aaa->toArray());
-                $settings = [
-                    "order" => [$_col => $_dir],
+                $data = $this->Services->find('all',  [
+                    "order" => ['Services.' . $_col => $_dir],
                     "conditions" => $conditions,
                     "contain" => [
-                        "Users" => ["fields" => ["user_fullname"]],
-                        'Tenant' => ['fields' => ['user_fullname']],
-                        'Owner' => ['fields' => ['user_fullname']],
-                        'Packages' => ['fields' => ['package_name']],
-                        'Properties' => ['fields' => ['property_ref']],
+                        "Users" => ["fields" => ["Users.user_fullname"]],
+                        'Tenant' => ['fields' => ['Tenant.user_fullname']],
+                        'Owner' => ['fields' => ['Owner.user_fullname']],
+                        'Packages' => ['fields' => ['Packages.package_name']],
+                        'Properties' => ['fields' => ['Properties.property_ref', 'Properties.id']],
                     ]
-                ];
-                $data = $this->Services->find('all', $settings);
-                $propertiesTable = $this->loadModel('Properties', 'ptpms');
-                dd($propertiesTable);
+                ]);
                 $data = $this->Do->convertJson($this->paginate($data));
+                dd($data);
             }
             // //expiration date 
             // foreach ($data as &$service) {

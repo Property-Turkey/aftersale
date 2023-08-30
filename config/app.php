@@ -6,7 +6,7 @@ use Cake\Database\Driver\Mysql;
 use Cake\Log\Engine\FileLog;
 use Cake\Mailer\Transport\MailTransport;
 
-$isLocal = env('SERVER_NAME') == 'localhost' ? true : true;
+$isLocal = env('SERVER_NAME') == 'localhost' ? true : false;
 $isDebug = empty($_GET['debug']) ? $isLocal : true;
 
 return [
@@ -328,11 +328,12 @@ return [
             'cacheMetadata' => true,
             'log' => false,
             'quoteIdentifiers' => false,
-            'username' => $isLocal ? 'root' : 'IDontKnow',
+            'username' => $isLocal ? 'root' : 'ptdev_aftersale',
             'password' => $isLocal ? '' : '--Password--',
-            'database' => $isLocal ? 'aftersale' : 'IDontKnow',           
+            'database' => $isLocal ? 'ptaftersale' : 'ptdev_aftersale',    
+            'url' => env('DATABASE_URL', null),       
         ],
-        'ptpms' => [ // New Database(PTPMS)
+        'Ptpms' => [ 
             'className' => Connection::class,
             'driver' => Mysql::class,
             'persistent' => false,
@@ -341,9 +342,10 @@ return [
             'cacheMetadata' => true,
             'log' => false,
             'quoteIdentifiers' => false,
-            'username' => $isLocal ? 'root' : 'IDontKnow', 
+            'username' => $isLocal ? 'root' : 'ptdev_pms', 
             'password' => $isLocal ? '' : '--Password--',
-            'database' =>  $isLocal ? 'ptpms' : 'IDontKnow',  
+            'database' =>  $isLocal ? 'ptpms' : 'ptdev_pms',  
+            'url' => env('DATABASE_URL', null),
         ],
     ],
 

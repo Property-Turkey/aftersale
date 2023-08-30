@@ -1,5 +1,5 @@
 <?php
-    $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getParam('pass')[0] : 0;
+$parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getParam('pass')[0] : 0;
 ?>
 
 <div class="modal fade" id="addEditPackage_mdl" tabindex="-1" role="dialog" aria-hidden="true">
@@ -13,6 +13,13 @@
 				</h4>
 			</div>
 
+			<div class="col-1 col-sm-1 col-md-6 side_div2">
+				<span class="icn">
+					<a href data-toggle="modal" data-target="#docs_mdl" data-dismiss="modal" ng-click="addDocument" class="btn btn-info">
+						<span class="fa fa "></span> <span class="hideMob"><?= __('Document') ?></span>
+					</a>
+				</span>
+			</div>
 			<div class="modal-body">
 				<div class="x_content">
 
@@ -21,16 +28,15 @@
 							newEntity('package');
 						" id="package_btn" class="hideIt"></button>
 
-					<form class="form-label-left input_mask " id="package_form" enctype="multipart/form-data" novalidate="novalidate" 
-						ng-submit="doSave (rec.package, 'package', 'packages', '#package_btn'); ">
+					<form class="form-label-left input_mask " id="package_form" enctype="multipart/form-data" novalidate="novalidate" ng-submit="doSave (rec.package, 'package', 'packages', '#package_btn'); ">
 
 						<div class="col-md-12 col-sm-12  form-group has-feedback" ng-if="rec.package.parent_name">
 							<h2><?= __('user_id') ?> : {{rec.package.user_id}}</h2>
 						</div>
 
 
-						 <div class="col-md-6 col-6  form-group has-feedback">
-							<label set-required ><?= __('package_name') ?></label>
+						<div class="col-md-6 col-6  form-group has-feedback">
+							<label set-required><?= __('package_name') ?></label>
 							<div class="div">
 								<?= $this->Form->control('package_name', [
 									'type' => 'text',
@@ -41,9 +47,9 @@
 								]) ?>
 								<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
 							</div>
-						</div> 
-						
-						
+						</div>
+
+
 
 						<div class="col-md-6 col-6  form-group has-feedback">
 							<label><?= __('package_desc') ?></label>
@@ -60,25 +66,25 @@
 
 						<!-- <div class=" col-6 col-sm-6 col-md-6 side_div2">
                 <span class="icn">
-                    <a href data-toggle="modal" data-target="#docs_mdl" data-dismiss="modal" class="btn btn-info">
+                    <a href data-toggle="modal" data-target="#docs_mdl" data-dismiss="modal" ng-click="addDocument" class="btn btn-info">
                         <span class="fa fa-search"></span> <span class="hideMob"><?= __('document') ?></span>
                     </a>
                 </span>
             </div> -->
-					 <div class="col-md-6 col-6  form-group has-feedback">
-							<label  set-required ><?= __('document') ?></label>
+						<!-- <div class="col-md-6 col-6  form-group has-feedback">
+							<label  set-required ><?= __('Document') ?></label>
 							<div class="div">
-						 <!-- <a href data-toggle="modal" data-target="#docs_mdl" data-dismiss="modal" class="btn btn-info"> -->
+						 <a href data-toggle="modal" data-target="#docs_mdl" data-dismiss="modal" class="btn btn-info">  
 								<?= $this->Form->control('document', [
 									'type' => 'text',
 									'label' => false,
 									'class' => 'form-control has-feedback-left',
-									'ng-model' => 'rec.package.document',									
+									'ng-model' => 'rec.package.document',
 								]) ?>
 								<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
 							</div>
-						</div> 
-			
+						</div>  -->
+
 						<div class="col-md-6 col-6  form-group has-feedback">
 							<label><?= __('package_cpi') ?></label>
 							<div class="div">
@@ -92,7 +98,7 @@
 							</div>
 						</div>
 
-					<div class="clearfix"></div>
+						<div class="clearfix"></div>
 
 						<div class="form-group ">
 							<div class="col-md-12 col-sm-6  form-group has-feedback ">
@@ -106,4 +112,3 @@
 		</div>
 	</div>
 </div>
-

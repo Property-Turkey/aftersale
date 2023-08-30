@@ -15,6 +15,8 @@ class ServicesTable extends Table
     {
         parent::initialize($config);
 
+        $this->setTable('services');
+
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
@@ -39,8 +41,8 @@ class ServicesTable extends Table
             'foreignKey' => 'package_id',
         ]);
         $this->hasMany('Properties', [
-            'className' => 'ptpms.Properties',
-            'foreignKey' => 'property_id',
+            'className' => 'Properties',
+            'foreignKey' => 'id',
         ]);
 
         $this->addBehavior('Log');

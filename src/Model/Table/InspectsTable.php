@@ -37,26 +37,7 @@ class InspectsTable extends Table
 
     public function validationDefault(Validator $validator): Validator
     {
-        // $validator
-        //     ->notEmptyString('service_desc');
-
-        // $validator
-        //     ->integer('service_price')
-        //     ->notEmptyString('service_price');
-
-        // $validator
-        //     ->integer('service_vat')
-        //     ->notEmptyString('service_vat');
-
-        // $validator
-        //     ->integer('service_tax')
-        //     ->notEmptyString('service_tax');
-
-        // $validator
-        //     ->integer('service_contract_period')
-        //     ->notEmptyString('service_contract_period')
-        //     ->numeric('service_contract_period');
-
+        
         return $validator;
     }
 
