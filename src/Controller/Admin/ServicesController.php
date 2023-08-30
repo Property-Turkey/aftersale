@@ -36,7 +36,7 @@ class ServicesController extends AppController
                 $conditions['Services.stat_created < '] = $_to;
             }
             if ($_k !== false) {
-                $_method == 'like' ?  $conditions['Services.'.$_col . ' LIKE '] = '%' . $_k . '%' : $conditions['Services.' . $_col] = $_k;
+                $_method == 'like' ?  $conditions['Services.' . $_col . ' LIKE '] = '%' . $_k . '%' : $conditions['Services.' . $_col] = $_k;
             }
             $data = [];
             $_id = $this->request->getQuery('id');
@@ -51,6 +51,7 @@ class ServicesController extends AppController
                         'Owner' => ['fields' => ['user_fullname']],
                         'Packages' => ['fields' => ['package_name']],
                         'Properties' => ['fields' => ['Properties.property_ref']],
+                        //'propertyRef' => ['fields' => ['Properties.property_ref']],
                     ]
                 ])->toArray();
 
@@ -66,7 +67,7 @@ class ServicesController extends AppController
             if (!empty($_list)) {
 
                 $data = $this->Services->find('all',  [
-                    "order" => ['Services.'.$_col => $_dir],
+                    "order" => ['Services.' . $_col => $_dir],
                     "conditions" => $conditions,
                     "contain" => [
                         "Users" => ["fields" => ["Users.user_fullname"]],
@@ -74,10 +75,11 @@ class ServicesController extends AppController
                         'Owner' => ['fields' => ['Owner.user_fullname']],
                         'Packages' => ['fields' => ['Packages.package_name']],
                         'Properties' => ['fields' => ['Properties.property_ref', 'Properties.id']],
+                        //'propertyRef' => ['fields' => ['propertyRef.property_ref', 'propertyRef.id']],
                     ]
                 ]);
-                $data = $this->Do->convertJson( $this->paginate( $data ) );
-                dd($data);
+                $data = $this->Do->convertJson($this->paginate($data));
+                //dd($data);
             }
             // //expiration date 
             // foreach ($data as &$service) {
@@ -119,6 +121,11 @@ class ServicesController extends AppController
 
                 $rec = $this->Services->newEntity($dt);
             }
+            unset($dt['property']);
+            unset($dt['package']);
+            unset($dt['owner']);
+            unset($dt['tenant']);
+            unset($dt['user']);
             $rec = $this->Services->patchEntity($rec, $dt);
 
             if ($newRec = $this->Services->save($rec)) {

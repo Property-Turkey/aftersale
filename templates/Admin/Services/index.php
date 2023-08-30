@@ -98,8 +98,8 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                     <?= __('service_price') ?> </div>
 
                                 <div class="col-sm-1 col">
-                                    <?= $this->element('colActions', ['url' => 'services/index/', 'col' => 'property_id ']) ?>
-                                    <?= __('property_id ') ?> </div>
+                                    <?= $this->element('colActions', ['url' => 'services/index/', 'col' => 'property_ref ']) ?>
+                                    <?= __('property_ref ') ?> </div>
                                 <!-- 
                                     <div class="col-sm-1 col">
                                     <?= $this->element('colActions', ['url' => 'services/index/', 'col' => 'tenant_id']) ?> 
@@ -176,28 +176,14 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                     <div class="blueText">
                                         service_contract_period:{{ itm.service_contract_period }}
                                     </div>
-
-                                    <!-- <div class="redText">
-                                        service_price:{{itm.service_price }} {{DtSetter('currency', itm.service_currency)}}</div>  -->
-                                    <!-- <div style="color:black;">
-                                        service_vat:{{ itm.service_vat }}
-                                    </div>
-                                    <div class="blueText">
-                                        service_tax: {{ itm.service_tax }}
-                                    </div> -->
-                                    <!-- <div class="blueText">
-                                        service_contract_period: {{ itm.service_contract_period }}
-                                    </div> -->
-                                    <!-- <div class="blueText">
-                                        <p class="text-truncate">service_desc: {{ itm.service_desc }}</p>
-                                    </div> -->
                                 </div>
                                 <div class="col-4 hideWeb grid_header"><?= __('service_price ') ?></div>
                                 <div class="col-md-1 col-8">{{DtSetter('currencies_icons', itm.service_currency)}} {{itm.service_price }} </div>
 
                                 <div class="col-4 hideWeb grid_header"><?= __('property_id ') ?></div>
-                                <div class="col-md-1 col-8">{{ itm.property_id }} </div>
+                                <div class="col-md-1 col-8">{{ itm.property.property_ref }} </div>
 
+                                
                                 <!-- <div class="col-4 hideWeb grid_header"><?= __('tenant_id ',) ?></div>
                                 <div class="col-md-1 col-8" ng-bind-html="DtSetter('', itm.tenant.user_fullname )"></div>   
                                                                                                                                                             -->

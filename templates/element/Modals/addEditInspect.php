@@ -142,11 +142,11 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 					<div class="col-md-6 col-sm-6  form-group has-feedback">
 						<label><?= __('inspect_rate') ?></label>
 						<div class="div">
-							<?= $this->Form->control('inspect_rate', [
+							<?= $this->Form->control('category_name', [
 								'type' => 'text',
 								'label' => false,
 								'class' => 'form-control has-feedback-left',
-								'ng-model' => 'rec.inspect.inspect_rate'
+								'ng-model' => 'rec.category.category_name'
 							]) ?>
 							<span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
 						</div>

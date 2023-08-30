@@ -24,8 +24,8 @@
                                 <div class="col-md-9 notwrapped">{{ rec.service.tenant.user_fullname}}</div>
                             </div>
                             <div class="grid_row row">
-                                <div class="col-md-3 grid_header2"><?= __('property_id ') ?></div>
-                                <div class="col-md-9 notwrapped">{{ rec.service.property_id  }}</div>
+                                <div class="col-md-3 grid_header2"><?= __('property_ref ') ?></div>
+                                <div class="col-md-9 notwrapped">{{ rec.service.property.property_ref }}</div>
                             </div>
                             <div class="grid_row row">
                                 <div class="col-md-3 grid_header2"><?= __('package_name') ?></div>
