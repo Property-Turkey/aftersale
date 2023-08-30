@@ -195,3 +195,4 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
 <?php echo $this->element('Modals/addEditExpense') ?>
 <?php echo $this->element('Modals/viewExpense') ?>
 <?php echo $this->element('Modals/searchExpenses') ?>
+<?php echo $this->element('Modals/docs') ?>

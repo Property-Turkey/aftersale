@@ -262,10 +262,7 @@ Cache::write('ROLES', [
         'messages'=>['create'=>1, 'read'=>1, 'update'=>1, 'delete'=>1, 'allids'=>1],
         'service_package'=>['create'=>1, 'read'=>1, 'update'=>1, 'delete'=>1, 'allids'=>1],
         'inspects'=>['create'=>1, 'read'=>1, 'update'=>1, 'delete'=>1, 'allids'=>1],
-       
-        
-        
-        
+        'docs'=>['create'=>1, 'read'=>1, 'update'=>1, 'delete'=>1, 'allids'=>1],
 	],
 	'user.landlord'=>[//    landlord
 		'categories'=>['create'=>0, 'read'=>0, 'update'=>0, 'delete'=>0, 'allids'=>0],
@@ -274,7 +271,7 @@ Cache::write('ROLES', [
 		'users'=>['create'=>1, 'read'=>1, 'update'=>1, 'delete'=>1, 'allids'=>1],
 		'logs'=>['create'=>0, 'read'=>1, 'update'=>0, 'delete'=>0, 'allids'=>0],
         'payments'=>['create'=>1, 'read'=>1, 'update'=>1, 'delete'=>1, 'allids'=>1],
-
+        'docs'=>['create'=>1, 'read'=>1, 'update'=>1, 'delete'=>0, 'allids'=>0],
 	],
 	'user.tenant'=>[//     tenant
 		'categories'=>['create'=>0, 'read'=>0, 'update'=>0, 'delete'=>0, 'allids'=>0],
@@ -284,6 +281,7 @@ Cache::write('ROLES', [
 		'logs'=>['create'=>0, 'read'=>0, 'update'=>0, 'delete'=>0, 'allids'=>0],
 		'paymenys'=>['create'=>0, 'read'=>0, 'update'=>0, 'delete'=>0, 'allids'=>0],
         'payments'=>['create'=>1, 'read'=>1, 'update'=>1, 'delete'=>1, 'allids'=>1],
+        'docs'=>['create'=>1, 'read'=>1, 'update'=>1, 'delete'=>0, 'allids'=>0],
 
 	],
 ]);

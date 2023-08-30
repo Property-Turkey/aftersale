@@ -18,15 +18,26 @@ class DocsTable extends Table
         $this->setDisplayField('doc_name');
         $this->setPrimaryKey('id');
 
-        $this->belongsTo('Properties', [
+        $this->belongsTo('Services', [
             'foreignKey' => 'tar_id',
             'joinType' => 'INNER',
         ])->setConditions(['tar_tbl'=>1]);
-        
-        $this->belongsTo('Projects', [
+
+        $this->belongsTo('Expenses', [
             'foreignKey' => 'tar_id',
             'joinType' => 'INNER',
         ])->setConditions(['tar_tbl'=>2]);
+
+        $this->belongsTo('Owner', [
+            'foreignKey' => 'tar_id',
+            'joinType' => 'INNER',
+        ])->setConditions(['tar_tbl'=>3]);
+        
+
+        $this->belongsTo('Tenant', [
+            'foreignKey' => 'tar_id',
+            'joinType' => 'INNER',
+        ])->setConditions(['tar_tbl'=>4]);
     }
 
     public function validationDefault(Validator $validator): Validator

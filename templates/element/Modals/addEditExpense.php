@@ -26,7 +26,13 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 						<!-- <div class="col-md-12 col-sm-12  form-group has-feedback" ng-if="rec.expense.id">
 							<h2><?= __('id') ?> : {{rec.expense.id}}</h2>
 						</div> -->
-
+						<div class=" col-6 col-sm-6 col-md-6 ">
+							<span class="icn">
+								<a href data-toggle="modal" data-target="#docs_mdl" data-dismiss="modal" class="btn btn-info">
+									<span class="fa fa-search"></span> <span class="hideMob"><?= __('document') ?></span>
+								</a>
+							</span>
+						</div>
 						<div class="col-md-6 col-6  form-group has-feedback">
 							<label set-required><?= __('expense_type') ?></label>
 							<div class="div">
