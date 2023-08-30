@@ -101,7 +101,12 @@ class ServicesController extends AppController
 
         $packages = $this->getTableLocator()->get('Packages')->find('list')->toArray();
 
-        $this->set(compact('tenants', 'owners', 'packages'));
+        // $Properties = $this->Services->Properties->find('list', [
+        //     'conditions' => ['Properties.id' => 'property_ref']
+        // ]);
+        // dd($Properties)
+
+        $this->set(compact('tenants', 'owners', 'packages',));
     }
 
     public function save($id = -1)
