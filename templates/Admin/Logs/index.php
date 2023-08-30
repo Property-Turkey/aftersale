@@ -146,88 +146,13 @@
                                     </a> &nbsp; 
                                 </div>
                             </div>
-
-                        </div>
-
-                        <?Php /*?>
-                        <div class="table-responsive">
-                            <table class="table jambo_table bulk_action">
-                                <thead>
-                                    <tr class="headings">
-
-                                        <?php if(in_array($authUser['user_role'], ['admin.root'])){?>
-                                        <th>
-                                            <label class="mycheckbox">
-                                                <input type="checkbox" ng-click="chkAll('.chkb', !selectAll)" ng-model="selectAll">
-                                                <span></span>
-                                            </label>
-                                        </th>
-                                        <th class="column-title">
-                                            <?=$this->element('colActions', ['url'=>'logs/index/', 'col'=>'id'])?>
-                                            <?=__('id')?> </th>
-                                        <?php }?>
-
-                                        <th class="column-title">
-                                            <?=$this->element('colActions', ['url'=>'logs/index/', 'col'=>'user_fullname', 'search'=>'user_fullname'])?> 
-                                            <?=__('user_fullname')?> </th>
-
-                                        <th class="column-title"> <?=__('log_url')?> </th>
-
-                                        <th class="column-title">
-                                            <?=$this->element('colActions', ['url'=>'logs/index/', 'col'=>'stat_created'])?> 
-                                            <?=__('stat_created')?> </th>
-
-                                        <th class="column-title no-link last"><span
-                                                class="nobr"><?=__('action')?></span>
-                                        </th>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-                                    <tr ng-repeat="itm in lists.logs">
-
-                                        <?php if(in_array($authUser['user_role'], ['admin.root'])){?>
-                                        <td class="">
-                                            <label class="mycheckbox chkb">
-                                                <input type="checkbox" ng-model="selected[itm.id]" 
-                                                    ng-value="{{itm.id}}">
-                                                <span></span>
-                                            </label>
-                                        </td>
-                                        <td class=" ">{{ itm.id }}</td>
-                                        <?php }?>
-
-                                        <td class=" ">
-                                            <a href="javascript:void(0);" title="{{DtSetter('roles', itm.user.user_role)}}" >
-                                                <img ng-src="<?= $app_folder ?>/img/badges/ptbadge{{roles_badge[itm.user.user_role]}}.svg" />
-                                            </a>
-                                            {{ itm.user.user_fullname }} 
-                                        </td>
-                                        <td class=" ">
-                                            <span>{{ itm.log_url[5] }}</span>/
-                                            <span class="badge badge-{{actionsClr[itm.log_url[6]]}}"> {{ DtSetter('actionsName',  itm.log_url[6]) }} </span>/
-                                            <span>{{ itm.log_url[7] }}</span>
-                                        </td>
-                                        <td class=" " >{{ itm.stat_created }} </td>
-                                        <td class=" last ">
-                                            <a href="<?=$app_folder.'/'.$currlang?>/admin/logs/view/{{itm.id}}">
-                                                <i class="fa fa-eye"></i> <?=__('view')?>
-                                            </a> &nbsp;
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
-                        </div>
-                        <?php */?>
-
+                        </div>                
                         <?php echo $this->element('paginator-ng')?>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<?php echo $this->element('Modals/search')?>
+
 <?php echo $this->element('Modals/viewLog')?>
