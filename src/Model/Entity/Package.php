@@ -15,6 +15,7 @@ class Package extends Entity
         'stat_created' => true,
         'stat_updated' => true,
         'rec_state' => true,
-     
+
+        'service' => true,
     ];
 }

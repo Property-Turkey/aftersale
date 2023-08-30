@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Model\Table;
@@ -26,15 +27,14 @@ class PackagesTable extends Table
         //     'cascadeCallbacks' => true,
         // ]);
 
-        // $this->belongsTo('Services', [
-        //     'foreignKey' => 'services_id',
-        //     'className' => 'Services',
-        //     'joinType' => 'INNER',
-        //     'dependent' => true,
-        //     'cascadeCallbacks' => true,
-        // ]);
-        
-		$this->addBehavior('Log');
+        $this->hasOne('Services', [
+            'foreignKey' => 'service_id',
+            'className' => 'Services',
+            'dependent' => true,
+            'cascadeCallbacks' => true,
+        ]);
+
+        $this->addBehavior('Log');
     }
 
     public function validationDefault(Validator $validator): Validator

@@ -10,10 +10,10 @@ class Service extends Entity
 {
     protected $_accessible = [
         'user_id' => true,
+        'package_id' => true,
         'owner_id' => true,
         'tenant_id' => true,
         'property_id' => true,
-        'package_id' => true,
         'service_vat' => true,
         'service_tax' => true,
         'service_contract_period' => true,
@@ -21,6 +21,10 @@ class Service extends Entity
         'stat_created' => true,
         'rec_state' => true,
 
-        'properties' => true,
+        'user' => true,
+        'owner' => true,
+        'tenant' => true,
+        'package' => true,
+        'property' => true,
     ];
 }

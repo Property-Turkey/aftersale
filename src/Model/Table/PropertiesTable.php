@@ -15,14 +15,16 @@ class PropertiesTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('properties');
+        $this->setTable('Ptpms.properties');
         
         $this->setDisplayField('property_title');
         $this->setPrimaryKey('id');
 
-        $this->belongsTo('Services', [
+        $this->hasOne('Services', [
             'className' => 'Services',
-            'foreignKey' => 'property_id',
+            'foreignKey' => 'id',
+            'joinType' => 'INNER',
+            'propertyName' => 'property'
         ]);
 
     }

@@ -76,7 +76,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 								<select class="form-control has-feedback-left" ng-model="rec.inspect.inspect_rate" ng-change="onClientSelectionChange()">
 									<option value="">Select inspect_rate</option>
 									<option value="add_inspect">Add inspect_rate</option>
-									<option ng-repeat="(ownerId, ownerName) in DtSetter('ownerList', 'list')" value="{{ownerId}}">{{ownerName}}</option>
+									<!-- <option ng-repeat="(ownerId, ownerName) in DtSetter('ownerList', 'list')" value="{{ownerId}}">{{ownerName}}</option> -->
 								</select>
 								<span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
 							</div>
@@ -101,6 +101,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 							<label><?= __('inspect_rate') ?></label>
 							<div class="div">
 								<?php
+
 								//$inspectRates = $this->Do->cat(21);
 								foreach ($this->Do->cat(21) as $key => $rate) : ?>
 									<div class="col-md-6 col-6 form-group has-feedback">
@@ -121,7 +122,6 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 				</div>
 				<div>
 				</div>
-
 				<div class="clearfix"></div>
 				<div class="form-group ">
 					<div class="col-md-12 col-sm-12  form-group has-feedback ">
@@ -129,32 +129,31 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 					</div>
 				</div>
 				</form>
-				<button type="button" id="user_btn" class="hideIt" ng-click="
-            doGet('/admin/users/index?list=1', 'list', 'users');
-            rec.user.id>0 ? '' : rec.user = {};
-            doClick('.close');
-          "></button>
+				<button ng-click="
+							doGet('/admin/categories/index?list=1', 'list', 'categories');
+							newEntity('category');
+						" id="category_btn" class="hideIt"></button>
 
-				<form class="row" id="user_form" ng-show="showAddClientForm" ng-submit="
-            rec.user.img = filesInfo.user_photos;
-            doSave(rec.user, 'user', 'users', '#user_btn', '#user_preloader');">
+				<form class="form-label-left input_mask " ng-show="showAddClientForm" id="category_form" enctype="multipart/form-data" novalidate="novalidate" ng-submit="doSave (rec.category, 'category', 'categories', '#category_btn'); ">
 
+					<div class="col-md-12 col-sm-12  form-group has-feedback" ng-if="rec.category.parent_name">
+						<h2><?= __('parent_id') ?> : {{rec.category.parent_name}}</h2>
+					</div>
 					<div class="col-md-6 col-sm-6  form-group has-feedback">
-						<label set-required><?= __('inspect_rate') ?></label>
+						<label><?= __('inspect_rate') ?></label>
 						<div class="div">
 							<?= $this->Form->control('inspect_rate', [
-								'class' => 'form-control has-feedback-left',
-								'label' => false,
 								'type' => 'text',
-								'ng-model' => 'rec.user.inspect_rate',
-								'placeholder' => __('inspect_rate'),
+								'label' => false,
+								'class' => 'form-control has-feedback-left',
+								'ng-model' => 'rec.inspect.inspect_rate'
 							]) ?>
 							<span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
 						</div>
 					</div>
 					<div class="clearfix"></div>
 					<div class="col-md-12 col-sm-12  form-group has-feedback ">
-						<button type="submit" class="btn btn-info" id="user_preloader"><span></span> <i class="fa fa-save"></i> <?= __('save') ?></button>
+						<button type="submit" ng-click="rec.category.parent_id = 21; " class="btn btn-info"><span><i class="fa fa-save"></i></span> <?= __('save') ?></button>
 					</div>
 				</form>
 			</div>

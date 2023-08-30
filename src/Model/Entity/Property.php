@@ -76,6 +76,6 @@ class Property extends Entity
         'category' => true,
         'proposals' => true,
         'histories' => true,
-        'service' => true,
+        'services' => true,
     ];
 }

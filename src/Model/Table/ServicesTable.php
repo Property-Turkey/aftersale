@@ -40,9 +40,9 @@ class ServicesTable extends Table
             'className' => 'Packages',
             'foreignKey' => 'package_id',
         ]);
-        $this->hasMany('Properties', [
-            'className' => 'Properties',
-            'foreignKey' => 'id',
+        $this->belongsTo('Properties', [
+            'className' => 'App.Properties',
+            'foreignKey' => 'property_id',
         ]);
 
         $this->addBehavior('Log');

@@ -36,7 +36,7 @@ class ServicesController extends AppController
                 $conditions['Services.stat_created < '] = $_to;
             }
             if ($_k !== false) {
-                $_method == 'like' ?  $conditions['Services.' . $_col . ' LIKE '] = '%' . $_k . '%' : $conditions['Services.' . $_col] = $_k;
+                $_method == 'like' ?  $conditions['Services.'.$_col . ' LIKE '] = '%' . $_k . '%' : $conditions['Services.' . $_col] = $_k;
             }
             $data = [];
             $_id = $this->request->getQuery('id');
@@ -66,7 +66,7 @@ class ServicesController extends AppController
             if (!empty($_list)) {
 
                 $data = $this->Services->find('all',  [
-                    "order" => ['Services.' . $_col => $_dir],
+                    "order" => ['Services.'.$_col => $_dir],
                     "conditions" => $conditions,
                     "contain" => [
                         "Users" => ["fields" => ["Users.user_fullname"]],
@@ -76,7 +76,7 @@ class ServicesController extends AppController
                         'Properties' => ['fields' => ['Properties.property_ref', 'Properties.id']],
                     ]
                 ]);
-                $data = $this->Do->convertJson($this->paginate($data));
+                $data = $this->Do->convertJson( $this->paginate( $data ) );
                 dd($data);
             }
             // //expiration date 
