@@ -113,7 +113,6 @@ class DocsController extends AppController
         if ($this->request->is(['post', 'patch', 'put'])) {
 
             $this->autoRender  = false;
-
             $dt['doc_allowed_roles'] = implode(',', $dt['doc_allowed_roles']);
 
             $fname = strtolower(preg_replace('/[^a-zA-Z0-9_]/', "_", $dt['file'][0]['name']));

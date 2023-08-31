@@ -34,42 +34,30 @@ $isDocs = in_array($authUser['user_role'], ['admin.root', 'admin.admin', 'admin.
                             </div>
                         </div>
 
-                        <!-- <div class="row ngif" ng-if="addDocument == 1">
-    <div class="col-md-8 col-sm-8  form-group has-feedback">
-        <label><?= __('doc_allowed_roles') ?></label>
-        <div class="div">
-            <?php
-                    $adminRoles = $this->Do->lcl($this->Do->get('AdminRoles'), false, false);
-                    $selectedRoles = []; // Kullanıcının seçili rollerini burada depolayın veya veritabanından çekin
-                    foreach ($adminRoles as $roleValue => $roleLabel) :
-                        $isChecked = in_array($roleValue, $selectedRoles) ? 'checked' : '';
-            ?>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="doc_allowed_roles[]" value="<?= $roleValue ?>" <?= $isChecked ?>>
-                <label class="form-check-label"><?= $roleLabel ?></label>
-            </div>
-            <?php endforeach; ?>
-        </div>
-    </div>
-</div> -->
-                        <div class="row ngif" ng-if="addDocument == 1">
+                      
+
+                         <div class="row ngif" ng-if="addDocument == 1">
                             <div class="col-md-8 col-sm-8  form-group has-feedback">
                                 <label><?= __('doc_allowed_roles') ?></label>
                                 <div class="div">
-                                    <?php
-                                    $adminRoles = $this->Do->lcl($this->Do->get('AdminRoles'), false, false);
-                                    $selectedRoles = []; // Kullanıcının seçili rollerini burada depolayın veya veritabanından çekin
-                                    foreach ($adminRoles as $roleValue => $roleLabel) :
-                                        $isChecked = in_array($roleValue, $selectedRoles) ? 'checked' : '';
-                                    ?>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="doc_allowed_roles[]" value="<?= $roleValue ?>" <?= $isChecked ?>>
-                                            <label class="form-check-label"><?= $roleLabel ?></label>
-                                        </div>
-                                    <?php endforeach; ?>
+                                    <?= $this->Form->control('doc_allowed_roles', [
+                                        'class' => 'form-control selectpicker',
+                                        'type' => 'select',
+                                        'ng-model' => 'rec.doc.doc_allowed_roles',
+                                        // 'data-live-search' => false,
+                                        'multiple' => true,
+                                        // 'multi-select' => '1',
+                                        'label' => false,
+                                        'data-size' => 6,
+                                        'data-done-button' => false,
+                                        'options' => $this->Do->lcl($this->Do->get('AdminRoles'), false, false)
+                                    ]) ?>
                                 </div>
-                            </div>
+                            </div> 
                             
+
+
+
                             <div class="col-lg-12 col-sm-12  form-group has-feedback" ng-if="!(rec.doc.id > 0)">
                                 <label><?= __('doc_file') ?></label>
                                 <div class="div">
