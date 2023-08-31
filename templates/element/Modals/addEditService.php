@@ -186,7 +186,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 							<div class="div">
 								<?= $this->Form->text('property_id ', [
 									'type' => 'select',
-									//'options' =>$Properties,
+									'options' =>$Properties,
 									'class' => 'form-control has-feedback-left',
 									'ng-model' => 'rec.service.property_id '
 								]) ?>

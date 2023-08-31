@@ -79,12 +79,13 @@ class InspectsController extends AppController
         $owners = $this->Inspects->Users->find('list', [
             'conditions' => ['user_role' => 'admin.root']
         ]);
+        $servicesId = $this->getTableLocator()->get('Services')->find('list')->toArray();
+        // $servicesId= $this->Inspects->Services->find('list', [
+        //     'conditions' => ['service_id']
+        // ]);
+        
 
-        $servicesId = $this->Inspects->Users->find('list', [
-            'conditions' => ['user_role' => 'admin.root']
-        ]);
-
-        $this->set(compact('owners'));
+        $this->set(compact('owners','servicesId',));
     }
 
     public function save($id = -1)

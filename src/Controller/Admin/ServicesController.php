@@ -100,13 +100,17 @@ class ServicesController extends AppController
         ]);
 
         $packages = $this->getTableLocator()->get('Packages')->find('list')->toArray();
+        //$Properties = $this->getTableLocator()->get('Properties')->find('list')->toArray();
 
         // $Properties = $this->Services->Properties->find('list', [
-        //     'conditions' => ['Properties.id' => 'property_ref']
+        //     'conditions' => ['property_id' => 'property_ref']
         // ]);
-        // dd($Properties)
+        //  dd($Properties);
+        $Properties = $this->getTableLocator()->get('Properties')
+    ->find('list', ['valueField' => 'property_ref'])
+    ->toArray();
 
-        $this->set(compact('tenants', 'owners', 'packages',));
+        $this->set(compact('tenants', 'owners', 'packages', 'Properties',));
     }
 
     public function save($id = -1)
