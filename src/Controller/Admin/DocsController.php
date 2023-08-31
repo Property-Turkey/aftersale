@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Controller\Admin;
@@ -8,16 +9,16 @@ use Cake\Event\EventInterface;
 
 class DocsController extends AppController
 {
-    
 
-    public function index( )
+
+    public function index()
     {
 
         if ($this->request->is('post')) {
 
             $this->autoRender = false;
 
-            $conditions = [ ];
+            $conditions = [];
 
             // Filters and Search
             $_from = !empty($_GET['from']) ? $_GET['from'] : '';
@@ -25,66 +26,74 @@ class DocsController extends AppController
 
             $_method = !empty($_GET['method']) ? $_GET['method'] : '';
             $_col = !empty($_GET['col']) ? $_GET['col'] : 'id';
-            $_k = (isset($_GET['k']) && strlen($_GET['k'])>0) ? $_GET['k'] : false;
+            $_k = (isset($_GET['k']) && strlen($_GET['k']) > 0) ? $_GET['k'] : false;
             $_dir = !empty($_GET['direction']) ? $_GET['direction'] : 'DESC';
-    
-            
-            if( !empty($_from) ){ $conditions['Docs.stat_created > '] = $_from; }
-            if( !empty($_to) ){ $conditions['Docs.stat_created < '] = $_to; }
-            if($_k !== false){
-                $_method == 'like' ?  $conditions[$_col.' LIKE '] = '%'.$_k.'%' : $conditions['Docs.'.$_col] = $_k;
+
+
+            if (!empty($_from)) {
+                $conditions['Docs.stat_created > '] = $_from;
             }
-            
-            $data=[];
+            if (!empty($_to)) {
+                $conditions['Docs.stat_created < '] = $_to;
+            }
+            if ($_k !== false) {
+                $_method == 'like' ?  $conditions[$_col . ' LIKE '] = '%' . $_k . '%' : $conditions['Docs.' . $_col] = $_k;
+            }
+
+            $data = [];
             $_id = $this->request->getQuery('id');
             $_list = $this->request->getQuery('list');
             $_selectList = $this->request->getQuery('selectList');
 
             // ONE RECORD
-            if(!empty($_id)){
-                $data = $this->Docs->get( $_id )->toArray();
+            if (!empty($_id)) {
+                $data = $this->Docs->get($_id)->toArray();
                 $data = $this->Do->convertJson($data);
-                echo json_encode( 
-                    [ "status"=>"SUCCESS",  "data"=>$data], 
-                    JSON_UNESCAPED_UNICODE); die();
+                echo json_encode(
+                    ["status" => "SUCCESS",  "data" => $data],
+                    JSON_UNESCAPED_UNICODE
+                );
+                die();
             }
 
             // LIST
-            if(!empty($_list)){ 
+            if (!empty($_list)) {
                 $data = $this->paginate($this->Docs, [
-                    "order"=>[ $_col => $_dir ],
-                    "contain"=>["Histories"],
-                    "conditions"=>$conditions,
+                    "order" => [$_col => $_dir],
+                    "contain" => ["Histories"],
+                    "conditions" => $conditions,
                 ]);
                 $data = $this->Do->convertJson($data);
             }
 
             // Select LIST
-            if(!empty($_selectList)){ 
+            if (!empty($_selectList)) {
                 $data = $this->Docs->find('list');
-                echo json_encode( [ "status"=>"SUCCESS",  "data"=>[], "Docs_list"=>$data], 
-                    JSON_UNESCAPED_UNICODE); die();
+                echo json_encode(
+                    ["status" => "SUCCESS",  "data" => [], "Docs_list" => $data],
+                    JSON_UNESCAPED_UNICODE
+                );
+                die();
             }
 
-            echo json_encode( 
-                [ "status"=>"SUCCESS",  "data"=>$data, "paging"=>$this->Paginator->getPagingParams()["Docs"]], 
-                JSON_UNESCAPED_UNICODE); die();
+            echo json_encode(
+                ["status" => "SUCCESS",  "data" => $data, "paging" => $this->Paginator->getPagingParams()["Docs"]],
+                JSON_UNESCAPED_UNICODE
+            );
+            die();
         }
-
     }
 
     public function view($id = null)
     {
-        $rec = $this->Docs->get( $id );
+        $rec = $this->Docs->get($id);
         $this->set(compact('rec'));
     }
 
-    public function save($id = -1) 
+    public function save($id = -1)
     {
-        
-        $dt = json_decode( file_get_contents('php://input'), true);
 
-// dd($dt);
+        $dt = json_decode(file_get_contents('php://input'), true);
 
         $ctrl = $this->request->getParam('controller');
 
@@ -100,96 +109,121 @@ class DocsController extends AppController
             $dt['user_id'] = $this->authUser['id'];
             $dt['stat_created'] = date('Y-m-d H:i:s');
         }
-        
+
         if ($this->request->is(['post', 'patch', 'put'])) {
-            
+
             $this->autoRender  = false;
 
             $dt['doc_allowed_roles'] = implode(',', $dt['doc_allowed_roles']);
 
-            $fname = strtolower( preg_replace('/[^a-zA-Z0-9_]/', "_", $dt['file'][0]['name']) );
-            
-            if(!empty($dt['file'])){
+            $fname = strtolower(preg_replace('/[^a-zA-Z0-9_]/', "_", $dt['file'][0]['name']));
 
-                $this->Images->uploader( 
-                    'file/'.($dt['tar_tbl'] == 1 ? 'properties' : 'projects').'_files', $dt['file'][0], 
-                    str_replace( '.', '_' ,$fname) , [], 0, false);
-                
+            // if (!empty($dt['file'])) {
+            //     $this->Images->uploader(
+            //         'file/' . $dt['tar_tbl'] . '_files',
+            //         $dt['file'][0],
+            //         str_replace('.', '_', $fname),
+            //         [],
+            //         0,
+            //         false
+            //     );
+            //     $dt['doc_name'] = $this->Images->getPhotosNames();
+            // } else {
+            //     unset($dt['doc_name']);
+            // }
+
+
+            if (!empty($dt['file'])) {
+                $this->Images->uploader(
+                    'file/' . $dt['tar_tbl_name'] . '_files',
+                    $dt['file'][0],
+                    str_replace('.', '_', $fname),
+                    [],
+                    0,
+                    false
+                );
+
                 $dt['doc_name'] = $this->Images->getPhotosNames();
-            }else{
+            } else {
                 unset($dt['doc_name']);
             }
 
             $rec = $this->Docs->patchEntity($rec, $dt);
-            
+            // dd($rec);
             if ($newRec = $this->Docs->save($rec)) {
-                echo json_encode(["status"=>"SUCCESS", "data"=>$newRec]); die();
+                echo json_encode(["status" => "SUCCESS", "data" => $newRec]);
+                die();
             }
 
-            echo json_encode(["status"=>"FAIL", "data"=>$rec->getErrors()]); die();
+            echo json_encode(["status" => "FAIL", "data" => $rec->getErrors()]);
+            die();
         }
     }
 
     public function delete($id = null)
     {
-        if(!$id){
-            echo json_encode( ["status"=>"FAIL", "msg"=>__("is-selected-empty-msg"), "data"=>[]] ); die();
+        if (!$id) {
+            echo json_encode(["status" => "FAIL", "msg" => __("is-selected-empty-msg"), "data" => []]);
+            die();
         }
         $this->request->allowMethod(['post', 'delete']);
         $this->autoRender  = false;
 
-        if(!$this->_isAuthorized(true)){
-            echo json_encode( ["status"=>"FAIL", "msg"=>__("no-auth"), "data"=>[]] ); die();
+        if (!$this->_isAuthorized(true)) {
+            echo json_encode(["status" => "FAIL", "msg" => __("no-auth"), "data" => []]);
+            die();
         }
 
-        $delRec=[];
-        foreach(explode(",", $id) as $k=>$rec_id){
+        $delRec = [];
+        foreach (explode(",", $id) as $k => $rec_id) {
             $rec = $this->Docs->get($rec_id);
             $delRec[$k] = $this->Docs->delete($rec);
-            $this->Images->deleteFile('file/'.($rec->tar_tbl == 1 ? 'properties' : 'projects').'_files' , $rec->doc_name);
+            $this->Images->deleteFile('file/' . ($rec->tar_tbl == 1 ? 'properties' : 'projects') . '_files', $rec->doc_name);
         }
-        
-        $res = (!empty(array_filter($delRec))) ? ["status"=>"SUCCESS", "data"=>$delRec] : ["status"=>"FAIL", "data"=>$delRec];
 
-        echo json_encode($res);die();
+        $res = (!empty(array_filter($delRec))) ? ["status" => "SUCCESS", "data" => $delRec] : ["status" => "FAIL", "data" => $delRec];
 
+        echo json_encode($res);
+        die();
     }
-    
-    public function enable($val=1, $ids=null)
+
+    public function enable($val = 1, $ids = null)
     {
-        if(!$ids){
-            echo json_encode( ["status"=>"FAIL", "msg"=>__("is-selected-empty-msg"), "data"=>[]] ); die();
+        if (!$ids) {
+            echo json_encode(["status" => "FAIL", "msg" => __("is-selected-empty-msg"), "data" => []]);
+            die();
         }
         $this->request->allowMethod(['post', 'delete']);
         $this->autoRender  = false;
 
-        if(!$this->_isAuthorized(true)){
-            echo json_encode( ["status"=>"FAIL", "msg"=>__("no-auth"), "data"=>[]] ); die();
+        if (!$this->_isAuthorized(true)) {
+            echo json_encode(["status" => "FAIL", "msg" => __("no-auth"), "data" => []]);
+            die();
         }
 
-        $updateRec=[];
-        foreach(explode(',', $ids) as $k=>$id){
+        $updateRec = [];
+        foreach (explode(',', $ids) as $k => $id) {
             $rec = $this->Docs->newEmptyEntity();
             $rec['id'] = $id;
             $rec['rec_state'] = $val;
             $updateRec[$k] = $this->Docs->save($rec);
         }
-        
-        $res = (!empty(array_filter($updateRec))) ? ["status"=>"SUCCESS", "data"=>$updateRec] : ["status"=>"FAIL", "data"=>$updateRec];
 
-        echo json_encode($res);die();
+        $res = (!empty(array_filter($updateRec))) ? ["status" => "SUCCESS", "data" => $updateRec] : ["status" => "FAIL", "data" => $updateRec];
+
+        echo json_encode($res);
+        die();
     }
-    
-    function beforeFilter(EventInterface $event) 
+
+    function beforeFilter(EventInterface $event)
     {
         parent::beforeFilter($event);
-        
+
         if ($this->request->is(['post', 'patch', 'put', 'delete'])) {
-            if(!$this->_isAuthorized(true, 'read')){
-                echo json_encode(["status" => "FAIL", "redirect" => $this->app_folder.'/?login=1']); die();
+            if (!$this->_isAuthorized(true, 'read')) {
+                echo json_encode(["status" => "FAIL", "redirect" => $this->app_folder . '/?login=1']);
+                die();
             }
         }
     }
-
-
 }

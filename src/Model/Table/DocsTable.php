@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Model\Table;
@@ -21,23 +22,22 @@ class DocsTable extends Table
         $this->belongsTo('Services', [
             'foreignKey' => 'tar_id',
             'joinType' => 'INNER',
-        ])->setConditions(['tar_tbl'=>1]);
+        ])->setConditions(['tar_tbl' => 1]);
 
         $this->belongsTo('Expenses', [
             'foreignKey' => 'tar_id',
             'joinType' => 'INNER',
-        ])->setConditions(['tar_tbl'=>2]);
+        ])->setConditions(['tar_tbl' => 2]);
 
         $this->belongsTo('Owner', [
             'foreignKey' => 'tar_id',
             'joinType' => 'INNER',
-        ])->setConditions(['tar_tbl'=>3]);
-        
+        ])->setConditions(['tar_tbl' => 3]);
 
         $this->belongsTo('Tenant', [
             'foreignKey' => 'tar_id',
             'joinType' => 'INNER',
-        ])->setConditions(['tar_tbl'=>4]);
+         ])->setConditions(['tar_tbl' => 4]);
     }
 
     public function validationDefault(Validator $validator): Validator
@@ -54,7 +54,7 @@ class DocsTable extends Table
             ->scalar('doc_name')
             ->maxLength('doc_name', 255)
             ->requirePresence('doc_name', 'create')
-            ->notEmptyString('doc_name');
+            ->allowEmptyString('doc_name');
 
         $validator
             ->notEmptyString('rec_state');

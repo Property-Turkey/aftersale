@@ -275,4 +275,6 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
 <?php echo $this->element('Modals/addEditService') ?>
 <?php echo $this->element('Modals/viewService') ?>
 <?php echo $this->element('Modals/searchServices') ?>
+<?php echo $this->element('Modals/docs') ?>
+
 

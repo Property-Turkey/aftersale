@@ -1,6 +1,7 @@
 <?php
-$ctrl = $this->request->getParam('controller') == 'Projects' ? 'project' : 'property';
-$ctrls = $this->request->getParam('controller') == 'Projects' ? 'projects' : 'properties';
+$ctrl = strtolower($this->request->getParam('controller'));
+$ctrls = ['expenses' => 'expense', 'services' => 'service', 'owners' => 'owner', 'tenants' => 'tenant'];
+$tar_tbls = ['expenses' => '2', 'services' => '1', 'owners' => '3', 'tenants' => '4'];
 $isDocs = in_array($authUser['user_role'], ['admin.root', 'admin.admin', 'admin.supervisor', 'admin.portfolio']);
 ?>
 
@@ -41,9 +42,9 @@ $isDocs = in_array($authUser['user_role'], ['admin.root', 'admin.admin', 'admin.
                                         'class' => 'form-control selectpicker',
                                         'type' => 'select',
                                         'ng-model' => 'rec.doc.doc_allowed_roles',
-                                        'data-live-search' => false,
+                                        // 'data-live-search' => false,
                                         'multiple' => true,
-                                        'multi-select' => '1',
+                                        // 'multi-select' => '1',
                                         'label' => false,
                                         'data-size' => 6,
                                         'data-done-button' => false,
@@ -68,24 +69,6 @@ $isDocs = in_array($authUser['user_role'], ['admin.root', 'admin.admin', 'admin.
 
                                 </div>
                             </div>
-
-
-
-                            <?php /*
-    <div class="col-lg-12 col-sm-12  form-group has-feedback">
-        <label><?= __('doc_url') ?></label>
-        <div class="div">
-            <?= $this->Form->control('doc_url', [
-                'class' => 'form-control has-feedback-left',
-                'label' => false,
-                'type' => 'text',
-                'ng-model' => 'rec.doc.doc_url',
-            ]) ?>
-            <span class="fa fa-info-circle form-control-feedback left" aria-hidden="true"></span>
-        </div>
-    </div>
-*/ ?>
-
                             <div class="col-md-12 col-sm-12  form-group has-feedback">
                                 <label><?= __('doc_desc') ?></label>
                                 <div class="div">
@@ -104,11 +87,12 @@ $isDocs = in_array($authUser['user_role'], ['admin.root', 'admin.admin', 'admin.
 
                             <div class="col-md-12 col-12 ">
                                 <button type="button" ng-click="
-                rec.doc.file = filesInfo.doc_file;
-                rec.doc.tar_id = rec.<?= $ctrl ?>.id;
-                rec.doc.tar_tbl = '<?= $ctrl == 'project' ? 2 : 1 ?>';
-                doSave(rec.doc, 'doc', 'docs', '#<?= $ctrl ?>_btn', '#doc_preloader');
-            " id="doc_preloader" class="btn btn-info">
+                                        rec.doc.file = filesInfo.doc_file;
+                                        rec.doc.tar_id = rec.<?= $ctrls[$ctrl] ?>.id;
+                                        rec.doc.tar_tbl = '<?= $tar_tbls[$ctrl] ?>';
+                                        rec.doc.tar_tbl_name = '<?= $ctrl ?>';
+                                        doSave(rec.doc, 'doc', 'docs', '#<?= $ctrls[$ctrl] ?>_btn', '#doc_preloader');
+                                    " id="doc_preloader" class="btn btn-info">
                                     <span></span> <i class="fa fa-save"></i> <?= __('upload_and_save') ?>
                                 </button>
 

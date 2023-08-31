@@ -222,4 +222,3 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
 
 <?php echo $this->element('Modals/addEditPackage') ?>
 <?php echo $this->element('Modals/viewPackage') ?>
-<?php echo $this->element('Modals/docs') ?>
