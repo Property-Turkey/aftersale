@@ -31,7 +31,7 @@
 
                             <div class="grid_row row">
                                 <div class="col-md-3 grid_header2"><?=__('inspect_rate')?></div>
-                                <div class="col-md-9 notwrapped"><?=$data = json_decode(true)?>{{rec.inspect.inspect_rate}}</div>
+                                <div class="col-md-9 notwrapped">{{rec.inspect.inspect_rate}}</div>
                             </div>
 
                             <div class="grid_row row">

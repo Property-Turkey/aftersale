@@ -29,15 +29,15 @@ class DocsTable extends Table
             'joinType' => 'INNER',
         ])->setConditions(['tar_tbl' => 2]);
 
-        $this->belongsTo('Owner', [
-            'foreignKey' => 'tar_id',
-            'joinType' => 'INNER',
-        ])->setConditions(['tar_tbl' => 3]);
+        // $this->belongsTo('Owner', [
+        //     'foreignKey' => 'tar_id',
+        //     'joinType' => 'INNER',
+        // ])->setConditions(['tar_tbl' => 3]);
 
-        $this->belongsTo('Tenant', [
-            'foreignKey' => 'tar_id',
-            'joinType' => 'INNER',
-         ])->setConditions(['tar_tbl' => 4]);
+        // $this->belongsTo('Tenant', [
+        //     'foreignKey' => 'tar_id',
+        //     'joinType' => 'INNER',
+        //  ])->setConditions(['tar_tbl' => 4]);
     }
 
     public function validationDefault(Validator $validator): Validator
