@@ -157,7 +157,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 							</div>
 						</div>
 
-						<div class="col-md-6 col-6  form-group has-feedback">
+						<!-- <div class="col-md-6 col-6  form-group has-feedback">
 							<label set-required><?= __('service_price') ?></label>
 							<div class="div">
 								<?= $this->Form->text('service_price', [
@@ -180,7 +180,30 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 								]) ?>
 								<span class="fa fa-plus form-control-feedback left" aria-hidden="true"></span>
 							</div>
-						</div>
+						</div> -->
+
+
+						<div class="row">
+    <div class="col-md-8 col-8 form-group has-feedback">
+        <label set-required><?= __('service_price') ?></label>
+        <div class="input-group">
+            <?= $this->Form->text('service_price', [
+                'type' => 'text',
+                'class' => 'form-control has-feedback-left',
+                'ng-model' => 'rec.service.service_price',
+            ]) ?>
+            <span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
+            <span class="input-group-text">/</span>
+            <?= $this->Form->text('service_currency', [
+                'type' => 'select',
+				'options' => $this->Do->lcl($this->Do->get('currencies_icons')),
+                'class' => 'form-control',
+                'ng-model' => 'rec.service.service_currency',
+            ]) ?>
+        </div>
+    </div>
+</div>
+
 
 						<div class="col-md-6 col-6  form-group has-feedback">
 							<label set-required><?= __('property_id ') ?></label>
