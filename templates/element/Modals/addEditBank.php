@@ -42,7 +42,7 @@
 						</div>
 
 						<div class="col-md-6 col-6  form-group has-feedback">
-							<label set-required ><?= __('bank_name ') ?></label>
+							<label set-required ><?= __('bank_name') ?></label>
 							<div class="div">
 								<?= $this->Form->control('bank_name ', [
 									'type' => 'text',

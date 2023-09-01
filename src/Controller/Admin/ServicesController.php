@@ -75,11 +75,11 @@ class ServicesController extends AppController
                         'Owner' => ['fields' => ['Owner.user_fullname']],
                         'Packages' => ['fields' => ['Packages.package_name']],
                         'Properties' => ['fields' => ['Properties.property_ref', 'Properties.id']],
-                        //'propertyRef' => ['fields' => ['propertyRef.property_ref', 'propertyRef.id']],
+
                     ]
+
                 ]);
                 $data = $this->Do->convertJson($this->paginate($data));
-                //dd($data);
             }
             // //expiration date 
             // foreach ($data as &$service) {
@@ -107,8 +107,8 @@ class ServicesController extends AppController
         // ]);
         //  dd($Properties);
         $Properties = $this->getTableLocator()->get('Properties')
-    ->find('list', ['valueField' => 'property_ref'])
-    ->toArray();
+            ->find('list', ['valueField' => 'property_ref'])
+            ->toArray();
 
         $this->set(compact('tenants', 'owners', 'packages', 'Properties',));
     }

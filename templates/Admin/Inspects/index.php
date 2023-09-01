@@ -44,7 +44,7 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                     </div>
 
                     <div class="x_title">
-                        <h2><b><?= __('inspects_list') ?></b>
+                        <h2><b><?= __('inspects_list') ?></b><br>
                             <span> <?= __('show') . ' ' . __('from') ?>
                                 {{ paging.start  }} <?= __('to') ?>
                                 {{ paging.end }} <?= __('of') ?> {{ paging.count }} </span>
@@ -103,7 +103,7 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
 
                                 <div class="col-sm-2 col">
                                     <?= $this->element('colActions', ['url' => 'inspects/index/', 'col' => 'stat_created']) ?>
-                                    <?= __(' 	stat_created ') ?> </div>
+                                    <?= __('stat_created') ?> </div>
 
                                 <div class="col-sm-1 col">
                                     <?= $this->element('colActions', ['url' => 'inspects/index/', 'col' => 'rec_state', 'filter' => $this->Do->lcl($this->Do->get('rec_state'))]) ?>

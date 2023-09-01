@@ -54,6 +54,18 @@ $isDocs = in_array($authUser['user_role'], ['admin.root', 'admin.admin', 'admin.
                                 </div>
                             </div>
 
+                            <div class="row ngif" ng-if="addDocument == 1">
+                                <div class="col-md-8 col-sm-8 form-group has-feedback">
+                                    <label><?= __('doc_allowed_roles') ?></label>
+                                    <div class="div">
+                                        <label ng-repeat="role in adminRoles">
+                                            <input type="checkbox" ng-model="rec.doc.doc_allowed_roles[role.value]"> {{ role.label }}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+
                             <div class="col-lg-12 col-sm-12  form-group has-feedback" ng-if="!(rec.doc.id > 0)">
                                 <label><?= __('doc_file') ?></label>
                                 <div class="div">

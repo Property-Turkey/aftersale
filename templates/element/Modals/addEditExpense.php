@@ -48,7 +48,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 						</div>
 
 						<div class="col-md-6 col-6  form-group has-feedback">
-							<label set-required><?= __('expense_amount ') ?></label>
+							<label set-required><?= __('expense_amount') ?></label>
 							<div class="div">
 								<?= $this->Form->control('expense_amount ', [
 									'type' => 'text',
@@ -63,7 +63,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 						</div>
 
 						<div class="col-md-6 col-6  form-group has-feedback">
-							<label><?= __('expense_currency ') ?></label>
+							<label><?= __('expense_currency') ?></label>
 							<div class="div">
 								<?= $this->Form->control('expense_currency ', [
 									'type' => 'select',
@@ -76,7 +76,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 							</div>
 						</div>
 						<div class="col-md-6 col-6  form-group has-feedback">
-							<label><?= __('expense_description ') ?></label>
+							<label><?= __('expense_description') ?></label>
 							<div class="div">
 								<?= $this->Form->control('expense_description ', [
 									'label' => false,
@@ -106,7 +106,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 						</div>
 
 						<div class="col-md-6 col-6  form-group has-feedback">
-							<label set-required><?= __('owner_id ') ?></label>
+							<label set-required><?= __('owner_id') ?></label>
 							<div class="div">
 								<?= $this->Form->control('owner_id ', [
 									'type' => 'select',

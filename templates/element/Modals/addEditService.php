@@ -126,7 +126,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 									'ng-model' => 'rec.service.service_vat',
 
 								]) ?>
-								<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
+								<span class="fa fa-dollar-sign form-control-feedback left" aria-hidden="true"></span>
 							</div>
 						</div>
 

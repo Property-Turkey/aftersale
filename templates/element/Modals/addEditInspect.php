@@ -70,7 +70,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 							</div>
 						</div>
 						<div class="col-md-6 col-6  form-group has-feedback">
-							<label><?= __(' inspect_rate ') ?></label>
+							<label><?= __('inspect_rate') ?></label>
 							<div class="div">
 
 								<!-- Client select input -->

@@ -36,7 +36,7 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                     </div>
 
                     <div class="x_title">
-                        <h2><b><?= __('banks_list') ?></b>
+                        <h2><b><?= __('banks_list') ?></b><br>
                             <span> <?= __('show') . ' ' . __('from') ?>
                                 {{ paging.start  }} <?= __('to') ?>
                                 {{ paging.end }} <?= __('of') ?> {{ paging.count }} </span>

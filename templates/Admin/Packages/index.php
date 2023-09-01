@@ -36,7 +36,7 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                     </div>
 
                     <div class="x_title">
-                        <h2><b><?= __('packages_list') ?></b>
+                        <h2><b><?= __('packages_list') ?></b><br>
                             <span> <?= __('show') . ' ' . __('from') ?>
                                 {{ paging.start  }} <?= __('to') ?>
                                 {{ paging.end }} <?= __('of') ?> {{ paging.count }} </span>
@@ -105,7 +105,7 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                     <?= __('package_currency') ?> </div> -->
 
                                     <!-- <div class="col-sm-1 col">
-                                    <?= $this->element('colActions', ['url' => 'packages/index/', 'col' => ' 	package_cpi ']) ?> 
+                                    <?= $this->element('colActions', ['url' => 'packages/index/', 'col' => 'package_cpi ']) ?> 
                                     <?= __('package_cpi') ?> </div>
 
                                     <div class="col-sm-1 col">

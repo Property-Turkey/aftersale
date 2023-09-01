@@ -45,7 +45,7 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                     </div>
 
                     <div class="x_title">
-                        <h2><b><?= __('services_list') ?></b>
+                        <h2><b><?= __('services_list') ?></b><br>
                             <span> <?= __('show') . ' ' . __('from') ?>
                                 {{ paging.start  }} <?= __('to') ?>
                                 {{ paging.end }} <?= __('of') ?> {{ paging.count }} </span>
@@ -98,8 +98,8 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                     <?= __('service_price') ?> </div>
 
                                 <div class="col-sm-1 col">
-                                    <?= $this->element('colActions', ['url' => 'services/index/', 'col' => 'property_ref ']) ?>
-                                    <?= __('property_ref ') ?> </div>
+                                    <?= $this->element('colActions', ['url' => 'services/index/', 'col' => 'property_ref']) ?>
+                                    <?= __('property_ref') ?> </div>
                                 <!-- 
                                     <div class="col-sm-1 col">
                                     <?= $this->element('colActions', ['url' => 'services/index/', 'col' => 'tenant_id']) ?> 
@@ -167,20 +167,19 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                     </label>
                                 </div>
                                 <div class="col-md-1 col-8 hideWeb">{{ itm.id }}</div>
-
                                 <div class="col-4 hideWeb grid_header"><?= __('services_information') ?></div>
                                 <div class=" col-2">
-                                    <div class="redText">
-                                        owner_name:{{ itm.owner.user_fullname }}
+                                    <div class="">
+                                    <b> Owner Name:</b>{{ itm.owner.user_fullname }}
                                     </div>
-                                    <div class="blueText">
-                                        service_contract_period:{{ itm.service_contract_period }}
+                                    <div class="">
+                                    <b>Service Contract Period:</b>{{ itm.service_contract_period }}
                                     </div>
                                 </div>
                                 <div class="col-4 hideWeb grid_header"><?= __('service_price ') ?></div>
                                 <div class="col-md-1 col-8">{{DtSetter('currencies_icons', itm.service_currency)}} {{itm.service_price }} </div>
 
-                                <div class="col-4 hideWeb grid_header"><?= __('property_id ') ?></div>
+                                <div class="col-4 hideWeb grid_header"><?= __('property_id') ?></div>
                                 <div class="col-md-1 col-8">{{ itm.property.property_ref }} </div>
 
                                 

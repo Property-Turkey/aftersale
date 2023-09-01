@@ -38,7 +38,7 @@
                     </div>
                     
                     <div class="x_title">
-                        <h2><b><?=__('messages_list')?></b> 
+                        <h2><b><?=__('messages_list')?></b><br> 
                             <span> <?=__('show').' '.__('from')?> 
                                 {{ paging.start  }} <?=__('to')?> 
                                 {{ paging.end }} <?=__('of')?> {{ paging.count }} </span></h2>

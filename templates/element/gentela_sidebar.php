@@ -44,7 +44,7 @@ $admin_menu=[
           ]
       ],
       ["name"=>"packages",
-      "icon"=>"user-secret",
+      "icon"=>"book",
       "roles"=>["admin.root", "admin.portfolio", "admin.callcenter", "admin.supervisor", "admin.admin", "admin.content"],
       "active"=>"/packages/index,/packages/save,/packages/view",
       "sub" => [
@@ -60,7 +60,7 @@ $admin_menu=[
         ]
     ],
     ["name"=>"banks",
-    "icon"=>"user-secret",
+    "icon"=>"file-text-o",
     "roles"=>["admin.root", "admin.portfolio", "admin.callcenter", "admin.supervisor", "admin.admin", "admin.content"],
     "active"=>"/banks/index,/banks/save,/banks/view",
     "sub" => [
