@@ -77,17 +77,6 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 							</div>
 						</div> -->
 
-								<div class="col-md-12 col-12  form-group has-feedback">
-									<label><?= __('service_desc') ?></label>
-									<div class="div">
-										<?= $this->Form->text('service_desc', [
-											'type' => 'textarea',
-											'class' => 'form-control has-feedback-left',
-											'ng-model' => 'rec.service.service_desc'
-										]) ?>
-										<span class="fa fa-language form-control-feedback left" aria-hidden="true"></span>
-									</div>
-								</div>
 
 								<!-- <div class="col-md-6 col-6  form-group has-feedback">
 							<label><?= __('package_name') ?></label>
@@ -154,8 +143,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 										<span class="fa fa-percent form-control-feedback left" aria-hidden="true"></span>
 									</div>
 								</div>
-
-
+								
 								<div class="col-md-6 col-6  form-group has-feedback">
 									<label set-required><?= __('service_contract_period') ?></label>
 									<div class="div">
@@ -194,52 +182,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 							</div>
 						</div> -->
 
-								<!-- 
-						<div class="row">
-							<div class="col-md-12 form-group has-feedback">
-								<label set-required><?= __('service_price') ?></label>
-								<div class="row">
-									
-									<div class="col-3">
-										<?= $this->Form->text('service_currency', [
-											'type' => 'select',
-											'options' => $this->Do->lcl($this->Do->get('currencies_icons')),
-											'class' => 'form-control',
-											'ng-model' => 'rec.service.service_currency',
-										]) ?>
-									<span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
-									</div>
-									<div class="col-9">
-										<?= $this->Form->text('service_price', [
-											'type' => 'text',
-											'class' => 'form-control has-feedback-left',
-											'ng-model' => 'rec.service.service_price',
-										]) ?></div>
-									
-								</div>
-							</div>
-						</div> -->
-
-								<!-- <div class="row">
-    <div class="col-md-12 form-group has-feedback">
-        <label set-required><?= __('service_price') ?></label>
-        <div class="input-group">
-            <?= $this->Form->text('service_currency', [
-				'type' => 'select',
-				'options' => $this->Do->lcl($this->Do->get('currencies_icons')),
-				'class' => 'form-control col-3',
-				'ng-model' => 'rec.service.service_currency',
-			]) ?>
-            <span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
-            <?= $this->Form->text('service_price', [
-				'type' => 'text',
-				'class' => 'form-control col-9 has-feedback-left',
-				'ng-model' => 'rec.service.service_price',
-			]) ?>
-			 <span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
-        </div>
-    </div>
-</div> -->
+							
 								<div class="row">
 									<div class="col-md-12 form-group has-feedback">
 										<label set-required><?= __('service_price') ?></label>
@@ -284,6 +227,17 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 											'ng-model' => 'rec.service.package_id'
 										]) ?>
 										<span class="fa fa-info form-control-feedback left" aria-hidden="true"></span>
+									</div>
+								</div>
+								<div class="col-md-12 col-12  form-group has-feedback">
+									<label><?= __('service_desc') ?></label>
+									<div class="div">
+										<?= $this->Form->text('service_desc', [
+											'type' => 'textarea',
+											'class' => 'form-control has-feedback-left',
+											'ng-model' => 'rec.service.service_desc'
+										]) ?>
+										<span class="fa fa-language form-control-feedback left" aria-hidden="true"></span>
 									</div>
 								</div>
 
@@ -335,6 +289,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 									</div>
 								</div>
 
+						
 								<div class="col-md-6 col-sm-6  form-group has-feedback">
 									<label set-required><?= __('password') ?></label>
 									<div class="div">
@@ -344,7 +299,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 											'type' => 'password',
 											'ng-model' => 'rec.user.password',
 											//'ng-readonly'=>true,
-											'value' => 'Property123',
+											'value' => $generatedPassword,				
 											// 'placeholder' => __('Property123'),
 										]) ?>
 										<span class="fa fa-lock form-control-feedback left" aria-hidden="true"></span>

@@ -57,7 +57,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 							</div>
 						</div>
 
-						<div class="col-md-6 col-6  form-group has-feedback">
+						<div class="col-md-12 col-12  form-group has-feedback">
 							<label><?= __('inspect_desc') ?></label>
 							<div class="div">
 								<?= $this->Form->control('inspect_desc', [
@@ -69,7 +69,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 								<span class="fa fa-sticky-note-o form-control-feedback left" aria-hidden="true"></span>
 							</div>
 						</div>
-						<div class="col-md-6 col-6  form-group has-feedback">
+						<div class="col-md-12 col-12  form-group has-feedback">
 							<label><?= __('inspect_rate') ?></label>
 							<div class="div">
 
@@ -82,30 +82,14 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 								<span class="fa fa-quote-left form-control-feedback left" aria-hidden="true"></span>
 							</div>
 						</div>
-						<!-- <?= $this->Form->control('inspect_rate', [
-									'type' => 'text',
-									'class' => 'form-control has-feedback-left',
-									'ng-model' => 'rec.inspect.inspect_rate '
-								]) ?>
-								<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
-							</div>
-						</div> -->
-						<!-- <div class="col-md-6 col-6 form-group has-feedback">
-                        <label><?= __('inspect_rate') ?></label>
-                        <div class="div">
-                            <label class="radio-inline" ng-repeat="(key, inspect) in DtSetter('inspects ', 'list') track by $index">
-                                <input type="checkbox" ng-model="rec.inspect.inspect_rate" ng-value="{{key}}"> {{ inspect }}
-                            </label>    
-                        </div>
-                    </div>                     -->
+						
 						<div class="col-md-6 col-6 form-group has-feedback">
-							<label><?= __('inspect_rate') ?></label>
+							<!-- <label><?= __('inspect_rate') ?></label> -->
 							<div class="div">
 								<?php
-
 								//$inspectRates = $this->Do->cat(21);
 								foreach ($this->Do->cat(21) as $key => $rate) : ?>
-									<div class="col-md-6 col-6 form-group has-feedback">
+									<div class="col-md-2 col-2 form-group has-feedback">
 										<label><?= $rate ?>
 											<div class="div">
 												<?php
@@ -140,7 +124,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 					<div class="col-md-12 col-sm-12  form-group has-feedback" ng-if="rec.category.parent_name">
 						<h2><?= __('parent_id') ?> : {{rec.category.parent_name}}</h2>
 					</div>
-					<div class="col-md-6 col-sm-6  form-group has-feedback">
+					<div class="col-md-12 col-sm-12  form-group has-feedback">
 						<label><?= __('inspect_rate') ?></label>
 						<div class="div">
 							<?= $this->Form->control('category_name', [

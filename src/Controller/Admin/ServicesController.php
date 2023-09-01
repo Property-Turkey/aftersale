@@ -116,7 +116,6 @@ class ServicesController extends AppController
     public function save($id = -1)
     {
         if ($this->request->is(['post', 'put', 'patch'])) {
-
             $this->autoRender  = false;
             $dt = json_decode(file_get_contents('php://input'), true);
 

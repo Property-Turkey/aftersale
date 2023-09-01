@@ -45,18 +45,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 								<span class="fa fa-file-powerpoint-o form-control-feedback left" aria-hidden="true"></span>
 							</div>
 						</div>
-						<div class="col-md-6 col-6  form-group has-feedback">
-							<label><?= __('package_desc') ?></label>
-							<div class="div">
-								<?= $this->Form->control('package_desc', [
-									'type' => 'text',
-									'label' => false,
-									'class' => 'form-control has-feedback-left',
-									'ng-model' => 'rec.package.package_desc'
-								]) ?>
-								<span class="fa fa-audio-description form-control-feedback left" aria-hidden="true"></span>
-							</div>
-						</div>
+						
 						<div class="col-md-6 col-6  form-group has-feedback">
 							<label><?= __('package_cpi') ?></label>
 							<div class="div">
@@ -68,7 +57,18 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 								<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
 							</div>
 						</div>
-
+						<div class="col-md-12 col-12  form-group has-feedback">
+							<label><?= __('package_desc') ?></label>
+							<div class="div">
+								<?= $this->Form->control('package_desc', [
+									'type' => 'textarea',
+									'label' => false,
+									'class' => 'form-control has-feedback-left',
+									'ng-model' => 'rec.package.package_desc'
+								]) ?>
+								<span class="fa fa-audio-description form-control-feedback left" aria-hidden="true"></span>
+							</div>
+						</div>
 						<div class="clearfix"></div>
 						<div class="form-group ">
 							<div class="col-md-12 col-sm-6  form-group has-feedback ">
