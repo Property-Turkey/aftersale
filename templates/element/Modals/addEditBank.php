@@ -37,7 +37,7 @@
 									'class' => 'form-control has-feedback-left',
 									'ng-model' => 'rec.bank.bank_ownername'
 								]) ?>
-								<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
+								<span class="fa fa-user-circle form-control-feedback left" aria-hidden="true"></span>
 							</div>
 						</div>
 
@@ -50,7 +50,7 @@
 									'class' => 'form-control has-feedback-left',
 									'ng-model' => 'rec.bank.bank_name '
 								]) ?>
-								<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
+								<span class="fa fa-bank form-control-feedback left" aria-hidden="true"></span>
 							</div>
 						</div>
 
@@ -67,11 +67,11 @@
 									'ng-pattern' => '/^\d{16}$/',
 									'required' => ''									
 								]) ?>
-								<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
+								<span class="fa fa-credit-card-alt form-control-feedback left" aria-hidden="true"></span>
 							</div>
 						</div>
 
-						<!-- <div class="col-md-6 col-6  form-group has-feedback">
+						 <!-- <div class="col-md-6 col-6  form-group has-feedback">
 							<label set-required><?= __('bank_expiredate') ?></label>
 							<div class="div">
 								<?= $this->Form->text('bank_expiredate', [
@@ -83,9 +83,9 @@
 								]) ?>
 								<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
 							</div>
-						</div>
+						</div> -->
 
-						<div class="col-md-6 col-6  form-group has-feedback">
+						<!-- <div class="col-md-6 col-6  form-group has-feedback">
 							<label ><?= __('bank_cvv ') ?></label>
 							<div class="div">
 								<?= $this->Form->text('bank_cvv ', [
@@ -97,10 +97,10 @@
 								]) ?>
 								<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
 							</div>
-						</div>
+						</div> -->
 
 						<div class="col-md-6 col-6  form-group has-feedback">
-							<label><?= __('bank_swift ') ?></label>
+							<label><?= __('Bank Swift') ?></label>
 							<div class="div">
 								<?= $this->Form->text('bank_swift ', [
 									'type' => 'text',
@@ -111,7 +111,7 @@
 								]) ?>
 								<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
 							</div>
-						</div> -->
+						</div> 
 
 						<div class="clearfix"></div>
 

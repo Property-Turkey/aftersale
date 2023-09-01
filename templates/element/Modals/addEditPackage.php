@@ -42,7 +42,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 									'class' => 'form-control has-feedback-left',
 									'ng-model' => 'rec.package.package_name'
 								]) ?>
-								<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
+								<span class="fa fa-file-powerpoint-o form-control-feedback left" aria-hidden="true"></span>
 							</div>
 						</div>
 						<div class="col-md-6 col-6  form-group has-feedback">
@@ -54,7 +54,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 									'class' => 'form-control has-feedback-left',
 									'ng-model' => 'rec.package.package_desc'
 								]) ?>
-								<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
+								<span class="fa fa-audio-description form-control-feedback left" aria-hidden="true"></span>
 							</div>
 						</div>
 						<div class="col-md-6 col-6  form-group has-feedback">

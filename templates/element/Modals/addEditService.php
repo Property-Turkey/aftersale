@@ -25,13 +25,13 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 						<div class="col-md-12 col-sm-12  form-group has-feedback" ng-if="rec.service.parent_name">
 							<h2><?= __('user_id') ?> : {{rec.service.user_id}}</h2>
 						</div>
-						<div class=" col-6 col-sm-6 col-md-6 ">
+						<!-- <div class=" col-6 col-sm-6 col-md-6 ">
 							<span class="icn">
 								<a href data-toggle="modal" data-target="#docs_mdl" data-dismiss="modal" class="btn btn-info">
 									<span class="fa fa-search"></span> <span class="hideMob"><?= __('document') ?></span>
 								</a>
 							</span>
-						</div>
+						</div> -->
 						<div class="col-md-6 col-sm-6 form-group has-feedback">
 							<label set-required><?= __('owner_id') ?></label>
 							<div class="div">
@@ -66,7 +66,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 							</div>
 						</div> -->
 
-						<div class="col-md-6 col-6  form-group has-feedback">
+						<div class="col-md-12 col-12  form-group has-feedback">
 							<label><?= __('service_desc') ?></label>
 							<div class="div">
 								<?= $this->Form->text('service_desc', [
@@ -74,7 +74,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 									'class' => 'form-control has-feedback-left',
 									'ng-model' => 'rec.service.service_desc'
 								]) ?>
-								<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
+								<span class="fa fa-language form-control-feedback left" aria-hidden="true"></span>
 							</div>
 						</div>
 
@@ -124,9 +124,10 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 									'type' => 'text',
 									'class' => 'form-control has-feedback-left',
 									'ng-model' => 'rec.service.service_vat',
+									'oninput' => 'this.value = this.value.replace(/[^0-9]/g, "").substring(0, 2)',
 
 								]) ?>
-								<span class="fa fa-dollar-sign form-control-feedback left" aria-hidden="true"></span>
+								<span class="fa fa-percent form-control-feedback left" aria-hidden="true"></span>
 							</div>
 						</div>
 
@@ -137,9 +138,9 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 									'type' => 'text',
 									'class' => 'form-control has-feedback-left',
 									'ng-model' => 'rec.service.service_tax',
-
+									'oninput' => 'this.value = this.value.replace(/[^0-9]/g, "").substring(0, 2)',
 								]) ?>
-								<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
+								<span class="fa fa-percent form-control-feedback left" aria-hidden="true"></span>
 							</div>
 						</div>
 
@@ -152,7 +153,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 									'class' => 'form-control has-feedback-left',
 									'ng-model' => 'rec.service.service_contract_period'
 								]) ?>
-								<span class="fa fa-vcard form-control-feedback left" aria-hidden="true"></span>
+								<span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
 							</div>
 						</div>
 
@@ -164,7 +165,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 									'class' => 'form-control has-feedback-left',
 									'ng-model' => 'rec.service.service_price'
 								]) ?>
-								<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
+								<span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
 							</div>
 						</div>
 
@@ -185,12 +186,12 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 							<label set-required><?= __('property_id ') ?></label>
 							<div class="div">
 								<?= $this->Form->text('property_id ', [
-									'type' => 'select',
-									'options' =>$Properties,
+									'type' => 'text',
+									//'options' =>$Properties,
 									'class' => 'form-control has-feedback-left',
 									'ng-model' => 'rec.service.property_id '
 								]) ?>
-								<span class="fa fa--plus-square-o form-control-feedback left" aria-hidden="true"></span>
+								<span class="fa fa-plus-square-o form-control-feedback left" aria-hidden="true"></span>
 							</div>
 						</div>
 
@@ -303,7 +304,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 							</div>
 						</div>
 
-						<?php if (in_array($authUser['user_role'], ['admin.root', 'user.tenant', 'user.landlord'])) { ?>
+						<!-- <?php if (in_array($authUser['user_role'], ['admin.root', 'user.tenant', 'user.landlord'])) { ?>
 							<div class="col-md-6 col-sm-6  form-group has-feedback">
 								<label set-required><?= __('user_role') ?></label>
 								<div class="div">
@@ -312,13 +313,13 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 										'label' => false,
 										'type' => 'select',
 										'ng-model' => 'rec.user.user_role',
-										'options' => $this->Do->lcl($this->Do->get('AdminRoles')),
+										//'options' => $this->Do->lcl($this->Do->get('AdminRoles')),
 										'empty' => __('select_role'),
 									]) ?>
 									<span class="fa fa-flash form-control-feedback left" aria-hidden="true"></span>
 								</div>
 							</div>
-						<?php } ?>
+						<?php } ?> -->
 
 						<div class="clearfix"></div>
 						<div class="col-md-12 col-sm-12  form-group has-feedback ">

@@ -26,13 +26,13 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 						<!-- <div class="col-md-12 col-sm-12  form-group has-feedback" ng-if="rec.expense.id">
 							<h2><?= __('id') ?> : {{rec.expense.id}}</h2>
 						</div> -->
-						<div class=" col-6 col-sm-6 col-md-6 ">
+						<!-- <div class=" col-6 col-sm-6 col-md-6 ">
 							<span class="icn">
 								<a href data-toggle="modal" data-target="#docs_mdl" data-dismiss="modal" class="btn btn-info">
 									<span class="fa fa-search"></span> <span class="hideMob"><?= __('document') ?></span>
 								</a>
 							</span>
-						</div>
+						</div> -->
 						<div class="col-md-6 col-6  form-group has-feedback">
 							<label set-required><?= __('expense_type') ?></label>
 							<div class="div">
@@ -43,7 +43,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 									'class' => 'form-control has-feedback-left',
 									'ng-model' => 'rec.expense.expense_type'
 								]) ?>
-								<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
+								<span class="fa fa-qrcode form-control-feedback left" aria-hidden="true"></span>
 							</div>
 						</div>
 
@@ -58,7 +58,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 									'only-numbers' => '',
 									'config' => "{group:'.',decimal:'.', decimalSize: 0,indentation:''}"
 								]) ?>
-								<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
+								<span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
 							</div>
 						</div>
 
@@ -75,33 +75,20 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 								<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
 							</div>
 						</div>
-						<div class="col-md-6 col-6  form-group has-feedback">
-							<label><?= __('expense_description') ?></label>
-							<div class="div">
-								<?= $this->Form->control('expense_description ', [
-									'label' => false,
-									'type' => 'textarea',
-									'class' => 'form-control has-feedback-left',
-									'ng-model' => 'rec.expense.expense_description ',
-
-								]) ?>
-								<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
-							</div>
-						</div>
-
+						
 						<div class="col-md-6 col-sm-6 form-group has-feedback">
-							<label><?= __('category_id') ?></label>
+							<label><?= __('Expense Category') ?></label>
 							<div class="div">
 
 								<!-- Client select input -->
 								<select class="form-control has-feedback-left" ng-model="rec.expense.category_id" ng-change="onClientSelectionChange()">
-									<option value="">Select Category</option>
-									<option value="add_client">Add Category</option>
+									<option value="">Select Expense Category</option>
+									<!-- <option value="add_client">Add Category</option> -->
 									<?php foreach ($optionsExpenses as $key => $option) : ?>
 										<option value="<?= $key ?>"><?= $option ?></option>
 									<?php endforeach; ?>
 								</select>
-								<span class="fa fa-sale form-control-feedback left" aria-hidden="true"></span>
+								<span class="fa fa-object-group form-control-feedback left" aria-hidden="true"></span>
 							</div>
 						</div>
 
@@ -117,12 +104,25 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 									'required' => 'required',
 
 								]) ?>
-								<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
+								<span class="fa fa-user-circle-o form-control-feedback left" aria-hidden="true"></span>
 								<!-- <button ng-click="doClick" class="onfly_btn"><i class="fa fa-search"></i></button> -->
 							</div>
 						</div>
+						<div class="col-md-12 col-12  form-group has-feedback">
+							<label><?= __('expense_description') ?></label>
+							<div class="div">
+								<?= $this->Form->control('expense_description ', [
+									'label' => false,
+									'type' => 'textarea',
+									'class' => 'form-control has-feedback-left',
+									'ng-model' => 'rec.expense.expense_description ',
 
-						<div class="clearfix"></div>
+								]) ?>
+								<span class="fa fa-file-word-o form-control-feedback left" aria-hidden="true"></span>
+							</div>
+						</div>
+
+						<!-- <div class="clearfix"></div>
 
 						<div class="form-group ">
 							<div class="col-md-12 col-sm-6  form-group has-feedback ">
@@ -152,7 +152,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 								]) ?>
 								<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
 							</div>
-						</div>
+						</div> -->
 						<div class="clearfix"></div>
 						<div class="form-group ">
 							<div class="col-md-12 col-sm-6  form-group has-feedback ">

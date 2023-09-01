@@ -65,7 +65,7 @@
 							</div>
 						</div>
 						
-
+<!-- 
 						<div class="col-md-12 col-sm-12  form-group has-feedback">
 							<label><?= __('category_configs.icon') ?></label>
 							<div class="div">
@@ -78,7 +78,7 @@
 								<span class="fa {{rec.category.category_configs.icon||'fa-tag'}} form-control-feedback left" aria-hidden="true"></span>
 							</div>
 							<div class="icons_div"></div>
-						</div>
+						</div> -->
 
 						<div class="clearfix"></div>
 

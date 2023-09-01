@@ -37,7 +37,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 									'class' => 'form-control has-feedback-left',
 									'ng-model' => 'rec.inspect.user_id'
 								]) ?>
-								<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
+								<span class="fa fa-user-circle form-control-feedback left" aria-hidden="true"></span>
 							</div>
 						</div>
 
@@ -53,7 +53,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 									'ng-model' => 'rec.inspect.service_id',
 									'chk' => 'isNumber'
 								]) ?>
-								<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
+								<span class="fa fa-navicon form-control-feedback left" aria-hidden="true"></span>
 							</div>
 						</div>
 
@@ -66,7 +66,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 									'class' => 'form-control has-feedback-left',
 									'ng-model' => 'rec.inspect.inspect_desc'
 								]) ?>
-								<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
+								<span class="fa fa-sticky-note-o form-control-feedback left" aria-hidden="true"></span>
 							</div>
 						</div>
 						<div class="col-md-6 col-6  form-group has-feedback">
@@ -79,7 +79,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 									<option value="add_inspect">Add inspect_rate</option>
 									<!-- <option ng-repeat="(ownerId, ownerName) in DtSetter('ownerList', 'list')" value="{{ownerId}}">{{ownerName}}</option> -->
 								</select>
-								<span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+								<span class="fa fa-quote-left form-control-feedback left" aria-hidden="true"></span>
 							</div>
 						</div>
 						<!-- <?= $this->Form->control('inspect_rate', [
