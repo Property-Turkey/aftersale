@@ -128,6 +128,20 @@ class ServicesController extends AppController
                 $dt['id'] = null;
                 $dt['user_id'] = $this->authUser['id'];
 
+                // Çekilen property_ref değerini kullanarak property_id'yi çekin
+                $propertyRef = $dt['property_id'];
+                //dd($propertyRef);
+                $property = $this->Services->Properties->find()
+                    ->select(['id'])
+                    ->where(['property_ref' => $propertyRef])
+                    ->first();
+                if ($property) {
+                    $dt['property_id'] = $property->id;
+                } else {
+                    echo json_encode(["status" => "FAIL", "data" => "Geçersiz property_ref değeri"]);
+                    die();
+                }
+
                 $rec = $this->Services->newEntity($dt);
             }
             unset($dt['property']);

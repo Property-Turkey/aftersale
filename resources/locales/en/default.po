@@ -753,5 +753,20 @@ msgstr "Logs List"
 msgid "log_url"
 msgstr "Log Url"
 
+msgid "doc_allowed_roles"
+msgstr "Document Allowed Roles"
+
+msgid "doc_file"
+msgstr "Document File"
+
+msgid "doc_desc"
+msgstr "Document Description"
+
+msgid "upload_and_save"
+msgstr "Upload and Save"
+
+msgid "upload_file"
+msgstr "Upload File"
+
 
 

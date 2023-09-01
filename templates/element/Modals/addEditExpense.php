@@ -17,21 +17,16 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 
 				<ul class="nav nav-tabs" role="tablist">
 					<li class="nav-item">
-						<a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Expenses</a>
+						<a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Expense</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">Document</a>
 					</li>
-
 				</ul>
-
 				<!-- Tab panes -->
 				<div class="tab-content">
 					<div class="tab-pane active" id="tabs-1" role="tabpanel">
 						<div class="x_content">
-
-
-
 							<button ng-click="
 						doGet('/admin/expenses/index?list=1', 'list', 'expenses');
 						newEntity('expense');
@@ -112,7 +107,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 									</div>
 								</div>
 								<div class="col-md-6 col-sm-6 form-group has-feedback">
-									<label><?= __('Expense Category') ?></label>
+									<label set-required ><?= __('Expense Category') ?></label>
 									<div class="div">
 
 										<!-- Client select input -->
@@ -200,6 +195,12 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 						</div>
 					</div>
 					<div class="tab-pane" id="tabs-2" role="tabpanel">
+						<?php
+						$ctrl = strtolower($this->request->getParam('controller'));
+						$ctrls = ['expenses' => 'expense', 'services' => 'service', 'owners' => 'owner', 'tenants' => 'tenant'];
+						$tar_tbls = ['expenses' => '2', 'services' => '1', 'owners' => '3', 'tenants' => '4'];
+						$isDocs = in_array($authUser['user_role'], ['admin.root', 'admin.admin', 'admin.supervisor', 'admin.portfolio']);
+						?>
 						<?php if ($isDocs) { ?>
 							<div>
 								<div class="row">
@@ -208,12 +209,10 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 									</div>
 									<div class="col-6 col-lg-6 text-right">
 										<button class="btn btn-primary" type="button" ng-click="addDocument = addDocument == 1 ? 0 : 1">
-											<i class="fa fa-plus"></i> <span class="hideMob"><?= __('upload_file') ?></span>
+											<i class="fa fa-plus"></i> <span class="hideMob"><?= __('Upload File') ?></span>
 										</button>
 									</div>
 								</div>
-
-
 								<div class="row ngif" ng-if="addDocument == 1">
 									<div class="col-md-8 col-sm-8  form-group has-feedback">
 										<label><?= __('doc_allowed_roles') ?></label>
@@ -235,7 +234,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 
 									<div class="row ngif" ng-if="addDocument == 1">
 										<div class="col-md-8 col-sm-8 form-group has-feedback">
-											<label><?= __('doc_allowed_roles') ?></label>
+											<!-- <label><?= __('doc_allowed_roles') ?></label> -->
 											<div class="div">
 												<label ng-repeat="role in adminRoles">
 													<input type="checkbox" ng-model="rec.doc.doc_allowed_roles[role.value]"> {{ role.label }}
@@ -285,7 +284,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
                                         rec.doc.tar_tbl_name = '<?= $ctrl ?>';
                                         doSave(rec.doc, 'doc', 'docs', '#<?= $ctrls[$ctrl] ?>_btn', '#doc_preloader');
                                     " id="doc_preloader" class="btn btn-info">
-											<span></span> <i class="fa fa-save"></i> <?= __('upload_and_save') ?>
+											<span></span> <i class="fa fa-save"></i> <?= __('Upload and Save') ?>
 										</button>
 
 										<button type="button" ng-if="rec.doc.id" ng-click="newEntity('doc');" class="btn btn-primary">
