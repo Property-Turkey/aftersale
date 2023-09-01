@@ -234,8 +234,10 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                         <span class="text-truncate">stat_created:<br>{{ itm.stat_created }}</span>
 
                                     </div> -->
-                                <div class="col-md-2 greenText">{{itm.stat_created}}---
-                                    <span>{{setDate (itm.stat_created, [0,0,itm.service_contract_period,0,0,0], 'onlydate')}}</span>
+                                <div class="col-md-2 ">
+                                <div class="col-md-1 col-8">{{ itm.expiration_date }} </div> 
+
+                                    <!-- <span>{{setDate (itm.stat_created, [0,0,itm.service_contract_period,0,0,0], 'onlydate')}}</span> -->
                                 </div>
                                 <!-- </div> -->
 

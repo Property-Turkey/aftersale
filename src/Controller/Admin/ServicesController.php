@@ -81,10 +81,10 @@ class ServicesController extends AppController
                 ]);
                 $data = $this->Do->convertJson($this->paginate($data));
             }
-            // //expiration date 
-            // foreach ($data as &$service) {
-            //     $service['expiration_date'] = date('Y-m-d H:i:s', strtotime($service['stat_created'] . ' + ' . $service['service_contract_period'] . ' days'));
-            // }
+            //expiration date 
+            foreach ($data as &$service) {
+                $service['expiration_date'] = date('Y-m-d H:i:s', strtotime($service['stat_created'] . ' + ' . $service['service_contract_period'] . ' days'));
+            }
             echo json_encode(
                 ["status" => "SUCCESS",  "data" => $data, "paging" => $this->request->getAttribute('paging')],
                 JSON_UNESCAPED_UNICODE

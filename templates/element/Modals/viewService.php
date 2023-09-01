@@ -48,7 +48,7 @@
 
                             <div class="grid_row row">
                                 <div class="col-md-3 grid_header2"><?= __('expiration_date') ?></div>
-                                <div class="col-md-9 notwrapped">{{ rec.service.expiration_date}}</div>
+                                <div class="col-md-9 notwrapped">{{ rec.expiration_date}}</div>
                             </div>
                             
                             <div class="grid_row row">
