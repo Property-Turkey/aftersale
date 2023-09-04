@@ -49,7 +49,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 										<!-- Client select input -->
 										<select class="form-control has-feedback-left" ng-model="rec.service.owner_id" ng-change="onClientSelectionChange()">
 											<option value="">Select Owner</option>
-											<option value="add_client">Add Owner</option>
+											<option value="add_client">Add New Owner</option>
 											<option ng-repeat="(ownerId, ownerName) in DtSetter('ownerList', 'list')" value="{{ownerId}}">{{ownerName}}</option>
 										</select>
 										<span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
@@ -255,9 +255,9 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
             rec.user.id>0 ? '' : rec.user = {};
             doClick('.close');
           "></button>
-
 							<form class="row" id="user_form" ng-show="showAddClientForm" ng-submit="
-            rec.user.img = filesInfo.user_photos;
+							rec.user.user_role = 'user.owner';
+							
             doSave(rec.user, 'user', 'users', '#user_btn', '#user_preloader');">
 
 
@@ -289,8 +289,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 									</div>
 								</div>
 
-						
-								<div class="col-md-6 col-sm-6  form-group has-feedback">
+								<!-- <div class="col-md-6 col-sm-6  form-group has-feedback">
 									<label set-required><?= __('password') ?></label>
 									<div class="div">
 										<?= $this->Form->control('password', [
@@ -299,15 +298,14 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 											'type' => 'password',
 											'ng-model' => 'rec.user.password',
 											//'ng-readonly'=>true,
-											'value' => $generatedPassword,				
+											//'value' => $generatedPassword,				
 											// 'placeholder' => __('Property123'),
 										]) ?>
 										<span class="fa fa-lock form-control-feedback left" aria-hidden="true"></span>
 									</div>
-								</div>
+								</div> -->
 
 								<div class="col-md-12 col-sm-12 mb-2 mt-2"> </div>
-
 								<div class="col-md-6 col-sm-6  form-group has-feedback">
 									<label><?= __('mobile') ?></label>
 									<div class="div">
@@ -336,8 +334,8 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 										<span class="fa fa-map-marker form-control-feedback left" aria-hidden="true"></span>
 									</div>
 								</div>
-
-								<!-- <?php if (in_array($authUser['user_role'], ['admin.root', 'user.tenant', 'user.landlord'])) { ?>
+<!-- 
+								 <?php if (in_array($authUser['user_role'], ['admin.root', 'user.tenant', 'user.owner'])) { ?>
 							<div class="col-md-6 col-sm-6  form-group has-feedback">
 								<label set-required><?= __('user_role') ?></label>
 								<div class="div">
@@ -345,15 +343,15 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 												'class' => 'form-control has-feedback-left',
 												'label' => false,
 												'type' => 'select',
-												'ng-model' => 'rec.user.user_role',
-												//'options' => $this->Do->lcl($this->Do->get('AdminRoles')),
-												'empty' => __('select_role'),
+												'ng-model' => 'rec.user.user.owner',
+												//'value'=>'user.owner',
+												//'options' =>  ['user.owner' => __('user.owner')],
+												//'empty' => __('user.owner'),
 											]) ?>
 									<span class="fa fa-flash form-control-feedback left" aria-hidden="true"></span>
 								</div>
-							</div>
-						<?php } ?> -->
-
+							</div>							
+						<?php } ?>					 -->
 								<div class="clearfix"></div>
 								<div class="col-md-12 col-sm-12  form-group has-feedback ">
 									<button type="submit" class="btn btn-info" id="user_preloader"><span></span> <i class="fa fa-save"></i> <?= __('save') ?></button>

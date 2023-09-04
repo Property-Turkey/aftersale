@@ -7,6 +7,8 @@ use App\Controller\AppController;
 use Cake\Event\EventInterface;
 use Cake\Datasource\ConnectionManager;
 
+
+
 class UsersController extends AppController
 {
     
@@ -286,6 +288,10 @@ class UsersController extends AppController
             $rec = $this->Users->newEmptyEntity();
             $dt['id'] = null;
             $dt['stat_created'] = date('Y-m-d H:i:s');
+            
+            //Create new user and uniq password
+            $password = $this->Do->setPW();             
+            $dt['password'] = $password;
         }
         if ($this->request->is(['post', 'patch', 'put'])) {
             
