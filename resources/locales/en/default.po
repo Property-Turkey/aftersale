@@ -658,6 +658,9 @@ msgid "package_id"
 msgstr "Package Name"
 msgid "add_service"
 msgstr "Add Service"
+msgid "property_ref"
+msgstr "Property Ref"
+
 
 
 msgid "packages_list"

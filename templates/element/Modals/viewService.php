@@ -43,7 +43,8 @@
 
                             <div class="grid_row row">
                                 <div class="col-md-3 grid_header2"><?= __('service_price') ?></div>
-                                <div class="col-md-9 notwrapped">{{DtSetter('currencies_icons', rec.service.service_currency)}} {{ rec.service.service_price }} </div></div>
+                                <div class="col-md-9 notwrapped">{{DtSetter('currencies_icons', rec.service.service_currency)}} {{ rec.service.service_price }} </div>
+                           
                             </div>
                             
                             <div class="grid_row row">
@@ -70,7 +71,7 @@
                                 <div class="col-md-3 grid_header2"><?= __('rec_state') ?></div>
                                 <div class="col-md-9 notwrapped" ng-bind-html="DtSetter( 'bool2', rec.service.rec_state )"></div>
                             </div>
-
+                            </div>
                         </div>
                     </div>
                 </div>
