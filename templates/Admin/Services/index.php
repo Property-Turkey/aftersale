@@ -235,7 +235,7 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
 
                                     </div> -->
                                 <div class="col-md-2 ">
-                                <div class="col-md-1 col-8">{{ itm.expiration_date }} </div> 
+                                <div class="text-success col-md-1 col-8">{{ itm.expiration_date }} </div> 
 
                                     <!-- <span>{{setDate (itm.stat_created, [0,0,itm.service_contract_period,0,0,0], 'onlydate')}}</span> -->
                                 </div>

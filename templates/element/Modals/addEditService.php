@@ -363,6 +363,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 						<?php
 						$ctrl = strtolower($this->request->getParam('controller'));
 						$ctrls = ['expenses' => 'expense', 'services' => 'service', 'owners' => 'owner', 'tenants' => 'tenant'];
+						
 						$tar_tbls = ['expenses' => '2', 'services' => '1', 'owners' => '3', 'tenants' => '4'];
 						$isDocs = in_array($authUser['user_role'], ['admin.root', 'admin.admin', 'admin.supervisor', 'admin.portfolio']);
 						?>

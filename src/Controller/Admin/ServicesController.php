@@ -85,6 +85,7 @@ class ServicesController extends AppController
             foreach ($data as &$service) {
                 $service['expiration_date'] = date('Y-m-d H:i:s', strtotime($service['stat_created'] . ' + ' . $service['service_contract_period'] . ' days'));
             }
+            
             echo json_encode(
                 ["status" => "SUCCESS",  "data" => $data, "paging" => $this->request->getAttribute('paging')],
                 JSON_UNESCAPED_UNICODE

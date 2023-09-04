@@ -199,6 +199,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 						$ctrl = strtolower($this->request->getParam('controller'));
 						$ctrls = ['expenses' => 'expense', 'services' => 'service', 'owners' => 'owner', 'tenants' => 'tenant'];
 						$tar_tbls = ['expenses' => '2', 'services' => '1', 'owners' => '3', 'tenants' => '4'];
+
 						$isDocs = in_array($authUser['user_role'], ['admin.root', 'admin.admin', 'admin.supervisor', 'admin.portfolio']);
 						?>
 						<?php if ($isDocs) { ?>
@@ -279,7 +280,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 									<div class="col-md-12 col-12 ">
 										<button type="button" ng-click="
                                         rec.doc.file = filesInfo.doc_file;
-                                        rec.doc.tar_id = rec.<?= $ctrls[$ctrl] ?>.id;
+                                        rec.doc.tar_id = rec.<?= $ctrls[$ctrl] ?>.id;										
                                         rec.doc.tar_tbl = '<?= $tar_tbls[$ctrl] ?>';
                                         rec.doc.tar_tbl_name = '<?= $ctrl ?>';
                                         doSave(rec.doc, 'doc', 'docs', '#<?= $ctrls[$ctrl] ?>_btn', '#doc_preloader');
