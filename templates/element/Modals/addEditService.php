@@ -19,7 +19,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 						<a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Service</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">Document</a>
+						<a class="nav-link" data-toggle="tab" href="#tabs-2" ng-click="addDocument = 1">Document</a>
 					</li>
 				</ul>
 				<!-- Tab panes -->
@@ -372,12 +372,12 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 									<div class="col-6 col-lg-6">
 										<h4> </h4>
 									</div>
-									<div class="col-6 col-lg-6 text-right">
+									<!-- <div class="col-6 col-lg-6 text-right">
 										<button class="btn btn-primary" type="button" ng-click="addDocument = addDocument == 1 ? 0 : 1">
 											<i class="fa fa-plus"></i> <span class="hideMob"><?= __('Upload File') ?></span>
 										</button>
 									</div>
-								</div>
+								</div> -->
 								<div class="row ngif" ng-if="addDocument == 1">
 									<div class="col-md-8 col-sm-8  form-group has-feedback">
 										<label><?= __('doc_allowed_roles') ?></label>

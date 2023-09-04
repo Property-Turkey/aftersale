@@ -42,6 +42,11 @@
                             </div>
 
                             <div class="grid_row row">
+                                <div class="col-md-3 grid_header2"><?= __('service_price') ?></div>
+                                <div class="col-md-9 notwrapped">{{DtSetter('currencies_icons', rec.service.service_currency)}} {{ rec.service.service_price }} </div></div>
+                            </div>
+                            
+                            <div class="grid_row row">
                                 <div class="col-md-3 grid_header2"><?= __('service_contract_period') ?></div>
                                 <div class="col-md-9 notwrapped">{{ rec.service.service_contract_period}}</div>
                             </div>
@@ -55,12 +60,7 @@
                                 <div class="col-md-3 grid_header2"><?= __('stat_created') ?></div>
                                 <div class="col-md-9 notwrapped">{{ rec.service.stat_created}}</div>
                             </div>
-
-                            <div class="grid_row row">
-                                <div class="col-md-3 grid_header2"><?= __('service_price') ?></div>
-                                <div class="col-md-9 notwrapped">{{DtSetter('currencies_icons', rec.service.service_currency)}} {{ rec.service.service_price }} </div></div>
-                            </div>
-
+          
                             <div class="grid_row row">
                                 <div class="col-md-3 grid_header2"><?= __('service_desc') ?></div>
                                 <div class="col-md-9 notwrapped">{{rec.service.service_desc}}</div>
