@@ -31,11 +31,7 @@ class ServicesTable extends Table
             'className' => 'Users',
             'foreignKey' => 'tenant_id',
         ]);
-        $this->belongsTo('Docs', [
-            'className' => 'Docs',
-            'foreignKey' => 'id',
-        ]);
-        $this->belongsTo('TarId', [
+        $this->hasMany('Docs', [
             'className' => 'Docs',
             'foreignKey' => 'tar_id',
         ]);

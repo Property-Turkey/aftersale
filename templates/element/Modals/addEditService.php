@@ -337,9 +337,7 @@ $parent_id = isset($this->request->getParam("pass")[0])
 						<?php } ?>					 -->
 						<div class="clearfix"></div>
 						<div class="col-md-12 col-sm-12  form-group has-feedback ">
-							<button type="submit" class="btn btn-info" id="user_preloader"><span></span> <i class="fa fa-save"></i> <?= __(
-																																		"save"
-																																	) ?></button>
+							<button type="submit" class="btn btn-info" id="user_preloader"><span></span> <i class="fa fa-save"></i> <?= __("save") ?></button>																																																																		
 						</div>
 					</form>
 				</div>

@@ -35,6 +35,11 @@ class ExpensesTable extends Table
             'className' => 'Categories',
             'foreignKey' => 'category_id',
         ]);
+        $this->hasMany('Docs', [
+            'className' => 'Docs',
+            'foreignKey' => 'tar_id',
+        ]);
+        
         $this->belongsTo('Services', [
             'foreignKey' => 'owner_id',
             'className' => 'Services',

@@ -55,8 +55,8 @@
                         <div class="grid">
                             <div class="container">                                             
                                     <div class="grid">
-                                <div class="col-md-3 grid_header2"><?= __('tar_id') ?></div>
-                                <div class="col-md-9 notwrapped">{{ rec.docs.tar_id}}</div>
+                                <div class="col-md-3 grid_header2"><?= __('document') ?></div>
+                                <div class="col-md-9 notwrapped">{{rec.expense.docs}}</div>
                             </div>                                                                                                  
                         </div>
                     </div>

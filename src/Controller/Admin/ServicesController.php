@@ -17,12 +17,15 @@ class ServicesController extends AppController
 
             $this->autoRender = false;
 
+            $dt = json_decode(file_get_contents('php://input'), true);
+            // dd($dt);
+            $_method = !empty($_GET['method']) ? $_GET['method'] : '';
             $conditions = [];
 
             // Filters and Search
             $_from = !empty($_GET['from']) ? $_GET['from'] : '';
             $_to = !empty($_GET['to']) ? $_GET['to'] : '';
-
+            $_tags = isset($_GET['tags']) ? $_GET['tags'] : false;
             $_method = !empty($_GET['method']) ? $_GET['method'] : '';
             $_col = !empty($_GET['col']) ? $_GET['col'] : 'id';
             $_k = (isset($_GET['k']) && strlen($_GET['k']) > 0) ? $_GET['k'] : false;
@@ -51,11 +54,11 @@ class ServicesController extends AppController
                         'Owner' => ['fields' => ['user_fullname']],
                         'Packages' => ['fields' => ['package_name']],
                         'Properties' => ['fields' => ['Properties.property_ref']],
-                        'Docs' => ['fields' => ['tar_id']],
+                        'Docs' => ['fields' => ['Docs.tar_id', 'Docs.id', 'Docs.doc_name']],
                         //'TarId'=>['fields'=>['id']],
                     ]
                 ])->toArray();
-//dd($data);
+
                 $data = $this->Do->convertJson($data);
                 echo json_encode(
                     ["status" => "SUCCESS",  "data" => $this->Do->convertJson($data)],
@@ -77,10 +80,10 @@ class ServicesController extends AppController
                         'Packages' => ['fields' => ['Packages.package_name']],
                         'Properties' => ['fields' => ['Properties.property_ref', 'Properties.id']],
                         //'Docs' => ['fields' => ['Docs.tar_id']],
-                     
+
                     ]
                 ]);
-       
+
                 //dd($data);
                 $data = $this->Do->convertJson($this->paginate($data));
             }
@@ -120,7 +123,7 @@ class ServicesController extends AppController
 
         //dd($tarId);
 
-        $this->set(compact('tenants', 'owners', 'packages', 'Properties', ));
+        $this->set(compact('tenants', 'owners', 'packages', 'Properties',));
     }
 
     public function save($id = -1)
@@ -132,7 +135,7 @@ class ServicesController extends AppController
             // Edit mode
             if ($this->request->is(['patch', 'put'])) {
                 $rec = $this->Services->get($dt['id']);
-                if(isset($dt['property'][0]['value'])){
+                if (isset($dt['property'][0]['value'])) {
                     $rec->property_id = $dt['property'][0]['value'];
                 }
             }
@@ -152,7 +155,7 @@ class ServicesController extends AppController
                 //     echo json_encode(["status" => "FAIL", "data" => "Geçersiz property_ref değeri"]);
                 //     die();
                 // }
-                if(isset($dt['property'][0]['value'])){
+                if (isset($dt['property'][0]['value'])) {
                     $rec->property_ref = $dt['property'][0]['value'];
                 }
 

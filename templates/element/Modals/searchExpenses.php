@@ -34,13 +34,13 @@ $prefix = $this->request->getParam('controller') == 'Properties' ? 'PROP' : 'PRO
                                                     <select class="form-control selectpicker" ng-model="rec.search.project_id" data-live-search="true" multiple="true" multi-select="1" data-done-button="true" actn="doClick('#submit_btn')" data-size="6">
                                                         <option ng-value="key" ng-repeat="(key, itm) in lists.projects_list">{{itm}}</option>
                                                     </select>
-                                                    <!-- <span class="fa fa-building-o form-control-feedback left" aria-hidden="true"></span> -->
+                                                    <span class="fa fa-building-o form-control-feedback left" aria-hidden="true"></span> -->
                         </div>
                     </div>
 
 
                 </div>
-            <?php } ?> -->
+            <?php } ?> 
 
 
             </div>

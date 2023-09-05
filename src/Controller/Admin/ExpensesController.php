@@ -60,6 +60,7 @@ class ExpensesController extends AppController
                         //         'Users' => ['fields' => ['user_fullname']],                        
                         //         'Owner' => ['fields' => ['user_fullname']],
                         'Owner' => ['fields' => ['user_fullname']],
+                        'Docs' => ['fields' => ['Docs.tar_id', 'Docs.id', 'Docs.doc_name']],
                     ]
                 ])->toArray();
                 $data = $this->Do->convertJson($data);

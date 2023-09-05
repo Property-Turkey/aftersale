@@ -62,15 +62,12 @@
                                 <div class="col-md-3 grid_header2"><?= __('service_contract_period') ?></div>
                                 <div class="col-md-9 notwrapped">{{ rec.service.service_contract_period}}</div>
                             </div>
-
                             <div class="grid_row row">
                                 <div class="col-md-3 grid_header2"><?= __('expiration_date') ?></div>
-                                <div class="col-md-9 notwrapped" ng-class="{ 'text-warning': isExpiringSoon(rec.service.stat_created, rec.service.service_contract_period) }">{{ rec.expiration_date}}</div>
-                                <div class="text-success col-md-2 col-8" ng-class="{ 'text-warning': isExpiringSoon(itm.stat_created, itm.service_contract_period) }">
-                                        {{ itm.expiration_date }}
-                                    </div>
+                                <div class="col-md-9 notwrapped" ng-class="{ 'text-warning': isExpiringSoon(rec.expiration_date, rec.service.service_contract_period) }">
+                                    {{ rec.service.expiration_date }}
+                                </div>
                             </div>
-
                             <div class="grid_row row">
                                 <div class="col-md-3 grid_header2"><?= __('stat_created') ?></div>
                                 <div class="col-md-9 notwrapped">{{ rec.service.stat_created}}</div>
@@ -79,7 +76,7 @@
                             <div class="grid_row row">
                                 <div class="col-md-3 grid_header2"><?= __('service_desc') ?></div>
                                 <div class="col-md-9 notwrapped">{{rec.service.service_desc}}
-                                {{ rec.service.docs.doc_name}}
+                                    {{ rec.service.docs.doc_name}}
                                 </div>
                             </div>
 
@@ -93,10 +90,10 @@
                     <div class="tab-pane" id="tab2">
                         <div class="grid">
                             <div class="grid_row row">
-                                <div class="col-md-3 grid_header2"><?= __('tar_id') ?></div>
-                                <div class="col-md-9 notwrapped">{{ rec.service.docs.tar_id}} </div>
+                                <div class="col-md-3 grid_header2"><?= __('document') ?></div>
+                                <div class="col-md-9 notwrapped">{{rec.service.docs}}</div>
                             </div>
-                           
+
                         </div>
                     </div>
                 </div>
