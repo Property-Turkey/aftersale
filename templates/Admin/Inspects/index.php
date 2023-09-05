@@ -93,14 +93,6 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                     <?= $this->element('colActions', ['url' => 'inspects/index/', 'col' => 'user_id']) ?>
                                     <?= __('user_id') ?> </div>
 
-                                <!-- <div class="col-sm-2 col">
-                                    <?= $this->element('colActions', ['url' => 'inspects/index/', 'col' => 'service_id ']) ?> 
-                                    <?= __('service_id ') ?> </div> -->
-
-                                <!-- <div class="col-sm-2 col">
-                                    <?= $this->element('colActions', ['url' => 'inspects/index/', 'col' => 'inspect_desc']) ?> 
-                                    <?= __('inspect_desc') ?> </div> -->
-
                                 <div class="col-sm-2 col">
                                     <?= $this->element('colActions', ['url' => 'inspects/index/', 'col' => 'stat_created']) ?>
                                     <?= __('stat_created') ?> </div>
@@ -134,14 +126,7 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
 
                                 <div class="col-4 hideWeb grid_header"><?= __('user_id ',) ?></div>
                                 <div class="col-md-2 col-8">{{ itm.user.user_fullname }} </div>
-
-                                <!-- 
-                                <div class="col-4 hideWeb grid_header"><?= __('service_id ') ?></div>
-                                <div class="col-md-2 col-8" ng-bind-html="DtSetter('', itm.service_id )"></div> -->
-
-                                <!-- <div class="col-4 hideWeb grid_header"><?= __('inspect_desc ') ?></div>
-                                <div class="col-md-2 col-8" ng-bind-html="DtSetter('', itm.inspect_desc )"></div> -->
-
+                          
                                 <div class="col-4 hideWeb grid_header"><?= __('stat_created ') ?></div>
                                 <div class="col-md-2 col-8"> {{itm.stat_created}}</div>
 

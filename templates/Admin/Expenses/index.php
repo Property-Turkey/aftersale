@@ -100,25 +100,21 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                     <?= $this->element('colActions', ['url' => 'expenses/index/', 'col' => 'expense_amount']) ?>
                                     <?= __('expense_amount') ?> </div>
 
-                                <!-- <div class="col-sm-2 col">
-                                    <?= $this->element('colActions', ['url' => 'expenses/index/', 'col' => 'expense_description']) ?>
-                                    <?= __('expense_description') ?> </div> -->
-
-                                    <div class="col-sm-1 col">
+                                <div class="col-sm-1 col">
                                     <?= $this->element('colActions', ['url' => 'expenses/index/', 'col' => 'category_id']) ?>
                                     <?= __('category_id') ?> </div>
 
-                                <!-- <div class="col-sm-2 col">
+                                <?php /* <div class="col-sm-2 col">
                                     <?= $this->element('colActions', ['url' => 'expenses/index/', 'col' => 'expense_currency', 'filter' => $this->Do->lcl($this->Do->get('currencies'))]) ?>
-                                    <?= __('expense_currency') ?> </div> -->
+                                    <?= __('expense_currency') ?> </div> 
 
-                                <!-- <div class="col-sm-1 col">
+                                <div class="col-sm-1 col">
                                     <?= $this->element('colActions', ['url' => 'expenses/index/', 'col' => 'stat_created']) ?>
-                                    <?= __('stat_created') ?> </div> -->
+                                    <?= __('stat_created') ?> </div> 
 
-                                <!-- <div class="col-sm-1 col">
+                                 <div class="col-sm-1 col">
                                     <?= $this->element('colActions', ['url' => 'expenses/index/', 'col' => 'rec_state', 'filter' => $this->Do->lcl($this->Do->get('rec_state'))]) ?>
-                                    <?= __('rec_state') ?> </div> -->
+                                    <?= __('rec_state') ?> </div>   */ ?>
 
 
                                 <div class="col-sm-1 col hideMob"><span class="nobr"><?= __('action') ?></span>
@@ -149,24 +145,20 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                 <div class="col-4 hideWeb grid_header"><?= __('expense_type') ?></div>
                                 <div class="col-md-2 col-8" ng-bind-html="DtSetter('', itm.expense_type) == 1 ? 'income' : 'outgoing'"></div>
 
-                                 <div class="col-4 hideWeb grid_header "><?= __('expense_amount') ?></div>
-                                 <div class="col-md-2 col-8" >{{DtSetter('currencies_icons', itm.expense_currency)}} {{ itm.expense_amount }} </div>
+                                <div class="col-4 hideWeb grid_header "><?= __('expense_amount') ?></div>
+                                <div class="col-md-2 col-8">{{DtSetter('currencies_icons', itm.expense_currency)}} {{ itm.expense_amount }} </div>
 
-
-                                <!-- <div class="col-4 hideWeb grid_header "><?= __('expense_description') ?></div>
-                                <div class="col-md-2 col-8">{{ itm.expense_description }} </div> -->
-                          
                                 <div class="col-4 hideWeb grid_header "><?= __('category_id') ?></div>
                                 <div class="col-md-1 col-8">{{ itm.category.category_name }} </div>
+                               
+                                <?php /* <div class="col-4 hideWeb grid_header"><?= __('expense_currency') ?></div>
+                                <div class="col-md-2 col-8" ng-bind-html="DtSetter('currency', itm.expense_currency)"></div> 
 
-                                <!-- <div class="col-4 hideWeb grid_header"><?= __('expense_currency') ?></div>
-                                <div class="col-md-2 col-8" ng-bind-html="DtSetter('currency', itm.expense_currency)"></div> -->
+                                 <div class="col-4 hideWeb grid_header"><?= __('stat_created ') ?></div>
+                                <div class="col-md-1 col-8">{{ itm.stat_created }} </div> 
 
-                                <!-- <div class="col-4 hideWeb grid_header"><?= __('stat_created ') ?></div>
-                                <div class="col-md-1 col-8">{{ itm.stat_created }} </div> -->
-
-                                <!-- <div class="col-4 hideWeb grid_header"><?= __('rec_state') ?></div>
-                                <div class="col-md-1 col-8" ng-bind-html="DtSetter('rec_state', itm.rec_state)"></div> -->
+                               <div class="col-4 hideWeb grid_header"><?= __('rec_state') ?></div>
+                                <div class="col-md-1 col-8" ng-bind-html="DtSetter('rec_state', itm.rec_state)"></div> */ ?>
 
 
                                 <div class="col-4 hideWeb grid_header"><?= __('actions') ?></div>

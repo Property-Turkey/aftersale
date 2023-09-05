@@ -80,19 +80,19 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                     </label>
                                 </div>
 
-                                <!-- <div class="col-sm-3 col">
+                                <?php /*  <div class="col-sm-3 col">
                                     <?= $this->element('colActions', ['url' => 'services/index/', 'col' => 'docs_information']) ?>
                                     <?= __('docs_information') ?> </div> -->
 
-                                <!-- <div class="col-sm-2 col">
+                                <div class="col-sm-2 col">
                                     <?= $this->element('colActions', ['url' => 'services/index/', 'col' => 'price']) ?>
-                                    <?= __('price') ?> </div> -->
+                                    <?= __('price') ?> </div> -->  */?>
 
                                 <div class="col-sm-4 col">
                                     <?= $this->element('colActions', ['url' => 'docs/index/', 'col' => 'doc_name']) ?> 
-                                    <?= __('doc_name') ?> </div> 
-                                
-                                <!-- <div class="col-sm-1 col">
+                                    <?= __('doc_name') ?> </div>                            
+                                                            
+                                    <?php /* <div class="col-sm-1 col">
                                     <?= $this->element('colActions', ['url' => 'docs/index/', 'col' => 'doc_desc']) ?> 
                                     <?= __('doc_desc') ?> </div> -->
 
@@ -122,7 +122,7 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
 
                                 <!-- <div class="col-sm-2 col">
                                     <?= $this->element('colActions', ['url' => 'docs/index/', 'col' => 'rec_state']) ?>
-                                    <?= __('rec_state') ?> </div> -->
+                                    <?= __('rec_state') ?> </div>*/?>
 
 
                                 <div class="col-sm-2 col hideMob"><span class="nobr"><?= __('action') ?></span>
@@ -161,16 +161,11 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                     <div style="color:black;">
                                     {{ itm.doc_price }} {{DtSetter('currency', itm.doc_currency )}}
                                     </div>
-                                    <div class="redtext">
-                                    <!-- <span ng-bind-html="DtSetter('currency', itm.doc_currency )"></span> -->
-                                        <!-- doc_currency: {{ itm.doc_currency }} -->
-                                    </div>
-                                    <!-- <div style="color:blue;">
-                                        doc_cpi: {{ itm.doc_cpi }}
-                                    </div> -->
+                                    <div class="redtext">                      
                                 </div>
 
-                                <!-- <div class="col-4 hideWeb grid_header"><?= __('doc_name ') ?></div>
+                              
+                                <?php /* <div class="col-4 hideWeb grid_header"><?= __('doc_name ') ?></div>
                                 <div class="col-md-1 col-8" ng-bind-html="DtSetter('', itm.doc_name )"></div>
 
                                 <div class="col-4 hideWeb grid_header"><?= __('doc_desc ') ?></div>
@@ -195,7 +190,7 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                 <div class="col-md-2 col-8">{{ itm.stat_updated }} </div> -->
 
                                 <!-- <div class="col-2 hideWeb grid_header"><?= __('rec_state') ?></div>
-                                <div class="col-md-2 col-8" ng-bind-html="DtSetter('rec_state', itm.rec_state)"></div> -->
+                                <div class="col-md-2 col-8" ng-bind-html="DtSetter('rec_state', itm.rec_state)"></div> */?>
 
                                 <div class="col-4 hideWeb grid_header"><?= __('actions') ?></div>
                                 <div class="col-md-2 col-8 action">

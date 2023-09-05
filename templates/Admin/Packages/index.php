@@ -80,29 +80,20 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                     </label>
                                 </div>
 
-                                <!-- <div class="col-sm-3 col">
-                                    <?= $this->element('colActions', ['url' => 'services/index/', 'col' => 'packages_information']) ?>
-                                    <?= __('packages_information') ?> </div> -->
-
-                                <!-- <div class="col-sm-2 col">
-                                    <?= $this->element('colActions', ['url' => 'services/index/', 'col' => 'price']) ?>
-                                    <?= __('price') ?> </div> -->
-
                                 <div class="col-sm-4 col">
                                     <?= $this->element('colActions', ['url' => 'packages/index/', 'col' => 'package_name']) ?> 
                                     <?= __('package_name') ?> </div> 
                                 
-                                <!-- <div class="col-sm-1 col">
+                                    <?php /*<div class="col-sm-1 col">
                                     <?= $this->element('colActions', ['url' => 'packages/index/', 'col' => 'package_desc']) ?> 
-                                    <?= __('package_desc') ?> </div> -->
-
-                                <!-- <div class="col-sm-1 col">
+                                    <?= __('package_desc') ?> </div> 
+                                 <div class="col-sm-1 col">
                                     <?= $this->element('colActions', ['url' => 'packages/index/', 'col' => ' package_price ']) ?> 
                                     <?= __('package_price ') ?> </div>
                                 
                                 <div class="col-sm-1 col">
                                     <?= $this->element('colActions', ['url' => 'packages/index/', 'col' => 'package_currency', 'filter' => $this->Do->lcl($this->Do->get('currencies'))]) ?>
-                                    <?= __('package_currency') ?> </div> -->
+                                    <?= __('package_currency') ?> </div> 
 
                                     <!-- <div class="col-sm-1 col">
                                     <?= $this->element('colActions', ['url' => 'packages/index/', 'col' => 'package_cpi ']) ?> 
@@ -110,19 +101,19 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
 
                                     <div class="col-sm-1 col">
                                     <?= $this->element('colActions', ['url' => 'packages/index/', 'col' => 'package_period']) ?>
-                                    <?= __('package_period') ?> </div> -->
+                                    <?= __('package_period') ?> </div> 
 
-                                <!-- <div class="col-sm-2 col">
+                                <div class="col-sm-2 col">
                                     <?= $this->element('colActions', ['url' => 'packages/index/', 'col' => 'stat_created ']) ?>
                                     <?= __('stat_created ') ?> </div>
 
                                 <div class="col-sm-2 col">
                                     <?= $this->element('colActions', ['url' => 'packages/index/', 'col' => ' 	stat_updated  ']) ?>
-                                    <?= __(' 	stat_updated  ') ?> </div> -->
+                                    <?= __(' 	stat_updated  ') ?> </div> 
 
-                                <!-- <div class="col-sm-2 col">
+                                 <div class="col-sm-2 col">
                                     <?= $this->element('colActions', ['url' => 'packages/index/', 'col' => 'rec_state']) ?>
-                                    <?= __('rec_state') ?> </div> -->
+                                    <?= __('rec_state') ?> </div> */ ?>
 
 
                                 <div class="col-sm-2 col hideMob"><span class="nobr"><?= __('action') ?></span>
@@ -150,27 +141,21 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                 <div class=" col-md-2">
                                     <div style="color:black;">
                                         {{ itm.package_name }}
-                                    </div>                                   
-                                    <div class="redtext">
-                                    <!-- package_period:{{itm.package_period }} -->
-                                    </div> 
-                                    </div>
-                                    
-                                    <div class="col-md-2 hideWeb grid_header"><?= __('price') ?></div>
-                                    <div class=" col-md-2">
-                                    <div style="color:black;">
-                                    {{ itm.package_price }} {{DtSetter('currency', itm.package_currency )}}
                                     </div>
                                     <div class="redtext">
-                                    <!-- <span ng-bind-html="DtSetter('currency', itm.package_currency )"></span> -->
-                                        <!-- package_currency: {{ itm.package_currency }} -->
+                                        <!-- package_period:{{itm.package_period }} -->
                                     </div>
-                                    <!-- <div style="color:blue;">
-                                        package_cpi: {{ itm.package_cpi }}
-                                    </div> -->
                                 </div>
 
-                                <!-- <div class="col-4 hideWeb grid_header"><?= __('package_name ') ?></div>
+                                <div class="col-md-2 hideWeb grid_header"><?= __('price') ?></div>
+                                <div class=" col-md-2">
+                                    <div style="color:black;">
+                                        {{ itm.package_price }} {{DtSetter('currency', itm.package_currency )}}
+                                    </div>
+                                    <div class="redtext">
+                                    </div>
+                                </div>
+                                <?php /* <div class="col-4 hideWeb grid_header"><?= __('package_name ') ?></div>
                                 <div class="col-md-1 col-8" ng-bind-html="DtSetter('', itm.package_name )"></div>
 
                                 <div class="col-4 hideWeb grid_header"><?= __('package_desc ') ?></div>
@@ -186,16 +171,16 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                 <div class="col-md-1 col-8" ng-bind-html="DtSetter('', itm.package_cpi )"></div>
 
                                 <div class="col-4 hideWeb grid_header"><?= __('package_period ') ?></div>
-                                <div class="col-md-1 col-8" ng-bind-html="DtSetter('', itm.package_period )"></div> -->
+                                <div class="col-md-1 col-8" ng-bind-html="DtSetter('', itm.package_period )"></div> 
 
-                                <!-- <div class="col-4 hideWeb grid_header"><?= __('stat_created ') ?></div>
+                               <div class="col-4 hideWeb grid_header"><?= __('stat_created ') ?></div>
                                 <div class="col-md-2 col-8">{{ itm.stat_created }} </div>
 
                                 <div class="col-4 hideWeb grid_header"><?= __('stat_updated ') ?></div>
-                                <div class="col-md-2 col-8">{{ itm.stat_updated }} </div> -->
+                                <div class="col-md-2 col-8">{{ itm.stat_updated }} </div>
 
-                                <!-- <div class="col-2 hideWeb grid_header"><?= __('rec_state') ?></div>
-                                <div class="col-md-2 col-8" ng-bind-html="DtSetter('rec_state', itm.rec_state)"></div> -->
+                                <div class="col-2 hideWeb grid_header"><?= __('rec_state') ?></div>
+                                <div class="col-md-2 col-8" ng-bind-html="DtSetter('rec_state', itm.rec_state)"></div> */ ?>
 
                                 <div class="col-4 hideWeb grid_header"><?= __('actions') ?></div>
                                 <div class="col-md-2 col-8 action">

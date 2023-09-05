@@ -623,6 +623,10 @@ msgid "category_priority"
 msgstr "Category Priority"
 msgid "add_category"
 msgstr "Add Category"
+msgid "view_category"
+msgstr "View"
+
+
 
 msgid "services_list"
 msgstr "Services List"
@@ -660,6 +664,14 @@ msgid "add_service"
 msgstr "Add Service"
 msgid "property_ref"
 msgstr "Property Ref"
+msgid "view_service"
+msgstr "View"
+msgid "add"
+msgstr "Add"
+msgid "edit"
+msgstr "Edit"
+
+
 
 
 
@@ -671,6 +683,11 @@ msgid "package_cpi"
 msgstr "Packages Cpi"
 msgid "add_package"
 msgstr "Add Package"
+msgid "view_package"
+msgstr "View"
+
+
+
 
 msgid "expenses_list"
 msgstr "Expenses List"
@@ -692,6 +709,9 @@ msgid "owner_id"
 msgstr "Owner Name"
 msgid "add_expense"
 msgstr "Add Expense"
+msgid "view_expense"
+msgstr "View"
+
 
 
 msgid "banks_list"
@@ -704,6 +724,14 @@ msgid "bank_number"
 msgstr "Bank Number"
 msgid "add_bank"
 msgstr "Add Bank"
+msgid "view_bank"
+msgstr "View"
+
+
+
+
+
+
 
 msgid "inspects_list"
 msgstr "Inspects List"
@@ -717,6 +745,10 @@ msgid "inspect_rate"
 msgstr "Inspect Rate"
 msgid "add_inspect"
 msgstr "Add Inspect"
+msgid "view_inspect"
+msgstr "View"
+
+
 
 msgid "users_list"
 msgstr "Users List"
@@ -737,6 +769,10 @@ msgid "config_value"
 msgstr "Config Value"
 msgid "stat_updated"
 msgstr "Stat Updated"
+msgid "edit_config"
+msgstr "Edit"
+
+
 
 msgid "messages_list"
 msgstr "Messages List"
@@ -750,6 +786,10 @@ msgid "message_priority"
 msgstr "Message Priority"
 msgid "add_message"
 msgstr "Add Message"
+msgid "view_message"
+msgstr "View"
+
+
 
 msgid "logs_list"
 msgstr "Logs List"

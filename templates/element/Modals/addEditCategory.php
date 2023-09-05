@@ -1,5 +1,5 @@
 <?php
-    $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getParam('pass')[0] : 0;
+$parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getParam('pass')[0] : 0;
 ?>
 
 <div class="modal fade" id="addEditCategory_mdl" tabindex="-1" role="dialog" aria-hidden="true">
@@ -21,8 +21,7 @@
 							newEntity('category');
 						" id="category_btn" class="hideIt"></button>
 
-					<form class="form-label-left input_mask " id="category_form" enctype="multipart/form-data" novalidate="novalidate" 
-						ng-submit="doSave (rec.category, 'category', 'categories', '#category_btn'); ">
+					<form class="form-label-left input_mask " id="category_form" enctype="multipart/form-data" novalidate="novalidate" ng-submit="doSave (rec.category, 'category', 'categories', '#category_btn'); ">
 
 						<div class="col-md-12 col-sm-12  form-group has-feedback" ng-if="rec.category.parent_name">
 							<h2><?= __('parent_id') ?> : {{rec.category.parent_name}}</h2>
@@ -45,14 +44,14 @@
 							<div class="div">
 								<?= $this->Form->text('language_id', [
 									'type' => 'select',
-									'options'=>$this->Do->lcl( $this->Do->get('langs') ),
+									'options' => $this->Do->lcl($this->Do->get('langs')),
 									'class' => 'form-control has-feedback-left',
 									'ng-model' => 'rec.category.language_id'
 								]) ?>
 								<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
 							</div>
 						</div>
-						
+
 						<div class="col-md-6 col-6  form-group has-feedback">
 							<label><?= __('category_priority') ?></label>
 							<div class="div">
@@ -64,9 +63,9 @@
 								<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
 							</div>
 						</div>
-						
-<!-- 
-						<div class="col-md-12 col-sm-12  form-group has-feedback">
+
+
+						<?php /*<div class="col-md-12 col-sm-12  form-group has-feedback">
 							<label><?= __('category_configs.icon') ?></label>
 							<div class="div">
 								<?= $this->Form->text('category_configs.icon', [
@@ -78,7 +77,7 @@
 								<span class="fa {{rec.category.category_configs.icon||'fa-tag'}} form-control-feedback left" aria-hidden="true"></span>
 							</div>
 							<div class="icons_div"></div>
-						</div> -->
+						</div> */ ?>
 
 						<div class="clearfix"></div>
 

@@ -25,13 +25,6 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 						<div class="col-md-12 col-sm-12  form-group has-feedback" ng-if="rec.package.parent_name">
 							<h2><?= __('user_id') ?> : {{rec.package.user_id}}</h2>
 						</div>
-						<!-- <div class=" col-6 col-sm-6 col-md-6 ">
-							<span class="icn">
-								<a href data-toggle="modal" data-target="#docs_mdl" data-dismiss="modal" class="btn btn-info">
-									<span class="fa fa-search"></span> <span class="hideMob"><?= __('document') ?></span>
-								</a>
-							</span>
-						</div> -->
 						<div class="col-md-6 col-6  form-group has-feedback">
 							<label set-required><?= __('package_name') ?></label>
 							<div class="div">
@@ -45,7 +38,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 								<span class="fa fa-file-powerpoint-o form-control-feedback left" aria-hidden="true"></span>
 							</div>
 						</div>
-						
+
 						<div class="col-md-6 col-6  form-group has-feedback">
 							<label><?= __('package_cpi') ?></label>
 							<div class="div">

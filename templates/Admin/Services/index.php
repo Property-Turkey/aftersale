@@ -100,8 +100,8 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                 <div class="col-sm-1 col">
                                     <?= $this->element('colActions', ['url' => 'services/index/', 'col' => 'property_ref']) ?>
                                     <?= __('property_ref') ?> </div>
-                                <!-- 
-                                    <div class="col-sm-1 col">
+
+                                <?php /* <div class="col-sm-1 col">
                                     <?= $this->element('colActions', ['url' => 'services/index/', 'col' => 'tenant_id']) ?> 
                                     <?= __('tenant_id') ?> </div>
                                                           
@@ -111,38 +111,32 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
 
                                     <div class="col-sm-1 col">
                                     <?= $this->element('colActions', ['url' => 'services/index/', 'col' => 'service_tax']) ?> 
-                                    <?= __('service_tax') ?> </div> -->
+                                    <?= __('service_tax') ?> </div> 
 
-                                <!-- <div class="col-sm-1 col">
+                                <div class="col-sm-1 col">
                                     <?= $this->element('colActions', ['url' => 'services/index/', 'col' => 'service_contract_period']) ?>
-                                    <?= __('servicecont_period') ?> </div> -->
+                                    <?= __('servicecont_period') ?> </div>  */ ?>
 
-                                <!-- <div class="col-sm-1 col">
-                                    <?= $this->element('colActions', ['url' => 'services/index/', 'col' => 'service_desc']) ?> 
-                                    <?= __('service_desc') ?> </div>  -->
 
                                 <div class="col-sm-2 col">
                                     <?= $this->element('colActions', ['url' => 'services/index/', 'col' => 'package_name']) ?>
                                     <?= __('package_name') ?> </div>
 
-                                <!-- <div class="col-sm-2 col">
-                                    <?= $this->element('colActions', ['url' => 'services/index/', 'col' => 'total_price']) ?>
-                                    <?= __('total_price') ?> </div>
-                                     -->
+
                                 <div class="col-sm-2 col">
                                     <?= $this->element('colActions', ['url' => 'services/index/', 'col' => 'expiration_date']) ?>
                                     <?= __('expiration_date') ?> </div>
 
-                                <!-- <div class="col-sm-1 col">
+                                <?php /* <div class="col-sm-1 col">
                                     <?= $this->element('colActions', ['url' => 'services/index/', 'col' => 'stat_created']) ?>
                                     <?= __('stat_created') ?> </div>
 
-                                <div class="col-sm-1 col">
+                                     <div class="col-sm-1 col">
                                     <?= $this->element('colActions', ['url' => 'services/index/', 'col' => 'expiration_date']) ?>
-                                    <?= __('expiration_date') ?> </div> -->
+                                    <?= __('expiration_date') ?> </div>*/ ?>
 
 
-                                <div class="col-sm-2 col">
+                                <div class="col-sm-1 col">
                                     <?= $this->element('colActions', ['url' => 'services/index/', 'col' => 'rec_state', 'filter' => $this->Do->lcl($this->Do->get('rec_state'))]) ?>
                                     <?= __('rec_state') ?> </div>
 
@@ -170,10 +164,10 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                 <div class="col-4 hideWeb grid_header"><?= __('services_information') ?></div>
                                 <div class=" col-2">
                                     <div class="">
-                                    <b> Owner Name:</b>{{ itm.owner.user_fullname }}
+                                        <b> Owner Name:</b>{{ itm.owner.user_fullname }}
                                     </div>
                                     <div class="">
-                                    <b>Service Contract Period:</b>{{ itm.service_contract_period }}
+                                        <b>Service Contract Period:</b>{{ itm.service_contract_period }}
                                     </div>
                                 </div>
                                 <div class="col-4 hideWeb grid_header"><?= __('service_price ') ?></div>
@@ -182,73 +176,45 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                 <div class="col-4 hideWeb grid_header"><?= __('property_id') ?></div>
                                 <div class="col-md-1 col-8">{{ itm.property.property_ref }} </div>
 
-                                
-                                <!-- <div class="col-4 hideWeb grid_header"><?= __('tenant_id ',) ?></div>
+
+                                <?php /* <div class="col-4 hideWeb grid_header"><?= __('tenant_id ',) ?></div>
                                 <div class="col-md-1 col-8" ng-bind-html="DtSetter('', itm.tenant.user_fullname )"></div>   
-                                                                                                                                                            -->
-                                <!-- <div class="col-4 hideWeb grid_header"><?= __('service_vat ') ?></div>
+                                                                                                                                                      
+                               <div class="col-4 hideWeb grid_header"><?= __('service_vat ') ?></div>
                                 <div class="col-md-1 col-8" ng-bind-html="DtSetter('', itm.service_vat +'%' )"></div>
 
                                 <div class="col-4 hideWeb grid_header"><?= __('service_tax ') ?></div>
-                                <div class="col-md-1 col-8" ng-bind-html="DtSetter('', itm.service_tax +'%' )"></div>  -->
+                                <div class="col-md-1 col-8" ng-bind-html="DtSetter('', itm.service_tax +'%' )"></div> 
 
-                                <!-- <div class="col-4 hideWeb grid_header"><?= __('service_contract_period ') ?></div>
-                                <div class="col-md-1 col-8">{{ itm.service_contract_period }} </div> -->
+                                <div class="col-4 hideWeb grid_header"><?= __('service_contract_period ') ?></div>
+                                <div class="col-md-1 col-8">{{ itm.service_contract_period }} </div> 
 
-                                <!-- <div class="col-4 hideWeb grid_header"><?= __('service_desc ') ?></div>
-                                <div class="col-md-1 col-8" ng-bind-html="DtSetter('', itm.service_desc )"></div>  -->
+                              <div class="col-4 hideWeb grid_header"><?= __('service_desc ') ?></div>
+                                <div class="col-md-1 col-8" ng-bind-html="DtSetter('', itm.service_desc )"></div> */ ?>
 
                                 <div class="col-4 hideWeb grid_header"><?= __('package_name ') ?></div>
                                 <div class="col-md-1 col-8">
-                                    <!-- <div class="col-md-12 col-8" ng-repeat=" item in itm.service"> -->
                                     {{itm.package.package_name}}
-                                    <!-- </div> -->
                                 </div>
-
-                                <!-- <div class="col-md-1 col-8" ng-repeat=" item in rec.">{{ itm.ServicePackage.Packages.package_name }}</div> -->
-
 
                                 <div class="col-6 hideWeb grid_header"><?= __('total_price') ?></div>
                                 <div class=" col-md-1">
                                     <div ng-repeat=" item in itm.service_package" class="redtext">
-                                        <!-- package_price: {{ item.package.package_price }} -->
                                     </div>
-                                    <!-- <div class=" col-1"> -->
                                     <div class="blueText">
-                                        <!-- service_tax: {{ itm.service_tax }}% -->
                                     </div>
                                     <div class="redtext">
-                                        <!-- service_vat: {{ itm.service_vat }}% -->
                                     </div>
                                     <div class="redtext">
-                                        <!-- total: {{ itm.totalPrice }} -->
                                     </div>
-
                                 </div>
-                                <!-- <div class="col-4 hideWeb grid_header"><?= __('price ') ?></div>
-                            <div class="col-md-1 col-8" ng-bind-html="DtSetter('', itm.price )"></div> -->
-
-                                <!-- <div class="col-4 hideWeb grid_header"><?= __('dates') ?></div>
-                                <div class="col-2">
-                                    <div class="redText">
-                                        <span class="text-truncate">stat_created:<br>{{ itm.stat_created }}</span>
-
-                                    </div> -->
                                 <div class="col-md-2 ">
-                                <div class="text-success col-md-1 col-8">{{ itm.expiration_date }} </div> 
-
-                                    <!-- <span>{{setDate (itm.stat_created, [0,0,itm.service_contract_period,0,0,0], 'onlydate')}}</span> -->
+                                    <div class="text-success col-md-2 col-8" ng-class="{ 'text-warning': isExpiringSoon(itm.stat_created, itm.service_contract_period) }">
+                                        {{ itm.expiration_date }}
+                                    </div>
                                 </div>
-                                <!-- </div> -->
-
-                                <!-- <div class="col-4 hideWeb grid_header"><?= __('stat_created ') ?></div>
-                                <div class="col-md-1 col-8">{{ itm.stat_created }} </div>
-
-                                <div class="col-4 hideWeb grid_header"><?= __('expiration_date ') ?></div>
-                                <div class="col-md-1 col-8">{{ itm.expiration_date }} </div> -->
-
                                 <div class="col-4 hideWeb grid_header"><?= __('rec_state') ?></div>
-                                <div class="col-md-2 col-8" ng-bind-html="DtSetter('bool2', itm.rec_state)"></div>
+                                <div class="col-md-1 col-8" ng-bind-html="DtSetter('bool2', itm.rec_state)"></div>
 
                                 <div class="col-4 hideWeb grid_header"><?= __('actions') ?></div>
                                 <div class="col-md-1 col-8 action">
@@ -277,5 +243,3 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
 <?php echo $this->element('Modals/viewService') ?>
 <?php echo $this->element('Modals/searchServices') ?>
 <?php echo $this->element('Modals/docs') ?>
-
-

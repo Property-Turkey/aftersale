@@ -979,6 +979,43 @@
                     }
                 }
 
+                $scope.isExpiringSoon = function(statCreated, servicePeriod) {
+                    var currentDate = new Date();
+                    var expirationDate = new Date(statCreated);
+
+                    // service_period değeri tarihe eklenir
+                    expirationDate.setDate(expirationDate.getDate() + parseInt(servicePeriod));
+
+                    var daysRemaining = Math.floor((expirationDate - currentDate) / (1000 * 60 * 60 * 24));
+
+                    // Yüzde 10 kontrolü
+                    var remainingPercentage = (daysRemaining / parseInt(servicePeriod)) * 100;
+
+                    return remainingPercentage <= 10; // Eğer %10 veya daha az kaldıysa true döner
+                };
+
+                // $scope.isExpiringSoon = function(statCreated, servicePeriod) {
+                //     var currentDate = new Date();
+                //     var expirationDate = new Date(statCreated);
+
+                //     // service_period değeri tarihe eklenir
+                //     var expirationDate = new Date(statCreatedDate.getTime() + (parseInt(servicePeriod) * 24 * 60 * 60 * 1000));
+
+                //     var daysRemaining = Math.floor((expirationDate - currentDate) / (1000 * 60 * 60 * 24));
+                //     var remainingPercentage = (daysRemaining / parseInt(servicePeriod)) * 100;
+
+                //     return remainingPercentage <= 10; // Eğer 5 günden az kaldıysa true döner
+                // };
+
+                $scope.loadTags = function(query, target) {
+                    // return $http.get('/tags?query=' + query);
+                    return $http.get('<?=$app_folder?>/admin/'+target+'?tags=1&keyword='+query)
+                        .then(function(response, status) {
+                            return response.data.data;
+                        });
+                    // return $http.get('<?=$app_folder?>/admin/'+target+'?tags=1&keyword='+query);
+                };
+                
                 $scope.doGet = function(url, type, tar, preloader) {
 
                     !type ? type = 'list' : type;

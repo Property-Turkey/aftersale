@@ -75,7 +75,6 @@ class ExpensesController extends AppController
                     "contain" => [
                         "Categories",
                         //'Services.Owner' => ['fields' => ['user_fullname']],
-
                         // "Users" => ["fields" => ["user_fullname"]],
                         'Owner' => ['fields' => ['user_fullname']],
                     ]

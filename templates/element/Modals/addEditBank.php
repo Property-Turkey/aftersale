@@ -71,7 +71,7 @@
 							</div>
 						</div>
 
-						 <!-- <div class="col-md-6 col-6  form-group has-feedback">
+						<?php /*<div class="col-md-6 col-6  form-group has-feedback">
 							<label set-required><?= __('bank_expiredate') ?></label>
 							<div class="div">
 								<?= $this->Form->text('bank_expiredate', [
@@ -83,9 +83,9 @@
 								]) ?>
 								<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
 							</div>
-						</div> -->
+						</div> 
 
-						<!-- <div class="col-md-6 col-6  form-group has-feedback">
+						 <div class="col-md-6 col-6  form-group has-feedback">
 							<label ><?= __('bank_cvv ') ?></label>
 							<div class="div">
 								<?= $this->Form->text('bank_cvv ', [
@@ -97,7 +97,7 @@
 								]) ?>
 								<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
 							</div>
-						</div> -->
+						</div> */?>
 
 						<div class="col-md-6 col-6  form-group has-feedback">
 							<label><?= __('Bank Swift') ?></label>

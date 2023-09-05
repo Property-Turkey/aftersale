@@ -42,9 +42,7 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                 {{ paging.end }} <?= __('of') ?> {{ paging.count }} </span>
                         </h2>
 
-                        <ul class="nav navbar-right panel_toolbox">
-                            <!-- <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                            </li> -->
+                        <ul class="nav navbar-right panel_toolbox">                      
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
                                 <div class="dropdown-menu  <?= $currlang != 'ar' ? 'dropdown-menu-right' : '' ?>">
@@ -58,9 +56,7 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                         <i class="fa fa-trash"></i> <?= __('delete_selected') ?>
                                     </a>
                                 </div>
-                            </li>
-                            <!-- <li><a class="close-link"><i class="fa fa-close"></i></a> 
-                            </li>-->
+                            </li>                           
                         </ul>
 
                         <div class="clearfix"></div>
@@ -79,9 +75,9 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                         <?= __('id') ?>
                                     </label>
                                 </div>
-                                <!-- <div class="col-sm-3 col">
+                                 <?php /*<div class="col-sm-3 col">
                                     <?= $this->element('colActions', ['url' => 'services/index/', 'col' => 'banks_information']) ?> 
-                                    <?= __('banks_information') ?> </div> -->
+                                    <?= __('banks_information') ?> </div>  */?>
 
                                 <div class="col-sm-2 col">
                                     <?= $this->element('colActions', ['url' => 'banks/index/', 'col' => 'bank_ownername']) ?>
@@ -95,7 +91,7 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                     <?= $this->element('colActions', ['url' => 'banks/index/', 'col' => 'bank_number']) ?>
                                     <?= __('bank_number') ?> </div>
 
-                                <!-- <div class="col-sm-1 col">
+                                 <?php /*<div class="col-sm-1 col">
                                     <?= $this->element('colActions', ['url' => 'banks/index/', 'col' => 'bank_expiredate']) ?> 
                                     <?= __('bank_expiredate') ?> </div>
 
@@ -105,7 +101,7 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
 
                                     <div class="col-sm-1 col">
                                     <?= $this->element('colActions', ['url' => 'banks/index/', 'col' => 'bank_swift']) ?> 
-                                    <?= __('bank_swift') ?> </div>  -->
+                                    <?= __('bank_swift') ?> </div>  */?>
 
 
                                 <div class="col-sm-2 col">
@@ -115,7 +111,7 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                 <div class="col-sm-2 col hideMob"><span class="nobr"><?= __('action') ?></span>
                                 </div>
                             </div>
-
+                           
                             <div class="grid_row row" ng-repeat="itm in lists.banks">
 
                                 <div class="col-sm-1 hideMobSm grid_header">
@@ -132,8 +128,9 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                     </label>
                                 </div>
                                 <div class="col-md-1 col-8 hideWeb">{{ itm.id }}</div>
+                              
 
-                                <!-- <div class="col-3 hideWeb grid_header"><?= __('banks_information') ?></div>
+                               <?php /* <div class="col-3 hideWeb grid_header"><?= __('banks_information') ?></div>
                                 <div class=" col-3">      
                                 <div style="color:red;">
                                     bank_ownername:{{ itm.bank_ownername }}
@@ -153,7 +150,7 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                     <div style="color:blblackblackue;">
                                     bank_swift: {{ itm.bank_swift }}
                                     </div>                                                
-                                </div> -->
+                                </div> */?>
                                 <div class="col-4 hideWeb grid_header"><?= __('bank_ownername') ?></div>
                                 <div class="col-md-2 col-8">{{ itm.bank_ownername }} </div>
 
@@ -164,14 +161,14 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                 <div class="col-4 hideWeb grid_header"><?= __('bank_number') ?></div>
                                 <div class="col-md-2 col-8">{{ itm.bank_number }} </div>
 
-                                <!-- <div class="col-4 hideWeb grid_header"><?= __('bank_expiredate') ?></div>
+                                 <?php /*<div class="col-4 hideWeb grid_header"><?= __('bank_expiredate') ?></div>
                                 <div class="col-md-1 col-8" ng-bind-html="DtSetter('langs', itm.bank_expiredate)"></div>
 
                                 <div class="col-4 hideWeb grid_header"><?= __('bank_cvv') ?></div>
                                 <div class="col-md-1 col-8" ng-bind-html="DtSetter('langs', itm.bank_cvv)"></div>
                                
                                 <div class="col-4 hideWeb grid_header"><?= __('bank_swift') ?></div>
-                                <div class="col-md-1 col-8" ng-bind-html="DtSetter('langs', itm.bank_swift)"></div>  -->
+                                <div class="col-md-1 col-8" ng-bind-html="DtSetter('langs', itm.bank_swift)"></div> */?>
 
                                 <div class="col-4 hideWeb grid_header"><?= __('rec_state') ?></div>
                                 <div class="col-md-2 col-8" ng-bind-html="DtSetter('bool2', itm.rec_state)"></div>
