@@ -155,7 +155,7 @@ $parent_id = isset($this->request->getParam("pass")[0])
 
 								<?php /* <div class="clearfix"></div>
 
-					<div class="form-group ">
+						<div class="form-group ">
 						<div class="col-md-12 col-sm-6  form-group has-feedback ">
 							<button type="submit" class="btn btn-info"><span><i class="fa fa-save"></i></span> <?= __("save") ?></button>
 						</div>
@@ -195,6 +195,7 @@ $parent_id = isset($this->request->getParam("pass")[0])
 
 						</div>
 					</div>
+				
 					<div class="tab-pane" id="tabs-2" role="tabpanel">
 						<?php
 						$ctrl = strtolower($this->request->getParam("controller"));
@@ -220,7 +221,7 @@ $parent_id = isset($this->request->getParam("pass")[0])
 						?>
 						<?php if ($isDocs) { ?>
 							<div>
-								<div class="row">
+								<div class="row p-3">
 									<div class="col-6 col-lg-6">
 									</div>
 									<div class="row ngif" ng-if="addDocument == 1">

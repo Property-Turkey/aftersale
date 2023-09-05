@@ -51,9 +51,11 @@ class ServicesController extends AppController
                         'Owner' => ['fields' => ['user_fullname']],
                         'Packages' => ['fields' => ['package_name']],
                         'Properties' => ['fields' => ['Properties.property_ref']],
+                        'Docs' => ['fields' => ['tar_id']],
+                        //'TarId'=>['fields'=>['id']],
                     ]
                 ])->toArray();
-
+//dd($data);
                 $data = $this->Do->convertJson($data);
                 echo json_encode(
                     ["status" => "SUCCESS",  "data" => $this->Do->convertJson($data)],
@@ -74,12 +76,12 @@ class ServicesController extends AppController
                         'Owner' => ['fields' => ['Owner.user_fullname']],
                         'Packages' => ['fields' => ['Packages.package_name']],
                         'Properties' => ['fields' => ['Properties.property_ref', 'Properties.id']],
-                        'Docs' => ['fields' => ['Docs.tar_id']],
-
+                        //'Docs' => ['fields' => ['Docs.tar_id']],
+                     
                     ]
-
                 ]);
-              //dd($data);
+       
+                //dd($data);
                 $data = $this->Do->convertJson($this->paginate($data));
             }
             // expiration date 
@@ -102,6 +104,7 @@ class ServicesController extends AppController
         ]);
 
         $packages = $this->getTableLocator()->get('Packages')->find('list')->toArray();
+
         //$Properties = $this->getTableLocator()->get('Properties')->find('list')->toArray();
         // $Properties = $this->Services->Properties->find('list', [
         //     'conditions' => ['property_id' => 'property_ref']
@@ -112,10 +115,10 @@ class ServicesController extends AppController
             ->toArray();
 
         // $tarId = $this->getTableLocator()->get('Docs')
-        //     ->find('list', ['id' => 'tar_id'])
+        //     ->find('list', ['valueField' => 'tar_id'])
         //     ->toArray();
 
-        // dd($tarId);
+        //dd($tarId);
 
         $this->set(compact('tenants', 'owners', 'packages', 'Properties', ));
     }
@@ -129,6 +132,9 @@ class ServicesController extends AppController
             // Edit mode
             if ($this->request->is(['patch', 'put'])) {
                 $rec = $this->Services->get($dt['id']);
+                if(isset($dt['property'][0]['value'])){
+                    $rec->property_id = $dt['property'][0]['value'];
+                }
             }
 
             // Add new record
@@ -136,15 +142,18 @@ class ServicesController extends AppController
                 $dt['id'] = null;
                 $dt['user_id'] = $this->authUser['id'];
 
-                $property = $this->Services->Properties->find()
-                    ->select(['id'])
-                    ->where(['property_ref' => $dt['property_id']])
-                    ->first();
-                if ($property) {
-                    $dt['property_id'] = $property->id;
-                } else {
-                    echo json_encode(["status" => "FAIL", "data" => "Geçersiz property_ref değeri"]);
-                    die();
+                // $property = $this->Services->Properties->find()
+                //     ->select(['id'])
+                //     ->where(['property_ref' => $dt['property_id']])
+                //     ->first();
+                // if ($property) {
+                //     $dt['property_id'] = $property->id;
+                // } else {
+                //     echo json_encode(["status" => "FAIL", "data" => "Geçersiz property_ref değeri"]);
+                //     die();
+                // }
+                if(isset($dt['property'][0]['value'])){
+                    $rec->property_ref = $dt['property'][0]['value'];
                 }
 
                 $rec = $this->Services->newEntity($dt);

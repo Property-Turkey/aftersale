@@ -53,7 +53,7 @@ class ServicesTable extends Table
             'foreignKey' => 'property_id',
         ]);
 
-      
+
         $this->addBehavior('Log');
     }
 

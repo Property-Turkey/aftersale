@@ -49,38 +49,19 @@
                                 <div class="col-md-3 grid_header2"><?= __("stat_created") ?></div>
                                 <div class="col-md-9 notwrapped">{{rec.expense.stat_created}}</div>
                             </div>
-
-                            <!-- <div class="grid_row row">
-                                <div class="col-md-3 grid_header2"><?= __("rec_state") ?></div>
-                                <div class="col-md-9 notwrapped" ng-bind-html="DtSetter( 'rec_state', rec.expense.rec_state )"></div>
-                            </div> -->
-
                         </div>
                     </div>
                     <div class="tab-pane" id="tab2">
-
                         <div class="grid">
-                            <div class="container">
-                                <div ng-repeat="doc in rec.docs">
-                                    <div class="document">
-                                        <h3>{{doc.doc_name}}</h3>
-                                        <a href="{{protocol}}:{{path}}/file/{{ctrls}}_files/{{doc.doc_name}}" target="_blank">View</a>
-                                        <a href="#" ng-click="editDocument(doc)">Edit</a>
-                                        <a href="#" ng-click="deleteDocument(doc)">Delete</a>
-                                    </div>
-                                </div>
-                                <div ng-if="isAdmin === false" class="not_found_div">
-                                    <i class="fa fa-info-circle"></i> available_only_for_admins
-                                </div>
-                            </div>
-
-                            sdfsdfdsfsd
-
-                            <div class="grid_row row">
-                            </div>
+                            <div class="container">                                             
+                                    <div class="grid">
+                                <div class="col-md-3 grid_header2"><?= __('tar_id') ?></div>
+                                <div class="col-md-9 notwrapped">{{ rec.docs.tar_id}}</div>
+                            </div>                                                                                                  
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div>  
+ </div>
