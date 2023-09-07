@@ -32,7 +32,7 @@ $parent_id = isset($this->request->getParam("pass")[0])
 							newEntity('service');
 						" id="service_btn" class="hideIt"></button>
 
-							<form class="form-label-left input_mask " id="service_form" enctype="multipart/form-data" novalidate="novalidate" ng-submit="doSave (rec.service, 'service', 'services', '#service_btn'); ">
+							<form class="form-label-left input_mask " id="service_form" enctype="multipart/form-data" novalidate="novalidate" ng-submit="doSave(rec.service, 'service', 'services', '#service_btn'); ">
 
 								<div class="col-md-12 col-sm-12  form-group has-feedback" ng-if="rec.service.parent_name">
 									<h2><?= __("user_id") ?> : {{rec.service.user_id}}</h2>
@@ -155,7 +155,7 @@ $parent_id = isset($this->request->getParam("pass")[0])
 
 								<div class="row ">
 									<div class="col-md-12 form-group has-feedback">
-									 <label set-required><?= __("service_price") ?></label> 
+										<label set-required><?= __("service_price") ?></label>
 										<div class="input-group">
 											<?= $this->Form->text("service_currency", [
 												"type" => "select",

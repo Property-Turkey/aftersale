@@ -66,6 +66,10 @@ class ServicesTable extends Table
             ->notEmptyString('service_price');
 
         $validator
+            ->integer('service_currency')
+            ->notEmptyString('service_currency');
+
+        $validator
             ->integer('service_vat')
             ->notEmptyString('service_vat');
 

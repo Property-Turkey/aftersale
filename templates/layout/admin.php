@@ -484,7 +484,7 @@
                     2: '<?= __('warning') ?>',
                     3: '<?= __('urgent') ?>',
                 },
-                                                                 
+
                 'AdminRoles': JSON.parse('<?= json_encode($this->Do->lcl($this->Do->get('AdminRoles'), false, false)) ?>'),
                 'langs': JSON.parse('<?= json_encode($this->Do->lcl($this->Do->get('langs'))) ?>'),
                 'langsPrefix': JSON.parse('<?= json_encode(($this->Do->get('langs'))) ?>'),
@@ -1074,6 +1074,7 @@
 
                 $scope.doSave = function(orginialObj, tar, ctrl, btn, preloader, params) {
                     console.log(orginialObj);
+                    alert(1);
                     // console.log(orginialObj, tar, ctrl, btn, preloader, params);
                     // return;
                     !tar ? tar = 'content' : tar;

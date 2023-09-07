@@ -190,9 +190,9 @@ class ServicesController extends AppController
                 if (isset($dt['property'][0]['value'])) {
                     $rec->property_ref = $dt['property'][0]['value'];
                 }
+                // dd($dt);
 
                 $rec = $this->Services->newEntity($dt);
-                dd($rec);
             }
             unset($dt['property']);
             unset($dt['package']);

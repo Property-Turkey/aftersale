@@ -22,16 +22,16 @@ $basicRoutes = function (RouteBuilder $routes) {
     $routes->connect('/register', ['controller' => 'Users', 'action' => 'register']);
     $routes->connect('/getpassword', ['controller' => 'Users', 'action' => 'getpassword']);
     $routes->connect('/logout', ['controller' => 'Users', 'action' => 'logout']);
-    $routes->connect('/offer/{id}/{tbl}/{floorplan_id}', ['controller'=>'Proposals', 'action'=>'proposal'])->setPass(['id', 'tbl', 'floorplan_id']);
+    $routes->connect('/offer/{id}/{tbl}/{floorplan_id}', ['controller' => 'Proposals', 'action' => 'proposal'])->setPass(['id', 'tbl', 'floorplan_id']);
 
     $routes->connect('/pages/*', 'Pages::display');
-    
+
     $routes->prefix('admin', function ($routes) {
-        $routes->connect('/', ['controller' => 'Users', 'action'=>'dashboard']);
-        $routes->connect('/categories/index/{pid}', ['controller' => 'Categories', 'action'=>'index'])->setPass(['pid']);
-        $routes->connect('/stats/props', ['controller' => 'Users', 'action'=>'dashboard', 'props' ]);
-        $routes->connect('/stats/users', ['controller' => 'Users', 'action'=>'dashboard', 'users' ]);
-        $routes->connect('/myaccount', ['controller' => 'Users', 'action'=>'myaccount']);
+        $routes->connect('/', ['controller' => 'Users', 'action' => 'dashboard']);
+        $routes->connect('/categories/index/{pid}', ['controller' => 'Categories', 'action' => 'index'])->setPass(['pid']);
+        $routes->connect('/stats/props', ['controller' => 'Users', 'action' => 'dashboard', 'props']);
+        $routes->connect('/stats/users', ['controller' => 'Users', 'action' => 'dashboard', 'users']);
+        $routes->connect('/myaccount', ['controller' => 'Users', 'action' => 'myaccount']);
         $routes->fallbacks('DashedRoute');
     });
 

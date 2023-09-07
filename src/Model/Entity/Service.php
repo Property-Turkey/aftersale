@@ -20,7 +20,8 @@ class Service extends Entity
         'service_desc' => true,
         'stat_created' => true,
         'rec_state' => true,
-
+        'service_price' => true,
+        'service_currency' => true,
         'user' => true,
         'owner' => true,
         'tenant' => true,
