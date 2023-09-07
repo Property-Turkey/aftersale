@@ -1,4 +1,4 @@
-<div class="modal fade" id="viewService_mdl" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal" id="viewService_mdl">
     <div class="listing-modal-1 modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
 
@@ -34,7 +34,7 @@
                             </div>
 
                             <div class="grid_row row">
-                                <div class="col-md-3 grid_header2"><?= __('property_ref ') ?></div>
+                                <div class="col-md-3 grid_header2"><?= __('property_ref') ?></div>
                                 <div class="col-md-9 notwrapped">{{ rec.service.property.property_ref }}</div>
                             </div>
 
@@ -62,15 +62,14 @@
                                 <div class="col-md-3 grid_header2"><?= __('service_contract_period') ?></div>
                                 <div class="col-md-9 notwrapped">{{ rec.service.service_contract_period}}</div>
                             </div>
+
                             <div class="grid_row row">
                                 <div class="col-md-3 grid_header2"><?= __('expiration_date') ?></div>
-                                <div class="col-md-9 notwrapped" ng-class="{ 'text-warning': isExpiringSoon(rec.expiration_date, rec.service.service_contract_period) }">
-                                    {{ rec.service.expiration_date }}
-                                </div>
+                                <div class="col-md-9 notwrapped">{{rec.service.expiration_date}}</div>
                             </div>
                             <div class="grid_row row">
                                 <div class="col-md-3 grid_header2"><?= __('stat_created') ?></div>
-                                <div class="col-md-9 notwrapped">{{ rec.service.stat_created}}</div>
+                                <div class="col-md-9 notwrapped">{{rec.service.stat_created}}</div>
                             </div>
 
                             <div class="grid_row row">
@@ -84,14 +83,13 @@
                                 <div class="col-md-3 grid_header2"><?= __('rec_state') ?></div>
                                 <div class="col-md-9 notwrapped" ng-bind-html="DtSetter( 'bool2', rec.service.rec_state )"></div>
                             </div>
-
                         </div>
                     </div>
                     <div class="tab-pane" id="tab2">
                         <div class="grid">
-                            <div class="grid_row row">
-                                <div class="col-md-3 grid_header2"><?= __('document') ?></div>
-                                <div class="col-md-9 notwrapped">{{rec.service.docs}}</div>
+                            <div class="grid_row row" ng-repeat="itm in rec.service.docs">
+                                <!-- <div class="col-md-3 grid_header2"><?= __('document') ?></div> -->
+                                <div class="col-md-9 notwrapped">{{itm.doc_name}}</div>
                             </div>
 
                         </div>

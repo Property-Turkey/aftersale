@@ -52,16 +52,19 @@
                         </div>
                     </div>
                     <div class="tab-pane" id="tab2">
-                        <div class="grid">
-                            <div class="container">                                             
-                                    <div class="grid">
-                                <div class="col-md-3 grid_header2"><?= __('document') ?></div>
-                                <div class="col-md-9 notwrapped">{{rec.expense.docs}}</div>
-                            </div>                                                                                                  
+
+                        <div class="container">
+                            <div class="grid">
+                                <div class="grid_row row" ng-repeat="itm in rec.expense.docs">
+
+                                    <div class="col-md-9 notwrapped">{{itm.doc_name}}</div>
+                                </div>
+
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
-    </div>  
- </div>
+    </div>

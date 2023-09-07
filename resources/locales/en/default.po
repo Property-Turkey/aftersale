@@ -625,6 +625,10 @@ msgid "add_category"
 msgstr "Add Category"
 msgid "view_category"
 msgstr "View"
+msgid "view"
+msgstr "View"
+msgid "add_child"
+msgstr "Add Child"
 
 
 
@@ -760,6 +764,15 @@ msgid "users_list"
 msgstr "Users List"
 msgid "add_user"
 msgstr "Add User"
+msgid "user_configs"
+msgstr "User Configs"
+msgid "stat_logins"
+msgstr "Stat Logins"
+msgid "stat_ip"
+msgstr "Stat IP"
+msgid "stat_lastlogin"
+msgstr "Stat Last Login"
+
 
 msgid "configs_list"
 msgstr "Configs List"
@@ -788,13 +801,23 @@ msgid "add_message"
 msgstr "Add Message"
 msgid "view_message"
 msgstr "View"
-
+msgid "message_to"
+msgstr "Message To"
 
 
 msgid "logs_list"
 msgstr "Logs List"
 msgid "log_url"
 msgstr "Log Url"
+msgid "log_changes"
+msgstr "Log Changes"
+msgid "user_fullname"
+msgstr "User Fullname"
+msgid "user_role"
+msgstr "User Role"
+msgid "log_url"
+msgstr "Log Url"
+
 
 msgid "doc_allowed_roles"
 msgstr "Document Allowed Roles"
@@ -810,6 +833,9 @@ msgstr "Upload and Save"
 
 msgid "upload_file"
 msgstr "Upload File"
+
+msgid "search_and_filter"
+msgstr "Search and Filter"
 
 
 

@@ -16,48 +16,33 @@
 
                             <div class="grid_row row">
                                 <h4 class="col-12">
-                                    <i class="fa {{itm.message_configs.icon||'fa-tag'}}"></i> {{ rec.message.message_name }}
+                                    <i class=""></i> {{ rec.message.message_name }}
                                 </h4>
                             </div>
 
                             <div class="grid_row row">
-                                <div class="col-md-3 grid_header2"><?=__('tenant_id')?></div>
-                                <div class="col-md-9 notwrapped">{{ rec.tenant_id.id }}</div>
+                                <div class="col-md-3 grid_header2"><?= __('message_to') ?></div>
+                                <div class="col-md-9 notwrapped">{{ rec.message.user.user_fullname}}</div>
                             </div>
 
                             <div class="grid_row row">
-                                <div class="col-md-3 grid_header2"><?=__('property_id')?></div>
-                                <div class="col-md-9 notwrapped">{{ rec.property_id.id }}</div>
-                            </div>
-                            
-                            <div class="grid_row row">
-                                <div class="col-md-3 grid_header2"><?=__('message_price')?></div>
-                                <div class="col-md-9 notwrapped">{{ rec.message_price.id }}</div>
+                                <div class="col-md-3 grid_header2"><?= __('message_subject') ?></div>
+                                <div class="col-md-9 notwrapped">{{ rec.message.message_subject}}</div>
                             </div>
 
                             <div class="grid_row row">
-                                <div class="col-md-3 grid_header2"><?=__('message_vat')?></div>
-                                <div class="col-md-9 notwrapped">{{ rec.message_vat.id }}</div>
+                                <div class="col-md-3 grid_header2"><?= __('message_text') ?></div>
+                                <div class="col-md-9 notwrapped">{{ rec.message.message_text}}</div>
                             </div>
 
                             <div class="grid_row row">
-                                <div class="col-md-3 grid_header2"><?=__('message_tax')?></div>
-                                <div class="col-md-9 notwrapped">{{ rec.message_tax.id }}</div>
+                                <div class="col-md-3 grid_header2"><?= __('message_priority') ?></div>
+                                <div class="col-md-9 notwrapped"ng-bind-html="DtSetter( ' ', rec.message.message_priority)"></div>
                             </div>
 
                             <div class="grid_row row">
-                                <div class="col-md-3 grid_header2"><?=__('message_contract_period')?></div>
-                                <div class="col-md-9 notwrapped">{{ rec.message_contract_period.id }}</div>
-                            </div>
-                            
-                            <div class="grid_row row">
-                                <div class="col-md-3 grid_header2"><?=__('message_desc')?></div>
-                                <div class="col-md-9 notwrapped">{{rec.message.message_desc}}</div>
-                            </div>
-                            
-                            <div class="grid_row row">
-                                <div class="col-md-3 grid_header2"><?=__('rec_state')?></div>
-                                <div class="col-md-9 notwrapped" ng-bind-html="DtSetter( 'bool2', rec.message.rec_state )"></div>
+                                <div class="col-md-3 grid_header2"><?= __('rec_state') ?></div>
+                                <div class="col-md-9 notwrapped" ng-bind-html="DtSetter( 'bool2', rec.message.rec_state)"></div>
                             </div>
 
                         </div>

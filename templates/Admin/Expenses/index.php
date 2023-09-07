@@ -79,7 +79,7 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
 
                             <div class="grid_header row">
 
-                                <div class="col-sm-1 col">
+                                <div class="col-sm-2 col">
                                     <?= $this->element('colActions', ['url' => 'expenses/index/', 'col' => 'id']) ?>
                                     <label class="mycheckbox">
                                         <input type="checkbox" ng-click="chkAll('.chkb', !selectAll)" ng-model="selectAll">
@@ -100,7 +100,7 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                     <?= $this->element('colActions', ['url' => 'expenses/index/', 'col' => 'expense_amount']) ?>
                                     <?= __('expense_amount') ?> </div>
 
-                                <div class="col-sm-1 col">
+                                <div class="col-sm-2 col">
                                     <?= $this->element('colActions', ['url' => 'expenses/index/', 'col' => 'category_id']) ?>
                                     <?= __('category_id') ?> </div>
 
@@ -117,14 +117,14 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                     <?= __('rec_state') ?> </div>   */ ?>
 
 
-                                <div class="col-sm-1 col hideMob"><span class="nobr"><?= __('action') ?></span>
+                                <div class="col-sm-2 col hideMob"><span class="nobr"><?= __('action') ?></span>
                                 </div>
                             </div>
 
                             <div class="grid_row row" ng-repeat="itm in lists.expenses ">
 
 
-                                <div class="col-sm-1 hideMobSm grid_header">
+                                <div class="col-sm-2 hideMobSm grid_header">
                                     <label class="mycheckbox chkb">
                                         <input type="checkbox" ng-model="selected[itm.id]" ng-value="{{itm.id}}">
                                         <span></span> {{ itm.id }} <a href="<?= $app_folder ?>/admin/expenses/index/{{itm.id}}"></a>
@@ -140,7 +140,7 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                 <div class="col-md-1 col-8 hideWeb">{{ itm.id }}</div>
 
                                 <div class="col-4 hideWeb grid_header"><?= __('owner_id') ?></div>
-                                <a class="col-md-2" href="<?= $app_folder ?>/admin/expenses/index/{{itm.owner.user_fullname}}">{{ itm.owner.user_fullname }}</a>
+                                <a class="col-md-2 col-8" href="<?= $app_folder ?>/admin/expenses/index/{{itm.owner.user_fullname}}">{{ itm.owner.user_fullname }}</a>
 
                                 <div class="col-4 hideWeb grid_header"><?= __('expense_type') ?></div>
                                 <div class="col-md-2 col-8" ng-bind-html="DtSetter('', itm.expense_type) == 1 ? 'income' : 'outgoing'"></div>
@@ -149,7 +149,7 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                 <div class="col-md-2 col-8">{{DtSetter('currencies_icons', itm.expense_currency)}} {{ itm.expense_amount }} </div>
 
                                 <div class="col-4 hideWeb grid_header "><?= __('category_id') ?></div>
-                                <div class="col-md-1 col-8">{{ itm.category.category_name }} </div>
+                                <div class="col-md-2 col-8">{{ itm.category.category_name }} </div>
                                
                                 <?php /* <div class="col-4 hideWeb grid_header"><?= __('expense_currency') ?></div>
                                 <div class="col-md-2 col-8" ng-bind-html="DtSetter('currency', itm.expense_currency)"></div> 
@@ -165,11 +165,11 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                 <div class="col-md-1 col-8 action">
                                     <a href ng-click="
                                     doGet('/admin/expenses?id='+itm.id, 'rec', 'expense');
-                                        openModal('#viewExpense_mdl');
+                                        openModal('#viewExpense_mdl');"class="inline-btn
                                         "><i class="fa fa-eye"></i> <?= __('view') ?></a>
                                     <a href ng-click=" 
                                     doGet('/admin/expenses?id='+itm.id, 'rec', 'expense');
-                                        openModal('#addEditExpense_mdl');
+                                        openModal('#addEditExpense_mdl');"class="inline-btn
                                         "><i class="fa fa-pencil"></i> <?= __('edit') ?></a>
 
                                 </div>
@@ -184,7 +184,7 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
     </div>
 </div>
 
+<?php echo $this->element('Modals/searchExpenses') ?>
 <?php echo $this->element('Modals/addEditExpense') ?>
 <?php echo $this->element('Modals/viewExpense') ?>
-<?php echo $this->element('Modals/searchExpenses') ?>
 <?php echo $this->element('Modals/docs') ?>

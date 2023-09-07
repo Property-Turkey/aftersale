@@ -155,35 +155,35 @@ $parent_id = isset($this->request->getParam("pass")[0])
 
 								<?php /* <div class="clearfix"></div>
 
-						<div class="form-group ">
-						<div class="col-md-12 col-sm-6  form-group has-feedback ">
-							<button type="submit" class="btn btn-info"><span><i class="fa fa-save"></i></span> <?= __("save") ?></button>
-						</div>
-					</div>
-				</form>
-				<button ng-click="
-						doGet('/admin/categories/index?list=1', 'list', 'categories');
-						newEntity('category');
-					" id="category_btn" class="hideIt"></button>
+									<div class="form-group ">
+									<div class="col-md-12 col-sm-6  form-group has-feedback ">
+										<button type="submit" class="btn btn-info"><span><i class="fa fa-save"></i></span> <?= __("save") ?></button>
+									</div>
+								</div>
+							</form>
+							<button ng-click="
+									doGet('/admin/categories/index?list=1', 'list', 'categories');
+									newEntity('category');
+								" id="category_btn" class="hideIt"></button>
 
-				<form class="form-label-left input_mask " ng-show="showAddClientForm" id="category_form" enctype="multipart/form-data" novalidate="novalidate" ng-submit="doSave (rec.category, 'category', 'categories', '#category_btn'); ">
+							<form class="form-label-left input_mask " ng-show="showAddClientForm" id="category_form" enctype="multipart/form-data" novalidate="novalidate" ng-submit="doSave (rec.category, 'category', 'categories', '#category_btn'); ">
 
-					<div class="col-md-12 col-sm-12  form-group has-feedback" ng-if="rec.category.parent_name">
-						<h2><?= __("parent_id") ?> : {{rec.category.parent_name}}</h2>
-					</div>
+								<div class="col-md-12 col-sm-12  form-group has-feedback" ng-if="rec.category.parent_name">
+									<h2><?= __("parent_id") ?> : {{rec.category.parent_name}}</h2>
+								</div>
 
-					<div class="col-md-12 col-sm-12  form-group has-feedback">
-						<label><?= __("category_name") ?></label>
-						<div class="div">
-							<?= $this->Form->control("category_name", [
-								"type" => "text",
-								"label" => false,
-								"class" => "form-control has-feedback-left",
-								"ng-model" => "rec.category.category_name",
-							]) ?>
-							<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
-						</div>
-					</div> */ ?>
+								<div class="col-md-12 col-sm-12  form-group has-feedback">
+									<label><?= __("category_name") ?></label>
+									<div class="div">
+										<?= $this->Form->control("category_name", [
+											"type" => "text",
+											"label" => false,
+											"class" => "form-control has-feedback-left",
+											"ng-model" => "rec.category.category_name",
+										]) ?>
+										<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
+									</div>
+								</div> */ ?>
 								<div class="clearfix"></div>
 								<div class="form-group ">
 									<div class="col-md-12 col-sm-6  form-group has-feedback ">
@@ -195,7 +195,7 @@ $parent_id = isset($this->request->getParam("pass")[0])
 
 						</div>
 					</div>
-				
+
 					<div class="tab-pane" id="tabs-2" role="tabpanel">
 						<?php
 						$ctrl = strtolower($this->request->getParam("controller"));
@@ -221,43 +221,18 @@ $parent_id = isset($this->request->getParam("pass")[0])
 						?>
 						<?php if ($isDocs) { ?>
 							<div>
-								<div class="row p-3">
-									<div class="col-6 col-lg-6">
-									</div>
+								
 									<div class="row ngif" ng-if="addDocument == 1">
-										<div class="col-md-8 col-sm-8  form-group has-feedback">
-											<label><?= __("doc_allowed_roles") ?></label>
-											<div class="div">
-												<?= $this->Form->control("doc_allowed_roles", [
-													"class" => "form-control selectpicker",
-													"type" => "select",
-													"ng-model" => "rec.doc.doc_allowed_roles",
-													// 'data-live-search' => false,
-													"multiple" => true,
-													// 'multi-select' => '1',
-													"label" => false,
-													"data-size" => 6,
-													"data-done-button" => false,
-													"options" => $this->Do->lcl(
-														$this->Do->get("AdminRoles"),
-														false,
-														false
-													),
-												]) ?>
-											</div>
-										</div>
-
-										<div class="row ngif" ng-if="addDocument == 1">
-											<div class="col-md-8 col-sm-8 form-group has-feedback">
-												<!-- <label><?= __("doc_allowed_roles") ?></label> -->
-												<div class="div">
-													<label ng-repeat="role in adminRoles">
-														<input type="checkbox" ng-model="rec.doc.doc_allowed_roles[role.value]"> {{ role.label }}
+										<div class="row p-4">
+											<div class="col-lg-12 col-sm-12 form-group has-feedback">
+												<label class="mb-3"><?= __("doc_allowed_roles") ?></label>
+												<div class="div d-flex pr-3">
+													<label class= "pr-3" ng-repeat="role in DtSetter('AdminRoles', 'list')">
+														<input type="checkbox" ng-model="rec.doc.doc_allowed_roles[role]" value="role"> {{role}}
 													</label>
 												</div>
 											</div>
 										</div>
-
 
 										<div class="col-lg-12 col-sm-12  form-group has-feedback" ng-if="!(rec.doc.id > 0)">
 											<label><?= __("doc_file") ?></label>

@@ -272,6 +272,7 @@ Cache::write('ROLES', [
 		'logs'=>['create'=>0, 'read'=>1, 'update'=>0, 'delete'=>0, 'allids'=>0],
         'payments'=>['create'=>1, 'read'=>1, 'update'=>1, 'delete'=>1, 'allids'=>1],
         'docs'=>['create'=>1, 'read'=>1, 'update'=>1, 'delete'=>0, 'allids'=>0],
+        'messages'=>['create'=>1, 'read'=>1, 'update'=>1, 'delete'=>1, 'allids'=>1],
 	],
 	'user.tenant'=>[//     tenant
 		'categories'=>['create'=>0, 'read'=>0, 'update'=>0, 'delete'=>0, 'allids'=>0],
@@ -282,6 +283,7 @@ Cache::write('ROLES', [
 		'paymenys'=>['create'=>0, 'read'=>0, 'update'=>0, 'delete'=>0, 'allids'=>0],
         'payments'=>['create'=>1, 'read'=>1, 'update'=>1, 'delete'=>1, 'allids'=>1],
         'docs'=>['create'=>1, 'read'=>1, 'update'=>1, 'delete'=>0, 'allids'=>0],
+        'messages'=>['create'=>1, 'read'=>1, 'update'=>1, 'delete'=>1, 'allids'=>1],
 
 	],
 ]);
@@ -298,8 +300,11 @@ Cache::write('features_parents', $features_parents);
 $expense_type = [ 1=>'income', 2=>'outgoing'];
 Cache::write('expense_type', $expense_type);
 
-$rec_state = [  	1=>'wait', 2=>'paid', 3=>'overdue' ];
+$rec_state = [ 1=>'wait', 2=>'paid', 3=>'overdue' ];
 Cache::write('rec_state', $rec_state);
+
+$message_priority  = [ 1=>'normal', 2=>'warning', 3=>'urgent' ];
+Cache::write('message_priority', $message_priority);
 
 
 

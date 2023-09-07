@@ -94,7 +94,6 @@ class DocsController extends AppController
     {
 
         $dt = json_decode(file_get_contents('php://input'), true);
-
         $ctrl = $this->request->getParam('controller');
 
         // edit mode
@@ -113,7 +112,10 @@ class DocsController extends AppController
         if ($this->request->is(['post', 'patch', 'put'])) {
 
             $this->autoRender  = false;
-            $dt['doc_allowed_roles'] = implode(',', $dt['doc_allowed_roles']);
+            // docs_allowed_roles
+            $keys = array_keys($dt['doc_allowed_roles']);
+            $roles = implode(',', $keys);
+            $dt['doc_allowed_roles'] = $roles;
 
             $fname = strtolower(preg_replace('/[^a-zA-Z0-9_]/', "_", $dt['file'][0]['name']));
 

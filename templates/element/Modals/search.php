@@ -3,7 +3,7 @@ $ctrl = $this->request->getParam('controller') == 'Properties' ? 'property' : 'p
 $prefix = $this->request->getParam('controller') == 'Properties' ? 'PROP' : 'PROJ';
 ?>
 
-<div class="modal fade modal-right" id="search_mdl" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade modal-right" id="searchx_mdl" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="listing-modal-1 modal-dialog modal-lg aside-modal">
         <div class="modal-content">
             <div class="modal-header">

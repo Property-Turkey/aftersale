@@ -130,7 +130,7 @@
                                 <div class="col-md-2 col-8 action">
                                     <a href="javascript:void(0);" 
                                         data-toggle="modal" data-target="#viewConfig_mdl"  class="inline-btn"
-                                        ng-click="doGet('/admin/configs?id='+itm.id, 'rec', 'config');">
+                                        ng-click="doGet('/admin/configs?id='+itm.id, 'rec', 'config');"class="inline-btn">
                                         <i class="fa fa-eye"></i> <?=__('view')?>
                                     </a> &nbsp; 
                                     <a href="javascript:void(0);" 

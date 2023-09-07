@@ -479,7 +479,13 @@
                     3: '<?= __('TRY') ?>',
                     4: '<?= __('GBP') ?>',
                 },
-                'AdminRoles': JSON.parse('<?= json_encode($this->Do->lcl($this->Do->get('AdminRoles'))) ?>'),
+                'message_priority': {
+                    1: '<?= __('normal') ?>',
+                    2: '<?= __('warning') ?>',
+                    3: '<?= __('urgent') ?>',
+                },
+                                                                 
+                'AdminRoles': JSON.parse('<?= json_encode($this->Do->lcl($this->Do->get('AdminRoles'), false, false)) ?>'),
                 'langs': JSON.parse('<?= json_encode($this->Do->lcl($this->Do->get('langs'))) ?>'),
                 'langsPrefix': JSON.parse('<?= json_encode(($this->Do->get('langs'))) ?>'),
                 'currencies': JSON.parse('<?= json_encode($this->Do->get('currencies')) ?>'),
@@ -988,7 +994,7 @@
 
                     var daysRemaining = Math.floor((expirationDate - currentDate) / (1000 * 60 * 60 * 24));
 
-                    // Yüzde 10 kontrolü
+                    // %10 control
                     var remainingPercentage = (daysRemaining / parseInt(servicePeriod)) * 100;
 
                     return remainingPercentage <= 10; // Eğer %10 veya daha az kaldıysa true döner
@@ -1009,13 +1015,13 @@
 
                 $scope.loadTags = function(query, target) {
                     // return $http.get('/tags?query=' + query);
-                    return $http.get('<?=$app_folder?>/admin/'+target+'?tags=1&keyword='+query)
+                    return $http.get('<?= $app_folder ?>/admin/' + target + '?tags=1&keyword=' + query)
                         .then(function(response, status) {
                             return response.data.data;
                         });
-                    // return $http.get('<?=$app_folder?>/admin/'+target+'?tags=1&keyword='+query);
+                    // return $http.get('<?= $app_folder ?>/admin/'+target+'?tags=1&keyword='+query);
                 };
-                
+
                 $scope.doGet = function(url, type, tar, preloader) {
 
                     !type ? type = 'list' : type;
@@ -1170,7 +1176,9 @@
                     _setCvrBtn('#main_preloader', 1);
                     doSearchUpdt = $timeout(function() {
 
-                        _doRequest('<?= $app_folder ?>/admin/' + ctrl + '/index', $scope.rec.search, 'post').then(function(res) {
+                        _doRequest('<?= $app_folder ?>/admin/' + ctrl + '?list=1', {
+                            search: $scope.rec.search
+                        }, 'post').then(function(res) {
 
                             lastSearch = JSON.stringify($scope.rec.search);
 

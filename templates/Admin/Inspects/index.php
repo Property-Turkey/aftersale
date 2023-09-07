@@ -3,8 +3,7 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
 ?>
 
 <div class="right_col" role="main" ng-init="
-        doGet('/admin/inspects/index/<?= $pid ?>?list=1', 'list', 'inspects');
-    ">
+        doGet('/admin/inspects/index/<?= $pid ?>?list=1', 'list', 'inspects'); ">
     <div class="">
         <div class="page-title">
             <div class=" col-6 col-sm-6 col-md-6 side_div1">
@@ -20,16 +19,7 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                     </a>
                 </span>
             </div>
-            <div class=" col-6 col-sm-6 col-md-6 side_div2">
-                <span class="icn">
-                    <a href data-toggle="modal" data-target="#search_mdl" data-dismiss="modal" class="btn btn-info">
-                        <span class="fa fa-search"></span> <span class="hideMob"><?= __('search') ?></span>
-                    </a>
-                </span>
-            </div>
         </div>
-
-
         <div class="clearfix"></div>
 
         <div class="row">
@@ -79,7 +69,7 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
 
                             <div class="grid_header row">
 
-                                <div class="col-sm-1 col">
+                                <div class="col-sm-2 col">
                                     <?= $this->element('colActions', ['url' => 'inspects/index/', 'col' => 'id']) ?>
                                     <label class="mycheckbox">
                                         <input type="checkbox" ng-click="chkAll('.chkb', !selectAll)" ng-model="selectAll">
@@ -88,27 +78,25 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                     </label>
                                 </div>
 
-
-                                <div class="col-sm-2 col">
+                                <div class="col-sm-3 col">
                                     <?= $this->element('colActions', ['url' => 'inspects/index/', 'col' => 'user_id']) ?>
                                     <?= __('user_id') ?> </div>
 
-                                <div class="col-sm-2 col">
+                                <div class="col-sm-3 col">
                                     <?= $this->element('colActions', ['url' => 'inspects/index/', 'col' => 'stat_created']) ?>
                                     <?= __('stat_created') ?> </div>
 
-                                <div class="col-sm-1 col">
+                                <!-- <div class="col-sm-2 col">
                                     <?= $this->element('colActions', ['url' => 'inspects/index/', 'col' => 'rec_state', 'filter' => $this->Do->lcl($this->Do->get('rec_state'))]) ?>
-                                    <?= __('rec_state') ?> </div>
+                                    <?= __('rec_state') ?> </div> -->
 
-
-                                <div class="col-sm-1 col hideMob"><span class="nobr"><?= __('action') ?></span>
+                                <div class="col-sm-3 col hideMob"><span class="nobr"><?= __('action') ?></span>
                                 </div>
                             </div>
 
                             <div class="grid_row row" ng-repeat="itm in lists.inspects">
 
-                                <div class="col-sm-1 hideMobSm grid_header">
+                                <div class="col-sm-2 hideMobSm grid_header">
                                     <label class="mycheckbox chkb">
                                         <input type="checkbox" ng-model="selected[itm.id]" ng-value="{{itm.id}}">
                                         <span></span> {{ itm.id }} <a href="<?= $app_folder ?>/admin/inspects/index/{{itm.id}}"></a>
@@ -121,33 +109,31 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                         <span></span>
                                     </label>
                                 </div>
-                                <div class="col-md-1 col-8 hideWeb">{{ itm.id }}</div>
+                                <div class="col-md-3 col-8 hideWeb">{{ itm.id }}</div>
 
+                                <div class="col-4 hideWeb grid_header"><?= __('user_id',) ?></div>
+                                <div class="col-md-3 col-8">{{ itm.user.user_fullname }} </div>
 
-                                <div class="col-4 hideWeb grid_header"><?= __('user_id ',) ?></div>
-                                <div class="col-md-2 col-8">{{ itm.user.user_fullname }} </div>
-                          
-                                <div class="col-4 hideWeb grid_header"><?= __('stat_created ') ?></div>
-                                <div class="col-md-2 col-8"> {{itm.stat_created}}</div>
+                                <div class="col-4 hideWeb grid_header"><?= __('stat_created') ?></div>
+                                <div class="col-md-3 col-8"> {{itm.stat_created}}</div>
 
-                                <div class="col-4 hideWeb grid_header"><?= __('rec_state') ?></div>
-                                <div class="col-md-1 col-8" ng-bind-html="DtSetter('rec_state', itm.rec_state)"></div>
+                                <!-- <div class="col-4 hideWeb grid_header"><?= __('rec_state') ?></div>
+                                <div class="col-md-2 col-8" ng-bind-html="DtSetter('rec_state', itm.rec_state)"></div> -->
 
-                                <div class="col-4 hideWeb grid_header"><?= __('actions') ?></div>
-                                <div class="col-md-1 col-8 action">
+                                <div class="col-3 hideWeb grid_header"><?= __('actions') ?></div>
+                                <div class="col-md-2 col-8 action">
                                     <a href ng-click="
                                         doGet('/admin/inspects/index//?id='+itm.id, 'view', 'inspect');
-                                        openModal('#viewInspect_mdl');
+                                        openModal('#viewInspect_mdl');"class="inline-btn
                                         "><i class="fa fa-eye"></i> <?= __('view') ?></a>
                                     <a href ng-click=" 
                                         doGet('/admin/inspects/index/?id='+itm.id, 'view', 'inspect');
-                                        openModal('#addEditInspect_mdl');
+                                        openModal('#addEditInspect_mdl');"class="inline-btn
                                         ">
                                         <i class="fa fa-pencil"></i> <?= __('edit') ?>
                                     </a>
                                 </div>
                             </div>
-
                         </div>
                         <?php echo $this->element('paginator-ng') ?>
                     </div>

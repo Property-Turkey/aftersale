@@ -113,9 +113,7 @@ $isDocs = in_array($authUser['user_role'], ['admin.root', 'admin.admin', 'admin.
                                     <i class="fa fa-times"></i>
                                 </button>
                             </div>
-
                         </div>
-
 
                         <?php // show files list 
                         ?>

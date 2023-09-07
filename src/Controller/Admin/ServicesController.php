@@ -17,19 +17,23 @@ class ServicesController extends AppController
 
             $this->autoRender = false;
 
-            $dt = json_decode(file_get_contents('php://input'), true);
+            
             // dd($dt);
             $_method = !empty($_GET['method']) ? $_GET['method'] : '';
-            $conditions = [];
+            //$conditions = [];
 
             // Filters and Search
             $_from = !empty($_GET['from']) ? $_GET['from'] : '';
             $_to = !empty($_GET['to']) ? $_GET['to'] : '';
+
+            $dt = json_decode(file_get_contents('php://input'), true);
+
             $_tags = isset($_GET['tags']) ? $_GET['tags'] : false;
             $_method = !empty($_GET['method']) ? $_GET['method'] : '';
             $_col = !empty($_GET['col']) ? $_GET['col'] : 'id';
             $_k = (isset($_GET['k']) && strlen($_GET['k']) > 0) ? $_GET['k'] : false;
             $_dir = !empty($_GET['direction']) ? $_GET['direction'] : 'DESC';
+
 
 
             if (!empty($_from)) {
@@ -45,6 +49,42 @@ class ServicesController extends AppController
             $_id = $this->request->getQuery('id');
             $_list = $this->request->getQuery('list');
 
+            $noneSearchable = ['page', 'keyword'];
+            $betweenFields = ['page', 'keyword'];
+            $likeFields = ['page', 'keyword'];
+            $conditions = [];
+
+            // SEARCH
+            if (!empty($dt['search'])) {
+                foreach ($dt['search'] as $col => $val) {
+                    if (empty($val)) {
+                        continue; // Skip this column if input is empty
+                    }
+                    if (in_array($col, $noneSearchable)) {
+                        continue; // Skip columns in $noneSearchable
+                    }
+                    if ($col == 'owner_id') {
+                        $conditions['Owner.user_fullname LIKE '] = '%' . $val . '%';    
+
+                    } else if ($col == 'service_contract_period') {
+                        $conditions[$col] = $val;
+
+                    }  else if ($col == 'service_price') {
+                        $conditions[$col] = $val;
+
+                    } else if ($col == 'package_id') {
+                        $conditions['Packages.package_name LIKE '] = '%' . $val . '%';
+                    } 
+                    else if ($col == 'property_id') {
+                        $conditions['Properties.property_ref LIKE '] = '%' . $val . '%';
+                        
+                    }  else if ($col =='service_price') {
+                        $conditions[$col] = $val;
+                    }
+                }              
+                
+            }
+
             // ONE RECORD
             if (!empty($_id)) {
                 $data = $this->Services->get($_id, [
@@ -55,9 +95,11 @@ class ServicesController extends AppController
                         'Packages' => ['fields' => ['package_name']],
                         'Properties' => ['fields' => ['Properties.property_ref']],
                         'Docs' => ['fields' => ['Docs.tar_id', 'Docs.id', 'Docs.doc_name']],
-                        //'TarId'=>['fields'=>['id']],
+
                     ]
                 ])->toArray();
+
+                $data['expiration_date'] = date('Y-m-d H:i:s', strtotime($data['stat_created'] . ' + ' . $data['service_contract_period'] . ' days'));
 
                 $data = $this->Do->convertJson($data);
                 echo json_encode(

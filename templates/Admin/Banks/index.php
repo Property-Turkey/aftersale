@@ -67,7 +67,7 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
 
                             <div class="grid_header row">
 
-                                <div class="col-sm-1 col">
+                                <div class="col-sm-2 col">
                                     <?= $this->element('colActions', ['url' => 'banks/index/', 'col' => 'id']) ?>
                                     <label class="mycheckbox">
                                         <input type="checkbox" ng-click="chkAll('.chkb', !selectAll)" ng-model="selectAll">
@@ -114,7 +114,7 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                            
                             <div class="grid_row row" ng-repeat="itm in lists.banks">
 
-                                <div class="col-sm-1 hideMobSm grid_header">
+                                <div class="col-sm-2 hideMobSm grid_header">
                                     <label class="mycheckbox chkb">
                                         <input type="checkbox" ng-model="selected[itm.id]" ng-value="{{itm.id}}">
                                         <span></span> {{ itm.id }} <a href="<?= $app_folder ?>/admin/banks/index/{{itm.id}}"><i></i></a>
@@ -127,7 +127,7 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                         <span></span>
                                     </label>
                                 </div>
-                                <div class="col-md-1 col-8 hideWeb">{{ itm.id }}</div>
+                                <div class="col-md-2 col-8 hideWeb">{{ itm.id }}</div>
                               
 
                                <?php /* <div class="col-3 hideWeb grid_header"><?= __('banks_information') ?></div>
@@ -177,11 +177,11 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                 <div class="col-md-2 col-8 action">
                                     <a href ng-click="
                                     doGet('/admin/banks?id='+itm.id, 'rec', 'bank');
-                                        openModal('#viewBank_mdl');
-                                        "><i class="fa fa-eye"></i> <?= __('view') ?></a>
+                                        openModal('#viewBank_mdl')" class="inline-btn";
+                                        ><i class="fa fa-eye"></i> <?= __('view') ?></a>
                                     <a href ng-click=" 
                                     doGet('/admin/banks?id='+itm.id, 'rec', 'bank');
-                                        openModal('#addEditBank_mdl');
+                                        openModal('#addEditBank_mdl');"class="inline-btn
                                         ">
                                         <i class="fa fa-pencil"></i> <?= __('edit') ?>
                                     </a>
@@ -196,6 +196,6 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
             </div>
         </div>
     </div>
-
+</div>
     <?php echo $this->element('Modals/addEditBank') ?>
     <?php echo $this->element('Modals/viewBank') ?>

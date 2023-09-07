@@ -3,9 +3,7 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
 ?>
 
 <div class="right_col" role="main" ng-init="
-        doGet('/admin/services/index/<?= $pid ?>?list=1', 'list', 'services');
-        
-    ">
+        doGet('/admin/services/index/<?= $pid ?>?list=1', 'list', 'services');">
     <div class="">
         <div class="page-title">
             <div class=" col-6 col-sm-6 col-md-6 side_div1">
@@ -21,15 +19,17 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                     </a>
                 </span>
             </div>
+
             <div class=" col-6 col-sm-6 col-md-6 side_div2">
                 <span class="icn">
-                    <a href data-toggle="modal" data-target="#search_mdl" data-dismiss="modal" class="btn btn-info">
+                    <a href ng-click="                
+                                        openModal('#searchServiceModal');
+                                        " class="btn btn-info">
                         <span class="fa fa-search"></span> <span class="hideMob"><?= __('search') ?></span>
                     </a>
                 </span>
             </div>
         </div>
-
 
         <div class="clearfix"></div>
 
@@ -162,18 +162,18 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                 </div>
                                 <div class="col-md-1 col-8 hideWeb">{{ itm.id }}</div>
                                 <div class="col-4 hideWeb grid_header"><?= __('services_information') ?></div>
-                                <div class=" col-2">
+                                <div class=" col-md-2 col-8">
                                     <div class="">
-                                        <b> Owner Name:</b>{{ itm.owner.user_fullname }}
+                                        <b> Owner Name:</b>{{ itm.owner.user_fullname}}
                                     </div>
                                     <div class="">
                                         <b>Service Contract Period:</b>{{ itm.service_contract_period }}
                                     </div>
                                 </div>
-                                <div class="col-4 hideWeb grid_header"><?= __('service_price ') ?></div>
+                                <div class="col-4 hideWeb grid_header"><?= __('service_price') ?></div>
                                 <div class="col-md-1 col-8">{{DtSetter('currencies_icons', itm.service_currency)}} {{itm.service_price }} </div>
 
-                                <div class="col-4 hideWeb grid_header"><?= __('property_id') ?></div>
+                                <div class="col-4 hideWeb grid_header"><?= __('property_ref') ?></div>
                                 <div class="col-md-1 col-8">{{ itm.property.property_ref }} </div>
 
 
@@ -192,12 +192,12 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                               <div class="col-4 hideWeb grid_header"><?= __('service_desc ') ?></div>
                                 <div class="col-md-1 col-8" ng-bind-html="DtSetter('', itm.service_desc )"></div> */ ?>
 
-                                <div class="col-4 hideWeb grid_header"><?= __('package_name ') ?></div>
+                                <div class="col-4 hideWeb grid_header"><?= __('package_name') ?></div>
                                 <div class="col-md-1 col-8">
                                     {{itm.package.package_name}}
                                 </div>
 
-                                <div class="col-6 hideWeb grid_header"><?= __('total_price') ?></div>
+                                <!-- <div class="col-4 hideWeb grid_header"><?= __('total_price') ?></div> -->
                                 <div class=" col-md-1">
                                     <div ng-repeat=" item in itm.service_package" class="redtext">
                                     </div>
@@ -208,7 +208,8 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                     <div class="redtext">
                                     </div>
                                 </div>
-                                <div class="col-md-2 ">
+                                <div class="col-4 hideWeb grid_header"><?= __('expiration_date') ?></div>
+                                <div class="col-md-2 col-8">
                                     <div class="text-success col-md-2 col-8" ng-class="{ 'text-warning': isExpiringSoon(itm.stat_created, itm.service_contract_period) }">
                                         {{ itm.expiration_date }}
                                     </div>
@@ -220,16 +221,15 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                 <div class="col-md-1 col-8 action">
                                     <a href ng-click="                       
                                         doGet('/admin/services?id='+itm.id, 'rec', 'service');
-                                        openModal('#viewService_mdl');
-                                        "><i class="fa fa-eye"></i> <?= __('view') ?></a>
+                                        openModal('#viewService_mdl');" class="inline-btn">
+                                    <i class="fa fa-eye"></i> <?= __('view') ?></a>
                                     <a href ng-click=" 
                                     doGet('/admin/services?id='+itm.id, 'rec', 'service');
-                                        openModal('#addEditService_mdl');">
+                                        openModal('#addEditService_mdl');" class="inline-btn">
                                         <i class="fa fa-pencil"></i> <?= __('edit') ?>
                                     </a>
                                 </div>
                             </div>
-
                         </div>
                         <?php echo $this->element('paginator-ng') ?>
                     </div>
@@ -238,8 +238,7 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
         </div>
     </div>
 </div>
-
 <?php echo $this->element('Modals/addEditService') ?>
-<?php echo $this->element('Modals/viewService') ?>
 <?php echo $this->element('Modals/searchServices') ?>
 <?php echo $this->element('Modals/docs') ?>
+<?php echo $this->element('Modals/viewService') ?>

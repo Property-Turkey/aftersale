@@ -41,7 +41,7 @@
                            
                             <div class="grid_row row">
                               <div class="col-md-3 grid_header2"><?=__('rec_state')?></div>
-                                <div class="col-md-9 notwrapped" ng-bind-html="DtSetter( 'rec_state', rec.inspect.rec_state )"></div>
+                                <div class="col-md-9 notwrapped" ng-bind-html="DtSetter( 'bool2', rec.inspect.rec_state )"></div>
                             </div>
 
                         </div>

@@ -109,11 +109,11 @@
                                     <?=$this->element('colActions', ['url'=>'users/index/', 'col'=>'stat_ip', 'search'=>'stat_ip'])?> 
                                     <?=__('stat_ip')?> </div>                                                           
                                     
-                                <div class="col-sm-2 col">
+                                <div class="col-sm-1 col">
                                     <?=$this->element('colActions', ['url'=>'users/index/', 'col'=>'rec_state', 'filter'=>$this->Do->lcl( $this->Do->get('bool'))])?> 
                                     <?=__('rec_state')?> </div>
 
-                                <div class="col-sm-2 col hideMob"><span
+                                <div class="col-sm-1 col hideMob"><span
                                         class="nobr"><?=__('action')?></span>
                                 </div>
                             </div>
@@ -148,14 +148,11 @@
                                 <div class="col-md-1 col-8" ng-bind-html="DtSetter('', itm.mobile)"></div>
 
                                 <div class="col-4 hideWeb grid_header"><?=__('user_role')?></div>
-                                <div class="col-md-2 col-8">{{ DtSetter('roles', itm.user_role) }}</div>       
+                                <div class="col-md-1 col-8">{{ DtSetter('roles', itm.user_role) }}</div>       
 
                                 <div class="col-4 hideWeb grid_header"><?=__('user_configs')?></div>
                                 <div class="col-md-1 col-8" ng-bind-html="DtSetter('', itm.user_configs)"></div>
 
-                                <div class="col-4 hideWeb grid_header"><?=__('user_configs')?></div>
-                                <div class="col-md-1 col-8" ng-bind-html="DtSetter('', itm.user_configs)"></div>
-                                
                                 <div class="col-4 hideWeb grid_header"><?=__('stat_created')?></div>
                                 <div class="col-md-1 col-8" ng-bind-html="DtSetter('', itm.stat_created)"></div>
 
@@ -166,10 +163,10 @@
                                 <div class="col-md-1 col-8" ng-bind-html="DtSetter('', itm.stat_ip)"></div>
                                 
                                 <div class="col-4 hideWeb grid_header"><?=__('rec_state')?></div>
-                                <div class="col-md-2 col-8" ng-bind-html="DtSetter('bool2', itm.rec_state)"></div>
+                                <div class="col-md-1 col-8" ng-bind-html="DtSetter('bool2', itm.rec_state)"></div>
 
                                 <div class="col-4 hideWeb grid_header"><?=__('actions')?></div>
-                                <div class="col-md-2 col-8 action">
+                                <div class="col-md-1 col-8 action">
                                     <a href="javascript:void(0);" 
                                         data-toggle="modal" data-target="#viewUser_mdl"  class="inline-btn"
                                         ng-click="doGet('/admin/users?id='+itm.id, 'rec', 'user');">

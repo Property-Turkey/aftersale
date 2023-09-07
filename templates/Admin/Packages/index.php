@@ -3,8 +3,7 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
 ?>
 
 <div class="right_col" role="main" ng-init="
-        doGet('/admin/packages/index/<?= $pid ?>?list=1', 'list', 'packages');
-    ">
+        doGet('/admin/packages/index/<?= $pid ?>?list=1', 'list', 'packages');">
     <div class="">
         <div class="page-title">
             <div class=" col-6 col-sm-6 col-md-6 side_div1">
@@ -20,7 +19,7 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                     </a>
                 </span>
             </div>
-        </div>
+         </div> 
 
         <div class="clearfix"></div>
 
@@ -71,7 +70,7 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
 
                             <div class="grid_header row">
 
-                                <div class="col-sm-2 col">
+                                <div class="col-sm-4 col">
                                     <?= $this->element('colActions', ['url' => 'packages/index/', 'col' => 'id']) ?>
                                     <label class="mycheckbox">
                                         <input type="checkbox" ng-click="chkAll('.chkb', !selectAll)" ng-model="selectAll">
@@ -116,13 +115,13 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                     <?= __('rec_state') ?> </div> */ ?>
 
 
-                                <div class="col-sm-2 col hideMob"><span class="nobr"><?= __('action') ?></span>
+                                <div class="col-sm-4 col hideMob"><span class="nobr"><?= __('action') ?></span>
                                 </div>
                             </div>
 
                             <div class="grid_row row" ng-repeat="itm in lists.packages">
 
-                                <div class="col-sm-2 hideMobSm grid_header">
+                                <div class="col-sm-4 hideMobSm grid_header">
                                     <label class="mycheckbox chkb">
                                         <input type="checkbox" ng-model="selected[itm.id]" ng-value="{{itm.id}}">
                                         <span></span> {{ itm.id }} <a href="<?= $app_folder ?>/admin/packages/index/{{itm.id}}"></a>
@@ -137,8 +136,8 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                 </div>
                                 <div class="col-md-1 col-8 hideWeb">{{ itm.id }}</div>
 
-                                <div class="col-md-3 hideWeb grid_header"><?= __('packages_information') ?></div>
-                                <div class=" col-md-2">
+                                <div class="col-4 hideWeb grid_header"><?= __('package_name') ?></div>
+                                <div class=" col-md-4 col-8 ">
                                     <div style="color:black;">
                                         {{ itm.package_name }}
                                     </div>
@@ -147,14 +146,14 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                     </div>
                                 </div>
 
-                                <div class="col-md-2 hideWeb grid_header"><?= __('price') ?></div>
+                                <!-- <div class="col-md-2 hideWeb grid_header"><?= __('price') ?></div>
                                 <div class=" col-md-2">
                                     <div style="color:black;">
                                         {{ itm.package_price }} {{DtSetter('currency', itm.package_currency )}}
                                     </div>
                                     <div class="redtext">
                                     </div>
-                                </div>
+                                </div> -->
                                 <?php /* <div class="col-4 hideWeb grid_header"><?= __('package_name ') ?></div>
                                 <div class="col-md-1 col-8" ng-bind-html="DtSetter('', itm.package_name )"></div>
 
@@ -183,19 +182,18 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                 <div class="col-md-2 col-8" ng-bind-html="DtSetter('rec_state', itm.rec_state)"></div> */ ?>
 
                                 <div class="col-4 hideWeb grid_header"><?= __('actions') ?></div>
-                                <div class="col-md-2 col-8 action">
+                                <div class="col-md-4 col-8 action">
                                     <a href ng-click=" 
                                         doGet('/admin/packages?id='+itm.id, 'rec', 'package');
-                                        openModal('#viewPackage_mdl');
+                                        openModal('#viewPackage_mdl');"class="inline-btn
                                         "><i class="fa fa-eye"></i> <?= __('view') ?></a>
                                     <a href ng-click=" 
                                     doGet('/admin/packages?id='+itm.id, 'rec', 'package');
-                                        openModal('#addEditPackage_mdl');">
+                                        openModal('#addEditPackage_mdl');"class="inline-btn">
                                         <i class="fa fa-pencil"></i> <?= __('edit') ?>
                                     </a>
                                 </div>
                             </div>
-
                         </div>
                         <?php echo $this->element('paginator-ng') ?>
                     </div>

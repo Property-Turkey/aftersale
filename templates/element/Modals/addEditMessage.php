@@ -28,38 +28,54 @@
 							<h2><?= __('user_id') ?> : {{rec.message.user_id}}</h2>
 						</div>
 
-						<div class="col-md-6 col-6  form-group has-feedback">
-							<label><?= __('tenant_id') ?></label>
+						<!-- <div class="col-md-6 col-6  form-group has-feedback">
+							<label><?= __('message_to') ?></label>
 							<div class="div">
-								<?= $this->Form->text('tenant_id', [
+								<?= $this->Form->control('message_to', [
 									'type' => 'select',
-									'options'=>$this->Do->lcl( $this->Do->get('tenant_id') ),
+									'options'=>$this->Do->lcl( $this->Do->get('message_to') ),
+									'label' => false,
 									'class' => 'form-control has-feedback-left',
 									'ng-model' => 'rec.message.tenant_id'
 								]) ?>
 								<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
 							</div>
-						</div>
+						</div> -->
 
 						<div class="col-md-6 col-6  form-group has-feedback">
-							<label><?= __('property_id') ?></label>
+							<label><?= __('message_to') ?></label>
 							<div class="div">
-								<?= $this->Form->text('property_id', [
+								<?= $this->Form->control('message_to', [
 									'type' => 'text',
+									'label' => false,
 									'class' => 'form-control has-feedback-left',
-									'ng-model' => 'rec.message.property_id'
+									'ng-model' => 'rec.message.message_to'
 								]) ?>
 								<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
 							</div>
 						</div>
 
 						<div class="col-md-6 col-6  form-group has-feedback">
-							<label><?= __('message_desc') ?></label>
+							<label><?= __('message_subject') ?></label>
 							<div class="div">
-								<?= $this->Form->text('message_desc', [
+								<?= $this->Form->control('message_subject', [
 									'type' => 'text',
+									'label' => false,
 									'class' => 'form-control has-feedback-left',
-									'ng-model' => 'rec.message.message_desc'
+									'ng-model' => 'rec.message.message_subject'
+								]) ?>
+								<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
+							</div>
+						</div>
+
+						<div class="col-md-6 col-6  form-group has-feedback">
+							<label><?= __('message_text') ?></label>
+							<div class="div">
+								<?= $this->Form->control('message_text', [
+									'type' => 'text',
+									'label' => false,
+									'class' => 'form-control has-feedback-left',
+									'ng-model' => 'rec.message.message_text'
 								]) ?>
 								<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
 							</div>
@@ -67,59 +83,19 @@
 
 
 						<div class="col-md-6 col-6  form-group has-feedback">
-							<label><?= __('message_price') ?></label>
+							<label><?= __('message_priority') ?></label>
 							<div class="div">
-								<?= $this->Form->text('message_price', [
+								<?= $this->Form->control('message_priority', [
 									'type' => 'text',
+									'label' => false,
 									'class' => 'form-control has-feedback-left',
-									'ng-model' => 'rec.message.message_price',
+									'ng-model' => 'rec.message.message_priority',
 									'chk' => 'isNumber' 
 								]) ?>
 								<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
 							</div>
 						</div>
-
-						<div class="col-md-6 col-6  form-group has-feedback">
-							<label><?= __('message_vat') ?></label>
-							<div class="div">
-								<?= $this->Form->text('message_vat', [
-									'type' => 'text',
-									'class' => 'form-control has-feedback-left',
-									'ng-model' => 'rec.message.message_vat',
-									'chk' => 'isNumber' 
-								]) ?>
-								<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
-							</div>
-						</div>
-
-						<div class="col-md-6 col-6  form-group has-feedback">
-							<label><?= __('message_tax') ?></label>
-							<div class="div">
-								<?= $this->Form->text('message_tax', [
-									'type' => 'text',
-									'class' => 'form-control has-feedback-left',
-									'ng-model' => 'rec.message.message_tax',
-									'chk' => 'isNumber' 
-								]) ?>
-								<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
-							</div>
-						</div>
-
-						
-						<div class="col-md-6 col-6  form-group has-feedback">
-							<label><?= __('message_contract_period') ?></label>
-							<div class="div">
-								<?= $this->Form->text('message_contract_period', [
-									'type' => 'text',
-									'class' => 'form-control has-feedback-left',
-									'ng-model' => 'rec.message.message_contract_period'
-								]) ?>
-								<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
-							</div>
-						</div>
-
-						
-
+			
 						<div class="clearfix"></div>
 
 						<div class="form-group ">

@@ -15,9 +15,9 @@ class ExpensesController extends AppController
 
             $this->autoRender = false;
 
-            $conditions = [];
+            // $conditions = [];
 
-            // $dt = json_decode(file_get_contents('php://input'), true);
+            //$dt = json_decode(file_get_contents('php://input'), true);
             // $noneSearchable = ['page'];
             // $conditions = []; // $conditions dizisini burada tanımlayın
 
@@ -33,6 +33,7 @@ class ExpensesController extends AppController
             $_from = !empty($_GET['from']) ? $_GET['from'] : '';
             $_to = !empty($_GET['to']) ? $_GET['to'] : '';
 
+            $dt = json_decode(file_get_contents('php://input'), true);
             $_method = !empty($_GET['method']) ? $_GET['method'] : '';
             $_col = !empty($_GET['col']) ? $_GET['col'] : 'id';
             $_k = (isset($_GET['k']) && strlen($_GET['k']) > 0) ? $_GET['k'] : false;
@@ -51,6 +52,31 @@ class ExpensesController extends AppController
             $data = [];
             $_id = $this->request->getQuery('id');
             $_list = $this->request->getQuery('list');
+
+            $noneSearchable = ['page', 'keyword'];
+            $betweenFields = ['page', 'keyword']; //exact match
+            $likeFields = ['page', 'keyword']; //partial match
+
+            $conditions = [];
+
+            // SEARCH
+            if (!empty($dt['search'])) {
+                foreach ($dt['search'] as $col => $val) {
+                    if (empty($val)) {
+                        continue; // Skip this column if input is empty
+                    }
+                    if (in_array($col, $noneSearchable)) {
+                        continue; // Skip columns in $noneSearchable
+                    }
+                    if ($col == 'owner_id') {
+                        $conditions['Owner.user_fullname LIKE '] = '%' . $val . '%';
+                    } else if ($col == 'category_id') {
+                        $conditions['Categories.category_name LIKE '] = '%' . $val . '%';
+                    } else if ($col == 'expense_amount') {
+                        $conditions[$col] = $val;
+                    }
+                }
+            }
 
             // ONE RECORD
             if (!empty($_id)) {

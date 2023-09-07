@@ -82,32 +82,32 @@
                                     </label> 
                                 </div>
                                 
-                                <div class="col-sm-1 col">
-                                    <?=$this->element('colActions', ['url'=>'messages/index/', 'col'=>'message_to ' ])?> 
-                                    <?=__('message_to ')?> </div>
+                                <div class="col-sm-2 col">
+                                    <?=$this->element('colActions', ['url'=>'messages/index/', 'col'=>'message_to'])?> 
+                                    <?=__('message_to')?> </div>
                                 
-                                    <div class="col-sm-1 col">
-                                    <?=$this->element('colActions', ['url'=>'messages/index/', 'col'=>'message_subject', ])?> 
+                                    <div class="col-sm-2 col">
+                                    <?=$this->element('colActions', ['url'=>'messages/index/', 'col'=>'message_subject'])?> 
                                     <?=__('message_subject')?> </div>
 
-                                    <div class="col-sm-1 col">
-                                    <?=$this->element('colActions', ['url'=>'messages/index/', 'col'=>'message_text' ])?> 
+                                    <div class="col-sm-2 col">
+                                    <?=$this->element('colActions', ['url'=>'messages/index/', 'col'=>'message_text'])?> 
                                     <?=__('message_text')?> </div>
 
                                     <div class="col-sm-1 col">
-                                    <?=$this->element('colActions', ['url'=>'messages/index/', 'col'=>'message_priority' ])?> 
-                                    <?=__('message_priority')?> </div>
+                                    <?=$this->element('colActions', ['url'=>'messages/index/', 'col'=>'message_priority'])?> 
+                                    <?=__('message_priority')?> </div> 
 
-                                    <div class="col-sm-1 col">
-                                    <?=$this->element('colActions', ['url'=>'messages/index/', 'col'=>'stat_created' ])?> 
+                                    <div class="col-sm-2 col">
+                                    <?=$this->element('colActions', ['url'=>'messages/index/', 'col'=>'stat_created'])?> 
                                     <?=__('stat_created')?> </div>
 
-                                <div class="col-sm-1 col">
+                                <!-- <div class="col-sm-1 col">
                                     <?=$this->element('colActions', ['url'=>'messages/index/', 'col'=>'rec_state'])?> 
-                                    <?=__('rec_state')?> </div>
+                                    <?=__('rec_state')?> </div> -->
 
 
-                                <div class="col-sm-3 col hideMob"><span
+                                <div class="col-sm-1 col hideMob"><span
                                         class="nobr"><?=__('action')?></span>
                                 </div>
                             </div>
@@ -117,7 +117,7 @@
                                 <div class="col-sm-1 hideMobSm grid_header">
                                     <label class="mycheckbox chkb">
                                         <input type="checkbox" ng-model="selected[itm.id]" ng-value="{{itm.id}}">
-                                        <span></span> {{ itm.id }} <a href="<?=$app_folder?>/admin/messages/index/{{itm.id}}"><i class="fa fa-external-link"></i></a>
+                                        <span></span> {{ itm.id }} <a href="<?=$app_folder?>/admin/messages/index/{{itm.id}}"><i class=""></i></a>
                                     </label>
                                 </div>
                                 <div class="col-4 hideWeb grid_header">
@@ -130,35 +130,35 @@
                                 <div class="col-md-1 col-8 hideWeb">{{ itm.id }}</div>
                                
                 
-                                <div class="col-4 hideWeb grid_header"><?=__('message_to ')?></div>
-                                <div class="col-md-1 col-8" ng-bind-html="DtSetter('', itm.message_to )"></div>
+                                <div class="col-4 hideWeb grid_header"><?=__('message_to')?></div>
+                                <div class="col-md-2 col-8">{{ itm.user.user_fullname}}</div>
 
-                                <div class="col-4 hideWeb grid_header"><?=__('message_subject ')?></div>
-                                <div class="col-md-1 col-8" ng-bind-html="DtSetter('', itm.message_subject )"></div>
+                                <div class="col-4 hideWeb grid_header"><?=__('message_subject')?></div>
+                                <div class="col-md-2 col-8" ng-bind-html="DtSetter('', itm.message_subject )"></div>
 
-                                <div class="col-4 hideWeb grid_header"><?=__('message_text ')?></div>
-                                <div class="col-md-1 col-8" ng-bind-html="DtSetter('', itm.message_text )"></div>
+                                <div class="col-4 hideWeb grid_header"><?=__('message_text')?></div>
+                                <div class="col-md-2 col-8" ng-bind-html="DtSetter('', itm.message_text )"></div>
 
-                                <div class="col-4 hideWeb grid_header"><?=__('message_priority ')?></div>
+                                <div class="col-4 hideWeb grid_header"><?=__('message_priority')?></div>
                                 <div class="col-md-1 col-8" ng-bind-html="DtSetter('', itm.message_priority )"></div>
 
-                                <div class="col-4 hideWeb grid_header"><?=__('stat_created ')?></div>
-                                <div class="col-md-1 col-8" ng-bind-html="DtSetter('', itm.stat_created )"></div>
+                                <div class="col-4 hideWeb grid_header"><?=__('stat_created')?></div>
+                                <div class="col-md-2 col-8" ng-bind-html="DtSetter('', itm.stat_created )"></div>
 
-                                <div class="col-4 hideWeb grid_header"><?=__('rec_state')?></div>
-                                <div class="col-md-1 col-8" ng-bind-html="DtSetter('bool2', itm.rec_state)"></div>
+                                <!-- <div class="col-4 hideWeb grid_header"><?=__('rec_state')?></div>
+                                <div class="col-md-1 col-8" ng-bind-html="DtSetter('bool2', itm.rec_state)"></div> -->
 
                               
 
                                 <div class="col-4 hideWeb grid_header"><?=__('actions')?></div>
-                                <div class="col-md-3 col-8 action">
+                                <div class="col-md-1 col-8 action">
                                     <a href ng-click="
                                         rec.message = itm;
-                                        openModal('#viewMessage_mdl');
+                                        openModal('#viewMessage_mdl');"class="inline-btn
                                         "><i class="fa fa-eye"></i> <?=__('view')?></a>
                                     <a href ng-click=" 
                                         rec.message = itm; 
-                                        openModal('#addEditMessage_mdl');
+                                        openModal('#addEditMessage_mdl');"class="inline-btn
                                         " >
                                         <i class="fa fa-pencil"></i> <?=__('edit')?>
                                     </a>
