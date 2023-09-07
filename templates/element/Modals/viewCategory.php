@@ -14,14 +14,14 @@
                     <div class="view_page">
                         <div class="grid">
 
+
                             <div class="grid_row row">
-                                <h4 class="col-12">
-                                    <i class="fa {{itm.category_configs.icon||'fa-tag'}}"></i> {{ rec.category.category_name }}
-                                </h4>
+                                <div class="col-md-3 grid_header2"><?=__('category_name')?></div>
+                                <div class="col-md-9 notwrapped">{{ rec.category.category_name }}</div>
                             </div>
 
                             <div class="grid_row row">
-                                <div class="col-md-3 grid_header2"><?=__('parent')?></div>
+                                <div class="col-md-3 grid_header2"><?=__('Parent')?></div>
                                 <div class="col-md-9 notwrapped">{{ rec.category.parent_category.category_name }}</div>
                             </div>
 

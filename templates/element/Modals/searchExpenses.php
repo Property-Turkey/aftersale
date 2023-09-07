@@ -38,7 +38,7 @@ $prefix = $this->request->getParam('controller') == 'Properties' ? 'PROP' : 'PRO
                         <div class="div">
                             <?= $this->Form->control('expense_amount', [
                                 'class' => 'form-control has-feedback-left', 'label' => false,
-                                'type' => 'number', 
+                                'type' => 'number',
                                 'placeholder' => __('enter amount'),
                                 'ng-change' => 'doSearch()',
                                 'ng-model' => 'rec.search.expense_amount',
@@ -47,20 +47,22 @@ $prefix = $this->request->getParam('controller') == 'Properties' ? 'PROP' : 'PRO
                             <button ng-click="doClick('#submit_btn')" class="onfly_btn"><i class="fa fa-search"></i></button>
                         </div>
                     </div>
-                    <div class="mb-2  col-sm-8">
-                        <label><?= __('Category Name') ?></label>
+                    <div class="col-md-6 col-sm-6 form-group has-feedback">
+                        <label set-required><?= __("Expense Category") ?></label>
                         <div class="div">
-                            <?= $this->Form->control('category_id', [
-                                'class' => 'form-control has-feedback-left', 'label' => false,
-                                'type' => 'text',
-                                'placeholder' => __('category name'),
-                                'ng-change' => 'doSearch()',
-                                'ng-model' => 'rec.search.category_id',
-                            ]) ?>
-                            <span class="fa fa-address-card form-control-feedback left"></span>
+
+                            <!-- Client select input -->
+                            <select class="form-control has-feedback-left" ng-model="rec.search.category_id" ng-change="doSearch()">
+                                <option value="">Select Expense Category</option>
+                                <?php foreach ($optionsExpenses as $key => $option) : ?>
+                                    <option value="<?= $key ?>"><?= $option ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                            <span class="fa fa-object-group form-control-feedback left" aria-hidden="true"></span>
                             <button ng-click="doClick('#submit_btn')" class="onfly_btn"><i class="fa fa-search"></i></button>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>

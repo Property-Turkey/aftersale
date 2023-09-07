@@ -78,19 +78,23 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                     </label>
                                 </div>
 
-                                <div class="col-sm-3 col">
+                                <div class="col-sm-2 col">
                                     <?= $this->element('colActions', ['url' => 'inspects/index/', 'col' => 'user_id']) ?>
                                     <?= __('user_id') ?> </div>
 
-                                <div class="col-sm-3 col">
+                                <!-- <div class="col-sm-2 col">
+                                    <?= $this->element('colActions', ['url' => 'expenses/index/', 'col' => 'owner_id']) ?>
+                                    <?= __('owner_id') ?> </div>
+
+                                <div class="col-sm-2 col">
+                                    <?= $this->element('colActions', ['url' => 'services/index/', 'col' => 'property_ref']) ?>
+                                    <?= __('property_ref') ?> </div> -->
+
+                                <div class="col-sm-2 col">
                                     <?= $this->element('colActions', ['url' => 'inspects/index/', 'col' => 'stat_created']) ?>
                                     <?= __('stat_created') ?> </div>
 
-                                <!-- <div class="col-sm-2 col">
-                                    <?= $this->element('colActions', ['url' => 'inspects/index/', 'col' => 'rec_state', 'filter' => $this->Do->lcl($this->Do->get('rec_state'))]) ?>
-                                    <?= __('rec_state') ?> </div> -->
-
-                                <div class="col-sm-3 col hideMob"><span class="nobr"><?= __('action') ?></span>
+                                <div class="col-sm-2 col hideMob"><span class="nobr"><?= __('action') ?></span>
                                 </div>
                             </div>
 
@@ -111,11 +115,17 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                 </div>
                                 <div class="col-md-3 col-8 hideWeb">{{ itm.id }}</div>
 
-                                <div class="col-4 hideWeb grid_header"><?= __('user_id',) ?></div>
-                                <div class="col-md-3 col-8">{{ itm.user.user_fullname }} </div>
+                                <div class="col-4 hideWeb grid_header"><?= __('user_id') ?></div>
+                                <div class="col-md-2 col-8">{{itm.user.user_fullname}} </div>
+
+                                <!-- <div class="col-4 hideWeb grid_header"><?= __('owner_id') ?></div>
+                                <div class="col-md-2 col-8">{{ itm.service.owner_id}} </div>
+
+                                <div class="col-4 hideWeb grid_header"><?= __('property_id') ?></div>
+                                <div class="col-md-2 col-8">{{ itm.service.property_id}} </div> -->
 
                                 <div class="col-4 hideWeb grid_header"><?= __('stat_created') ?></div>
-                                <div class="col-md-3 col-8"> {{itm.stat_created}}</div>
+                                <div class="col-md-2 col-8"> {{itm.stat_created}}</div>
 
                                 <!-- <div class="col-4 hideWeb grid_header"><?= __('rec_state') ?></div>
                                 <div class="col-md-2 col-8" ng-bind-html="DtSetter('rec_state', itm.rec_state)"></div> -->
@@ -124,11 +134,11 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                 <div class="col-md-2 col-8 action">
                                     <a href ng-click="
                                         doGet('/admin/inspects/index//?id='+itm.id, 'view', 'inspect');
-                                        openModal('#viewInspect_mdl');"class="inline-btn
+                                        openModal('#viewInspect_mdl');" class="inline-btn
                                         "><i class="fa fa-eye"></i> <?= __('view') ?></a>
                                     <a href ng-click=" 
                                         doGet('/admin/inspects/index/?id='+itm.id, 'view', 'inspect');
-                                        openModal('#addEditInspect_mdl');"class="inline-btn
+                                        openModal('#addEditInspect_mdl');" class="inline-btn
                                         ">
                                         <i class="fa fa-pencil"></i> <?= __('edit') ?>
                                     </a>

@@ -167,7 +167,7 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                         <b> Owner Name:</b>{{ itm.owner.user_fullname}}
                                     </div>
                                     <div class="">
-                                        <b>Service Contract Period:</b>{{ itm.service_contract_period }}
+                                        <b>Service Contract Period:</b>{{ itm.service_contract_period}}
                                     </div>
                                 </div>
                                 <div class="col-4 hideWeb grid_header"><?= __('service_price') ?></div>

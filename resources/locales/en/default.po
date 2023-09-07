@@ -629,6 +629,10 @@ msgid "view"
 msgstr "View"
 msgid "add_child"
 msgstr "Add Child"
+msgid "category_configs"
+msgstr "Category Configs"
+
+
 
 
 
@@ -772,6 +776,10 @@ msgid "stat_ip"
 msgstr "Stat IP"
 msgid "stat_lastlogin"
 msgstr "Stat Last Login"
+msgid "users_information"
+msgstr "Users Information"
+
+
 
 
 msgid "configs_list"

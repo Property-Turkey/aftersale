@@ -17,7 +17,7 @@ class ServicesController extends AppController
 
             $this->autoRender = false;
 
-            
+
             // dd($dt);
             $_method = !empty($_GET['method']) ? $_GET['method'] : '';
             //$conditions = [];
@@ -64,25 +64,15 @@ class ServicesController extends AppController
                         continue; // Skip columns in $noneSearchable
                     }
                     if ($col == 'owner_id') {
-                        $conditions['Owner.user_fullname LIKE '] = '%' . $val . '%';    
-
-                    } else if ($col == 'service_contract_period') {
+                        $conditions['Owner.user_fullname LIKE '] = '%' . $val . '%';
+                    } else if ($col == 'service_contract_period' || $col == 'service_price' || $col == 'package_id') {
                         $conditions[$col] = $val;
-
-                    }  else if ($col == 'service_price') {
-                        $conditions[$col] = $val;
-
-                    } else if ($col == 'package_id') {
-                        $conditions['Packages.package_name LIKE '] = '%' . $val . '%';
-                    } 
-                    else if ($col == 'property_id') {
+                    } else if ($col == 'property_id') {
                         $conditions['Properties.property_ref LIKE '] = '%' . $val . '%';
-                        
-                    }  else if ($col =='service_price') {
+                    } else if ($col == 'service_price') {
                         $conditions[$col] = $val;
                     }
-                }              
-                
+                }
             }
 
             // ONE RECORD
@@ -202,6 +192,7 @@ class ServicesController extends AppController
                 }
 
                 $rec = $this->Services->newEntity($dt);
+                dd($rec);
             }
             unset($dt['property']);
             unset($dt['package']);

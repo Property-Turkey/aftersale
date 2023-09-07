@@ -59,24 +59,23 @@ class ExpensesController extends AppController
 
             $conditions = [];
 
-            // SEARCH
-            if (!empty($dt['search'])) {
-                foreach ($dt['search'] as $col => $val) {
-                    if (empty($val)) {
-                        continue; // Skip this column if input is empty
-                    }
-                    if (in_array($col, $noneSearchable)) {
-                        continue; // Skip columns in $noneSearchable
-                    }
-                    if ($col == 'owner_id') {
-                        $conditions['Owner.user_fullname LIKE '] = '%' . $val . '%';
-                    } else if ($col == 'category_id') {
-                        $conditions['Categories.category_name LIKE '] = '%' . $val . '%';
-                    } else if ($col == 'expense_amount') {
-                        $conditions[$col] = $val;
-                    }
+          // SEARCH
+          if (!empty($dt['search'])) {
+            foreach ($dt['search'] as $col => $val) {
+                if (empty($val)) {
+                    continue;
+                }
+                if (in_array($col, $noneSearchable)) {
+                    continue;
+                }
+                if ($col == 'owner_id') {
+                    $conditions['Owner.user_fullname LIKE '] = '%' . $val . '%';
+                } 
+                else if ($col == 'expense_amount' || $col == 'category_id') {
+                    $conditions[$col] = $val;
                 }
             }
+        }
 
             // ONE RECORD
             if (!empty($_id)) {

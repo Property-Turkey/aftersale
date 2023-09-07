@@ -71,7 +71,8 @@ $prefix = $this->request->getParam('controller') == 'Properties' ? 'PROP' : 'PRO
                         <?= $this->Form->control('package_id', [
                             'class' => 'form-control has-feedback-left',
                             'label' => false,
-                            'type' => 'text',
+                            'type' => 'select',
+                            'options' => $packages,
                             'placeholder' => __('package name'),
                             'ng-change' => 'doSearch()',
                             'ng-model' => 'rec.search.package_id',

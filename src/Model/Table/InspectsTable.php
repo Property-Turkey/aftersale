@@ -28,6 +28,11 @@ class InspectsTable extends Table
             'foreignKey' => 'owner_id',
         ]);
 
+        // $this->belongsTo('Owner', [
+        //     'className' => 'Users',
+        //     'foreignKey' => 'owner_id',
+        // ]);
+
         $this->belongsTo('Services', [
             'foreignKey' => 'service_id',
             'className' => 'Services',

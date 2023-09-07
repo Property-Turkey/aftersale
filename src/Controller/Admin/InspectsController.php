@@ -49,6 +49,8 @@ class InspectsController extends AppController
                     [
                         'contain' => [
                             'Users' => ['fields' => ['user_fullname']],
+                           // "Services" => ["fields" => ["owner_id","property_id"]],
+                        
                         ]
                     ]
                 )->toArray();
@@ -65,6 +67,8 @@ class InspectsController extends AppController
                     "contain" => [
 
                         "Users" => ["fields" => ["user_fullname"]],
+                       // "Services" => ["fields" => ["owner_id","property_id"]],
+                        
                     ]
                 ]);
                 $data = $this->Do->convertJson($data);

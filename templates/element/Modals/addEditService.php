@@ -140,66 +140,38 @@ $parent_id = isset($this->request->getParam("pass")[0])
 								</div>
 
 								<div class="col-md-6 col-6  form-group has-feedback">
-									<label set-required><?= __("service_contract_period") ?></label>
+									<label set-required><?= __("service_contract_period") ?> <span style="color: red; font-weight: bold; font-size:11px">(This field contains day)</span></label>
 									<div class="div">
 										<?= $this->Form->text("service_contract_period", [
 											"type" => "text",
 											"class" => "form-control has-feedback-left",
 											"ng-model" => "rec.service.service_contract_period",
 											"only-numbers" => "",
+
 										]) ?>
 										<span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
 									</div>
 								</div>
 
-								<?php /* <div class="col-md-6 col-6  form-group has-feedback">
-									<label set-required><?= __("service_price") ?></label>
-									<div class="div">
-										<?= $this->Form->text("service_price", [
-											"type" => "text",
-											"class" => "form-control has-feedback-left",
-											"ng-model" => "rec.service.service_price",
-										]) ?>
-										<span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
-									</div>
-								</div>
-
-								<div class="col-md-6 col-6  form-group has-feedback">
-									<label set-required><?= __("service_currency") ?></label>
-									<div class="div">
-										<?= $this->Form->text("service_currency", [
-											"type" => "select",
-											"options" => $this->Do->lcl($this->Do->get("currencies_icons")),
-											"class" => "form-control has-feedback-left",
-											"ng-model" => "rec.service.service_currency",
-										]) ?>
-										<span class="fa fa-plus form-control-feedback left" aria-hidden="true"></span>
-									</div>
-								</div> */ ?>
-
-
 								<div class="row ">
 									<div class="col-md-12 form-group has-feedback">
-										<label set-required><?= __("service_price") ?></label>
+									 <label set-required><?= __("service_price") ?></label> 
 										<div class="input-group">
 											<?= $this->Form->text("service_currency", [
 												"type" => "select",
-												"options" =>
-												["" => "Select"] +
-													$this->Do->lcl($this->Do->get("currencies_icons")),
+												"options" =>	["" => "Select"] + $this->Do->lcl($this->Do->get("currencies_icons")),
 												"class" => "form-control col-3",
 												"ng-model" => "rec.service.service_currency",
 											]) ?>
 											<?= $this->Form->text("service_price", [
 												"type" => "text",
-												"class" => "form-control col-9 has-feedback-left",
+												"class" => "form-control col-9",
 												"ng-model" => "rec.service.service_price",
 												"only-numbers" => "",
 											]) ?>
 										</div>
 									</div>
 								</div>
-
 
 								<div class="col-md-6 col-sm-6 form-group has-feedback">
 									<label><?= __('property_ref') ?></label>
@@ -364,88 +336,88 @@ $parent_id = isset($this->request->getParam("pass")[0])
 						?>
 						<?php if ($isDocs) { ?>
 							<div>
-							<div class="row ngif" ng-if="addDocument == 1">
-										<div class="row p-4">
-											<div class="col-lg-12 col-sm-12 form-group has-feedback">
-												<label class="mb-3"><?= __("doc_allowed_roles") ?></label>
-												<div class="div d-flex pr-3">
-													<label class= "pr-3" ng-repeat="role in DtSetter('AdminRoles', 'list')">
-														<input type="checkbox" ng-model="rec.doc.doc_allowed_roles[role]" value="role"> {{role}}
-													</label>
-												</div>
+								<div class="row ngif" ng-if="addDocument == 1">
+									<div class="row p-4">
+										<div class="col-lg-12 col-sm-12 form-group has-feedback">
+											<label class="mb-3"><?= __("doc_allowed_roles") ?></label>
+											<div class="div d-flex pr-3">
+												<label class="pr-3" ng-repeat="role in DtSetter('AdminRoles', 'list')">
+													<input type="checkbox" ng-model="rec.doc.doc_allowed_roles[role]" value="role"> {{role}}
+												</label>
 											</div>
 										</div>
+									</div>
 
-										<div class="col-lg-12 col-sm-12  form-group has-feedback" ng-if="!(rec.doc.id > 0)">
-											<label><?= __("doc_file") ?></label>
-											<div class="div">
+									<div class="col-lg-12 col-sm-12  form-group has-feedback" ng-if="!(rec.doc.id > 0)">
+										<label><?= __("doc_file") ?></label>
+										<div class="div">
 
-												<?= $this->Form->control("doc_file", [
-													"class" => "form-control",
-													"type" => "file",
-													"file-model" => "files.doc_file",
-													"ng-model" => "rec.doc.doc_file",
-													"multiple" => false,
-													"label" => false,
-													"accept" => ".pdf,.doc,.docx",
-												]) ?>
+											<?= $this->Form->control("doc_file", [
+												"class" => "form-control",
+												"type" => "file",
+												"file-model" => "files.doc_file",
+												"ng-model" => "rec.doc.doc_file",
+												"multiple" => false,
+												"label" => false,
+												"accept" => ".pdf,.doc,.docx",
+											]) ?>
 
-											</div>
 										</div>
-										<div class="col-md-12 col-sm-12  form-group has-feedback">
-											<label><?= __("doc_desc") ?></label>
-											<div class="div">
-												<?= $this->Form->control("doc_desc", [
-													"class" => "form-control has-feedback-left",
-													"label" => false,
-													"type" => "textarea",
-													"rows" => "1",
-													"ng-model" => "rec.doc.doc_desc",
-												]) ?>
-												<span class="fa fa-info-circle form-control-feedback left" aria-hidden="true"></span>
-											</div>
+									</div>
+									<div class="col-md-12 col-sm-12  form-group has-feedback">
+										<label><?= __("doc_desc") ?></label>
+										<div class="div">
+											<?= $this->Form->control("doc_desc", [
+												"class" => "form-control has-feedback-left",
+												"label" => false,
+												"type" => "textarea",
+												"rows" => "1",
+												"ng-model" => "rec.doc.doc_desc",
+											]) ?>
+											<span class="fa fa-info-circle form-control-feedback left" aria-hidden="true"></span>
 										</div>
+									</div>
 
-										<div class="clearfix"></div>
+									<div class="clearfix"></div>
 
-										<div class="col-md-12 col-12 ">
-											<button type="button" ng-click="
+									<div class="col-md-12 col-12 ">
+										<button type="button" ng-click="
 													rec.doc.file = filesInfo.doc_file;
 													rec.doc.tar_id = rec.<?= $ctrls[$ctrl] ?>.id;
 													rec.doc.tar_tbl = '<?= $tar_tbls[$ctrl] ?>';
 													rec.doc.tar_tbl_name = '<?= $ctrl ?>';
 													doSave(rec.doc, 'doc', 'docs', '#<?= $ctrls[$ctrl] ?>_btn', '#doc_preloader');
 												" id="doc_preloader" class="btn btn-info">
-												<span></span> <i class="fa fa-save"></i> <?= __("Upload and Save") ?>
-											</button>
+											<span></span> <i class="fa fa-save"></i> <?= __("Upload and Save") ?>
+										</button>
 
-											<button type="button" ng-if="rec.doc.id" ng-click="newEntity('doc');" class="btn btn-primary">
-												<i class="fa fa-times"></i>
-											</button>
-										</div>
+										<button type="button" ng-if="rec.doc.id" ng-click="newEntity('doc');" class="btn btn-primary">
+											<i class="fa fa-times"></i>
+										</button>
+									</div>
 
-									</div>
-									<?php
-									// show files list
-									?>
-									<div class="grid_row row" ng-repeat="doc in rec.<?= $ctrl ?>.docs">
-										<div class="col-5 grid_header2">
-											{{doc.doc_name}}
-										</div>
-										<div class="col-7 notwrapped text-right">
-											<a class="small-btn" target="_blank" href="<?= $protocol .	":" . $path ?>/file/<?= $ctrls ?>_files/{{ doc.doc_name }}"><i class="fa fa-eye"></i></a>
-											<a class="small-btn" href ng-click="rec.doc = doc; $parent.addDocument=1;"><i class="fa fa-edit"></i></a>
-											<a class="small-btn" href ng-click="doDelete('/admin/docs/delete/'+doc.id, '#<?= $ctrl ?>_btn');"><i class="fa fa-trash"></i></a>
-										</div>
-									</div>
-								<?php } else { ?>
-									<div class="col-12 not_found_div"><i class="fa fa-info-circle"></i> <?= __("available_only_for_admins") ?></div>
-								<?php } ?>
 								</div>
+								<?php
+								// show files list
+								?>
+								<div class="grid_row row" ng-repeat="doc in rec.<?= $ctrl ?>.docs">
+									<div class="col-5 grid_header2">
+										{{doc.doc_name}}
+									</div>
+									<div class="col-7 notwrapped text-right">
+										<a class="small-btn" target="_blank" href="<?= $protocol .	":" . $path ?>/file/<?= $ctrls ?>_files/{{ doc.doc_name }}"><i class="fa fa-eye"></i></a>
+										<a class="small-btn" href ng-click="rec.doc = doc; $parent.addDocument=1;"><i class="fa fa-edit"></i></a>
+										<a class="small-btn" href ng-click="doDelete('/admin/docs/delete/'+doc.id, '#<?= $ctrl ?>_btn');"><i class="fa fa-trash"></i></a>
+									</div>
+								</div>
+							<?php } else { ?>
+								<div class="col-12 not_found_div"><i class="fa fa-info-circle"></i> <?= __("available_only_for_admins") ?></div>
+							<?php } ?>
 							</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
 </div>

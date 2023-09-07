@@ -65,20 +65,6 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 						</div>
 
 
-						<?php /*<div class="col-md-12 col-sm-12  form-group has-feedback">
-							<label><?= __('category_configs.icon') ?></label>
-							<div class="div">
-								<?= $this->Form->text('category_configs.icon', [
-									'type' => 'text',
-									'class' => 'form-control has-feedback-left',
-									'ng-model' => 'rec.category.category_configs.icon',
-									'fa-icons'=>'',
-								]) ?>
-								<span class="fa {{rec.category.category_configs.icon||'fa-tag'}} form-control-feedback left" aria-hidden="true"></span>
-							</div>
-							<div class="icons_div"></div>
-						</div> */ ?>
-
 						<div class="clearfix"></div>
 
 						<div class="form-group ">

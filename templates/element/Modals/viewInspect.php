@@ -19,10 +19,15 @@
                                 <div class="col-md-9 notwrapped">{{rec.inspect.user.user_fullname}}</div>
                             </div>
                             
-                            <div class="grid_row row">
-                                <div class="col-md-3 grid_header2"><?=__('service_id')?></div>
-                                <div class="col-md-9 notwrapped">{{rec.inspect.service_id}}</div>
+                            <!-- <div class="grid_row row">
+                                <div class="col-md-3 grid_header2"><?=__('owner_id')?></div>
+                                <div class="col-md-9 notwrapped">{{rec.inspect.service.owner_id}}</div>
                             </div>
+
+                            <div class="grid_row row">
+                                <div class="col-md-3 grid_header2"><?=__('property_ref')?></div>
+                                <div class="col-md-9 notwrapped">{{rec.inspect.service.property_id}}</div>
+                            </div> -->
 
                             <div class="grid_row row">
                                 <div class="col-md-3 grid_header2"><?=__('inspect_desc')?></div>
@@ -30,9 +35,25 @@
                             </div>
 
                             <div class="grid_row row">
-                                <div class="col-md-3 grid_header2"><?=__('inspect_rate')?></div>
-                                <div class="col-md-9 notwrapped">{{rec.inspect.inspect_rate}}</div>
-                            </div>
+                            <div class="col-md-3 grid_header2"><?=__('inspect_rate')?></div>
+                            <!-- <div class="col-md-6 col-6 form-group has-feedback"> -->
+							<div class="div">
+								<?php					
+								foreach ($this->Do->cat(21) as $key => $rate) : ?>
+									<div class="col-md-2 col-2 form-group has-feedback">
+										<label><?= $rate ?>
+											<div class="div">
+												<?php
+												$isChecked = false;
+												if (isset($jsonData[$rate]) && $jsonData[$rate] == '1') {
+													$isChecked = true;}?>
+								<input type="checkbox" id="<?= $key ?>" ng-model="rec.inspect.inspect_rate['<?= $rate ?>']" value="1" <?php if ($isChecked) echo "checked"; ?>>
+										</label>
+									</div>
+							</div>
+						<?php endforeach; ?>
+						</div>
+                        </div>
 
                             <div class="grid_row row">
                                 <div class="col-md-3 grid_header2"><?=__('stat_created')?></div>

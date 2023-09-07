@@ -15,6 +15,7 @@ $parent_id = isset($this->request->getParam("pass")[0])
 			</div>
 
 			<div class="modal-body">
+			<div class="x_content">
 
 				<ul class="nav nav-tabs col-md-12" role="tablist">
 					<li class="nav-item">
@@ -94,15 +95,14 @@ $parent_id = isset($this->request->getParam("pass")[0])
 										<div class="input-group">
 											<?= $this->Form->text("expense_currency", [
 												"type" => "select",
-												"options" =>
-												["" => "Select"] +
-													$this->Do->lcl($this->Do->get("currencies_icons")),
+												"options" =>   ["" => "Select"] + $this->Do->lcl($this->Do->get("currencies_icons")),
 												"class" => "form-control col-3",
 												"ng-model" => "rec.expense.expense_currency",
 											]) ?>
-											<?= $this->Form->text("expense_amount", [
+											<?= $this->Form->control("expense_amount", [
 												"type" => "text",
-												"class" => "form-control col-9 has-feedback-left",
+												"label" => false,
+												"class" => "form-control col-12",
 												"ng-model" => "rec.expense.expense_amount",
 												"only-numbers" => "",
 											]) ?>
@@ -115,8 +115,7 @@ $parent_id = isset($this->request->getParam("pass")[0])
 
 										<!-- Client select input -->
 										<select class="form-control has-feedback-left" ng-model="rec.expense.category_id" ng-change="onClientSelectionChange()">
-											<option value="">Select Expense Category</option>
-											<!-- <option value="add_client">Add Category</option> -->
+											<option value="">Select Expense Category</option>								
 											<?php foreach ($optionsExpenses as $key => $option) : ?>
 												<option value="<?= $key ?>"><?= $option ?></option>
 											<?php endforeach; ?>
