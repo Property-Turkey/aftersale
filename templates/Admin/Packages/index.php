@@ -64,13 +64,12 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
 
                         <div class="clearfix"></div>
                     </div>
-
                     <div class="x_content">
                         <div class="grid ">
 
                             <div class="grid_header row">
 
-                                <div class="col-sm-4 col">
+                                <div class="col-sm-2 col">
                                     <?= $this->element('colActions', ['url' => 'packages/index/', 'col' => 'id']) ?>
                                     <label class="mycheckbox">
                                         <input type="checkbox" ng-click="chkAll('.chkb', !selectAll)" ng-model="selectAll">
@@ -78,7 +77,6 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                         <?= __('id') ?>
                                     </label>
                                 </div>
-
                                 <div class="col-sm-4 col">
                                     <?= $this->element('colActions', ['url' => 'packages/index/', 'col' => 'package_name']) ?> 
                                     <?= __('package_name') ?> </div> 
@@ -115,19 +113,19 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                     <?= __('rec_state') ?> </div> */ ?>
 
 
-                                <div class="col-sm-4 col hideMob"><span class="nobr"><?= __('action') ?></span>
+                                <div class="col-sm-5 col hideMob"><span class="nobr"><?= __('action') ?></span>
                                 </div>
                             </div>
 
                             <div class="grid_row row" ng-repeat="itm in lists.packages">
 
-                                <div class="col-sm-4 hideMobSm grid_header">
+                                <div class="col-sm-2 hideMobSm grid_header">
                                     <label class="mycheckbox chkb">
                                         <input type="checkbox" ng-model="selected[itm.id]" ng-value="{{itm.id}}">
                                         <span></span> {{ itm.id }} <a href="<?= $app_folder ?>/admin/packages/index/{{itm.id}}"></a>
                                     </label>
                                 </div>
-                                <div class="col-4 hideWeb grid_header">
+                                <div class="col-2 hideWeb grid_header">
                                     <?= __('id') ?>
                                     <label class="mycheckbox chkb">
                                         <input type="checkbox" ng-model="selected[itm.id]" ng-value="{{itm.id}}">
@@ -136,7 +134,7 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                 </div>
                                 <div class="col-md-1 col-8 hideWeb">{{ itm.id }}</div>
 
-                                <div class="col-4 hideWeb grid_header"><?= __('package_name') ?></div>
+                                <div class="col-5 hideWeb grid_header"><?= __('package_name') ?></div>
                                 <div class=" col-md-4 col-8 ">
                                     <div style="color:black;">
                                         {{ itm.package_name }}
@@ -181,7 +179,7 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                 <div class="col-2 hideWeb grid_header"><?= __('rec_state') ?></div>
                                 <div class="col-md-2 col-8" ng-bind-html="DtSetter('rec_state', itm.rec_state)"></div> */ ?>
 
-                                <div class="col-4 hideWeb grid_header"><?= __('actions') ?></div>
+                                <div class="col-5 hideWeb grid_header"><?= __('actions') ?></div>
                                 <div class="col-md-4 col-8 action">
                                     <a href ng-click=" 
                                         doGet('/admin/packages?id='+itm.id, 'rec', 'package');

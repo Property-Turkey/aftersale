@@ -1074,7 +1074,7 @@
 
                 $scope.doSave = function(orginialObj, tar, ctrl, btn, preloader, params) {
                     console.log(orginialObj);
-                    alert(1);
+                   
                     // console.log(orginialObj, tar, ctrl, btn, preloader, params);
                     // return;
                     !tar ? tar = 'content' : tar;
