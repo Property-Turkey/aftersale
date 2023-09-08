@@ -14,16 +14,18 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                     <a href ng-click="
                             newEntity('service');
                             openModal('#addEditService_mdl');
-                        " class="btn btn-info">
+						
+                            doGet('/admin/services/index?list=1', 'list', 'services');" 
+
+                        class="btn btn-info">
                         <span class="fa fa-plus"></span> <span class="hideMob"><?= __('add_service') ?></span>
                     </a>
                 </span>
             </div>
             <div class=" col-6 col-sm-6 col-md-6 side_div2">
                 <span class="icn">
-                    <a href ng-click="                
-                                        openModal('#searchServiceModal');
-                                        " class="btn btn-info">
+                    <a href ng-click="openModal('#searchServiceModal'); "                           
+                        class="btn btn-info">
                         <span class="fa fa-search"></span> <span class="hideMob"><?= __('search') ?></span>
                     </a>
                 </span>
@@ -47,7 +49,6 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                 {{ paging.start  }} <?= __('to') ?>
                                 {{ paging.end }} <?= __('of') ?> {{ paging.count }} </span>
                         </h2>
-
                         <ul class="nav navbar-right panel_toolbox">
                             <!-- <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                             </li> -->
@@ -68,15 +69,12 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                             <!-- <li><a class="close-link"><i class="fa fa-close"></i></a> 
                             </li>-->
                         </ul>
-
                         <div class="clearfix"></div>
                     </div>
-
                     <div class="x_content">
                         <div class="grid ">
 
                             <div class="grid_header row">
-
                                 <div class="col-sm-1 col">
                                     <?= $this->element('colActions', ['url' => 'services/index/', 'col' => 'id']) ?>
                                     <label class="mycheckbox">
@@ -85,7 +83,6 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                         <?= __('id') ?>
                                     </label>
                                 </div>
-
                                 <div class="col-sm-2 col">
                                     <?= $this->element('colActions', ['url' => 'services/index/', 'col' => 'services_information']) ?>
                                     <?= __('services_information') ?> </div>
@@ -114,11 +111,9 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                     <?= $this->element('colActions', ['url' => 'services/index/', 'col' => 'service_contract_period']) ?>
                                     <?= __('servicecont_period') ?> </div>  */ ?>
 
-
                                 <div class="col-sm-2 col">
                                     <?= $this->element('colActions', ['url' => 'services/index/', 'col' => 'package_name']) ?>
                                     <?= __('package_name') ?> </div>
-
 
                                 <div class="col-sm-2 col">
                                     <?= $this->element('colActions', ['url' => 'services/index/', 'col' => 'expiration_date']) ?>
@@ -132,11 +127,9 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                     <?= $this->element('colActions', ['url' => 'services/index/', 'col' => 'expiration_date']) ?>
                                     <?= __('expiration_date') ?> </div>*/ ?>
 
-
                                 <div class="col-sm-1 col">
                                     <?= $this->element('colActions', ['url' => 'services/index/', 'col' => 'rec_state', 'filter' => $this->Do->lcl($this->Do->get('rec_state'))]) ?>
                                     <?= __('rec_state') ?> </div>
-
 
                                 <div class="col-sm-1 col hideMob"><span class="nobr"><?= __('action') ?></span>
                                 </div>
@@ -173,7 +166,6 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                 <div class="col-4 hideWeb grid_header"><?= __('property_ref') ?></div>
                                 <div class="col-md-1 col-8">{{ itm.property.property_ref }} </div>
 
-
                                 <?php /* <div class="col-4 hideWeb grid_header"><?= __('tenant_id ',) ?></div>
                                 <div class="col-md-1 col-8" ng-bind-html="DtSetter('', itm.tenant.user_fullname )"></div>   
                                                                                                                                                       
@@ -193,7 +185,6 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                 <div class="col-md-1 col-8">
                                     {{itm.package.package_name}}
                                 </div>
-
                                 <!-- <div class="col-4 hideWeb grid_header"><?= __('total_price') ?></div> -->
                                 <div class=" col-md-1">
                                     <div ng-repeat=" item in itm.service_package" class="redtext">
@@ -233,14 +224,14 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                 </div>
                             </div>
                         </div>
-                        <?php echo $this->element('paginator-ng') ?>
+                     <?php echo $this->element('paginator-ng') ?>
                     </div>
                 </div>
-            </div>
-            <div>
-            </div>
+             </div>
+           <div>
         </div>
-    </div>
+      </div>
+  </div>
     <?php echo $this->element('Modals/addEditService') ?>
     <?php echo $this->element('Modals/addEditInspect') ?>
     <?php echo $this->element('Modals/searchServices') ?>

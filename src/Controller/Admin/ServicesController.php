@@ -101,7 +101,7 @@ class ServicesController extends AppController
                         'Packages' => ['fields' => ['package_name']],
                         'Properties' => ['fields' => ['Properties.property_ref']],
                         'Docs' => ['fields' => ['Docs.tar_id', 'Docs.id', 'Docs.doc_name']],
-                        // 'Inspects' => ['fields' => ['Inspects.user_id','Inspects.inspect_desc','Inspects.stat_created']],
+                        //'Inspects' => ['fields' => ['Inspects.user_id','Inspects.inspect_desc','Inspects.stat_created']],
 
                     ]
                 ])->toArray();
@@ -140,9 +140,10 @@ class ServicesController extends AppController
                     ]
                 ]);
 
-                //dd($data);
+                // dd($data);
                 $data = $this->Do->convertJson($this->paginate($data));
             }
+            
             // expiration date 
             foreach ($data as &$service) {
                 $service['expiration_date'] = date('Y-m-d H:i:s', strtotime($service['stat_created'] . ' + ' . $service['service_contract_period'] . ' days'));
