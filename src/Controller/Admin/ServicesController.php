@@ -29,6 +29,7 @@ class ServicesController extends AppController
             echo json_encode(["status" => "SUCCESS", "data" => $this->Do->convertJson($data)], JSON_UNESCAPED_UNICODE);
             die();
         }
+        
         if ($this->request->is('post')) {
 
             $this->autoRender = false;
@@ -101,11 +102,11 @@ class ServicesController extends AppController
                         'Packages' => ['fields' => ['package_name']],
                         'Properties' => ['fields' => ['Properties.property_ref']],
                         'Docs' => ['fields' => ['Docs.tar_id', 'Docs.id', 'Docs.doc_name']],
-                        //'Inspects' => ['fields' => ['Inspects.user_id','Inspects.inspect_desc','Inspects.stat_created']],
-
+            'Inspects' => ['fields' => ['Inspects.id','Inspects.user_id','Inspects.service_id','Inspects.inspect_desc','Inspects.inspect_rate','Inspects.stat_created']],
                     ]
+                                       
                 ])->toArray();
-
+               //dd($data);
                 $data['expiration_date'] = date('Y-m-d H:i:s', strtotime($data['stat_created'] . ' + ' . $data['service_contract_period'] . ' days'));
                 $data["property"] = [
                     [
@@ -133,7 +134,8 @@ class ServicesController extends AppController
                         'Owner' => ['fields' => ['Owner.user_fullname']],
                         'Packages' => ['fields' => ['Packages.package_name']],
                         'Properties' => ['fields' => ['Properties.property_ref', 'Properties.id']],
-                        // 'Inspects' => ['fields' => ['Inspects.user_id','Inspects.inspect_desc','Inspects.stat_created']],
+         'Inspects' => ['fields' => ['Inspects.id','Inspects.user_id','Inspects.service_id','Inspects.inspect_desc','Inspects.inspect_rate','Inspects.stat_created']],
+
 
                         //'Docs' => ['fields' => ['Docs.tar_id']],
 
@@ -155,7 +157,6 @@ class ServicesController extends AppController
             );
             die();
         }
-
 
         $tenants = $this->Services->Users->find('list', [
             'conditions' => ['user_role' => 'user.tenant']

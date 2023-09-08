@@ -14,7 +14,6 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                     <a href ng-click="
                             newEntity('service');
                             openModal('#addEditService_mdl');
-						
                             doGet('/admin/services/index?list=1', 'list', 'services');" 
 
                         class="btn btn-info">

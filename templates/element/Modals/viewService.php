@@ -103,7 +103,7 @@
                             </div>
                             <div class="grid_row row">
                                 <div class="col-md-3 grid_header2"><?= __('inspect_desc') ?></div>
-                                <div class="col-md-9 notwrapped">{{rec.inspect.inspect_desc}}</div>
+                                <div class="col-md-9 notwrapped">{{rec.inspect.inspect_desc}}</div>                       
                             </div>
                             <div class="grid_row row">
                                 <div class="col-md-3 grid_header2"><?= __('inspect_rate') ?></div>
@@ -130,11 +130,5 @@
                             <div class="col-md-3 grid_header2"><?= __('stat_created') ?></div>
                             <div class="col-md-9 notwrapped">{{rec.inspect.stat_created}}</div>
                         </div>
-
-                        <div class="grid_row row">
-                            <div class="col-md-3 grid_header2"><?= __('rec_state') ?></div>
-                            <div class="col-md-9 notwrapped" ng-bind-html="DtSetter( 'bool2', rec.inspect.rec_state )"></div>
-                        </div>
-
                     </div>
                 </div>

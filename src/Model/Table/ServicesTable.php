@@ -47,9 +47,9 @@ class ServicesTable extends Table
             'className' => 'App.Properties',
             'foreignKey' => 'property_id',
         ]);
-        $this->belongsTo('Inspects', [
+        $this->hasMany('Inspects', [
             'className' => 'Inspects',
-            'foreignKey' => 'inspects_id',
+            'foreignKey' => 'service_id',
         ]);
 
 
