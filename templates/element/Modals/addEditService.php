@@ -176,13 +176,19 @@ $parent_id = isset($this->request->getParam("pass")[0])
 								<div class="col-md-6 col-sm-6 form-group has-feedback">
 									<label><?= __('property_ref') ?></label>
 									<div class="div">
-										<tags-input ng-model="rec.service.property_tags" add-from-autocomplete-only="true">
+										<tags-input display-property="text"
+													key-property="value" 
+													ng-model="rec.service.property" 
+													max-tags="1" 
+													add-from-autocomplete-only="true"
+													ng-disabled="rec.service.property || rec.service.id">
 											<auto-complete source="loadTags($query,'services')"></auto-complete>
 										</tags-input>
-										<span class="fa fa-tag form-control-feedback left" aria-hidden="true"></span>
+							<span ng-if="rec.service.property || rec.service.id" 
+								  ng-click="rec.service.property = ''; rec.service.id = undefined;" 
+							      class="fa fa-times" style="cursor: pointer; position: absolute; top: 50%; right: 10px; transform: translateY(-50%);"></span>									
 									</div>
 								</div>
-
 								<div class="col-md-6 col-6  form-group has-feedback">
 									<label set-required><?= __("package_id") ?></label>
 									<div class="div">

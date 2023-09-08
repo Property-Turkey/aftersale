@@ -1015,7 +1015,7 @@
 
                 $scope.loadTags = function(query, target) {
                     // return $http.get('/tags?query=' + query);
-                    return $http.get('<?= $app_folder?>/admin/' + target +'?tags=1&keyword=' + query)
+                    return $http.get('<?= $app_folder ?>/admin/' + target + '?tags=1&keyword=' + query)
                         .then(function(response, status) {
                             return response.data.data;
                         });
@@ -1074,7 +1074,7 @@
 
                 $scope.doSave = function(orginialObj, tar, ctrl, btn, preloader, params) {
                     console.log(orginialObj);
-                   
+
                     // console.log(orginialObj, tar, ctrl, btn, preloader, params);
                     // return;
                     !tar ? tar = 'content' : tar;

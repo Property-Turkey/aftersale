@@ -12,7 +12,23 @@ class ServicesController extends AppController
 
     public function index()
     {
+        $_tags = isset($_GET['tags']) ? $_GET['tags'] : false;
+        $_keyword = isset($_GET['keyword']) ? $_GET['keyword'] : false;
 
+        // TAGS search result for tags
+        if (!empty($_tags)) {
+            $tagsCondition = [
+                'property_ref LIKE' => '%' . $_keyword . '%'
+            ];
+
+            $data = $this->getTableLocator()->get('Properties')
+                ->find('all')
+                ->select(['text' => 'property_ref', 'value' => 'id'])
+                ->where($tagsCondition);
+
+            echo json_encode(["status" => "SUCCESS", "data" => $this->Do->convertJson($data)], JSON_UNESCAPED_UNICODE);
+            die();
+        }
         if ($this->request->is('post')) {
 
             $this->autoRender = false;
@@ -90,7 +106,12 @@ class ServicesController extends AppController
                 ])->toArray();
 
                 $data['expiration_date'] = date('Y-m-d H:i:s', strtotime($data['stat_created'] . ' + ' . $data['service_contract_period'] . ' days'));
-
+                $data["property"] = [
+                    [
+                        "text" => $data['property']['property_ref'],
+                        "value" => $data['property_id']
+                    ]
+                ];
                 $data = $this->Do->convertJson($data);
                 echo json_encode(
                     ["status" => "SUCCESS",  "data" => $this->Do->convertJson($data)],
@@ -131,6 +152,7 @@ class ServicesController extends AppController
             die();
         }
 
+
         $tenants = $this->Services->Users->find('list', [
             'conditions' => ['user_role' => 'user.tenant']
         ]);
@@ -160,56 +182,43 @@ class ServicesController extends AppController
 
     public function save($id = -1)
     {
-        if ($this->request->is(['post', 'put', 'patch'])) {
-            $this->autoRender  = false;
-            $dt = json_decode(file_get_contents('php://input'), true);
+        $dt = json_decode(file_get_contents('php://input'), true);
+        $this->autoRender  = false;
 
-            // Edit mode
-            if ($this->request->is(['patch', 'put'])) {
-                $rec = $this->Services->get($dt['id']);
-                if (isset($dt['property'][0]['value'])) {
-                    $rec->property_id = $dt['property'][0]['value'];
-                }
+        // Edit mode
+        if ($this->request->is(['patch', 'put'])) {
+            $rec = $this->Services->get($dt['id']);
+            if (isset($dt['property'][0]['value'])) {
+                $rec->property_id = $dt['property'][0]['value'];
             }
-
-            // Add new record
-            if ($this->request->is(['post'])) {
-                $dt['id'] = null;
-                $dt['user_id'] = $this->authUser['id'];
-                $dt['property_tags'] = json_encode( $dt['property_tags'] );
-                // $property = $this->Services->Properties->find()
-                //     ->select(['id'])
-                //     ->where(['property_ref' => $dt['property_id']])
-                //     ->first();
-                // if ($property) {
-                //     $dt['property_id'] = $property->id;
-                // } else {
-                //     echo json_encode(["status" => "FAIL", "data" => "Geçersiz property_ref değeri"]);
-                //     die();
-                // }
-                if (isset($dt['property'][0]['value'])) {
-                    $rec->property_ref = $dt['property'][0]['value'];
-                }
-                // dd($dt);
-
-                $rec = $this->Services->newEntity($dt);
-            }
-            unset($dt['property']);
-            unset($dt['package']);
-            unset($dt['owner']);
-            unset($dt['tenant']);
-            unset($dt['user']);
             $rec = $this->Services->patchEntity($rec, $dt);
+        }
+
+        // Add new record
+        if ($this->request->is(['post'])) {
+            $rec = $this->Services->newEntity($dt);
+            $dt['id'] = null;
+            $dt['user_id'] = $this->authUser['id'];
+            if (isset($dt['property'][0]['value'])) {
+                $rec->property_id = $dt['property'][0]['value'];
+            }
+        }
+        if ($this->request->is(['post', 'patch', 'put'])) {
+            unset($rec['property']);
+            unset($rec['package']);
+            unset($rec['owner']);
+            unset($rec['tenant']);
+            unset($rec['user']);
 
             if ($newRec = $this->Services->save($rec)) {
                 echo json_encode(["status" => "SUCCESS", "data" => $newRec]);
                 die();
             }
-            echo json_encode(["status" => "FAIL", "data" => $newRec->getErrors()]);
+            echo json_encode(["status" => "FAIL", "data" => $rec->getErrors()]);
             die();
         }
-    }
 
+    }
 
     public function delete($id = null)
     {
