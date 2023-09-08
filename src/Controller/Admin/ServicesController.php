@@ -176,7 +176,7 @@ class ServicesController extends AppController
             if ($this->request->is(['post'])) {
                 $dt['id'] = null;
                 $dt['user_id'] = $this->authUser['id'];
-
+                $dt['property_tags'] = json_encode( $dt['property_tags'] );
                 // $property = $this->Services->Properties->find()
                 //     ->select(['id'])
                 //     ->where(['property_ref' => $dt['property_id']])

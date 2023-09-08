@@ -179,6 +179,7 @@ $parent_id = isset($this->request->getParam("pass")[0])
 										<tags-input ng-model="rec.service.property_tags" add-from-autocomplete-only="true">
 											<auto-complete source="loadTags($query,'services')"></auto-complete>
 										</tags-input>
+										<span class="fa fa-tag form-control-feedback left" aria-hidden="true"></span>
 									</div>
 								</div>
 
