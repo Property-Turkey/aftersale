@@ -56,7 +56,6 @@
                         <div class="container">
                             <div class="grid">
                                 <div class="grid_row row" ng-repeat="itm in rec.expense.docs">
-
                                     <div class="col-md-9 notwrapped">{{itm.doc_name}}</div>
                                 </div>
 

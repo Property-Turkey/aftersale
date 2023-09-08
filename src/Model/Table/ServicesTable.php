@@ -35,7 +35,6 @@ class ServicesTable extends Table
             'className' => 'Docs',
             'foreignKey' => 'tar_id',
         ]);
-
         $this->belongsTo('Owner', [
             'className' => 'Users',
             'foreignKey' => 'owner_id',
@@ -47,6 +46,10 @@ class ServicesTable extends Table
         $this->belongsTo('Properties', [
             'className' => 'App.Properties',
             'foreignKey' => 'property_id',
+        ]);
+        $this->belongsTo('Inspects', [
+            'className' => 'Inspects',
+            'foreignKey' => 'inspects_id',
         ]);
 
 

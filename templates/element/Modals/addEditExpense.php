@@ -204,7 +204,6 @@ $parent_id = isset($this->request->getParam("pass")[0])
 											<i class="fa fa-times"></i>
 										</button>
 									</div>
-
 								</div>
 
 

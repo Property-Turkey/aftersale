@@ -101,6 +101,7 @@ class ServicesController extends AppController
                         'Packages' => ['fields' => ['package_name']],
                         'Properties' => ['fields' => ['Properties.property_ref']],
                         'Docs' => ['fields' => ['Docs.tar_id', 'Docs.id', 'Docs.doc_name']],
+                        // 'Inspects' => ['fields' => ['Inspects.user_id','Inspects.inspect_desc','Inspects.stat_created']],
 
                     ]
                 ])->toArray();
@@ -132,6 +133,8 @@ class ServicesController extends AppController
                         'Owner' => ['fields' => ['Owner.user_fullname']],
                         'Packages' => ['fields' => ['Packages.package_name']],
                         'Properties' => ['fields' => ['Properties.property_ref', 'Properties.id']],
+                        // 'Inspects' => ['fields' => ['Inspects.user_id','Inspects.inspect_desc','Inspects.stat_created']],
+
                         //'Docs' => ['fields' => ['Docs.tar_id']],
 
                     ]
@@ -217,8 +220,78 @@ class ServicesController extends AppController
             echo json_encode(["status" => "FAIL", "data" => $rec->getErrors()]);
             die();
         }
+        // if ($this->request->is(['post', 'patch', 'put'])) {
+        //     $this->autoRender = false;
+        //     unset($rec['category']);
+        //     unset($rec['pool']);
+        //     unset($rec['source']);
+        //     unset($rec['tag']);
+        //     unset($rec['report']);
+        //     unset($rec['book']);
+
+        //     if ($newRec = $this->Sales->save($rec)) {
+        //         echo json_encode(["status" => "SUCCESS", "data" => $this->Do->convertJson($newRec)]);
+        //         die();
+        //     }
+
+
+        //     echo json_encode(["status" => "FAIL", "data" => $rec->getErrors()]);
+        //     die();
+        // }
+        // starty
+
+        // $dt = json_decode(file_get_contents('php://input'), true);
+
+        // // edit mode
+        // if ($this->request->is(['patch', 'put'])) {
+
+        //     $rec = $this->Sales->get($dt['id']);
+        //     $dt['sale_tags'] = json_encode( $dt['sale_tags'] );
+        //     if(isset($dt['client'][0]['value'])){
+        //         $rec->client_id = $dt['client'][0]['value'];
+        //     }
+
+        //     $rec = $this->Sales->patchEntity($rec, $dt); 
+        //     // $rec->sale_tags = json_encode($dt['sale_tags']);
+
+        // }
+
+        // // add mode
+        // if ($this->request->is(['post'])) {
+        //     $dt['id'] = null;
+        //     $dt['stat_created'] = date('Y-m-d H:i:s');
+        //     $dt['tar_tbl'] = $this->Do->get('targetTables')[$this->request->getParam('controller')];
+        //     $dt['sale_current_stage'] = 2;
+        //     $dt['sale_tags'] = json_encode( $dt['sale_tags'] );
+        //     $rec = $this->Sales->newEntity($dt);
+        //     if(isset($dt['client'][0]['value'])){
+        //         $rec->client_id = $dt['client'][0]['value'];
+        //     }
+
+        //     // $rec->sale_tags = json_encode($dt['sale_tags']);
+        // }
+
+        // if ($this->request->is(['post', 'patch', 'put'])) {
+        //     $this->autoRender = false;
+        //     unset($rec['category']);
+        //     unset($rec['pool']);
+        //     unset($rec['source']);
+        //     unset($rec['tag']);
+        //     unset($rec['report']);
+        //     unset($rec['book']);
+
+        //     if ($newRec = $this->Sales->save($rec)) {
+        //         echo json_encode(["status" => "SUCCESS", "data" => $this->Do->convertJson($newRec)]);
+        //         die();
+        //     }
+
+
+        //     echo json_encode(["status" => "FAIL", "data" => $rec->getErrors()]);
+        //     die();
+        // }
 
     }
+
 
     public function delete($id = null)
     {

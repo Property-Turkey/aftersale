@@ -105,14 +105,19 @@ class InspectsController extends AppController
             $rec = $this->Inspects->get($dt['id']);
             $rec = $this->Inspects->patchEntity($rec, $dt);
         }
-             //dd($dt);
+             
              //add new record
         if ($this->request->is(['post'])) {
             $dt['id'] = null;
             $dt['user_id'] = $this->authUser['id'];
             $dt['inspect_rate'] = json_encode($dt['inspect_rate']); // selected items
             //dd($dt['inspect_rate']);
-
+            // $serviceId = isset($this->request->getParam('pass')[0]) ? $this->request->getParam('pass')[0] : 0;
+            
+            // $newInspectData = [
+            //     'service_id' => $serviceId, // service_id'yi ayarlayın
+            // ];
+            // dd($newInspectData);
             $rec = $this->Inspects->newEntity($dt);
         }
 

@@ -67,14 +67,14 @@ $admin_menu=[
            ["name"=>"all", "url" => ["banks", "index", ""]],
        ]
    ],
-   ["name"=>"inspects",
-     "icon"=>"user-secret",
-     "roles"=>["admin.root", "admin.portfolio", "admin.callcenter", "admin.supervisor", "admin.admin", "admin.content"],
-     "active"=>"/inspects/index,/inspects/save,/inspects/view",
-     "sub" => [
-            ["name"=>"all", "url" => ["inspects", "index", ""]],
-        ]
-    ],
+//    ["name"=>"inspects",
+//      "icon"=>"user-secret",
+//      "roles"=>["admin.root", "admin.portfolio", "admin.callcenter", "admin.supervisor", "admin.admin", "admin.content"],
+//      "active"=>"/inspects/index,/inspects/save,/inspects/view",
+//      "sub" => [
+//             ["name"=>"all", "url" => ["inspects", "index", ""]],
+//         ]
+    //],
     ["name"=>"users",
     "icon"=>"users",
     "roles"=>["admin.root", "admin.portfolio", "admin.callcenter", "admin.supervisor", "admin.admin", "admin.content"],

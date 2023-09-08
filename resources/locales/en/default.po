@@ -755,6 +755,10 @@ msgid "add_inspect"
 msgstr "Add Inspect"
 msgid "view_inspect"
 msgstr "View"
+msgid "add_inspect"
+msgstr "Add Inspect"
+
+
 
 
 

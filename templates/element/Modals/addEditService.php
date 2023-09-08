@@ -64,53 +64,6 @@ $parent_id = isset($this->request->getParam("pass")[0])
 									</div>
 								</div>
 
-								<?php /* <div class="col-md-6 col-6  form-group has-feedback">
-							<label set-required ><?= __("property_id") ?></label>
-							<div class="div">
-							<?= $this->element("colActions", [
-								"url" => "services/index/",
-								"col" => "property_id",
-								"search" => "property_id",
-							]) ?> 									
-							</div>
-						</div> 
-								 <div class="col-md-6 col-6  form-group has-feedback">
-							<label><?= __("package_name") ?></label>
-							<div class="div">
-								<?= $this->Form->text("package_name", [
-									"type" => "select",
-									"options" => $packages,
-									"label" => false,
-									"class" => "form-control has-feedback-left",
-									"ng-model" => "rec.service.package_name",
-								]) ?>
-								<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
-							</div>
-						</div> 
-
-								</div>
-                                <div class="col-md-6 col-6 form-group has-feedback">
-									<label><?= __("package_id") ?></label>
-									<div class="div">
-										<label class="radio-inline" ng-repeat="(key, package) in DtSetter('packages', 'list') track by $index">
-											<input type="checkbox" ng-model="rec.service.servicePackageObj[$index].package_id" ng-value="{{key}}"> {{ package }}
-										</label>
-										
-									</div>
-								</div>*/ ?>
-								<?php /* </div>
-								<div class="col-md-6 col-6  form-group has-feedback">
-									<label set-required ><?= __("service_price") ?></label>
-									<div class="div">
-										<?= $this->Form->text("service_price", [
-											"type" => "text",
-											"class" => "form-control has-feedback-left",
-											"ng-model" => "rec.service.service_price",
-										]) ?>
-										<span class="fa fa-header form-control-feedback left" aria-hidden="true"></span>
-									</div>
-								</div> */ ?>
-
 								<div class="col-md-6 col-6  form-group has-feedback">
 									<label set-required><?= __("service_vat") ?></label>
 									<div class="div">
@@ -220,9 +173,7 @@ $parent_id = isset($this->request->getParam("pass")[0])
 										<button type="submit" class="btn btn-info"><span><i class="fa fa-save"></i></span> <?= __("save") ?></button>
 									</div>
 								</div>
-
 							</form>
-
 							<button type="button" id="user_btn" class="hideIt" ng-click="
 								doGet('/admin/users/index?list=1', 'list', 'users');
 								rec.user.id>0 ? '' : rec.user = {};
@@ -402,7 +353,6 @@ $parent_id = isset($this->request->getParam("pass")[0])
 											<i class="fa fa-times"></i>
 										</button>
 									</div>
-
 								</div>
 								<?php
 								// show files list

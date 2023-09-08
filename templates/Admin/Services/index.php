@@ -19,7 +19,6 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                     </a>
                 </span>
             </div>
-
             <div class=" col-6 col-sm-6 col-md-6 side_div2">
                 <span class="icn">
                     <a href ng-click="                
@@ -30,9 +29,7 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                 </span>
             </div>
         </div>
-
         <div class="clearfix"></div>
-
         <div class="row">
             <div class="col-12">
                 <div class="x_panel">
@@ -222,11 +219,16 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                     <a href ng-click="                       
                                         doGet('/admin/services?id='+itm.id, 'rec', 'service');
                                         openModal('#viewService_mdl');" class="inline-btn">
-                                    <i class="fa fa-eye"></i> <?= __('view') ?></a>
+                                        <i class="fa fa-eye"></i> <?= __('view') ?></a>
                                     <a href ng-click=" 
                                     doGet('/admin/services?id='+itm.id, 'rec', 'service');
                                         openModal('#addEditService_mdl');" class="inline-btn">
                                         <i class="fa fa-pencil"></i> <?= __('edit') ?>
+                                    </a>
+                                    <a href ng-click=" newEntity('inspect');
+                                        rec.inspect.service_id = itm.id;
+                                        openModal('#addEditInspect_mdl');" class="inline-btn">
+                                        <i class="fa fa-plus"></i> <?= __('add_inspect') ?>
                                     </a>
                                 </div>
                             </div>
@@ -235,10 +237,12 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                     </div>
                 </div>
             </div>
+            <div>
+            </div>
         </div>
     </div>
-</div>
-<?php echo $this->element('Modals/addEditService') ?>
-<?php echo $this->element('Modals/searchServices') ?>
-<?php echo $this->element('Modals/docs') ?>
-<?php echo $this->element('Modals/viewService') ?>
+    <?php echo $this->element('Modals/addEditService') ?>
+    <?php echo $this->element('Modals/addEditInspect') ?>
+    <?php echo $this->element('Modals/searchServices') ?>
+    <?php echo $this->element('Modals/docs') ?>
+    <?php echo $this->element('Modals/viewService') ?>
