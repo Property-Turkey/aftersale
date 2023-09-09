@@ -115,11 +115,11 @@
 
 						<div class="clearfix"></div>
 
-						<div class="form-group ">
+						 <div class="form-group ">
 							<div class="col-md-12 col-sm-6  form-group has-feedback ">
 								<button type="submit" class="btn btn-info"><span><i class="fa fa-save"></i></span> <?= __('save') ?></button>
 							</div>
-						</div>
+						</div> 
 
 					</form>
 				</div>

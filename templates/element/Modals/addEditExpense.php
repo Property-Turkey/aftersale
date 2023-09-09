@@ -119,7 +119,7 @@ $parent_id = isset($this->request->getParam("pass")[0])
 							</form>
 						</div>
 					</div>
-					<div class="tab-pane" id="tabs-2" role="tabpanel">
+					 <div class="tab-pane" id="tabs-2" role="tabpanel"> 
 						<?php
 						$ctrl = strtolower($this->request->getParam("controller"));
 						$ctrls = [
@@ -224,10 +224,9 @@ $parent_id = isset($this->request->getParam("pass")[0])
 								<div class="col-12 not_found_div"><i class="fa fa-info-circle"></i> <?= __("available_only_for_admins") ?></div>
 							<?php } ?>
 							</div>
-					</div>
-				</div>
-			</div>
-		</div>
+					 </div> 
+			 </div>
+			 </div> 
 	</div>
 </div>
 </div>

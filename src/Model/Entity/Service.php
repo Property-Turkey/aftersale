@@ -23,6 +23,7 @@ class Service extends Entity
         'service_price' => true,
         'service_currency' => true,
         'user' => true,
+        "user_fullname" => true,
         'owner' => true,
         'tenant' => true,
         'package' => true,

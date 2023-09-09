@@ -29,15 +29,13 @@ class ServicesController extends AppController
             echo json_encode(["status" => "SUCCESS", "data" => $this->Do->convertJson($data)], JSON_UNESCAPED_UNICODE);
             die();
         }
-        
+
         if ($this->request->is('post')) {
 
             $this->autoRender = false;
 
-
             // dd($dt);
             $_method = !empty($_GET['method']) ? $_GET['method'] : '';
-            //$conditions = [];
 
             // Filters and Search
             $_from = !empty($_GET['from']) ? $_GET['from'] : '';
@@ -50,8 +48,6 @@ class ServicesController extends AppController
             $_col = !empty($_GET['col']) ? $_GET['col'] : 'id';
             $_k = (isset($_GET['k']) && strlen($_GET['k']) > 0) ? $_GET['k'] : false;
             $_dir = !empty($_GET['direction']) ? $_GET['direction'] : 'DESC';
-
-
 
             if (!empty($_from)) {
                 $conditions['Services.stat_created > '] = $_from;
@@ -102,11 +98,11 @@ class ServicesController extends AppController
                         'Packages' => ['fields' => ['package_name']],
                         'Properties' => ['fields' => ['Properties.property_ref']],
                         'Docs' => ['fields' => ['Docs.tar_id', 'Docs.id', 'Docs.doc_name']],
-            'Inspects' => ['fields' => ['Inspects.id','Inspects.user_id','Inspects.service_id','Inspects.inspect_desc','Inspects.inspect_rate','Inspects.stat_created']],
+                        'Inspects' => ['fields' => ['Inspects.id', 'Inspects.user_id', 'Inspects.service_id', 'Inspects.inspect_desc', 'Inspects.inspect_rate', 'Inspects.stat_created']],
                     ]
-                                       
+
                 ])->toArray();
-               //dd($data);
+                //dd($data);
                 $data['expiration_date'] = date('Y-m-d H:i:s', strtotime($data['stat_created'] . ' + ' . $data['service_contract_period'] . ' days'));
                 $data["property"] = [
                     [
@@ -134,7 +130,7 @@ class ServicesController extends AppController
                         'Owner' => ['fields' => ['Owner.user_fullname']],
                         'Packages' => ['fields' => ['Packages.package_name']],
                         'Properties' => ['fields' => ['Properties.property_ref', 'Properties.id']],
-         'Inspects' => ['fields' => ['Inspects.id','Inspects.user_id','Inspects.service_id','Inspects.inspect_desc','Inspects.inspect_rate','Inspects.stat_created']],
+                        'Inspects' => ['fields' => ['Inspects.id', 'Inspects.user_id', 'Inspects.service_id', 'Inspects.inspect_desc', 'Inspects.inspect_rate', 'Inspects.stat_created']],
 
 
                         //'Docs' => ['fields' => ['Docs.tar_id']],
@@ -145,7 +141,7 @@ class ServicesController extends AppController
                 // dd($data);
                 $data = $this->Do->convertJson($this->paginate($data));
             }
-            
+
             // expiration date 
             foreach ($data as &$service) {
                 $service['expiration_date'] = date('Y-m-d H:i:s', strtotime($service['stat_created'] . ' + ' . $service['service_contract_period'] . ' days'));
@@ -167,48 +163,42 @@ class ServicesController extends AppController
 
         $packages = $this->getTableLocator()->get('Packages')->find('list')->toArray();
 
-        //$Properties = $this->getTableLocator()->get('Properties')->find('list')->toArray();
-        // $Properties = $this->Services->Properties->find('list', [
-        //     'conditions' => ['property_id' => 'property_ref']
-        // ]);
-        //  dd($Properties);
         $Properties = $this->getTableLocator()->get('Properties')
             ->find('list', ['valueField' => 'property_ref'])
             ->toArray();
 
-        // $tarId = $this->getTableLocator()->get('Docs')
-        //     ->find('list', ['valueField' => 'tar_id'])
-        //     ->toArray();
-
-        //dd($tarId);
 
         $this->set(compact('tenants', 'owners', 'packages', 'Properties',));
     }
 
+
     public function save($id = -1)
     {
-        $dt = json_decode(file_get_contents('php://input'), true);
         $this->autoRender  = false;
+        $dt = json_decode(file_get_contents('php://input'), true);
 
         // Edit mode
         if ($this->request->is(['patch', 'put'])) {
             $rec = $this->Services->get($dt['id']);
+
             if (isset($dt['property'][0]['value'])) {
                 $rec->property_id = $dt['property'][0]['value'];
             }
             $rec = $this->Services->patchEntity($rec, $dt);
         }
-
         // Add new record
         if ($this->request->is(['post'])) {
-            $rec = $this->Services->newEntity($dt);
             $dt['id'] = null;
             $dt['user_id'] = $this->authUser['id'];
-            if (isset($dt['property'][0]['value'])) {
-                $rec->property_id = $dt['property'][0]['value'];
-            }
+            $rec = $this->Services->newEntity($dt);
+            //dd($rec);
+        }
+
+        if (isset($dt['property'][0]['value'])) {
+            $rec->property_id = $dt['property'][0]['value'];
         }
         if ($this->request->is(['post', 'patch', 'put'])) {
+
             unset($rec['property']);
             unset($rec['package']);
             unset($rec['owner']);
@@ -216,84 +206,14 @@ class ServicesController extends AppController
             unset($rec['user']);
 
             if ($newRec = $this->Services->save($rec)) {
+                //dd($newRec);
                 echo json_encode(["status" => "SUCCESS", "data" => $newRec]);
                 die();
             }
             echo json_encode(["status" => "FAIL", "data" => $rec->getErrors()]);
             die();
         }
-        // if ($this->request->is(['post', 'patch', 'put'])) {
-        //     $this->autoRender = false;
-        //     unset($rec['category']);
-        //     unset($rec['pool']);
-        //     unset($rec['source']);
-        //     unset($rec['tag']);
-        //     unset($rec['report']);
-        //     unset($rec['book']);
-
-        //     if ($newRec = $this->Sales->save($rec)) {
-        //         echo json_encode(["status" => "SUCCESS", "data" => $this->Do->convertJson($newRec)]);
-        //         die();
-        //     }
-
-
-        //     echo json_encode(["status" => "FAIL", "data" => $rec->getErrors()]);
-        //     die();
-        // }
-        // starty
-
-        // $dt = json_decode(file_get_contents('php://input'), true);
-
-        // // edit mode
-        // if ($this->request->is(['patch', 'put'])) {
-
-        //     $rec = $this->Sales->get($dt['id']);
-        //     $dt['sale_tags'] = json_encode( $dt['sale_tags'] );
-        //     if(isset($dt['client'][0]['value'])){
-        //         $rec->client_id = $dt['client'][0]['value'];
-        //     }
-
-        //     $rec = $this->Sales->patchEntity($rec, $dt); 
-        //     // $rec->sale_tags = json_encode($dt['sale_tags']);
-
-        // }
-
-        // // add mode
-        // if ($this->request->is(['post'])) {
-        //     $dt['id'] = null;
-        //     $dt['stat_created'] = date('Y-m-d H:i:s');
-        //     $dt['tar_tbl'] = $this->Do->get('targetTables')[$this->request->getParam('controller')];
-        //     $dt['sale_current_stage'] = 2;
-        //     $dt['sale_tags'] = json_encode( $dt['sale_tags'] );
-        //     $rec = $this->Sales->newEntity($dt);
-        //     if(isset($dt['client'][0]['value'])){
-        //         $rec->client_id = $dt['client'][0]['value'];
-        //     }
-
-        //     // $rec->sale_tags = json_encode($dt['sale_tags']);
-        // }
-
-        // if ($this->request->is(['post', 'patch', 'put'])) {
-        //     $this->autoRender = false;
-        //     unset($rec['category']);
-        //     unset($rec['pool']);
-        //     unset($rec['source']);
-        //     unset($rec['tag']);
-        //     unset($rec['report']);
-        //     unset($rec['book']);
-
-        //     if ($newRec = $this->Sales->save($rec)) {
-        //         echo json_encode(["status" => "SUCCESS", "data" => $this->Do->convertJson($newRec)]);
-        //         die();
-        //     }
-
-
-        //     echo json_encode(["status" => "FAIL", "data" => $rec->getErrors()]);
-        //     die();
-        // }
-
     }
-
 
     public function delete($id = null)
     {

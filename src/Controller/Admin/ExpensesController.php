@@ -15,20 +15,7 @@ class ExpensesController extends AppController
 
             $this->autoRender = false;
 
-            // $conditions = [];
 
-            //$dt = json_decode(file_get_contents('php://input'), true);
-            // $noneSearchable = ['page'];
-            // $conditions = []; // $conditions dizisini burada tanımlayın
-
-            // if (!empty($dt)) {
-            //     foreach ($dt as $key => $itm) {
-            //         if (in_array($key, $noneSearchable)) {
-            //             continue;
-            //         }
-            //         $conditions[$key] = $itm;
-            //     }
-            // }
             // Filters and Search
             $_from = !empty($_GET['from']) ? $_GET['from'] : '';
             $_to = !empty($_GET['to']) ? $_GET['to'] : '';
@@ -132,30 +119,28 @@ class ExpensesController extends AppController
 
     public function save($id = -1)
     {
-
         $this->request->allowMethod(['post', 'put', 'patch']);
 
         $this->autoRender  = false;
         $dt = json_decode(file_get_contents('php://input'), true);
-        // dd($dt);
+
         if ($this->request->is(['patch', 'put'])) {
             $rec = $this->Expenses->get($dt['id']);
-            $rec = $this->Expenses->patchEntity($rec, $dt, ['associated' => ['Users',]]);
         }
-
         //add new record
         if ($this->request->is(['post'])) {
             $dt['id'] = null;
             $dt['user_id'] = $this->authUser['id'];
-            dd($dt);
             $rec = $this->Expenses->newEntity($dt);
+            dd($rec);
+
         }
+        $rec = $this->Expenses->patchEntity($rec, $dt, ['associated' => ['Users',]]);
 
         if ($newRec = $this->Expenses->save($rec)) {
             echo json_encode(["status" => "SUCCESS", "data" => $newRec]);
             die();
         }
-        // dd($rec->getErrors());
         echo json_encode(["status" => "FAIL", "data" => $rec->getErrors()]);
         die();
     }

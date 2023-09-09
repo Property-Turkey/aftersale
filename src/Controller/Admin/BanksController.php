@@ -59,16 +59,7 @@ class BanksController extends AppController
                 JSON_UNESCAPED_UNICODE); die();
         }
     }
-    public function view($id = null)
-    {
-        $rec = $this->Banks->get($id, [
-            'contain' => [],
-        ]);
 
-        $this->set('rec', $rec);
-    }
-    
-   
     public function save($id = -1) 
     {
         $this->request->allowMethod(['post', 'put', 'patch']);
