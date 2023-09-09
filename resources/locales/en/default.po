@@ -849,5 +849,10 @@ msgstr "Upload File"
 msgid "search_and_filter"
 msgstr "Search and Filter"
 
+msgid "add_document"
+msgstr "Add Document"
+
+
+
 
 
