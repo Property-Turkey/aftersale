@@ -28,7 +28,9 @@ class Service extends Entity
         'tenant' => true,
         'package' => true,
         'property' => true,
-        // 'inspect' => true,
-        // 'inspect_id' => true,
+        'inspect' => true,
+        'inspect_id' => true,
+        'inspect_desc' => true,
+        'inspect_rate' => true,
     ];
 }

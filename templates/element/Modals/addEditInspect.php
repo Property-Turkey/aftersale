@@ -28,7 +28,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 										<h2><?= __('user_id') ?> : {{rec.inspect.user_id}}</h2>
 									</div>
 
-									<div class="col-md-6 col-6  form-group has-feedback">
+									<!-- <div class="col-md-6 col-6  form-group has-feedback">
 										<label><?= __('user_id') ?> <span style="color: red; font-weight: bold; font-size:11px">(inspector)</span></label></label>
 										<div class="div">
 											<?= $this->Form->control('user_id', [
@@ -40,7 +40,7 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 											]) ?>
 											<span class="fa fa-user-circle form-control-feedback left" aria-hidden="true"></span>
 										</div>
-									</div>
+									</div> -->
 
 									<!-- <div class="col-md-6 col-6  form-group has-feedback">
 							<label><?= __('owner_id') ?></label>

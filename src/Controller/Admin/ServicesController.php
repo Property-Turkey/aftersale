@@ -92,17 +92,18 @@ class ServicesController extends AppController
             if (!empty($_id)) {
                 $data = $this->Services->get($_id, [
                     'contain' => [
-                        'Users' => ['fields' => ['user_fullname']],
-                        'Tenant' => ['fields' => ['user_fullname']],
-                        'Owner' => ['fields' => ['user_fullname']],
-                        'Packages' => ['fields' => ['package_name']],
-                        'Properties' => ['fields' => ['Properties.property_ref']],
-                        'Docs' => ['fields' => ['Docs.tar_id', 'Docs.id', 'Docs.doc_name']],
-                        'Inspects' => ['fields' => ['Inspects.id', 'Inspects.user_id', 'Inspects.service_id', 'Inspects.inspect_desc', 'Inspects.inspect_rate', 'Inspects.stat_created']],
+                    'Users' => ['fields' => ['user_fullname']],
+                    'Tenant' => ['fields' => ['user_fullname']],
+                    'Owner' => ['fields' => ['user_fullname']],
+                    'Packages' => ['fields' => ['package_name']],
+                    'Properties' => ['fields' => ['Properties.property_ref']],
+                    'Docs' => ['fields' => ['Docs.tar_id', 'Docs.id', 'Docs.doc_name']],
+                    'Inspects' => ['fields' => ['Inspects.id', 'Inspects.user_id', 'Inspects.service_id', 'Inspects.inspect_desc', 'Inspects.inspect_rate', 'Inspects.stat_created']],
                     ]
-
                 ])->toArray();
-                //dd($data);
+               // dd($data);
+
+                //Expiration date
                 $data['expiration_date'] = date('Y-m-d H:i:s', strtotime($data['stat_created'] . ' + ' . $data['service_contract_period'] . ' days'));
                 $data["property"] = [
                     [
@@ -130,11 +131,8 @@ class ServicesController extends AppController
                         'Owner' => ['fields' => ['Owner.user_fullname']],
                         'Packages' => ['fields' => ['Packages.package_name']],
                         'Properties' => ['fields' => ['Properties.property_ref', 'Properties.id']],
-                        'Inspects' => ['fields' => ['Inspects.id', 'Inspects.user_id', 'Inspects.service_id', 'Inspects.inspect_desc', 'Inspects.inspect_rate', 'Inspects.stat_created']],
-
-
+       'Inspects' => ['fields' => ['Inspects.id', 'Inspects.user_id', 'Inspects.service_id', 'Inspects.inspect_desc', 'Inspects.inspect_rate', 'Inspects.stat_created']],
                         //'Docs' => ['fields' => ['Docs.tar_id']],
-
                     ]
                 ]);
 
@@ -146,7 +144,6 @@ class ServicesController extends AppController
             foreach ($data as &$service) {
                 $service['expiration_date'] = date('Y-m-d H:i:s', strtotime($service['stat_created'] . ' + ' . $service['service_contract_period'] . ' days'));
             }
-
             echo json_encode(
                 ["status" => "SUCCESS",  "data" => $data, "paging" => $this->request->getAttribute('paging')],
                 JSON_UNESCAPED_UNICODE
