@@ -220,9 +220,9 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                         openModal('#addEditInspect_mdl');" class="inline-btn">
                                         <i class="fa fa-plus"></i> <?= __('add_inspect') ?>
                                     </a>
-                                    <a href ng-click=" newEntity('inspect');
+                                    <a href ng-click=" newEntity('document');
                                         rec.inspect.service_id = itm.id;
-                                        openModal('#addEditInspect_mdl');" class="inline-btn">
+                                        openModal('#addEditService_mdl');" class="inline-btn">
                                         <i class="fa fa-plus"></i> <?= __('add_document') ?>
                                     </a>
                                 </div>
