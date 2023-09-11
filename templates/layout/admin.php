@@ -438,6 +438,7 @@
                 $(tar).attr("disabled", false);
             }
         }
+        
 
         var doClickUpdt;
         var doClick = function(tar, delay) {
@@ -997,7 +998,7 @@
                     // %10 control
                     var remainingPercentage = (daysRemaining / parseInt(servicePeriod)) * 100;
 
-                    return remainingPercentage <= 10; // Eğer %10 veya daha az kaldıysa true döner
+                    return remainingPercentage <= 10; //Real returns if 10% or less remaining
                 };
 
                 // $scope.isExpiringSoon = function(statCreated, servicePeriod) {
@@ -1010,7 +1011,7 @@
                 //     var daysRemaining = Math.floor((expirationDate - currentDate) / (1000 * 60 * 60 * 24));
                 //     var remainingPercentage = (daysRemaining / parseInt(servicePeriod)) * 100;
 
-                //     return remainingPercentage <= 10; // Eğer 5 günden az kaldıysa true döner
+                //     return remainingPercentage <= 10; // Returns true if there are less than 5 days left
                 // };
 
                 $scope.loadTags = function(query, target) {

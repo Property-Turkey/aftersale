@@ -105,14 +105,21 @@
                                 <div class="col-md-3 grid_header2"><?= __('inspect_desc') ?></div>
                                 <div class="col-md-9 notwrapped">{{itm.inspect_desc}}</div>
                             </div>
-                                     <div class="grid_row row" ng-repeat="itm in rec.service.inspects">
-                                    <div class="col-md-3 grid_header2"><?= __('inspect_rate') ?></div>
-                                    <div class="col-md-9 notwrapped">{{itm.inspect_rate}}</div>
-                                </div>
 
-                                <div class="grid_row row" ng-repeat="itm in rec.service.inspects">
-                                    <div class="col-md-3 grid_header2"><?= __('stat_created') ?></div>
-                                    <div class="col-md-9 notwrapped">{{itm.stat_created}}</div>
-                                </div>
+                            <div class="grid_row row" ng-repeat="itm in rec.service.inspects">
+                                <div class="col-md-3 grid_header2"><?= __('inspect_rate') ?></div>
+                                <?php
+
+                                $a = file_get_contents('php://input');
+                                $data = json_decode($json);
+                                ?>
+                                <div class="col-md-9 notwrapped">{{itm.inspect_rate}}</div>
+
+                            </div>
+
+                            <div class="grid_row row" ng-repeat="itm in rec.service.inspects">
+                                <div class="col-md-3 grid_header2"><?= __('stat_created') ?></div>
+                                <div class="col-md-9 notwrapped">{{itm.stat_created}}</div>
                             </div>
                         </div>
+                    </div>
