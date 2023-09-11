@@ -28,11 +28,12 @@ $parent_id = isset($this->request->getParam("pass")[0])
 				<div class="tab-content">
 					<div class="tab-pane active" id="tabs-1" role="tabpanel">
 						<div class="x_content">
-							<button ng-click="
+							<!-- <button ng-click="
 									doGet('/admin/expenses/index?list=1', 'list', 'expenses');
 									newEntity('expense');
-								" class="hideIt"></button>
-							<form class="form-label-left input_mask " id="expense_form" enctype="multipart/form-data" novalidate="novalidate" ng-submit="doSave(rec.expense, 'expense', 'expenses', '#expense_btn'); ">
+								" class="hideIt"></button> -->
+							<form class="form-label-left input_mask " id="expense_form" enctype="multipart/form-data" novalidate="novalidate" 
+								ng-submit="doSave(rec.expense, 'expense', 'expenses', '#expense_btn'); ">
 
 								<div class="col-md-6 col-6  form-group has-feedback">
 									<label set-required><?= __("expense_type") ?></label>
@@ -119,7 +120,7 @@ $parent_id = isset($this->request->getParam("pass")[0])
 							</form>
 						</div>
 					</div>
-					 <div class="tab-pane" id="tabs-2" role="tabpanel"> 
+					<div class="tab-pane" id="tabs-2" role="tabpanel">
 						<?php
 						$ctrl = strtolower($this->request->getParam("controller"));
 						$ctrls = [
@@ -224,9 +225,9 @@ $parent_id = isset($this->request->getParam("pass")[0])
 								<div class="col-12 not_found_div"><i class="fa fa-info-circle"></i> <?= __("available_only_for_admins") ?></div>
 							<?php } ?>
 							</div>
-					 </div> 
-			 </div>
-			 </div> 
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-</div>
 </div>

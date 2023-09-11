@@ -150,7 +150,7 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
 
                                 <div class="col-4 hideWeb grid_header "><?= __('category_id') ?></div>
                                 <div class="col-md-2 col-8">{{ itm.category.category_name }} </div>
-                               
+
                                 <?php /* <div class="col-4 hideWeb grid_header"><?= __('expense_currency') ?></div>
                                 <div class="col-md-2 col-8" ng-bind-html="DtSetter('currency', itm.expense_currency)"></div> 
 
@@ -165,11 +165,11 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
                                 <div class="col-md-1 col-8 action">
                                     <a href ng-click="
                                     doGet('/admin/expenses?id='+itm.id, 'rec', 'expense');
-                                        openModal('#viewExpense_mdl');"class="inline-btn
+                                        openModal('#viewExpense_mdl');" class="inline-btn
                                         "><i class="fa fa-eye"></i> <?= __('view') ?></a>
                                     <a href ng-click=" 
                                     doGet('/admin/expenses?id='+itm.id, 'rec', 'expense');
-                                        openModal('#addEditExpense_mdl');"class="inline-btn
+                                        openModal('#addEditExpense_mdl');" class="inline-btn
                                         "><i class="fa fa-pencil"></i> <?= __('edit') ?></a>
 
                                 </div>
