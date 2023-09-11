@@ -22,6 +22,10 @@ $parent_id = isset($this->request->getParam("pass")[0])
 					<li class="nav-item">
 						<a class="nav-link" data-toggle="tab" href="#tabs-2" ng-click="addDocument = 1">Document</a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="tab" href="#tab3">Inspect</a>
+					</li>
+
 				</ul>
 				<!-- Tab panes -->
 				<div class="tab-content">
@@ -358,35 +362,27 @@ $parent_id = isset($this->request->getParam("pass")[0])
 											<div class="col-md-9 notwrapped">Document name:{{itm.doc_name}}</div>
 											<div class="col-md-9 notwrapped">Document allowed Roles: {{itm.doc_allowed_roles}}</div>
 											<div class="col-md-9 notwrapped">Document description: {{itm.doc_desc}}</div>
-											
+
 										</div>
 										<div class="col-4 d-flex align-items-center">
 											<!-- <span><i class="btn btn-info" ng-click="rec.doc = doc; .addDocument=1 style=" background-color: green;>Edit</i></span> -->
 											<!-- <span><i class="btn btn-info" ng-click="doGet('/admin/document?id='+itm.id,'rec','document');" style=" background-color: green;">Edit</i></span>  -->
 
-						<!-- <a href ng-click="  doGet('/admin/docs?id='+itm.id, 'rec', 'docs');openModal('#addEditDcoument_mdl');" class="inline-btn"> <i class="fa fa-pencil"></i> <?= __('edit') ?> </a> -->
+											<!-- <a href ng-click="  doGet('/admin/docs?id='+itm.id, 'rec', 'docs');openModal('#addEditDcoument_mdl');" class="inline-btn"> <i class="fa fa-pencil"></i> <?= __('edit') ?> </a> -->
 											<!-- <a href ng-click=	"rec.doc=itm;" class="inline-btn > <i class="fa fa-pencil></i> Edit </a>	 -->
- <a href ng-click=	"rec.doc=itm"; class="inline-btn > <i class="fa fa-pencil"></i> <?= __('edit') ?> </a> 
-					<a href ng-click="doDelete('/admin/docs/delete/'+itm.id,'#<?= $ctrl ?>_btn');" class="inline-btn"> <i class="fa fa-trash"></i> <?= __('Delete') ?> </a>
+											<a href ng-click="rec.doc=itm" ; class="inline-btn  <i class=" fa fa-pencil></i> <?= __('edit') ?> </a>
+											<a href ng-click="doDelete('/admin/docs/delete/'+itm.id,'#<?= $ctrl ?>_btn');" class="inline-btn"> <i class="fa fa-trash"></i> <?= __('Delete') ?> </a>
 										</div>
 									</div>
 								</div>
-
-
-								<!-- <div class="grid_row row" ng-repeat="doc in rec.<?= $ctrl ?>.docs">
-									<div class="col-5 grid_header2">
-										{{doc.doc_name}}
-									</div>
-									<div class="col-7 notwrapped text-right">
-										<a class="small-btn" target="_blank" href="<?= $protocol .	":" . $path ?>/file/<?= $ctrls ?>_files/{{ doc.doc_name }}"><i class="fa fa-eye"></i></a>
-										<a class="small-btn" href ng-click="rec.doc = doc; $parent.addDocument=1;"><i class="fa fa-edit"></i></a>
-										<a class="small-btn" href ng-click="doDelete('/admin/docs/delete/'+doc.id,'#<?= $ctrl ?>_btn');"><i class="fa fa-trash"></i></a>
-									</div>
-								</div> -->
 							<?php } else { ?>
-								<!-- <div class="col-12 not_found_div"><i class="fa fa-info-circle"></i> <?= __("available_only_for_admins") ?></div> -->
 							<?php } ?>
 							</div>
+					</div>
+				</div>
+				<div class="tab-pane" id="tab3">
+					<div class="grid">
+						
 					</div>
 				</div>
 			</div>

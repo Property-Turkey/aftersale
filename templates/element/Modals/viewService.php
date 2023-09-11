@@ -94,8 +94,10 @@
                                 <div class="col-md-9 notwrapped"><strong>Document Name:</strong>{{itm.doc_name}}</div>
                                 <div class="col-md-9 notwrapped"><strong>Document Description:</strong> {{itm.doc_desc}}</div>
                                 <div class="col-md-9 notwrapped">
-                                    <strong style="float: left;">Document Allowed Roles:</strong> <span class="badge badge-warning">{{itm.doc_allowed_roles}}</span>
+                                    <strong style="float: left;">Document Allowed Roles:</strong>
+                                    <span class="badge badge-warning">{{itm.doc_allowed_roles}}</span>
                                 </div>
+                                <!-- <div class="col-md-9 notwrapped"><strong>Document Allowed Roles:</strong><span class="badge badge-warning">{{itm.doc_allowed_roles}}</span></div> -->
                             </div>
                         </div>
                     </div>
@@ -141,3 +143,4 @@
                             </div>
                         </div>
                     </div>
+                 
