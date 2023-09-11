@@ -52,18 +52,20 @@
                         </div>
                     </div>
                     <div class="tab-pane" id="tab2">
-
                         <div class="container">
                             <div class="grid">
                                 <div class="grid_row row" ng-repeat="itm in rec.expense.docs">
-                                    <div class="col-md-9 notwrapped">{{itm.doc_name}}</div>
+                                    <!-- <div class="col-md-3 grid_header2"><?= __('document') ?></div> -->
+                                    <div class="col-md-9 notwrapped"><strong>Document Name:</strong>{{itm.doc_name}}</div>
+                                    <div class="col-md-9 notwrapped"><strong>Document Description:</strong>  {{itm.doc_desc}}</div>
+                                    <div class="col-md-9 notwrapped">
+                                    <strong style="float: left;">Document Allowed Roles:</strong> <span class="badge badge-warning">{{itm.doc_allowed_roles}}</span>
                                 </div>
-
+                                </div>
                             </div>
-                        </div>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>

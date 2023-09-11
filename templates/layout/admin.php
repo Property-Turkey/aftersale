@@ -438,7 +438,7 @@
                 $(tar).attr("disabled", false);
             }
         }
-        
+
 
         var doClickUpdt;
         var doClick = function(tar, delay) {
@@ -1128,6 +1128,20 @@
                         }
                     })
                 }
+
+                // $scope.editDocument = function(doc) {
+                //     // Seçilen dokümanın verilerini alın ve addDocument alanlarına doldurun
+                //     $scope.rec.doc = {
+                //         doc_allowed_roles:(doc.doc_allowed_roles),
+                //         doc_file: doc.doc_file,
+                //         doc_desc: doc.doc_desc,
+                //         // Diğer verileri burada doldurun
+                //     };
+                //     // addDocument alanını göstermek için gerekli işlemleri yapın
+                //     $scope.addDocument = 1;
+                // };
+
+
 
                 $scope.doDelete = function(url, doUpdate) {
                     if (confirm("<?= __('delete_confirm') ?>")) {

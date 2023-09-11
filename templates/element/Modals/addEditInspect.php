@@ -98,10 +98,8 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 									</div>
 
 									<div class="col-md-6 col-6 form-group has-feedback">
-										<!-- <label><?= __('inspect_rate') ?></label> -->
 										<div class="div">
-											<?php
-											//$inspectRates = $this->Do->cat(21);
+											<?php								
 											foreach ($this->Do->cat(21) as $key => $rate) : ?>
 												<div class="col-md-2 col-2 form-group has-feedback">
 													<label><?= $rate ?>

@@ -62,7 +62,7 @@ $parent_id = isset($this->request->getParam("pass")[0])
 											]) ?>
 											<?= $this->Form->text("expense_amount", [
 												"type" => "text",
-												"class" => "form-control col-9 has-feedback-left",
+												"class" => "form-control col-9 ",
 												"ng-model" => "rec.expense.expense_amount",
 												"only-numbers" => "",
 											]) ?>
@@ -210,6 +210,7 @@ $parent_id = isset($this->request->getParam("pass")[0])
 
 								<?php
 								// show files list
+								
 								?>
 								<div class="grid_row row" ng-repeat="doc in rec.<?= $ctrl ?>.docs">
 									<div class="col-5 grid_header2">

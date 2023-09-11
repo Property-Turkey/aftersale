@@ -71,7 +71,7 @@ class ExpensesController extends AppController
                         //         'Users' => ['fields' => ['user_fullname']],                        
                         //         'Owner' => ['fields' => ['user_fullname']],
                         'Owner' => ['fields' => ['user_fullname']],
-                        'Docs' => ['fields' => ['Docs.tar_id', 'Docs.id', 'Docs.doc_name']],
+                        'Docs' => ['fields' => ['Docs.tar_id', 'Docs.id', 'Docs.doc_name', 'Docs.doc_desc', 'Docs.doc_allowed_roles', 'Docs.stat_created']],
                     ]
                 ])->toArray();
                 $data = $this->Do->convertJson($data);
@@ -132,7 +132,7 @@ class ExpensesController extends AppController
             $dt['id'] = null;
             $dt['user_id'] = $this->authUser['id'];
             $rec = $this->Expenses->newEntity($dt);
-            dd($rec);
+            // dd($rec);
 
         }
         $rec = $this->Expenses->patchEntity($rec, $dt, ['associated' => ['Users',]]);

@@ -129,17 +129,10 @@ $parent_id = isset($this->request->getParam("pass")[0])
 								<div class="col-md-6 col-sm-6 form-group has-feedback">
 									<label><?= __('property_ref') ?></label>
 									<div class="div">
-										<tags-input display-property="text"
-													key-property="value" 
-													ng-model="rec.service.property" 
-													max-tags="1" 
-													add-from-autocomplete-only="true"
-													ng-disabled="rec.service.property || rec.service.id">
+										<tags-input display-property="text" key-property="value" ng-model="rec.service.property" max-tags="1" add-from-autocomplete-only="true" ng-disabled="rec.service.property || rec.service.id">
 											<auto-complete source="loadTags($query,'services')"></auto-complete>
 										</tags-input>
-							<span ng-if="rec.service.property || rec.service.id" 
-								  ng-click="rec.service.property = ''; rec.service.id = undefined;" 
-							      class="fa fa-times" style="cursor: pointer; position: absolute; top: 50%; right: 10px; transform: translateY(-50%);"></span>									
+										<span ng-if="rec.service.property || rec.service.id" ng-click="rec.service.property = ''; rec.service.id = undefined;" class="fa fa-times" style="cursor: pointer; position: absolute; top: 50%; right: 10px; transform: translateY(-50%);"></span>
 									</div>
 								</div>
 								<div class="col-md-6 col-6  form-group has-feedback">
@@ -355,20 +348,43 @@ $parent_id = isset($this->request->getParam("pass")[0])
 									</div>
 								</div>
 								<?php
-								// show files list
+
 								?>
-								<div class="grid_row row" ng-repeat="doc in rec.<?= $ctrl ?>.docs">
+								<!-- // show files list -->
+
+								<div class="grid">
+									<div class="grid_row  row" ng-repeat="itm in rec.service.docs">
+										<div class="col-8">
+											<div class="col-md-9 notwrapped">Document name:{{itm.doc_name}}</div>
+											<div class="col-md-9 notwrapped">Document allowed Roles: {{itm.doc_allowed_roles}}</div>
+											<div class="col-md-9 notwrapped">Document description: {{itm.doc_desc}}</div>
+											
+										</div>
+										<div class="col-4 d-flex align-items-center">
+											<!-- <span><i class="btn btn-info" ng-click="rec.doc = doc; .addDocument=1 style=" background-color: green;>Edit</i></span> -->
+											<!-- <span><i class="btn btn-info" ng-click="doGet('/admin/document?id='+itm.id,'rec','document');" style=" background-color: green;">Edit</i></span>  -->
+
+						<!-- <a href ng-click="  doGet('/admin/docs?id='+itm.id, 'rec', 'docs');openModal('#addEditDcoument_mdl');" class="inline-btn"> <i class="fa fa-pencil"></i> <?= __('edit') ?> </a> -->
+											<!-- <a href ng-click=	"rec.doc=itm;" class="inline-btn > <i class="fa fa-pencil></i> Edit </a>	 -->
+ <a href ng-click=	"rec.doc=itm"; class="inline-btn > <i class="fa fa-pencil"></i> <?= __('edit') ?> </a> 
+					<a href ng-click="doDelete('/admin/docs/delete/'+itm.id,'#<?= $ctrl ?>_btn');" class="inline-btn"> <i class="fa fa-trash"></i> <?= __('Delete') ?> </a>
+										</div>
+									</div>
+								</div>
+
+
+								<!-- <div class="grid_row row" ng-repeat="doc in rec.<?= $ctrl ?>.docs">
 									<div class="col-5 grid_header2">
 										{{doc.doc_name}}
 									</div>
 									<div class="col-7 notwrapped text-right">
 										<a class="small-btn" target="_blank" href="<?= $protocol .	":" . $path ?>/file/<?= $ctrls ?>_files/{{ doc.doc_name }}"><i class="fa fa-eye"></i></a>
 										<a class="small-btn" href ng-click="rec.doc = doc; $parent.addDocument=1;"><i class="fa fa-edit"></i></a>
-										<a class="small-btn" href ng-click="doDelete('/admin/docs/delete/'+doc.id, '#<?= $ctrl ?>_btn');"><i class="fa fa-trash"></i></a>
+										<a class="small-btn" href ng-click="doDelete('/admin/docs/delete/'+doc.id,'#<?= $ctrl ?>_btn');"><i class="fa fa-trash"></i></a>
 									</div>
-								</div>
+								</div> -->
 							<?php } else { ?>
-								<div class="col-12 not_found_div"><i class="fa fa-info-circle"></i> <?= __("available_only_for_admins") ?></div>
+								<!-- <div class="col-12 not_found_div"><i class="fa fa-info-circle"></i> <?= __("available_only_for_admins") ?></div> -->
 							<?php } ?>
 							</div>
 					</div>
