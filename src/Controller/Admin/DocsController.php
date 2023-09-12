@@ -151,6 +151,7 @@ class DocsController extends AppController
 
             $rec = $this->Docs->patchEntity($rec, $dt);
             // dd($rec);
+        
             if ($newRec = $this->Docs->save($rec)) {
                 // check if the this doc in the add mode
                 if ($newRec->tar_id == 0) {
