@@ -2,7 +2,6 @@
 $ctrl = $this->request->getParam('controller') == 'Properties' ? 'property' : 'project';
 $prefix = $this->request->getParam('controller') == 'Properties' ? 'PROP' : 'PROJ';
 ?>
-
 <div class="modal fade modal-right" id="searchExpenses_mdl" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="listing-modal-1 modal-dialog modal-lg aside-modal">
         <div class="modal-content">
@@ -19,7 +18,7 @@ $prefix = $this->request->getParam('controller') == 'Properties' ? 'PROP' : 'PRO
                             <form method="post" novalidate="novalidate" id="searchExpenses_form" class="row" ng-submit=" rec.search.page = 1; doSearch(); ">
                         </div>
                     </div>
-                    <div class="mb-2  col-sm-8">
+                    <div class="col-md-12  col-sm-8">
                         <label><?= __('Owner Name') ?></label>
                         <div class="div">
                             <?= $this->Form->control('owner_id', [
@@ -33,7 +32,7 @@ $prefix = $this->request->getParam('controller') == 'Properties' ? 'PROP' : 'PRO
                             <button ng-click="doClick('#submit_btn')" class="onfly_btn"><i class="fa fa-search"></i></button>
                         </div>
                     </div>
-                    <div class="mb-2 col-sm-8">
+                    <div class="col-md-12 col-sm-8">
                         <label><?= __('expense_amount') ?></label>
                         <div class="div">
                             <?= $this->Form->control('expense_amount', [
@@ -47,11 +46,9 @@ $prefix = $this->request->getParam('controller') == 'Properties' ? 'PROP' : 'PRO
                             <button ng-click="doClick('#submit_btn')" class="onfly_btn"><i class="fa fa-search"></i></button>
                         </div>
                     </div>
-                    <div class="col-md-6 col-sm-6 form-group has-feedback">
-                        <label set-required><?= __("Expense Category") ?></label>
+                    <div class="col-md-12 col-sm-8 form-group has-feedback">
+                        <label ><?= __("Expense Category") ?></label>
                         <div class="div">
-
-                            <!-- Client select input -->
                             <select class="form-control has-feedback-left" ng-model="rec.search.category_id" ng-change="doSearch()">
                                 <option value="">Select Expense Category</option>
                                 <?php foreach ($optionsExpenses as $key => $option) : ?>
@@ -62,7 +59,6 @@ $prefix = $this->request->getParam('controller') == 'Properties' ? 'PROP' : 'PRO
                             <button ng-click="doClick('#submit_btn')" class="onfly_btn"><i class="fa fa-search"></i></button>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

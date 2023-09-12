@@ -99,6 +99,11 @@ class DocsController extends AppController
         // edit mode
         if ($this->request->is(['patch', 'put'])) {
             $rec = $this->Docs->get($dt['id']);
+            $doc_allowed_roles = array_flip(explode(',', $rec->doc_allowed_roles));
+            $doc_allowed_roles = array_map(function ($element) {
+                return 1;
+            }, $doc_allowed_roles);
+            $rec->doc_allowed_roles = json_encode($doc_allowed_roles);
         }
 
         // add mode
@@ -151,7 +156,6 @@ class DocsController extends AppController
 
             $rec = $this->Docs->patchEntity($rec, $dt);
             // dd($rec);
-        
             if ($newRec = $this->Docs->save($rec)) {
                 // check if the this doc in the add mode
                 if ($newRec->tar_id == 0) {
@@ -161,26 +165,25 @@ class DocsController extends AppController
                         ->first()->id;
                     $newRec->tar_id = $latestServiceId;
                     $this->Docs->save($newRec);
-                } 
-                if ($newRec = $this->Docs->save($rec)) {
-                    // check if the this doc in the add mode
-                    if ($newRec->tar_id == 0) {
-                        $latestExpensesId = $this->getTableLocator()->get('Expenses')
-                            ->find()
-                            ->order(['id' => 'DESC'])
-                            ->first()->id;
-                        $newRec->tar_id = $latestExpensesId;
-                        $this->Docs->save($newRec);
-                    }
-            
-                echo json_encode(["status" => "SUCCESS", "data" => $newRec]);
+                }
+                elseif($newRec->tar_id == 0) {
+                    $latestExpensesId = $this->getTableLocator()->get('Expenses')
+                        ->find()
+                        ->order(['id' => 'DESC'])
+                        ->first()->id;
+                    $newRec->tar_id = $latestExpensesId;
+                    $this->Docs->save($newRec);
+                }
+                
+                    echo json_encode(["status" => "SUCCESS", "data" => $newRec]);
+                    die();
+                
+
+                echo json_encode(["status" => "FAIL", "data" => $rec->getErrors()]);
                 die();
             }
-
-            echo json_encode(["status" => "FAIL", "data" => $rec->getErrors()]);
-            die();
         }
-        }}
+    }
 
     public function delete($id = null)
     {

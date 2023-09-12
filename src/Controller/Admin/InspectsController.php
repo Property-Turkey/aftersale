@@ -104,6 +104,7 @@ class InspectsController extends AppController
             $dt['inspect_rate'] = json_encode($dt['inspect_rate']); // selected items
             $rec = $this->Inspects->get($dt['id']);
             $rec = $this->Inspects->patchEntity($rec, $dt);
+            //dd($rec);
         }
 
         //add new record

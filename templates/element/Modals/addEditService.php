@@ -561,7 +561,7 @@ $parent_id = isset($this->request->getParam("pass")[0])
 
 									<!-- <a href ng-click="  doGet('/admin/docs?id='+itm.id, 'rec', 'docs');openModal('#addEditDcoument_mdl');" class="inline-btn"> <i class="fa fa-pencil"></i> <?= __('edit') ?> </a> -->
 									<!-- <a href ng-click=	"rec.doc=itm;" class="inline-btn > <i class="fa fa-pencil></i> Edit </a>	 -->
-									<a href ng-click="rec.inspect=itm" class="inline-btn"><i class="fa fa-pencil"></i> <?= __('edit') ?> </a>
+									<a href ng-click="rec.inspect=itm;doGet('/admin/inspects?id='+itm.id, 'rec', 'inspect');" class="inline-btn"><i class="fa fa-pencil"></i> <?= __('edit') ?> </a>
 									<a href ng-click="doDelete('/admin/inspect/delete/'+itm.id,'#<?= $ctrl ?>_btn');" class="inline-btn"> <i class="fa fa-trash"></i> <?= __('Delete') ?> </a>
 								</div>
 							</div>
