@@ -152,6 +152,26 @@ class DocsController extends AppController
             $rec = $this->Docs->patchEntity($rec, $dt);
             // dd($rec);
             if ($newRec = $this->Docs->save($rec)) {
+                // check if the this doc in the add mode
+                if ($newRec->tar_id == 0) {
+                    $latestServiceId = $this->getTableLocator()->get('Services')
+                        ->find()
+                        ->order(['id' => 'DESC'])
+                        ->first()->id;
+                    $newRec->tar_id = $latestServiceId;
+                    $this->Docs->save($newRec);
+                } 
+                if ($newRec = $this->Docs->save($rec)) {
+                    // check if the this doc in the add mode
+                    if ($newRec->tar_id == 0) {
+                        $latestExpensesId = $this->getTableLocator()->get('Expenses')
+                            ->find()
+                            ->order(['id' => 'DESC'])
+                            ->first()->id;
+                        $newRec->tar_id = $latestExpensesId;
+                        $this->Docs->save($newRec);
+                    }
+            
                 echo json_encode(["status" => "SUCCESS", "data" => $newRec]);
                 die();
             }
@@ -159,7 +179,7 @@ class DocsController extends AppController
             echo json_encode(["status" => "FAIL", "data" => $rec->getErrors()]);
             die();
         }
-    }
+        }}
 
     public function delete($id = null)
     {

@@ -20,7 +20,8 @@ $parent_id = isset($this->request->getParam('pass')[0]) ? $this->request->getPar
 							newEntity('package');
 						" id="package_btn" class="hideIt"></button>
 
-					<form class="form-label-left input_mask " id="package_form" enctype="multipart/form-data" novalidate="novalidate" ng-submit="doSave (rec.package, 'package', 'packages', '#package_btn'); ">
+					<form class="form-label-left input_mask " id="package_form" enctype="multipart/form-data" novalidate="novalidate" 
+					ng-submit="doSave (rec.package, 'package', 'packages', '#package_btn'); ">
 
 						<div class="col-md-12 col-sm-12  form-group has-feedback" ng-if="rec.package.parent_name">
 							<h2><?= __('user_id') ?> : {{rec.package.user_id}}</h2>

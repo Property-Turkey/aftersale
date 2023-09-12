@@ -49,8 +49,8 @@ class InspectsController extends AppController
                     [
                         'contain' => [
                             'Users' => ['fields' => ['user_fullname']],
-                           // "Services" => ["fields" => ["owner_id","property_id"]],
-                        
+                            // "Services" => ["fields" => ["owner_id","property_id"]],
+
                         ]
                     ]
                 )->toArray();
@@ -67,8 +67,8 @@ class InspectsController extends AppController
                     "contain" => [
 
                         "Users" => ["fields" => ["user_fullname"]],
-                       // "Services" => ["fields" => ["owner_id","property_id"]],
-                        
+                        // "Services" => ["fields" => ["owner_id","property_id"]],
+
                     ]
                 ]);
                 $data = $this->Do->convertJson($data);
@@ -87,9 +87,9 @@ class InspectsController extends AppController
         // $servicesId= $this->Inspects->Services->find('list', [
         //     'conditions' => ['service_id']
         // ]);
-        
 
-        $this->set(compact('owners','servicesId',));
+
+        $this->set(compact('owners', 'servicesId',));
     }
 
     public function save($id = -1)
@@ -105,15 +105,15 @@ class InspectsController extends AppController
             $rec = $this->Inspects->get($dt['id']);
             $rec = $this->Inspects->patchEntity($rec, $dt);
         }
-             
-             //add new record
+
+        //add new record
         if ($this->request->is(['post'])) {
             $dt['id'] = null;
             $dt['user_id'] = $this->authUser['id'];
             $dt['inspect_rate'] = json_encode($dt['inspect_rate']); // selected items
             //dd($dt['inspect_rate']);
             // $serviceId = isset($this->request->getParam('pass')[0]) ? $this->request->getParam('pass')[0] : 0;
-            
+
             // $newInspectData = [
             //     'service_id' => $serviceId, // service_id'yi ayarlayın
             // ];
@@ -122,8 +122,16 @@ class InspectsController extends AppController
         }
 
         $rec = $this->Inspects->patchEntity($rec, $dt);
-        //dd($rec);
+
         if ($newRec = $this->Inspects->save($rec)) {
+            if ($newRec->service_id == 0) {
+                $latestInspectsId = $this->getTableLocator()->get('Services')
+                    ->find()
+                    ->order(['id' => 'DESC'])
+                    ->first()->id;
+                $newRec->service_id = $latestInspectsId;
+                $this->Inspects->save($newRec);
+            }
             echo json_encode(["status" => "SUCCESS", "data" => $newRec]);
             die();
         }

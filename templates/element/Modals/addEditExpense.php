@@ -28,11 +28,12 @@ $parent_id = isset($this->request->getParam("pass")[0])
 				<div class="tab-content">
 					<div class="tab-pane active" id="tabs-1" role="tabpanel">
 						<div class="x_content">
-							<!-- <button ng-click="
+							 <button ng-click="
 									doGet('/admin/expenses/index?list=1', 'list', 'expenses');
 									newEntity('expense');
-								" class="hideIt"></button> -->
-							<form class="form-label-left input_mask " id="expense_form" enctype="multipart/form-data" novalidate="novalidate" ng-submit="doSave(rec.expense, 'expense', 'expenses', '#expense_btn'); ">
+								" class="hideIt"></button> 
+							<form class="form-label-left input_mask " id="expense_form" enctype="multipart/form-data" novalidate="novalidate"
+							 ng-submit="doSave(rec.expense, 'expense', 'expenses', '#expense_btn'); ">
 
 								<div class="col-md-6 col-6  form-group has-feedback">
 									<label set-required><?= __("expense_type") ?></label>
@@ -186,7 +187,7 @@ $parent_id = isset($this->request->getParam("pass")[0])
 											<span class="fa fa-info-circle form-control-feedback left" aria-hidden="true"></span>
 										</div>
 									</div>
-									<div class="col-md-12 col-sm-12  form-group has-feedback">
+									<div class="col-md-12 col-sm-12  form-group has-feedback" ng-if="rec.doc.id">
 										<label><?= __("Document Name") ?></label>
 										<div class="div">
 											<?= $this->Form->control("doc_name", [
@@ -200,23 +201,34 @@ $parent_id = isset($this->request->getParam("pass")[0])
 										</div>
 									</div>
 									<div class="clearfix"></div>
+									<!-- 
+									<div class="col-md-12 col-12 ">
+										<button type="button" ng-click="
+                                		rec.doc.file = filesInfo.doc_file;
+                                		rec.doc.tar_id = rec.<?= $lastExpenseId ?>;													
+                                        rec.doc.tar_tbl = '<?= $tar_tbls[$ctrl] ?>';
+                                        rec.doc.tar_tbl_name = '<?= $ctrl ?>';
+                                        doSave(rec.doc, 'doc', 'docs', '#<?= $ctrls[$ctrl] ?>_btn', '#doc_preloader');
+    									" id="doc_preloader" class="btn btn-info">
+											<span></span> <i class="fa fa-save"></i> <?= __("Upload and Save") ?>
+										</button> -->
 
 									<div class="col-md-12 col-12 ">
 										<button type="button" ng-click="
                                 		rec.doc.file = filesInfo.doc_file;
-                                		rec.doc.tar_id = rec.<?= $ctrls[$ctrl] ?>.id;										
+                                		rec.doc.tar_id = rec.<?= $ctrls[$ctrl] ?>.id;													
                                         rec.doc.tar_tbl = '<?= $tar_tbls[$ctrl] ?>';
                                         rec.doc.tar_tbl_name = '<?= $ctrl ?>';
                                         doSave(rec.doc, 'doc', 'docs', '#<?= $ctrls[$ctrl] ?>_btn', '#doc_preloader');
     									" id="doc_preloader" class="btn btn-info">
 											<span></span> <i class="fa fa-save"></i> <?= __("Upload and Save") ?>
 										</button>
-
 										<button type="button" ng-if="rec.doc.id" ng-click="newEntity('doc');" class="btn btn-primary">
 											<i class="fa fa-times"></i>
 										</button>
 									</div>
 								</div>
+
 
 								<?php
 								// show files list
