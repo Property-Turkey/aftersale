@@ -30,10 +30,8 @@ $parent_id = isset($this->request->getParam("pass")[0])
 						<div class="x_content">
 							<button ng-click="
 									doGet('/admin/expenses/index?list=1', 'list', 'expenses');
-									newEntity('expense');" id="expense_btn"
-								class="hideIt"></button>
-							<form class="form-label-left input_mask " id="expense_form" enctype="multipart/form-data" novalidate="novalidate" 
-							ng-submit="doSave(rec.expense, 'expense', 'expenses', '#expense_btn'); ">
+									newEntity('expense');" id="expense_btn" class="hideIt"></button>
+							<form class="form-label-left input_mask " id="expense_form" enctype="multipart/form-data" novalidate="novalidate" ng-submit="doSave(rec.expense, 'expense', 'expenses', '#expense_btn'); ">
 
 								<div class="col-md-6 col-6  form-group has-feedback">
 									<label set-required><?= __("expense_type") ?></label>
@@ -151,14 +149,14 @@ $parent_id = isset($this->request->getParam("pass")[0])
 										<div class="col-lg-12 col-sm-12 form-group has-feedback">
 											<label class="mb-3"><?= __("doc_allowed_roles") ?></label>
 											<div class="div d-flex pr-3">
-												
+
 												<label class="pr-3" ng-repeat="role in DtSetter('AdminRoles', 'list')">
 													<input type="checkbox" ng-model="rec.doc.doc_allowed_roles[role]" value="role">{{role}}
 												</label>
 											</div>
 										</div>
 									</div>
-							
+
 
 									<div class="col-lg-12 col-sm-12  form-group has-feedback" ng-if="!(rec.doc.id > 0)">
 										<label><?= __("doc_file") ?></label>
@@ -231,7 +229,6 @@ $parent_id = isset($this->request->getParam("pass")[0])
 									</div>
 								</div>
 
-
 								<?php
 								// show files list
 								?>
@@ -243,19 +240,14 @@ $parent_id = isset($this->request->getParam("pass")[0])
 											<div class="col-md-9 notwrapped">Document description: {{itm.doc_desc}}</div>
 										</div>
 										<div class="col-4 d-flex align-items-center">
-											<!-- <span><i class="btn btn-info" ng-click="rec.doc = doc; .addDocument=1 style=" background-color: green;>Edit</i></span> -->
-											<!-- <span><i class="btn btn-info" ng-click="doGet('/admin/document?id='+itm.id,'rec','document');" style=" background-color: green;">Edit</i></span>  -->
-
-											<!-- <a href ng-click="  doGet('/admin/docs?id='+itm.id, 'rec', 'docs');openModal('#addEditDcoument_mdl');" class="inline-btn"> <i class="fa fa-pencil"></i> <?= __('edit') ?> </a> -->
-											<!-- <a href ng-click=	"rec.doc=itm;" class="inline-btn > <i class="fa fa-pencil></i> Edit </a>	 -->
-											<a href ng-click="rec.doc=itm;doGet('/admin/docs?id='+itm.id, 'rec', 'doc');" class="inline-btn"><i class="fa fa-pencil"></i> <?= __('edit') ?> </a>
-											<a href ng-click="doDelete('/admin/docs/delete/'+itm.id,'#<?= $ctrl ?>_btn');" class="inline-btn"> <i class="fa fa-trash"></i> <?= __('Delete') ?> </a>
+											
+							<a href ng-click="rec.doc=itm;doGet('/admin/docs?id='+itm.id, 'rec', 'doc');" class="inline-btn"><i class="fa fa-pencil"></i> <?= __('edit') ?> </a>
+							<a href ng-click="doDelete('/admin/docs/delete/'+itm.id,'#<?= $ctrl ?>_btn');" class="inline-btn"> <i class="fa fa-trash"></i> <?= __('Delete') ?> </a>
 										</div>
 									</div>
 								</div>
 							</div>
 					</div>
-
 				<?php } else { ?>
 
 				<?php } ?>

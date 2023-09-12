@@ -158,26 +158,22 @@ class DocsController extends AppController
             // dd($rec);
             if ($newRec = $this->Docs->save($rec)) {
                 // check if the this doc in the add mode
-                if ($newRec->tar_id == 0) {
-                    $latestServiceId = $this->getTableLocator()->get('Services')
-                        ->find()
-                        ->order(['id' => 'DESC'])
-                        ->first()->id;
-                    $newRec->tar_id = $latestServiceId;
-                    $this->Docs->save($newRec);
-                }
-                elseif($newRec->tar_id == 0) {
+                if ($newRec->tar_id == 0 && $newRec->tar_tbl == 2) {
                     $latestExpensesId = $this->getTableLocator()->get('Expenses')
                         ->find()
                         ->order(['id' => 'DESC'])
                         ->first()->id;
                     $newRec->tar_id = $latestExpensesId;
-                    $this->Docs->save($newRec);
+                } elseif ($newRec->tar_id == 0 && $newRec->tar_tbl == 1) {
+                    $latestServiceId = $this->getTableLocator()->get('Services')
+                        ->find()
+                        ->order(['id' => 'DESC'])
+                        ->first()->id;
+                    $newRec->tar_id = $latestServiceId;
                 }
-                
-                    echo json_encode(["status" => "SUCCESS", "data" => $newRec]);
-                    die();
-                
+                $this->Docs->save($newRec);
+                echo json_encode(["status" => "SUCCESS", "data" => $newRec]);
+                die();
 
                 echo json_encode(["status" => "FAIL", "data" => $rec->getErrors()]);
                 die();
