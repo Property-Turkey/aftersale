@@ -34,7 +34,7 @@
 
                             <div class="grid_row row">
                                 <div class="col-md-3 grid_header2"><?= __("expense_amount") ?></div>
-                                <div class="col-md-9 notwrapped">{{DtSetter('currencies_icons', rec.expense.expense_currency)}}{{ rec.expense.expense_amount}} </div>
+                                <div class="col-md-9 notwrapped">{{DtSetter('currencies_icons', rec.expense.expense_currency)}} {{ rec.expense.expense_amount}} </div>
                             </div>
                             <div class="grid_row row">
                                 <div class="col-md-3 grid_header2"><?= __("expense_description") ?></div>
@@ -54,8 +54,7 @@
                     <div class="tab-pane" id="tab2">
                         <div class="container">
                             <div class="grid">
-                                <div class="grid_row row" ng-repeat="itm in rec.expense.docs">
-                                    <!-- <div class="col-md-3 grid_header2"><?= __('document') ?></div> -->
+                                <div class="grid_row row" ng-repeat="itm in rec.expense.docs">                                
                                     <div class="col-md-9 notwrapped"><strong>Document Name:</strong>{{itm.doc_name}}</div>
                                     <div class="col-md-9 notwrapped"><strong>Document Description:</strong>  {{itm.doc_desc}}</div>
                                     <div class="col-md-9 notwrapped">
