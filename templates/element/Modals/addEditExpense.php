@@ -32,8 +32,7 @@ $parent_id = isset($this->request->getParam("pass")[0])
 									doGet('/admin/expenses/index?list=1', 'list', 'expenses');
 									newEntity('expense');
 								" class="hideIt"></button> -->
-							<form class="form-label-left input_mask " id="expense_form" enctype="multipart/form-data" novalidate="novalidate" 
-								ng-submit="doSave(rec.expense, 'expense', 'expenses', '#expense_btn'); ">
+							<form class="form-label-left input_mask " id="expense_form" enctype="multipart/form-data" novalidate="novalidate" ng-submit="doSave(rec.expense, 'expense', 'expenses', '#expense_btn'); ">
 
 								<div class="col-md-6 col-6  form-group has-feedback">
 									<label set-required><?= __("expense_type") ?></label>
@@ -187,7 +186,19 @@ $parent_id = isset($this->request->getParam("pass")[0])
 											<span class="fa fa-info-circle form-control-feedback left" aria-hidden="true"></span>
 										</div>
 									</div>
-
+									<div class="col-md-12 col-sm-12  form-group has-feedback">
+										<label><?= __("Document Name") ?></label>
+										<div class="div">
+											<?= $this->Form->control("doc_name", [
+												"class" => "form-control has-feedback-left",
+												"label" => false,
+												"type" => "text",
+												"rows" => "1",
+												"ng-model" => "rec.doc.doc_name",
+											]) ?>
+											<span class="fa fa-info-circle form-control-feedback left" aria-hidden="true"></span>
+										</div>
+									</div>
 									<div class="clearfix"></div>
 
 									<div class="col-md-12 col-12 ">
@@ -207,28 +218,37 @@ $parent_id = isset($this->request->getParam("pass")[0])
 									</div>
 								</div>
 
-
 								<?php
 								// show files list
-								
 								?>
-								<div class="grid_row row" ng-repeat="doc in rec.<?= $ctrl ?>.docs">
-									<div class="col-5 grid_header2">
-										{{doc.doc_name}}
-									</div>
-									<div class="col-7 notwrapped text-right">
-										<a class="small-btn" target="_blank" href="<?= $protocol . ":" . $path ?>/file/<?= $ctrls ?>_files/{{ doc.doc_name }}"><i class="fa fa-eye"></i></a>
-										<a class="small-btn" href ng-click="rec.doc = doc; $parent.addDocument=1;"><i class="fa fa-edit"></i></a>
-										<a class="small-btn" href ng-click="doDelete('/admin/docs/delete/'+doc.id, '#<?= $ctrl ?>_btn');"><i class="fa fa-trash"></i></a>
+								<div class="grid">
+									<div class="grid_row  row" ng-repeat="itm in rec.expense.docs">
+										<div class="col-8">
+											<div class="col-md-9 notwrapped">Document name:{{itm.doc_name}}</div>
+											<div class="col-md-9 notwrapped">Document allowed Roles: {{itm.doc_allowed_roles}}</div>
+											<div class="col-md-9 notwrapped">Document description: {{itm.doc_desc}}</div>
+										</div>
+										<div class="col-4 d-flex align-items-center">
+											<!-- <span><i class="btn btn-info" ng-click="rec.doc = doc; .addDocument=1 style=" background-color: green;>Edit</i></span> -->
+											<!-- <span><i class="btn btn-info" ng-click="doGet('/admin/document?id='+itm.id,'rec','document');" style=" background-color: green;">Edit</i></span>  -->
+
+											<!-- <a href ng-click="  doGet('/admin/docs?id='+itm.id, 'rec', 'docs');openModal('#addEditDcoument_mdl');" class="inline-btn"> <i class="fa fa-pencil"></i> <?= __('edit') ?> </a> -->
+											<!-- <a href ng-click=	"rec.doc=itm;" class="inline-btn > <i class="fa fa-pencil></i> Edit </a>	 -->
+											<a href ng-click="rec.doc=itm" class="inline-btn"><i class="fa fa-pencil"></i> <?= __('edit') ?> </a>
+											<a href ng-click="doDelete('/admin/docs/delete/'+itm.id,'#<?= $ctrl ?>_btn');" class="inline-btn"> <i class="fa fa-trash"></i> <?= __('Delete') ?> </a>
+										</div>
 									</div>
 								</div>
-							<?php } else { ?>
-								<div class="col-12 not_found_div"><i class="fa fa-info-circle"></i> <?= __("available_only_for_admins") ?></div>
-							<?php } ?>
 							</div>
 					</div>
+
+				<?php } else { ?>
+
+				<?php } ?>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
+</div>
 </div>

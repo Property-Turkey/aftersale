@@ -23,7 +23,7 @@ $parent_id = isset($this->request->getParam("pass")[0])
 						<a class="nav-link" data-toggle="tab" href="#tabs-2" ng-click="addDocument = 1">Document</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" data-toggle="tab" href="#tab3">Inspect</a>
+						<a class="nav-link" data-toggle="tab" href="#t3">Inspect</a>
 					</li>
 
 				</ul>
@@ -332,6 +332,19 @@ $parent_id = isset($this->request->getParam("pass")[0])
 											<span class="fa fa-info-circle form-control-feedback left" aria-hidden="true"></span>
 										</div>
 									</div>
+									<div class="col-md-12 col-sm-12  form-group has-feedback">
+										<label><?= __("Document Name") ?></label>
+										<div class="div">
+											<?= $this->Form->control("doc_name", [
+												"class" => "form-control has-feedback-left",
+												"label" => false,
+												"type" => "text",
+												"rows" => "1",
+												"ng-model" => "rec.doc.doc_name",
+											]) ?>
+											<span class="fa fa-info-circle form-control-feedback left" aria-hidden="true"></span>
+										</div>
+									</div>
 
 									<div class="clearfix"></div>
 
@@ -345,7 +358,6 @@ $parent_id = isset($this->request->getParam("pass")[0])
 												" id="doc_preloader" class="btn btn-info">
 											<span></span> <i class="fa fa-save"></i> <?= __("Upload and Save") ?>
 										</button>
-
 										<button type="button" ng-if="rec.doc.id" ng-click="newEntity('doc');" class="btn btn-primary">
 											<i class="fa fa-times"></i>
 										</button>
@@ -359,10 +371,9 @@ $parent_id = isset($this->request->getParam("pass")[0])
 								<div class="grid">
 									<div class="grid_row  row" ng-repeat="itm in rec.service.docs">
 										<div class="col-8">
-											<div class="col-md-9 notwrapped">Document name:{{itm.doc_name}}</div>
-											<div class="col-md-9 notwrapped">Document allowed Roles: {{itm.doc_allowed_roles}}</div>
-											<div class="col-md-9 notwrapped">Document description: {{itm.doc_desc}}</div>
-
+											<div class="col-md-9 notwrapped">Document Name: {{itm.doc_name}}</div>
+											<div class="col-md-9 notwrapped">Document Allowed Roles: {{itm.doc_allowed_roles}}</div>
+											<div class="col-md-9 notwrapped">Document Description: {{itm.doc_desc}}</div>
 										</div>
 										<div class="col-4 d-flex align-items-center">
 											<!-- <span><i class="btn btn-info" ng-click="rec.doc = doc; .addDocument=1 style=" background-color: green;>Edit</i></span> -->
@@ -370,7 +381,7 @@ $parent_id = isset($this->request->getParam("pass")[0])
 
 											<!-- <a href ng-click="  doGet('/admin/docs?id='+itm.id, 'rec', 'docs');openModal('#addEditDcoument_mdl');" class="inline-btn"> <i class="fa fa-pencil"></i> <?= __('edit') ?> </a> -->
 											<!-- <a href ng-click=	"rec.doc=itm;" class="inline-btn > <i class="fa fa-pencil></i> Edit </a>	 -->
-											<a href ng-click="rec.doc=itm" ; class="inline-btn  <i class=" fa fa-pencil></i> <?= __('edit') ?> </a>
+											<a href ng-click="rec.doc=itm" class="inline-btn"><i class="fa fa-pencil"></i> <?= __('edit') ?> </a>
 											<a href ng-click="doDelete('/admin/docs/delete/'+itm.id,'#<?= $ctrl ?>_btn');" class="inline-btn"> <i class="fa fa-trash"></i> <?= __('Delete') ?> </a>
 										</div>
 									</div>
@@ -379,14 +390,106 @@ $parent_id = isset($this->request->getParam("pass")[0])
 							<?php } ?>
 							</div>
 					</div>
-				</div>
-				<div class="tab-pane" id="tab3">
-					<div class="grid">
-						
+					<div class="tab-pane" id="t3">
+						<div class="grid">
+
+							<div class="col-md-12 col-sm-12  form-group has-feedback" ng-if="rec.inspect.parent_name">
+								<h2><?= __('user_id') ?> : {{rec.inspect.user_id}}</h2>
+							</div>
+
+							<div class="col-md-12 col-12  form-group has-feedback">
+								<label><?= __('inspect_desc') ?></label>
+								<div class="div">
+									<?= $this->Form->control('inspect_desc', [
+										'type' => 'textarea',
+										'label' => false,
+										'class' => 'form-control has-feedback-left',
+										'ng-model' => 'rec.inspect.inspect_desc'
+									]) ?>
+									<span class="fa fa-sticky-note-o form-control-feedback left" aria-hidden="true"></span>
+								</div>
+							</div>
+
+							<div class="col-md-12 col-12  form-group has-feedback">
+								<label><?= __('inspect_rate') ?></label>
+								<div class="div">
+
+									<!-- Client select input -->
+									<select class="form-control has-feedback-left" ng-model="rec.inspect.inspect_rate" ng-change="onClientSelectionChange()">
+										<option value="">Select Inspect Rate</option>
+										<!-- <option ng-repeat="(ownerId, ownerName) in DtSetter('ownerList', 'list')" value="{{ownerId}}">{{ownerName}}</option> -->
+									</select>
+									<span class="fa fa-quote-left form-control-feedback left" aria-hidden="true"></span>
+								</div>
+							</div>
+
+							<div class="col-md-6 col-6 form-group has-feedback">
+								<div class="div">
+									<?php
+									foreach ($this->Do->cat(21) as $key => $rate) : ?>
+										<div class="col-md-2 col-2 form-group has-feedback">
+											<label><?= $rate ?>
+												<div class="div">
+													<?php
+													$isChecked = false;
+													if (isset($jsonData[$rate]) && $jsonData[$rate] == '1') {
+														$isChecked = true;
+													}
+													?>
+													<input type="checkbox" id="<?= $key ?>" ng-model="rec.inspect.inspect_rate['<?= $rate ?>']" value="1" <?php if ($isChecked) echo "checked"; ?>>
+											</label>
+										</div>
+								</div>
+							<?php endforeach; ?>
+							</div>
+						</div>
+						<div>
+						</div>
+						<div class="clearfix"></div>
+						<div class="form-group ">
+							<div class="col-md-12 col-sm-12  form-group has-feedback ">
+								<button type="submit" class="btn btn-info"><span><i class="fa fa-save"></i></span> <?= __('save') ?></button>
+							</div>
+						</div>
+						</form>
+						<div class="grid">
+							<div class="grid_row  row" ng-repeat="itm in rec.service.inspects">
+								<div class="col-8">
+									<div class="col-md-9 notwrapped"> Inspect Description :{{itm.inspect_desc}}</div>
+									 <div class="col-md-9 notwrapped"> Inspect Rate: {{itm.inspect_rate}} 
+
+										<div class="col-md-9 grid_header2">
+											<div class="col-12" ng-repeat="(key, value) in itm.inspect_rate" ng-if="!$last">
+												<div>
+													<i class="fa fa-user"></i>
+													{{ key }}&nbsp
+												</div>
+											</div>
+											<div class="col-12" ng-repeat="(key, value) in itm.inspect_rate" ng-if="$last">
+												<div>
+													<i class="fa fa-map-marker"></i>
+													{{ key }}
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-4 d-flex align-items-center">
+									<!-- <span><i class="btn btn-info" ng-click="rec.doc = doc; .addDocument=1 style=" background-color: green;>Edit</i></span> -->
+									<!-- <span><i class="btn btn-info" ng-click="doGet('/admin/document?id='+itm.id,'rec','document');" style=" background-color: green;">Edit</i></span>  -->
+
+									<!-- <a href ng-click="  doGet('/admin/docs?id='+itm.id, 'rec', 'docs');openModal('#addEditDcoument_mdl');" class="inline-btn"> <i class="fa fa-pencil"></i> <?= __('edit') ?> </a> -->
+									<!-- <a href ng-click=	"rec.doc=itm;" class="inline-btn > <i class="fa fa-pencil></i> Edit </a>	 -->
+									<a href ng-click="rec.inspect=itm" class="inline-btn"><i class="fa fa-pencil"></i> <?= __('edit') ?> </a>
+									<a href ng-click="doDelete('/admin/inspect/delete/'+itm.id,'#<?= $ctrl ?>_btn');" class="inline-btn"> <i class="fa fa-trash"></i> <?= __('Delete') ?> </a>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
 </div>
 </div>

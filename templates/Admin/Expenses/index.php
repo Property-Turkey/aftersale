@@ -23,7 +23,7 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
             </div>
             <div class=" col-6 col-sm-6 col-md-6 side_div2">
                 <span class="icn">
-                    <a href data-toggle="modal" data-target="#search_mdl" data-dismiss="modal" class="btn btn-info">
+                    <a href data-toggle="modal" data-target="#searchExpenses_mdl" data-dismiss="modal" class="btn btn-info">
                         <span class="fa fa-search"></span> <span class="hideMob"><?= __('search') ?></span>
                     </a>
                 </span>
@@ -184,7 +184,6 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
     </div>
 </div>
 
-<?php echo $this->element('Modals/searchExpenses') ?>
 <?php echo $this->element('Modals/addEditExpense') ?>
 <?php echo $this->element('Modals/viewExpense') ?>
 <?php echo $this->element('Modals/docs') ?>

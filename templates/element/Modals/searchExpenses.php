@@ -3,7 +3,7 @@ $ctrl = $this->request->getParam('controller') == 'Properties' ? 'property' : 'p
 $prefix = $this->request->getParam('controller') == 'Properties' ? 'PROP' : 'PROJ';
 ?>
 
-<div class="modal fade modal-right" id="search_mdl" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade modal-right" id="searchExpenses_mdl" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="listing-modal-1 modal-dialog modal-lg aside-modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -16,7 +16,7 @@ $prefix = $this->request->getParam('controller') == 'Properties' ? 'PROP' : 'PRO
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12">
-                            <form method="post" novalidate="novalidate" id="search_form" class="row" ng-submit=" rec.search.page = 1; doSearch(); ">
+                            <form method="post" novalidate="novalidate" id="searchExpenses_form" class="row" ng-submit=" rec.search.page = 1; doSearch(); ">
                         </div>
                     </div>
                     <div class="mb-2  col-sm-8">

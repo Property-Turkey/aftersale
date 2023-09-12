@@ -18,7 +18,7 @@
                         <a class="nav-link" data-toggle="tab" href="#tab2" ng-click="addDocument = 1">Document</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#tab3">Inspect</a>
+                        <a class="nav-link" data-toggle="tab" href="#ta3">Inspect</a>
                     </li>
                 </ul>
                 <div class="tab-content col-12">
@@ -101,7 +101,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane" id="tab3">
+                    <div class="tab-pane" id="ta3">
                         <div class="grid">
                             <!-- <div class="grid_row row" ng-repeat="itm in rec.service.inspects">
                                 <div class="col-md-3 grid_header2"><?= __('user_id') ?></div>
@@ -124,18 +124,21 @@
 
                             <div class="grid_row row" ng-repeat="itm in rec.service.inspects">
                                 <div class="col-md-3 grid_header2"><?= __('inspect_rate') ?></div>
-                                <div ng-repeat="(key, value) in itm.inspect_rate" ng-if="!$last">
+                                <div class="col-md-9 grid_header2">
+                                    <div  class="col-12"ng-repeat="(key, value) in itm.inspect_rate" ng-if="!$last">
                                     <div>
                                         <i class="fa fa-user"></i>
-                                        {{ key }}
+                                        {{ key }}&nbsp
                                     </div>
                                 </div>
-                                <div ng-repeat="(key, value) in itm.inspect_rate" ng-if="$last">
+                                <div class="col-12" ng-repeat="(key, value) in itm.inspect_rate" ng-if="$last">
                                     <div>
                                         <i class="fa fa-map-marker"></i>
                                         {{ key }}
                                     </div>
                                 </div>
+                                </div>
+                                
                             </div>
                             <div class="grid_row row" ng-repeat="itm in rec.service.inspects">
                                 <div class="col-md-3 grid_header2"><?= __('stat_created') ?></div>
@@ -143,4 +146,4 @@
                             </div>
                         </div>
                     </div>
-                 
+                    

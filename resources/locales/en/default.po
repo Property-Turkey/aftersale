@@ -840,6 +840,10 @@ msgstr "Document File"
 msgid "doc_desc"
 msgstr "Document Description"
 
+msgid "doc_name"
+msgstr "Document Name"
+
+
 msgid "upload_and_save"
 msgstr "Upload and Save"
 

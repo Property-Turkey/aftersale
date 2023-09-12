@@ -88,6 +88,7 @@ class ServicesController extends AppController
                 }
             }
 
+        
             // ONE RECORD
             if (!empty($_id)) {
                 $data = $this->Services->get($_id, [
@@ -99,6 +100,7 @@ class ServicesController extends AppController
                     'Properties' => ['fields' => ['Properties.property_ref']],
                     'Docs' => ['fields' => ['Docs.tar_id', 'Docs.id', 'Docs.doc_name', 'Docs.doc_desc', 'Docs.doc_allowed_roles', 'Docs.stat_created']],
                     'Inspects' => ['fields' => ['Inspects.id', 'Inspects.user_id', 'Inspects.service_id', 'Inspects.inspect_desc', 'Inspects.inspect_rate', 'Inspects.stat_created']],
+                    
                     ]
                 ])->toArray();
                // dd($data);
