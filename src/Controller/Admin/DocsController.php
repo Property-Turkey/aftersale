@@ -100,7 +100,7 @@ class DocsController extends AppController
         if ($this->request->is(['patch', 'put'])) {
             $rec = $this->Docs->get($dt['id']);
             $doc_allowed_roles = array_flip(explode(',', $rec->doc_allowed_roles));
-          $doc_allowed_roles = array_map(function ($element) {
+            $doc_allowed_roles = array_map(function ($element) {
                 return 1;
            }, $doc_allowed_roles);
            $rec->doc_allowed_roles = json_encode($doc_allowed_roles);

@@ -232,7 +232,6 @@ $parent_id = isset($this->request->getParam("pass")[0])
 								<?php
 								// show files list
 								?>
-								
 								<div class="grid">
 									<div class="grid_row  row" ng-repeat="itm in rec.expense.docs">
 										<div class="col-8">
