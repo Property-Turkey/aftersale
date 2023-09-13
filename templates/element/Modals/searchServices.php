@@ -50,21 +50,34 @@ $prefix = $this->request->getParam('controller') == 'Properties' ? 'PROP' : 'PRO
                         <button ng-click="doClick('#submit_btn')" class="onfly_btn"><i class="fa fa-search"></i></button>
                     </div>
                 </div>
-                <div class="mb-2  col-sm-11">
+                 <!-- <div class="col-md-11 col-sm-11 form-group has-feedback">
+                    <label><?= __('property_ref') ?></label>
+                    <div class="div">
+                        <tags-input display-property="text" key-property="value" ng-model="rec.service.property" max-tags="1" 
+                        add-from-autocomplete-only="true" ng-disabled="rec.service.property || rec.service.id">
+                            <auto-complete source="loadTags($query,'services')"></auto-complete>
+                        </tags-input>
+                        <span ng-if="rec.service.property || rec.service.id" ng-click="rec.service.property = ''; rec.service.id = undefined;" 
+                        class="fa fa-times" style="cursor: pointer; position: absolute; top: 50%; right: 10px; transform: translateY(-50%);"></span>
+                        <button ng-click="doClick('#submit_btn')" class="onfly_btn"><i class="fa fa-search"></i></button>
+                    </div>
+                </div>  -->
+                 <div class="mb-2  col-sm-11">
                     <label><?= __('Property Ref') ?></label>
                     <div class="div">
                         <?= $this->Form->control('property_id', [
                             'class' => 'form-control has-feedback-left',
                             'label' => false,
-                            'type' => 'text',
+                            'type' => 'select',
+                            'options' => $Properties,
                             'placeholder' => __('property ref'),
                             'ng-change' => 'doSearch()',
                             'ng-model' => 'rec.search.property_id',
                         ]) ?>
                         <span class="fa fa-header form-control-feedback left"></span>
-                        <button ng-click="doClick('#submit_btn')" class="onfly_btn"><i class="fa fa-search"></i></button>
+                       <button ng-click="doClick('#submit_btn')" class="onfly_btn"><i class="fa fa-search"></i></button> 
                     </div>
-                </div>
+                </div> 
                 <div class="mb-2  col-sm-11">
                     <label><?= __(' Package Name') ?></label>
                     <div class="div">
