@@ -184,27 +184,27 @@ class ServicesController extends AppController
             }
             $rec = $this->Services->patchEntity($rec, $dt);
         }
+
         // Add new record
         if ($this->request->is(['post'])) {
             $dt['id'] = null;
             $dt['user_id'] = $this->authUser['id'];
             $rec = $this->Services->newEntity($dt);
-            //dd($rec);
+           
         }
 
         if (isset($dt['property'][0]['value'])) {
             $rec->property_id = $dt['property'][0]['value'];
         }
         if ($this->request->is(['post', 'patch', 'put'])) {
-
             unset($rec['property']);
             unset($rec['package']);
             unset($rec['owner']);
             unset($rec['tenant']);
             unset($rec['user']);
+            unset($rec['property_ref']);
 
             if ($newRec = $this->Services->save($rec)) {
-                //dd($newRec);
                 echo json_encode(["status" => "SUCCESS", "data" => $newRec]);
                 die();
             }

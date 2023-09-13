@@ -107,10 +107,8 @@
                                 <div class="col-md-3 grid_header2"><?= __('user_id') ?></div>
                                 <div class="col-md-9 notwrapped">{{itm.user_fullname}}</div>
                             </div> -->
-                            <div class="grid_row row" ng-repeat="itm in rec.service.inspects">
-                                <div class="col-md-3 grid_header2"><?= __('inspect_desc') ?></div>
-                                <div class="col-md-9 notwrapped">{{itm.inspect_desc}}</div>
-                            </div>
+
+
                             <!-- 
                             <div class="grid_row row" ng-repeat="itm in rec.service.inspects">
                                 <div class="col-md-3 grid_header2"><?= __('inspect_rate') ?></div>
@@ -121,29 +119,21 @@
                                     <div>{{ key }}</div>
                                 </div>
                             </div> -->
-
                             <div class="grid_row row" ng-repeat="itm in rec.service.inspects">
-                                <div class="col-md-3 grid_header2"><?= __('inspect_rate') ?></div>
-                                <div class="col-md-9 grid_header2">
-                                    <div  class="col-12"ng-repeat="(key, value) in itm.inspect_rate" ng-if="!$last">
-                                    <div>
-                                        <i class="fa fa-user"></i>
-                                        {{ key }}&nbsp
+                                <div class="col-md-9 notwrapped"><strong><?= __('inspect_desc') ?></strong><span>:{{itm.inspect_desc}}</span></div>
+                                <div class="col-md-9 notwrapped"><strong><?= __('inspect_rate') ?></strong>
+                                    <div class="col-12" ng-repeat="(key, value) in itm.inspect_rate" ng-if="!$last">
+                                        <div>
+                                            <i class="fa fa-navicon"></i> {{ key }}&nbsp
+                                        </div>
+                                    </div>
+                                    <div class="col-12" ng-repeat="(key, value) in itm.inspect_rate" ng-if="$last">
+                                        <div>
+                                            <i class="fa fa-sticky-note-o"></i> {{ key }}
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-12" ng-repeat="(key, value) in itm.inspect_rate" ng-if="$last">
-                                    <div>
-                                        <i class="fa fa-map-marker"></i>
-                                        {{ key }}
-                                    </div>
-                                </div>
-                                </div>
-                                
-                            </div>
-                            <div class="grid_row row" ng-repeat="itm in rec.service.inspects">
-                                <div class="col-md-3 grid_header2"><?= __('stat_created') ?></div>
-                                <div class="col-md-9 notwrapped">{{itm.stat_created}}</div>
+                                <div class="col-md-9 notwrapped"><strong><?= __('stat_created') ?></strong><span>:{{itm.stat_created}}</span></div>
                             </div>
                         </div>
                     </div>
-                    
