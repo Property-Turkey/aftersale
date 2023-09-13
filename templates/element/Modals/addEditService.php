@@ -388,14 +388,9 @@ $parent_id = isset($this->request->getParam("pass")[0])
 					</div>
 					<div class="tab-pane" id="t3">
 						<div class="grid">
-
 							<div class="x_content">
-								<button ng-click="
-							doGet('/admin/inspects/index?list=1', 'list', 'inspects');
-							newEntity('inspect');
-						" id="inspect_btn" class="hideIt"></button>
-
-								<form class="form-label-left input_mask " id="inspect_form" enctype="multipart/form-data" novalidate="novalidate" ng-submit=" doSave (rec.inspect, 'inspect', 'inspects', '#inspect_btn'); ">
+						<button ng-click="doGet('/admin/inspects/index?list=1', 'list', 'inspects');newEntity('inspect');" id="inspect_btn" class="hideIt"></button>
+		<form class="form-label-left input_mask " id="inspect_form" enctype="multipart/form-data" novalidate="novalidate" ng-submit=" doSave (rec.inspect, 'inspect', 'inspects', '#inspect_btn'); ">
 
 									<div class="col-md-12 col-sm-12  form-group has-feedback" ng-if="rec.inspect.parent_name">
 										<h2><?= __('user_id') ?> : {{rec.inspect.user_id}}</h2>
@@ -443,7 +438,6 @@ $parent_id = isset($this->request->getParam("pass")[0])
 								<span class="fa fa-navicon form-control-feedback left" aria-hidden="true"></span>
 							</div>
 						</div> -->
-
 									<div class="col-md-12 col-12  form-group has-feedback">
 										<label><?= __('inspect_desc') ?></label>
 										<div class="div">
@@ -534,12 +528,12 @@ $parent_id = isset($this->request->getParam("pass")[0])
 									<div class="col-md-9 grid_header2">Inspect Rate:
 										<div class="col-12" ng-repeat="(key, value) in itm.inspect_rate" ng-if="!$last">
 											<div>
-												<i class="fa fa-user"></i>{{ key }}&nbsp											
+												<i class="fa fa-user"></i>{{ key }}&nbsp
 											</div>
 										</div>
 										<div class="col-12" ng-repeat="(key, value) in itm.inspect_rate" ng-if="$last">
 											<div>
-												<i class="fa fa-map-marker"></i>{{ key }}									
+												<i class="fa fa-map-marker"></i>{{ key }}
 											</div>
 										</div>
 									</div>

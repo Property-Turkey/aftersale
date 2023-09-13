@@ -179,7 +179,7 @@ class ServicesController extends AppController
         if ($this->request->is(['patch', 'put'])) {
             $rec = $this->Services->get($dt['id']);
         
-            dd($rec);
+            //dd($rec);
            // $dt['property_id'] = json_encode( $dt['property_id'] );
 
             if (isset($dt['property'][0]['value'])) {
