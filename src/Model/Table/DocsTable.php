@@ -50,11 +50,10 @@ class DocsTable extends Table
             ->requirePresence('tar_tbl', 'create')
             ->notEmptyString('tar_tbl');
 
-        $validator
-            ->scalar('doc_name')
-            ->maxLength('doc_name', 255)
-            ->requirePresence('doc_name', 'create')
-            ->allowEmptyString('doc_name');
+        // $validator
+        //     ->scalar('doc_name')
+        //     ->requirePresence('doc_name', 'create')
+        //     ->allowEmptyString('doc_name');
 
         $validator
             ->notEmptyString('rec_state');

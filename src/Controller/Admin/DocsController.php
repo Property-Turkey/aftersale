@@ -123,22 +123,11 @@ class DocsController extends AppController
             $roles = implode(',', $keys);
             $dt['doc_allowed_roles'] = $roles;
 
-            $fname = strtolower(preg_replace('/[^a-zA-Z0-9_]/', "_", $dt['file'][0]['name']));
-
-            // if (!empty($dt['file'])) {
-            //     $this->Images->uploader(
-            //         'file/' . $dt['tar_tbl'] . '_files',
-            //         $dt['file'][0],
-            //         str_replace('.', '_', $fname),
-            //         [],
-            //         0,
-            //         false
-            //     );
-            //     $dt['doc_name'] = $this->Images->getPhotosNames();
-            // } else {
-            //     unset($dt['doc_name']);
-            // }
-
+            // $fname = strtolower(preg_replace('/[^a-zA-Z0-9_]/', "_", $dt['file'][0]['name']));
+            if (isset($dt['file'][0]['name'])) {
+                $fname = strtolower(preg_replace('/[^a-zA-Z0-9_]/', "_", $dt['file'][0]['name']));
+            } else {
+            }
 
             if (!empty($dt['file'])) {
                 $this->Images->uploader(
@@ -154,6 +143,7 @@ class DocsController extends AppController
             } else {
                 unset($dt['doc_name']);
             }
+
 
             $rec = $this->Docs->patchEntity($rec, $dt);
             // dd($rec);

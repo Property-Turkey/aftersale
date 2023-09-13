@@ -304,9 +304,8 @@ $parent_id = isset($this->request->getParam("pass")[0])
 									</div>
 
 									<div class="col-lg-12 col-sm-12  form-group has-feedback" ng-if="!(rec.doc.id > 0)">
-										<label><?= __("doc_file") ?></label>
+										<label ><?= __("doc_file") ?></label>
 										<div class="div">
-
 											<?= $this->Form->control("doc_file", [
 												"class" => "form-control",
 												"type" => "file",
