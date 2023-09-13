@@ -151,7 +151,7 @@ $parent_id = isset($this->request->getParam("pass")[0])
 											<div class="div d-flex pr-3">
 
 												<label class="pr-3" ng-repeat="role in DtSetter('AdminRoles', 'list')">
-													<input type="checkbox" ng-model="rec.doc.doc_allowed_roles[role]" value="role">{{role}}
+													<input type="checkbox" ng-model="rec.doc.doc_allowed_roles[role]" value="{{role}}" ng-checked="isRoleInDatabase(role)"> {{role}}
 												</label>
 											</div>
 										</div>
@@ -236,23 +236,30 @@ $parent_id = isset($this->request->getParam("pass")[0])
 									<div class="grid_row  row" ng-repeat="itm in rec.expense.docs">
 										<div class="col-8">
 											<div class="col-md-9 notwrapped">Document name:{{itm.doc_name}}</div>
-											<div class="col-md-9 notwrapped">Document allowed Roles: {{itm.doc_allowed_roles}}</div>
-											<div class="col-md-9 notwrapped">Document description: {{itm.doc_desc}}</div>
+											<!-- <div class="col-md-9 notwrapped">Document allowed Roles: {{itm.doc_allowed_roles}}</div> -->
+											<div class="col-md-9 ">Document allowed Roles:
+												<div class="col-12" ng-repeat="(key, value) in itm.doc_allowed_roles" ng-if="!$last">
+													<div><i class="fa fa-user"></i>{{ key }}&nbsp
+													</div>
+												</div>
+												<div class="col-12" ng-repeat="(key, value) in itm.doc_allowed_roles" ng-if="$last">
+													<div><i class="fa fa-map-marker"></i>{{ key }}
+													</div>
+												</div>
+												<div class="col-md-9 notwrapped">Document description: {{itm.doc_desc}}</div>
+											</div>
 										</div>
-										<div class="col-4 d-flex align-items-center">									
-							<a href ng-click="rec.doc=itm;doGet('/admin/docs?id='+itm.id, 'rec', 'doc');" class="inline-btn"><i class="fa fa-pencil"></i> <?= __('edit') ?> </a>
+										<div class="col-4 d-flex align-items-center">
+								<a href ng-click="rec.doc=itm;doGet('/admin/docs?id='+itm.id, 'rec', 'doc');" class="inline-btn"><i class="fa fa-pencil"></i> <?= __('edit') ?> </a>
 							<a href ng-click="doDelete('/admin/docs/delete/'+itm.id,'#<?= $ctrl ?>_btn');" class="inline-btn"> <i class="fa fa-trash"></i> <?= __('Delete') ?> </a>
 										</div>
 									</div>
 								</div>
 							</div>
+						<?php } else { ?>
+						<?php } ?>
 					</div>
-				<?php } else { ?>
-				<?php } ?>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
-</div>
-</div>

@@ -297,14 +297,15 @@ $parent_id = isset($this->request->getParam("pass")[0])
 											<label class="mb-3"><?= __("doc_allowed_roles") ?></label>
 											<div class="div d-flex pr-3">
 												<label class="pr-3" ng-repeat="role in DtSetter('AdminRoles', 'list')">
-													<input type="checkbox" ng-model="rec.doc.doc_allowed_roles[role]" value="role"> {{role}}
+													<input type="checkbox" ng-model="rec.doc.doc_allowed_roles[role]" value="{{role}}" ng-checked="isRoleInDatabase(role)"> {{role}}
 												</label>
 											</div>
 										</div>
 									</div>
 
+
 									<div class="col-lg-12 col-sm-12  form-group has-feedback" ng-if="!(rec.doc.id > 0)">
-										<label ><?= __("doc_file") ?></label>
+										<label><?= __("doc_file") ?></label>
 										<div class="div">
 											<?= $this->Form->control("doc_file", [
 												"class" => "form-control",
@@ -372,7 +373,19 @@ $parent_id = isset($this->request->getParam("pass")[0])
 									<div class="grid_row  row" ng-repeat="itm in rec.service.docs">
 										<div class="col-8">
 											<div class="col-md-9 notwrapped">Document Name: {{itm.doc_name}}</div>
-											<div class="col-md-9 notwrapped">Document Allowed Roles: {{itm.doc_allowed_roles}}</div>
+											<!-- <div class="col-md-9 notwrapped">Document Allowed Roles: {{itm.doc_allowed_roles}}</div> -->
+											<div class="col-md-9 ">Document allowed Roles:
+												<div class="col-12" ng-repeat="(key, value) in itm.doc_allowed_roles" ng-if="!$last">
+													<div>
+														<i class="fa fa-user"></i>{{ key }}&nbsp
+													</div>
+												</div>
+												<div class="col-12" ng-repeat="(key, value) in itm.doc_allowed_roles" ng-if="$last">
+													<div>
+														<i class="fa fa-map-marker"></i>{{ key }}
+													</div>
+												</div>
+											</div>
 											<div class="col-md-9 notwrapped">Document Description: {{itm.doc_desc}}</div>
 										</div>
 										<div class="col-4 d-flex align-items-center">
@@ -388,55 +401,13 @@ $parent_id = isset($this->request->getParam("pass")[0])
 					<div class="tab-pane" id="t3">
 						<div class="grid">
 							<div class="x_content">
-						<button ng-click="doGet('/admin/inspects/index?list=1', 'list', 'inspects');newEntity('inspect');" id="inspect_btn" class="hideIt"></button>
-		<form class="form-label-left input_mask " id="inspect_form" enctype="multipart/form-data" novalidate="novalidate" ng-submit=" doSave (rec.inspect, 'inspect', 'inspects', '#inspect_btn'); ">
+								<button ng-click="doGet('/admin/inspects/index?list=1', 'list', 'inspects');newEntity('inspect');" id="inspect_btn" class="hideIt"></button>
+								<form class="form-label-left input_mask " id="inspect_form" enctype="multipart/form-data" novalidate="novalidate" ng-submit=" doSave (rec.inspect, 'inspect', 'inspects', '#inspect_btn'); ">
 
 									<div class="col-md-12 col-sm-12  form-group has-feedback" ng-if="rec.inspect.parent_name">
 										<h2><?= __('user_id') ?> : {{rec.inspect.user_id}}</h2>
 									</div>
 
-									<!-- <div class="col-md-6 col-6  form-group has-feedback">
-										<label><?= __('user_id') ?> <span style="color: red; font-weight: bold; font-size:11px">(inspector)</span></label></label>
-										<div class="div">
-											<?= $this->Form->control('user_id', [
-												'type' => 'select',
-												'label' => false,
-												'options' => $owners,
-												'class' => 'form-control has-feedback-left',
-												'ng-model' => 'rec.inspect.user_id'
-											]) ?>
-											<span class="fa fa-user-circle form-control-feedback left" aria-hidden="true"></span>
-										</div>
-									</div> -->
-
-									<!-- <div class="col-md-6 col-6  form-group has-feedback">
-							<label><?= __('owner_id') ?></label>
-							<div class="div">
-								<?= $this->Form->control('owner_id', [
-									'type' => 'select',
-									'label' => false,
-									'options' => $owners,
-									'class' => 'form-control has-feedback-left',
-									'ng-model' => 'rec.inspect.owner_id',
-									'chk' => 'isNumber'
-								]) ?>
-								<span class="fa fa-navicon form-control-feedback left" aria-hidden="true"></span>
-							</div>
-						</div>
-
-						<div class="col-md-6 col-6  form-group has-feedback">
-							<label><?= __('propery_ref') ?></label>
-							<div class="div">
-								<?= $this->Form->control('property_id', [
-									'type' => 'select',
-									'label' => false,
-									'class' => 'form-control has-feedback-left',
-									'ng-model' => 'rec.inspect.property_id',
-									'chk' => 'isNumber'
-								]) ?>
-								<span class="fa fa-navicon form-control-feedback left" aria-hidden="true"></span>
-							</div>
-						</div> -->
 									<div class="col-md-12 col-12  form-group has-feedback">
 										<label><?= __('inspect_desc') ?></label>
 										<div class="div">

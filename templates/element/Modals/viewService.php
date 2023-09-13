@@ -95,7 +95,14 @@
                                 <div class="col-md-9 notwrapped"><strong>Document Description:</strong> {{itm.doc_desc}}</div>
                                 <div class="col-md-9 notwrapped">
                                     <strong style="float: left;">Document Allowed Roles:</strong>
-                                    <span class="badge badge-warning">{{itm.doc_allowed_roles}}</span>
+                                    <div class="col-12" ng-repeat="(key, value) in itm.doc_allowed_roles" ng-if="!$last">
+                                    <div class="col-12" ng-repeat="(key, value) in itm.doc_allowed_roles" ng-if="!$last">                          
+                                                <span class="badge badge-warning">{{ key }}</span>&nbsp;                                                                                                     
+                                                <span class="badge badge-warning">{{ key }}</span>
+                                            </div>
+                                        </div>
+                                  
+                                    <!-- <span class="badge badge-warning">{{itm.doc_allowed_roles}}</span> -->
                                 </div>
                                 <!-- <div class="col-md-9 notwrapped"><strong>Document Allowed Roles:</strong><span class="badge badge-warning">{{itm.doc_allowed_roles}}</span></div> -->
                             </div>

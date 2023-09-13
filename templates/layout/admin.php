@@ -438,7 +438,7 @@
                 $(tar).attr("disabled", false);
             }
         }
-        
+
 
         var doClickUpdt;
         var doClick = function(tar, delay) {
@@ -1128,6 +1128,11 @@
                         }
                     })
                 }
+                //for roles
+                $scope.isRoleInDatabase = function(role) {
+                    
+                    return $scope.rec.doc.doc_allowed_roles.hasOwnProperty(role);
+                };
 
                 $scope.doDelete = function(url, doUpdate) {
                     if (confirm("<?= __('delete_confirm') ?>")) {
