@@ -132,7 +132,7 @@ $parent_id = isset($this->request->getParam("pass")[0])
 									<label><?= __('property_ref') ?></label>
 									<div class="div">
 										<tags-input display-property="text" key-property="value" ng-model="rec.service.property" max-tags="1" add-from-autocomplete-only="true" ng-disabled="rec.service.property || rec.service.id">
-											<auto-complete source="loadTags($query,'services')"></auto-complete>
+											<auto-complete source="loadTags($query,'services')"></auto-complete> 
 										</tags-input>
 										<span ng-if="rec.service.property || rec.service.id" ng-click="rec.service.property = ''; rec.service.id = undefined;" class="fa fa-times" style="cursor: pointer; position: absolute; top: 50%; right: 10px; transform: translateY(-50%);"></span>
 									</div>
