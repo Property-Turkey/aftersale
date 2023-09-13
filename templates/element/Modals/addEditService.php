@@ -37,7 +37,6 @@ $parent_id = isset($this->request->getParam("pass")[0])
 						" id="service_btn" class="hideIt"></button>
 
 							<form class="form-label-left input_mask " id="service_form" enctype="multipart/form-data" novalidate="novalidate" ng-submit="doSave(rec.service, 'service', 'services', '#service_btn'); ">
-
 								<div class="col-md-12 col-sm-12  form-group has-feedback" ng-if="rec.service.parent_name">
 									<h2><?= __("user_id") ?> : {{rec.service.user_id}}</h2>
 								</div>
@@ -104,7 +103,6 @@ $parent_id = isset($this->request->getParam("pass")[0])
 											"class" => "form-control has-feedback-left",
 											"ng-model" => "rec.service.service_contract_period",
 											"only-numbers" => "",
-
 										]) ?>
 										<span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
 									</div>
@@ -145,7 +143,6 @@ $parent_id = isset($this->request->getParam("pass")[0])
 										<?= $this->Form->text("package_id", [
 											"type" => "select",
 											"options" => $packages,
-											//'options' => $this->Do->lcl($this->Do->get('package_currency')),
 											"class" => "form-control has-feedback-left",
 											"ng-model" => "rec.service.package_id",
 										]) ?>
@@ -303,7 +300,6 @@ $parent_id = isset($this->request->getParam("pass")[0])
 										</div>
 									</div>
 
-
 									<div class="col-lg-12 col-sm-12  form-group has-feedback" ng-if="!(rec.doc.id > 0)">
 										<label><?= __("doc_file") ?></label>
 										<div class="div">
@@ -316,7 +312,6 @@ $parent_id = isset($this->request->getParam("pass")[0])
 												"label" => false,
 												"accept" => ".pdf,.doc,.docx",
 											]) ?>
-
 										</div>
 									</div>
 									<div class="col-md-12 col-sm-12  form-group has-feedback">
@@ -341,7 +336,6 @@ $parent_id = isset($this->request->getParam("pass")[0])
 												"type" => "text",
 												"rows" => "1",
 												"ng-model" => "rec.doc.doc_name",
-
 											]) ?>
 											<span class="fa fa-info-circle form-control-feedback left" aria-hidden="true"></span>
 										</div>
@@ -355,8 +349,7 @@ $parent_id = isset($this->request->getParam("pass")[0])
 													rec.doc.tar_id = rec.<?= $ctrls[$ctrl] ?>.id;
 													rec.doc.tar_tbl = '<?= $tar_tbls[$ctrl] ?>';
 													rec.doc.tar_tbl_name = '<?= $ctrl ?>';
-													doSave(rec.doc, 'doc', 'docs', '#<?= $ctrls[$ctrl] ?>_btn', '#doc_preloader');
-												" id="doc_preloader" class="btn btn-info">
+													doSave(rec.doc, 'doc', 'docs', '#<?= $ctrls[$ctrl] ?>_btn', '#doc_preloader');" id="doc_preloader" class="btn btn-info">
 											<span></span> <i class="fa fa-save"></i> <?= __("Upload and Save") ?>
 										</button>
 										<button type="button" ng-if="rec.doc.id" ng-click="newEntity('doc');" class="btn btn-primary">
@@ -365,10 +358,8 @@ $parent_id = isset($this->request->getParam("pass")[0])
 									</div>
 								</div>
 								<?php
-
 								?>
 								<!-- // show files list -->
-
 								<div class="grid">
 									<div class="grid_row  row" ng-repeat="itm in rec.service.docs">
 										<div class="col-8">
@@ -376,14 +367,10 @@ $parent_id = isset($this->request->getParam("pass")[0])
 											<!-- <div class="col-md-9 notwrapped">Document Allowed Roles: {{itm.doc_allowed_roles}}</div> -->
 											<div class="col-md-9 ">Document allowed Roles:
 												<div class="col-12" ng-repeat="(key, value) in itm.doc_allowed_roles" ng-if="!$last">
-													<div>
-														<i class="fa fa-user"></i>{{ key }}&nbsp
-													</div>
+													<div><i class="fa fa-user"></i>{{ key }}&nbsp</div>
 												</div>
 												<div class="col-12" ng-repeat="(key, value) in itm.doc_allowed_roles" ng-if="$last">
-													<div>
-														<i class="fa fa-map-marker"></i>{{ key }}
-													</div>
+													<div><i class="fa fa-map-marker"></i>{{ key }}</div>
 												</div>
 											</div>
 											<div class="col-md-9 notwrapped">Document Description: {{itm.doc_desc}}</div>
@@ -423,7 +410,6 @@ $parent_id = isset($this->request->getParam("pass")[0])
 									<div class="col-md-12 col-12  form-group has-feedback">
 										<label><?= __('inspect_rate') ?></label>
 										<div class="div">
-
 											<!-- Client select input -->
 											<select class="form-control has-feedback-left" ng-model="rec.inspect.inspect_rate" ng-change="onClientSelectionChange()">
 												<option value="">Select Inspect Rate</option>
@@ -433,7 +419,6 @@ $parent_id = isset($this->request->getParam("pass")[0])
 											<span class="fa fa-quote-left form-control-feedback left" aria-hidden="true"></span>
 										</div>
 									</div>
-
 									<div class="col-md-6 col-6 form-group has-feedback">
 										<div class="div">
 											<?php
@@ -463,11 +448,7 @@ $parent_id = isset($this->request->getParam("pass")[0])
 								</div>
 							</div>
 							</form>
-							<button ng-click="
-							doGet('/admin/categories/index?list=1', 'list', 'categories');
-							newEntity('category');
-						" id="category_btn" class="hideIt"></button>
-
+							<button ng-click="doGet('/admin/categories/index?list=1', 'list', 'categories');newEntity('category');" id="category_btn" class="hideIt"></button>
 							<form class="form-label-left input_mask " ng-show="showAddClientForm" id="category_form" enctype="multipart/form-data" novalidate="novalidate" ng-submit="doSave (rec.category, 'category', 'categories', '#category_btn'); ">
 
 								<div class="col-md-12 col-sm-12  form-group has-feedback" ng-if="rec.category.parent_name">

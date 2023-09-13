@@ -149,7 +149,6 @@ $parent_id = isset($this->request->getParam("pass")[0])
 										<div class="col-lg-12 col-sm-12 form-group has-feedback">
 											<label class="mb-3"><?= __("doc_allowed_roles") ?></label>
 											<div class="div d-flex pr-3">
-
 												<label class="pr-3" ng-repeat="role in DtSetter('AdminRoles', 'list')">
 													<input type="checkbox" ng-model="rec.doc.doc_allowed_roles[role]" value="{{role}}" ng-checked="isRoleInDatabase(role)"> {{role}}
 												</label>
