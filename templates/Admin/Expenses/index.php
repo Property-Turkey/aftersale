@@ -163,18 +163,12 @@ $pid = !isset($this->request->getParam('pass')[0]) ? null : $this->request->getP
 
                                 <div class="col-4 hideWeb grid_header"><?= __('actions') ?></div>
                                 <div class="col-md-1 col-8 action">
-                                    <a href ng-click="
-                                    doGet('/admin/expenses?id='+itm.id, 'rec', 'expense');
-                                        openModal('#viewExpense_mdl');" class="inline-btn
-                                        "><i class="fa fa-eye"></i> <?= __('view') ?></a>
-                                    <a href ng-click=" 
-                                    doGet('/admin/expenses?id='+itm.id, 'rec', 'expense');
-                                        openModal('#addEditExpense_mdl');" class="inline-btn
-                                        "><i class="fa fa-pencil"></i> <?= __('edit') ?></a>
-
+                                    <a href ng-click="doGet('/admin/expenses?id='+itm.id, 'rec', 'expense');openModal('#viewExpense_mdl');" class="inline-btn">
+                                        <i class="fa fa-eye"></i> <?= __('view') ?></a>
+                                    <a href ng-click="doGet('/admin/expenses?id='+itm.id, 'rec', 'expense');openModal('#addEditExpense_mdl');" class="inline-btn">
+                                        <i class="fa fa-pencil"></i> <?= __('edit') ?></a>
                                 </div>
                             </div>
-
                         </div>
                         <?php echo $this->element('paginator-ng') ?>
                     </div>

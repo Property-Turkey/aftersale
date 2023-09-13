@@ -96,36 +96,17 @@
                                 <div class="col-md-9 notwrapped">
                                     <strong style="float: left;">Document Allowed Roles:</strong>
                                     <div class="col-12" ng-repeat="(key, value) in itm.doc_allowed_roles" ng-if="!$last">
-                                    <div class="col-12" ng-repeat="(key, value) in itm.doc_allowed_roles" ng-if="!$last">                          
-                                                <span class="badge badge-warning">{{ key }}</span>&nbsp;                                                                                                     
-                                                <span class="badge badge-warning">{{ key }}</span>
-                                            </div>
+                                        <div class="col-12" ng-repeat="(key, value) in itm.doc_allowed_roles" ng-if="!$last">
+                                            <span class="badge badge-warning">{{ key }}</span>&nbsp;
+                                            <span class="badge badge-warning">{{ key }}</span>
                                         </div>
-                                  
-                                    <!-- <span class="badge badge-warning">{{itm.doc_allowed_roles}}</span> -->
+                                    </div>
                                 </div>
-                                <!-- <div class="col-md-9 notwrapped"><strong>Document Allowed Roles:</strong><span class="badge badge-warning">{{itm.doc_allowed_roles}}</span></div> -->
                             </div>
                         </div>
                     </div>
                     <div class="tab-pane" id="ta3">
                         <div class="grid">
-                            <!-- <div class="grid_row row" ng-repeat="itm in rec.service.inspects">
-                                <div class="col-md-3 grid_header2"><?= __('user_id') ?></div>
-                                <div class="col-md-9 notwrapped">{{itm.user_fullname}}</div>
-                            </div> -->
-
-
-                            <!-- 
-                            <div class="grid_row row" ng-repeat="itm in rec.service.inspects">
-                                <div class="col-md-3 grid_header2"><?= __('inspect_rate') ?></div>
-                                <div ng-repeat="(key, value) in itm.inspect_rate" ng-if="!$last">
-                                    <div>{{ key }},</div>
-                                </div>
-                                <div ng-repeat="(key, value) in itm.inspect_rate" ng-if="$last">
-                                    <div>{{ key }}</div>
-                                </div>
-                            </div> -->
                             <div class="grid_row row" ng-repeat="itm in rec.service.inspects">
                                 <div class="col-md-9 notwrapped"><strong><?= __('inspect_desc') ?></strong><span>:{{itm.inspect_desc}}</span></div>
                                 <div class="col-md-9 notwrapped"><strong><?= __('inspect_rate') ?></strong>

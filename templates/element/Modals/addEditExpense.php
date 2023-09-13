@@ -246,12 +246,12 @@ $parent_id = isset($this->request->getParam("pass")[0])
 													<div><i class="fa fa-map-marker"></i>{{ key }}
 													</div>
 												</div>
-												<div class="col-md-9 notwrapped">Document description: {{itm.doc_desc}}</div>
+												<!-- <div class="col-md-9 notwrapped">Document description: {{itm.doc_desc}}</div> -->
 											</div>
 										</div>
 										<div class="col-4 d-flex align-items-center">
-								<a href ng-click="rec.doc=itm;doGet('/admin/docs?id='+itm.id, 'rec', 'doc');" class="inline-btn"><i class="fa fa-pencil"></i> <?= __('edit') ?> </a>
-							<a href ng-click="doDelete('/admin/docs/delete/'+itm.id,'#<?= $ctrl ?>_btn');" class="inline-btn"> <i class="fa fa-trash"></i> <?= __('Delete') ?> </a>
+											<a href ng-click="rec.doc=itm;doGet('/admin/docs?id='+itm.id, 'rec', 'doc');" class="inline-btn"><i class="fa fa-pencil"></i> <?= __('edit') ?> </a>
+											<a href ng-click="doDelete('/admin/docs/delete/'+itm.id,'#<?= $ctrl ?>_btn');" class="inline-btn"> <i class="fa fa-trash"></i> <?= __('Delete') ?> </a>
 										</div>
 									</div>
 								</div>
@@ -263,3 +263,4 @@ $parent_id = isset($this->request->getParam("pass")[0])
 			</div>
 		</div>
 	</div>
+</div>
