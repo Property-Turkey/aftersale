@@ -49,6 +49,7 @@ class DocsController extends AppController
             if (!empty($_id)) {
                 $data = $this->Docs->get($_id)->toArray();
                 $data = $this->Do->convertJson($data);
+                // dd($data);
                 echo json_encode(
                     ["status" => "SUCCESS",  "data" => $data],
                     JSON_UNESCAPED_UNICODE
@@ -102,8 +103,8 @@ class DocsController extends AppController
             $doc_allowed_roles = array_flip(explode(',', $rec->doc_allowed_roles));
             $doc_allowed_roles = array_map(function ($element) {
                 return 1;
-           }, $doc_allowed_roles);
-           $rec->doc_allowed_roles = json_encode($doc_allowed_roles);
+            }, $doc_allowed_roles);
+            $rec->doc_allowed_roles = json_encode($doc_allowed_roles);
         }
 
         // add mode

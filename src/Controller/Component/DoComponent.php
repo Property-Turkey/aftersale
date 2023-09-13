@@ -40,11 +40,11 @@ class DoComponent extends Component
 
     public function cat($pid)
     {
-    $cats = TableRegistry::getTableLocator()->get('Categories')
-                ->find('list')
-                ->where(['parent_id'=>$pid])->toArray();
-    return ($cats);
-}
+        $cats = TableRegistry::getTableLocator()->get('Categories')
+            ->find('list')
+            ->where(['parent_id' => $pid])->toArray();
+        return ($cats);
+    }
 
     public function get_last_rec_number($table, $tar = 'Auto_increment')
     {
@@ -277,6 +277,10 @@ class DoComponent extends Component
                 $elm = $elm->format('Y-m-d H:i:s');
             }
 
+            // convert number to strings
+            if ($k == 'doc_allowed_roles') {
+                $elm = $this->lcl(explode(',', $elm), false, false);
+            }
             // convert number to strings
             if (is_numeric($elm)) {
                 $elm = $elm . '';

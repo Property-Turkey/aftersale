@@ -75,6 +75,7 @@ class ExpensesController extends AppController
                     ]
                 ])->toArray();
                 $data = $this->Do->convertJson($data);
+                // dd($data);
                 echo json_encode(["status" => "SUCCESS",  "data" => $data],  JSON_UNESCAPED_UNICODE);
                 die();
             }
