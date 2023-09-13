@@ -178,6 +178,9 @@ class ServicesController extends AppController
         // Edit mode
         if ($this->request->is(['patch', 'put'])) {
             $rec = $this->Services->get($dt['id']);
+        
+            dd($rec);
+           // $dt['property_id'] = json_encode( $dt['property_id'] );
 
             if (isset($dt['property'][0]['value'])) {
                 $rec->property_id = $dt['property'][0]['value'];
@@ -189,8 +192,7 @@ class ServicesController extends AppController
         if ($this->request->is(['post'])) {
             $dt['id'] = null;
             $dt['user_id'] = $this->authUser['id'];
-            $rec = $this->Services->newEntity($dt);
-           
+            $rec = $this->Services->newEntity($dt);          
         }
 
         if (isset($dt['property'][0]['value'])) {

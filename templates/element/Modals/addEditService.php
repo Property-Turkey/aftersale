@@ -528,30 +528,25 @@ $parent_id = isset($this->request->getParam("pass")[0])
 							</form>
 						</div>
 						<div class="grid">
-
 							<div class="grid_row  row" ng-repeat="itm in rec.service.inspects">
 								<div class="col-8">
 									<div class="col-md-9 notwrapped"> Inspect Description :{{itm.inspect_desc}}</div>
-
-
 									<div class="col-md-9 grid_header2">Inspect Rate:
 										<div class="col-12" ng-repeat="(key, value) in itm.inspect_rate" ng-if="!$last">
 											<div>
-												<i class="fa fa-user"></i>
-												{{ key }}&nbsp
+												<i class="fa fa-user"></i>{{ key }}&nbsp											
 											</div>
 										</div>
 										<div class="col-12" ng-repeat="(key, value) in itm.inspect_rate" ng-if="$last">
 											<div>
-												<i class="fa fa-map-marker"></i>
-												{{ key }}
+												<i class="fa fa-map-marker"></i>{{ key }}									
 											</div>
 										</div>
 									</div>
 								</div>
 								<div class="col-4 d-flex align-items-center">
 									<a href ng-click="rec.inspect=itm;doGet('/admin/inspects?id='+itm.id, 'rec', 'inspect');" class="inline-btn"><i class="fa fa-pencil"></i> <?= __('edit') ?> </a>
-									<a href ng-click="doDelete('/admin/inspect/delete/'+itm.id,'#<?= $ctrl ?>_btn');" class="inline-btn"> <i class="fa fa-trash"></i> <?= __('Delete') ?> </a>
+									<a href ng-click="doDelete('/admin/inspects/delete/'+itm.id,'#<?= $ctrl ?>_btn');" class="inline-btn"> <i class="fa fa-trash"></i> <?= __('Delete') ?> </a>
 								</div>
 							</div>
 						</div>
