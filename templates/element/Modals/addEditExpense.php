@@ -201,18 +201,6 @@ $parent_id = isset($this->request->getParam("pass")[0])
 										</div>
 									</div>
 									<div class="clearfix"></div>
-									<!-- 
-									<div class="col-md-12 col-12 ">
-										<button type="button" ng-click="
-                                		rec.doc.file = filesInfo.doc_file;
-                                		rec.doc.tar_id = rec.<?= $lastExpenseId ?>;													
-                                        rec.doc.tar_tbl = '<?= $tar_tbls[$ctrl] ?>';
-                                        rec.doc.tar_tbl_name = '<?= $ctrl ?>';
-                                        doSave(rec.doc, 'doc', 'docs', '#<?= $ctrls[$ctrl] ?>_btn', '#doc_preloader');
-    									" id="doc_preloader" class="btn btn-info">
-											<span></span> <i class="fa fa-save"></i> <?= __("Upload and Save") ?>
-										</button> -->
-
 									<div class="col-md-12 col-12 ">
 										<button type="button" ng-click="
                                 		rec.doc.file = filesInfo.doc_file;
@@ -246,7 +234,7 @@ $parent_id = isset($this->request->getParam("pass")[0])
 													<div><i class="fa fa-map-marker"></i>{{ key }}
 													</div>
 												</div>
-												<!-- <div class="col-md-9 notwrapped">Document description: {{itm.doc_desc}}</div> -->
+												 <div class="col-md-9 notwrapped">Document description: {{itm.doc_desc}}</div> 
 											</div>
 										</div>
 										<div class="col-4 d-flex align-items-center">
