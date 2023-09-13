@@ -377,11 +377,6 @@ $parent_id = isset($this->request->getParam("pass")[0])
 											<div class="col-md-9 notwrapped">Document Description: {{itm.doc_desc}}</div>
 										</div>
 										<div class="col-4 d-flex align-items-center">
-											<!-- <span><i class="btn btn-info" ng-click="rec.doc = doc; .addDocument=1 style=" background-color: green;>Edit</i></span> -->
-											<!-- <span><i class="btn btn-info" ng-click="doGet('/admin/document?id='+itm.id,'rec','document');" style=" background-color: green;">Edit</i></span>  -->
-
-											<!-- <a href ng-click="  doGet('/admin/docs?id='+itm.id, 'rec', 'docs');openModal('#addEditDcoument_mdl');" class="inline-btn"> <i class="fa fa-pencil"></i> <?= __('edit') ?> </a> -->
-											<!-- <a href ng-click=	"rec.doc=itm;" class="inline-btn > <i class="fa fa-pencil></i> Edit </a>	 -->
 											<a href ng-click="rec.doc=itm" class="inline-btn"><i class="fa fa-pencil"></i> <?= __('edit') ?> </a>
 											<a href ng-click="doDelete('/admin/docs/delete/'+itm.id,'#<?= $ctrl ?>_btn');" class="inline-btn"> <i class="fa fa-trash"></i> <?= __('Delete') ?> </a>
 										</div>
@@ -553,14 +548,8 @@ $parent_id = isset($this->request->getParam("pass")[0])
 											</div>
 										</div>
 									</div>
-
 								</div>
 								<div class="col-4 d-flex align-items-center">
-									<!-- <span><i class="btn btn-info" ng-click="rec.doc = doc; .addDocument=1 style=" background-color: green;>Edit</i></span> -->
-									<!-- <span><i class="btn btn-info" ng-click="doGet('/admin/document?id='+itm.id,'rec','document');" style=" background-color: green;">Edit</i></span>  -->
-
-									<!-- <a href ng-click="  doGet('/admin/docs?id='+itm.id, 'rec', 'docs');openModal('#addEditDcoument_mdl');" class="inline-btn"> <i class="fa fa-pencil"></i> <?= __('edit') ?> </a> -->
-									<!-- <a href ng-click=	"rec.doc=itm;" class="inline-btn > <i class="fa fa-pencil></i> Edit </a>	 -->
 									<a href ng-click="rec.inspect=itm;doGet('/admin/inspects?id='+itm.id, 'rec', 'inspect');" class="inline-btn"><i class="fa fa-pencil"></i> <?= __('edit') ?> </a>
 									<a href ng-click="doDelete('/admin/inspect/delete/'+itm.id,'#<?= $ctrl ?>_btn');" class="inline-btn"> <i class="fa fa-trash"></i> <?= __('Delete') ?> </a>
 								</div>
