@@ -105,6 +105,7 @@ class DocsController extends AppController
                 return 1;
             }, $doc_allowed_roles);
             $rec->doc_allowed_roles = json_encode($doc_allowed_roles);
+            //dd($rec);
         }
 
         // add mode

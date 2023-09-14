@@ -1130,15 +1130,11 @@
                 }
                 //for roles
                 $scope.rec = {
-                    doc: {
-                        doc_allowed_roles: {
-                           
-                        }
-                    }
-                };
-
+                    doc: {  doc_allowed_roles: {   
+                        
+                     } }  }; 
+                                                                          
                 $scope.isRoleInDatabase = function(role) {
-
                     return $scope.rec.doc.doc_allowed_roles.hasOwnProperty(role);
                 };
 
