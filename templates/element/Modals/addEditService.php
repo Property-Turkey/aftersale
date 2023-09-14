@@ -413,8 +413,7 @@ $parent_id = isset($this->request->getParam("pass")[0])
 											<!-- Client select input -->
 											<select class="form-control has-feedback-left" ng-model="rec.inspect.inspect_rate" ng-change="onClientSelectionChange()">
 												<option value="">Select Inspect Rate</option>
-												<option value="add_inspect">Add New Inspect Rate</option>
-												<!-- <option ng-repeat="(ownerId, ownerName) in DtSetter('ownerList', 'list')" value="{{ownerId}}">{{ownerName}}</option> -->
+												<option value="add_inspect">Add New Inspect Rate</option>									
 											</select>
 											<span class="fa fa-quote-left form-control-feedback left" aria-hidden="true"></span>
 										</div>

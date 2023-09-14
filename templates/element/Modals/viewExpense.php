@@ -57,10 +57,12 @@
                                 <div class="grid_row row" ng-repeat="itm in rec.expense.docs">
                                     <div class="col-md-9 notwrapped"><strong>Document Name:</strong>{{itm.doc_name}}</div>
                                     <div class="col-md-9 notwrapped"><strong>Document Description:</strong> {{itm.doc_desc}}</div>
-                                    <div class="col-md-9 notwrapped"><strong>Document Allowed Roles:</strong>
+                                    <div class="col-md-9 ">Document allowed Roles:
                                         <div class="col-12" ng-repeat="(key, value) in itm.doc_allowed_roles" ng-if="!$last">
-                                            <span class="badge badge-warning">{{ key }}</span>&nbsp;
-                                            <span class="badge badge-warning">{{ key }}</span>
+                                            <div><i class="fa fa-user"></i>{{ key }}&nbsp</div>
+                                        </div>
+                                        <div class="col-12" ng-repeat="(key, value) in itm.doc_allowed_roles" ng-if="$last">
+                                            <div><i class="fa fa-map-marker"></i>{{ key }}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -71,4 +73,3 @@
             </div>
         </div>
     </div>
-</div>
