@@ -184,6 +184,7 @@ class ServicesController extends AppController
                 $rec->property_id = $dt['property'][0]['value'];
                 //dd($rec->property_id);
             }
+           // dd($dt);
             $rec = $this->Services->patchEntity($rec, $dt);
         }
 

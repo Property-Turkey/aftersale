@@ -1018,7 +1018,7 @@
                     // return $http.get('/tags?query=' + query);
                     return $http.get('<?= $app_folder ?>/admin/' + target + '?tags=1&keyword=' + query)
                         .then(function(response, status) {
-                            return response.data.data;
+                             return response.data.data;
                         });
                     // return $http.get('<?= $app_folder ?>/admin/'+target+'?tags=1&keyword='+query);
                 };
