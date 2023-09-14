@@ -41,8 +41,8 @@ class InspectsTable extends Table
     }
 
     public function validationDefault(Validator $validator): Validator
-    {
-        
+    {       
+       
         return $validator;
     }
 

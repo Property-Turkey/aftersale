@@ -53,7 +53,12 @@ class ExpensesTable extends Table
         $validator
             ->integer('expense_amount')
             ->scalar('expense_amount')
-            ->notEmptyString('expense_amount');
+            ->notEmptyString('expense_amount')
+            ->requirePresence('expense_amount', 'create');
+
+        $validator
+            ->integer('expense_type')
+            ->requirePresence('expense_type', 'create');
 
         // $validator
         //     ->integer('services_id')

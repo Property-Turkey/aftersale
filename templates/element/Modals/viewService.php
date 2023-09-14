@@ -93,13 +93,13 @@
                                 <!-- <div class="col-md-3 grid_header2"><?= __('document') ?></div> -->
                                 <div class="col-md-9 notwrapped"><strong>Document Name:</strong>{{itm.doc_name}}</div>
                                 <div class="col-md-9 notwrapped"><strong>Document Description:</strong> {{itm.doc_desc}}</div>
-                                <div class="col-md-9 notwrapped">
-                                    <strong style="float: left;">Document Allowed Roles:</strong>
+
+                                <div class="col-md-9 ">Document allowed Roles:
                                     <div class="col-12" ng-repeat="(key, value) in itm.doc_allowed_roles" ng-if="!$last">
-                                        <div class="col-12" ng-repeat="(key, value) in itm.doc_allowed_roles" ng-if="!$last">
-                                            <span class="badge badge-warning">{{ key }}</span>&nbsp;
-                                            <span class="badge badge-warning">{{ key }}</span>
-                                        </div>
+                                        <div><i class="fa fa-user"></i>{{ key }}&nbsp</div>
+                                    </div>
+                                    <div class="col-12" ng-repeat="(key, value) in itm.doc_allowed_roles" ng-if="$last">
+                                        <div><i class="fa fa-map-marker"></i>{{ key }}</div>
                                     </div>
                                 </div>
                             </div>

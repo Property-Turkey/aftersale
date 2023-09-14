@@ -58,6 +58,11 @@ class DocsTable extends Table
         $validator
             ->notEmptyString('rec_state');
 
+        // $validator
+        //     ->integer('doc_desc')         
+        //     ->notEmptyString('doc_desc')
+        //     ->requirePresence('doc_desc', 'create');
+
         return $validator;
     }
 

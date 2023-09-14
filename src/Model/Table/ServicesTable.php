@@ -62,28 +62,35 @@ class ServicesTable extends Table
             ->notEmptyString('service_desc');
 
         $validator
-            ->notEmptyString('owner_id');
+            ->notEmptyString('owner_id')
+            ->requirePresence('owner_id', 'create');
 
         $validator
             ->integer('service_price')
-            ->notEmptyString('service_price');
+            ->notEmptyString('service_price')
+            ->requirePresence('service_price', 'create');
 
         $validator
             ->integer('service_currency')
-            ->notEmptyString('service_currency');
+            ->notEmptyString('service_currency')
+            ->requirePresence('service_currency', 'create');
 
         $validator
             ->integer('service_vat')
-            ->notEmptyString('service_vat');
+            ->notEmptyString('service_vat')
+            ->requirePresence('service_vat', 'create');
+            
 
         $validator
+            ->notEmptyString('service_tax')
+            ->requirePresence('service_tax', 'create');
 
-            ->notEmptyString('service_tax');
 
         $validator
             ->integer('service_contract_period')
             ->notEmptyString('service_contract_period')
-            ->numeric('service_contract_period');
+            ->numeric('service_contract_period')
+            ->requirePresence('service_contract_period', 'create');
 
         return $validator;
     }

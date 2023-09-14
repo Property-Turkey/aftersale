@@ -737,12 +737,6 @@ msgstr "View"
 msgid "bank_swift"
 msgstr "Bank Swift"
 
-
-
-
-
-
-
 msgid "inspects_list"
 msgstr "Inspects List"
 msgid "user_id"
@@ -759,9 +753,6 @@ msgid "view_inspect"
 msgstr "View"
 msgid "add_inspect"
 msgstr "Add Inspect"
-
-
-
 
 
 msgid "users_list"
@@ -786,8 +777,6 @@ msgid "users_information"
 msgstr "Users Information"
 
 
-
-
 msgid "configs_list"
 msgstr "Configs List"
 msgid "config_key"
@@ -798,7 +787,6 @@ msgid "stat_updated"
 msgstr "Stat Updated"
 msgid "edit_config"
 msgstr "Edit"
-
 
 
 msgid "messages_list"

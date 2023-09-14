@@ -174,7 +174,7 @@ $parent_id = isset($this->request->getParam("pass")[0])
 										</div>
 									</div>
 									<div class="col-md-12 col-sm-12  form-group has-feedback">
-										<label><?= __("doc_desc") ?></label>
+										<label  set-required ><?= __("doc_desc") ?></label>
 										<div class="div">
 											<?= $this->Form->control("doc_desc", [
 												"class" => "form-control has-feedback-left",
